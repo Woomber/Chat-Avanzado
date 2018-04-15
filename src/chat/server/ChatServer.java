@@ -5,6 +5,10 @@
  */
 package chat.server;
 
+import chat.json.JsonParser;
+import chat.mensajes.*;
+import chat.mensajes.models.*;
+
 /**
  *
  * @author Yael Arturo Chavoya Andalón 14300094
@@ -13,9 +17,14 @@ public class ChatServer {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.Exception
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
+        
+        Mensaje mensaje = JsonParser.JsonToMensaje(
+         JsonParser.MensajeToJson(new MensajeLogin("yael", "123"))
+       );   
     }
     
 }
