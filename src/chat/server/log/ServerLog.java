@@ -9,7 +9,7 @@ import chat.mensajes.models.Param;
  */
 public class ServerLog {
     
-    public static void log(Object sender, String message){
+    public static synchronized void log(Object sender, String message){
         System.out.println("[" + sender.toString() + "]>" + message);
     }
     

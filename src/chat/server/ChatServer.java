@@ -8,6 +8,7 @@ package chat.server;
 import chat.json.JsonParser;
 import chat.mensajes.*;
 import chat.mensajes.models.*;
+import chat.server.hilos.HiloFactory;
 
 /**
  *
@@ -21,10 +22,14 @@ public class ChatServer {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        
+
+        HiloFactory factory = new HiloFactory();
+        new Thread(factory).start();
+        /*
         Mensaje mensaje = JsonParser.JsonToMensaje(
-         JsonParser.MensajeToJson(new MensajeLogin("yael", "123"))
-       );   
+                JsonParser.MensajeToJson(new MensajeLogin("yael", "123"))
+        );
+         */
     }
-    
+
 }
