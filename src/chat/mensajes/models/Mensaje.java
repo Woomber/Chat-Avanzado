@@ -1,5 +1,6 @@
 package chat.mensajes.models;
 
+import chat.exceptions.MensajeException;
 import java.io.Serializable;
 
 /**
@@ -43,13 +44,18 @@ public class Mensaje implements Serializable {
         return p.getValor();
     }
 
-    protected final void addParam(Param param) {
+    protected final void addParam(Param param) throws MensajeException {
+        for(Param p : params){
+            if(p.getNombre().equals(param.getNombre()))
+                throw new MensajeException("Ya existe un parámetro de nombre '"
+                        + p.getNombre() + "'");
+        }
         int size = params.length + 1;
         resize(size);
         params[size - 1] = param;
     }
 
-    protected final void addParam(String nombre, String valor) {
+    protected final void addParam(String nombre, String valor) throws MensajeException {
         addParam(new Param(nombre, valor));
     }
 
