@@ -65,6 +65,7 @@ public class HiloCliente extends Hilo implements Runnable {
         super.stop();
         try {
             socket.close();
+            ServerLog.log(this, socket.toString() + " cerrado");
         } catch (IOException ex) {
             ServerLog.log(this, "Error cerrando " + socket.toString()
                     + ": " + ex.getMessage());

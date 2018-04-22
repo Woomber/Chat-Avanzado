@@ -5,12 +5,10 @@
  */
 package chat.server;
 
-import chat.json.JsonParser;
-import chat.mensajes.*;
-import chat.mensajes.models.*;
-import chat.models.Usuario;
-import chat.server.database.UsuarioConnector;
 import chat.server.hilos.HiloFactory;
+import chat.server.log.ServerLog;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -18,20 +16,31 @@ import chat.server.hilos.HiloFactory;
  */
 public class ChatServer {
 
+    
+    private static HiloFactory factory;
     /**
      * @param args the command line arguments
-     * @throws java.lang.Exception
      */
-    public static void main(String[] args) throws Exception {
-        // TODO code application logic here
-
-        HiloFactory factory = new HiloFactory();
-        new Thread(factory).start();
-        /*
-        Mensaje mensaje = JsonParser.JsonToMensaje(
-                JsonParser.MensajeToJson(new MensajeLogin("yael", "123"))
-        );
-         */
+    public static void main(String[] args) {
+        
+        try {
+            factory = new HiloFactory();
+            new Thread(factory).start();
+        } catch(IOException ex){
+            ServerLog.log(ChatServer.class, ex.getMessage());
+            return;
+        }
+        waitInput();
+    }
+    
+    private static void waitInput(){
+         final Scanner sc = new Scanner(System.in);
+          while(true){
+            if(sc.next().trim().toLowerCase().equals("stop")){
+                factory.stop();
+                return;
+            }
+        }
     }
 
 }

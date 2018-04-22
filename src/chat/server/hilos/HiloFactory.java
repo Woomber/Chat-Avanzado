@@ -36,13 +36,14 @@ public class HiloFactory extends Hilo implements Runnable {
             }
         }
     }
-    
+
     @Override
-    public void stop(){
+    public void stop() {
         super.stop();
-         try {
+        try {
             server.close();
-        } catch(Exception ex){
+            ServerLog.log(this, server.toString() + " cerrado");
+        } catch (IOException ex) {
             ServerLog.log(this, "Error cerrando " + server.toString()
                     + ": " + ex.getMessage());
         }
