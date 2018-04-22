@@ -8,6 +8,8 @@ package chat.server;
 import chat.json.JsonParser;
 import chat.mensajes.*;
 import chat.mensajes.models.*;
+import chat.models.Usuario;
+import chat.server.database.UsuarioConnector;
 import chat.server.hilos.HiloFactory;
 
 /**
