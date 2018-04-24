@@ -1,7 +1,7 @@
 package chat.server.log;
 
-import chat.mensajes.models.Mensaje;
-import chat.mensajes.models.Param;
+import chat.paquetes.models.Paquete;
+import chat.paquetes.models.Param;
 
 /**
  *
@@ -13,7 +13,7 @@ public class ServerLog {
         System.out.println("[" + sender.toString() + "]>" + message);
     }
 
-    public static void logMensaje(Mensaje sender) {
+    public static void logPaquete(Paquete sender) {
         StringBuilder builder = new StringBuilder();
         
         if(sender == null){

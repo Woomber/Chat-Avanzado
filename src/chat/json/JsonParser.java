@@ -1,7 +1,7 @@
 package chat.json;
 
 import chat.exceptions.JsonParserException;
-import chat.mensajes.models.Mensaje;
+import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
 import com.google.gson.Gson;
 
@@ -17,7 +17,7 @@ public class JsonParser {
         JSON = new Gson();
     }
     
-    public static String MensajeToJson(Mensaje mensaje) throws JsonParserException {
+    public static String MensajeToJson(Paquete mensaje) throws JsonParserException {
         String json;
         
         try {
@@ -31,18 +31,18 @@ public class JsonParser {
         return json;
     }
     
-    public static Mensaje JsonToMensaje(String json) throws JsonParserException {
-        Mensaje mensaje;
+    public static Paquete JsonToMensaje(String json) throws JsonParserException {
+        Paquete mensaje;
         
         try {
-            mensaje = JSON.fromJson(json, Mensaje.class);
+            mensaje = JSON.fromJson(json, Paquete.class);
         } catch(Exception ex){
             throw new JsonParserException(ex.getMessage());
         }
         
         ServerLog.log(JsonParser.class,
                 "Convertido JSON a " + mensaje.toString() + " > " + json);
-        ServerLog.logMensaje(mensaje);
+        ServerLog.logPaquete(mensaje);
         return mensaje;
     }
 

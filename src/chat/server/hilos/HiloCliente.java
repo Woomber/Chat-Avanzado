@@ -3,8 +3,8 @@ package chat.server.hilos;
 import chat.exceptions.InvalidOperationException;
 import chat.json.JsonParser;
 import chat.exceptions.JsonParserException;
-import chat.mensajes.MensajeLoginResponse;
-import chat.mensajes.models.Mensaje;
+import chat.paquetes.LoginResponse;
+import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
 import java.io.IOException;
 import java.net.Socket;
@@ -32,7 +32,7 @@ public class HiloCliente extends Hilo implements Runnable {
     private void getJson() {
         try {
             String json = this.get(socket);
-            Mensaje mensaje = JsonParser.JsonToMensaje(json);
+            Paquete mensaje = JsonParser.JsonToMensaje(json);
             this.operation(mensaje);
         } catch (JsonParserException | InvalidOperationException ex) {
             ServerLog.log(this, "Error procesando solicitud, cerrando " + socket.toString());
@@ -40,13 +40,13 @@ public class HiloCliente extends Hilo implements Runnable {
         }
     }
 
-    private void operation(Mensaje mensaje) throws InvalidOperationException {
+    private void operation(Paquete mensaje) throws InvalidOperationException {
         switch (mensaje.getOrden()) {
             case "login":
                 /* Ejemplo
-                this.send(socket, JsonParser.MensajeToJson((Mensaje)
-                        new MensajeLoginResponse(mensaje.getValue("username"),
-                        MensajeLoginResponse.Status.TRY_AGAIN)
+                this.send(socket, JsonParser.MensajeToJson((Paquete)
+                        new LoginResponse(mensaje.getValue("username"),
+                        LoginResponse.Status.TRY_AGAIN)
                 ));*/
                 break;
             case "enviar":

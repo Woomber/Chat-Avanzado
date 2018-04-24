@@ -1,4 +1,4 @@
-package chat.mensajes.models;
+package chat.paquetes.models;
 
 import java.io.Serializable;
 

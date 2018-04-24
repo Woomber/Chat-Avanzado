@@ -1,22 +1,22 @@
-package chat.mensajes.models;
+package chat.paquetes.models;
 
-import chat.exceptions.MensajeException;
+import chat.exceptions.PaqueteException;
 import java.io.Serializable;
 
 /**
  *
  * @author Yael Arturo Chavoya Andalón 14300094
  */
-public class Mensaje implements Serializable {
+public class Paquete implements Serializable {
 
     protected String orden;
     protected Param[] params;
 
-    public Mensaje() {
+    public Paquete() {
 
     }
 
-    public Mensaje(String orden) {
+    public Paquete(String orden) {
         this.params = new Param[0];
         this.orden = orden;
     }
@@ -44,10 +44,10 @@ public class Mensaje implements Serializable {
         return p.getValor();
     }
 
-    protected final void addParam(Param param) throws MensajeException {
+    protected final void addParam(Param param) throws PaqueteException {
         for(Param p : params){
             if(p.getNombre().equals(param.getNombre()))
-                throw new MensajeException("Ya existe un parámetro de nombre '"
+                throw new PaqueteException("Ya existe un parámetro de nombre '"
                         + p.getNombre() + "'");
         }
         int size = params.length + 1;
@@ -55,7 +55,7 @@ public class Mensaje implements Serializable {
         params[size - 1] = param;
     }
 
-    protected final void addParam(String nombre, String valor) throws MensajeException {
+    protected final void addParam(String nombre, String valor) throws PaqueteException {
         addParam(new Param(nombre, valor));
     }
 

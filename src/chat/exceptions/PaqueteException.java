@@ -4,9 +4,9 @@ package chat.exceptions;
  *
  * @author Yael Arturo Chavoya Andalón 14300094
  */
-public class MensajeException extends Exception {
+public class PaqueteException extends Exception {
 
-    public MensajeException(String message) {
+    public PaqueteException(String message) {
         super(message);
     }
 
