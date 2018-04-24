@@ -17,7 +17,7 @@ public class ServerLog {
         StringBuilder builder = new StringBuilder();
         
         if(sender == null){
-            ServerLog.log(ServerLog.class, "Mensaje nulo recibido");
+            ServerLog.log(ServerLog.class, "Paquete nulo recibido");
             return;
         }
         
