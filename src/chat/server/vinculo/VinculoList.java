@@ -55,4 +55,10 @@ public class VinculoList {
         return array;
     }
     
+    public static synchronized void stop(){
+        for(Vinculo v : VINCULOS){
+            if(v.getHiloRx() != null) v.getHiloRx().stop();
+            if(v.getHiloTx() != null) v.getHiloTx().stop();
+        }
+    }
 }

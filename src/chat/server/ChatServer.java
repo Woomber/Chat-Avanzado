@@ -7,6 +7,7 @@ package chat.server;
 
 import chat.server.hilos.HiloFactory;
 import chat.server.log.ServerLog;
+import chat.server.vinculo.VinculoList;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -37,6 +38,7 @@ public class ChatServer {
          final Scanner sc = new Scanner(System.in);
           while(true){
             if(sc.next().trim().toLowerCase().equals("stop")){
+                VinculoList.stop();
                 factory.stop();
                 return;
             }
