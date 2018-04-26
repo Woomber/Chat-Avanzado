@@ -10,15 +10,13 @@ import chat.server.log.ServerLog;
  */
 public class LoginResponse extends Paquete {
 
-    private static final String ORDEN = "loginResponse";
+    public static final String ORDEN = "loginResponse";
 
-    private static final String PARAM_USERNAME = "username";
-    private static final String PARAM_STATUS = "status";
+    public static final String PARAM_STATUS = "status";
 
-    public LoginResponse(String username, Status status) {
+    public LoginResponse(Status status) {
         super(ORDEN);
         try {
-            this.addParam(PARAM_USERNAME, username);
             this.addParam(PARAM_STATUS, status.getName());
         } catch (PaqueteException ex) {
             ServerLog.log(LoginResponse.class, ex.getMessage());
