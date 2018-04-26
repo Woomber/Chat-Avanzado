@@ -1,6 +1,8 @@
 package chat.server.hilos;
 
 import chat.server.log.ServerLog;
+import chat.server.vinculo.Vinculo;
+import chat.server.vinculo.VinculoList;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,12 +16,13 @@ import java.util.Map;
  */
 public class HiloFactory extends Hilo implements Runnable {
 
-    private static final int PORT = 90;
+    private static final int PORT_RX = 90;
+    private static final int PORT_TX = 91;
 
     private final ServerSocket server;
 
     public HiloFactory() throws IOException {
-        server = new ServerSocket(PORT);
+        server = new ServerSocket(PORT_RX);
     }
 
     @Override
@@ -29,8 +32,9 @@ public class HiloFactory extends Hilo implements Runnable {
             try {
                 Socket client = server.accept();
                 ServerLog.log(this, "Aceptado " + client.toString());
-                new Thread(new HiloCliente(client)).start();
-
+                Vinculo v = new Vinculo(client);
+                v.start();
+                VinculoList.add(v);
             } catch (IOException ex) {
                 ServerLog.log(this, "Error al aceptar conexión: " + ex.getMessage());
             }

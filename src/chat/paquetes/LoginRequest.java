@@ -10,10 +10,10 @@ import chat.server.log.ServerLog;
  */
 public class LoginRequest extends Paquete {
 
-    private static final String ORDEN = "login";
+    public static final String ORDEN = "login";
 
-    private static final String PARAM_USERNAME = "username";
-    private static final String PARAM_PASSWORD = "password";
+    public static final String PARAM_USERNAME = "username";
+    public static final String PARAM_PASSWORD = "password";
 
     public LoginRequest(String username, String password) {
         super(ORDEN);

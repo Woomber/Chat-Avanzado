@@ -10,11 +10,11 @@ import chat.server.log.ServerLog;
  */
 public class MensajeRequest extends Paquete {
 
-    private static final String ORDEN = "send";
+    public static final String ORDEN = "send";
 
-    private static final String PARAM_TO = "to";
-    private static final String PARAM_FROM = "from";
-    private static final String PARAM_MESSAGE = "message";
+    public static final String PARAM_TO = "to";
+    public static final String PARAM_FROM = "from";
+    public static final String PARAM_MESSAGE = "message";
 
     public MensajeRequest(String to, String from, String message) {
         super(ORDEN);

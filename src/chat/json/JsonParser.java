@@ -17,21 +17,21 @@ public class JsonParser {
         JSON = new Gson();
     }
     
-    public static String MensajeToJson(Paquete mensaje) throws JsonParserException {
+    public static String paqueteToJson(Paquete paquete) throws JsonParserException {
         String json;
         
         try {
-            json = JSON.toJson(mensaje);
+            json = JSON.toJson(paquete);
         } catch(Exception ex){
             throw new JsonParserException(ex.getMessage());
         }
         
         ServerLog.log(JsonParser.class,
-                "Convertido " + mensaje.toString() + " a JSON: " + json);
+                "Convertido " + paquete.toString() + " a JSON: " + json);
         return json;
     }
     
-    public static Paquete JsonToMensaje(String json) throws JsonParserException {
+    public static Paquete JsonToPaquete(String json) throws JsonParserException {
         Paquete mensaje;
         
         try {
