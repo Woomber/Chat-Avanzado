@@ -1,4 +1,4 @@
-package chat.paquetes;
+package chat.paquetes.responses;
 
 import chat.exceptions.PaqueteException;
 import chat.paquetes.models.Paquete;
@@ -10,7 +10,7 @@ import chat.server.log.ServerLog;
  */
 public class LoginResponse extends Paquete {
 
-    public static final String ORDEN = "loginResponse";
+    public static final String ORDEN = "response-login";
 
     public static final String PARAM_STATUS = "status";
 

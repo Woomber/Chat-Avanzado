@@ -27,8 +27,8 @@ public class UsuarioConnector extends SqlConnector {
             while (rs.next()) {
                 Usuario item = new Usuario();
                 // Temporal, sólo como ejemplo
-                item.setUsername(rs.getString("username"));
-                item.setUsername(rs.getString("password"));
+                item.setNombre_usuario(rs.getString("username"));
+                item.setContrasena(rs.getString("password"));
                 
                 resultados.add(item);
             }
@@ -49,8 +49,8 @@ public class UsuarioConnector extends SqlConnector {
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
             // Temporal, sólo como ejemplo
-            query.setString(1, item.getUsername());
-            query.setString(2, item.getPassword());
+            query.setString(1, item.getNombre_usuario());
+            query.setString(2, item.getContrasena());
 
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
