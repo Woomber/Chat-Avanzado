@@ -5,6 +5,8 @@
  */
 package chat.client;
 
+import GUI_Funcion.Funcion_Ingreso;
+
 /**
  *
  * @author Yael Arturo Chavoya Andalón 14300094
@@ -15,7 +17,8 @@ public class ChatClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Funcion_Ingreso control = new Funcion_Ingreso();
+        control.setVisible(true);
     }
     
 }
