@@ -16,30 +16,32 @@ public class Proyecto_coco {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        Ingreso ventana = new Ingreso();
-        Registro ventana1 = new Registro();
-        Conversacion ventana2= new Conversacion();
-        RegistroGrupo ventana3=new RegistroGrupo();
-        Pagina_principal principal = new Pagina_principal();
-        RegistroFavorito ventana4= new RegistroFavorito();
-        AgregarUsuarios ventana5 = new AgregarUsuarios();
-        
-        Principal_usuario muestrausuario = new Principal_usuario();
-        Principal_grupo muestragrupo = new Principal_grupo();
-        Principal_favorito muestrafavorito = new Principal_favorito();
-       
-        muestrafavorito.setVisible(true);
-        muestragrupo.setVisible(true);
-        muestrausuario.setVisible(true);
-        
-        ventana5.setVisible(true);
-       ventana4.setVisible(true);
-        ventana3.setVisible(true);
-        ventana2.setVisible(true);
-        ventana1.setVisible(true);
-        ventana.setVisible(true);
-         principal.setVisible(true);
+
+        JFrame_Ingreso ingreso = new JFrame_Ingreso();
+        JFrame_Registro registro = new JFrame_Registro();
+        JFrame_Conversacion grupo = new JFrame_Conversacion("Grupo",true);
+         JFrame_Conversacion individual = new JFrame_Conversacion("Yo meros",false);
+        JFrame_RegistroGrupo registrogrupo = new JFrame_RegistroGrupo();
+        JFrame_Principal pagina_principal = new JFrame_Principal();
+        JFrame_AgregarFavorito registrofavorito = new JFrame_AgregarFavorito("Yo meros");
+        JFrame_AgregarUsuarios agregarusuarios = new JFrame_AgregarUsuarios();
+
+        //JComponent_Contacto muestrausuario = new JComponent_Contacto();
+        //JComponent_Grupo muestragrupo = new JComponent_Grupo();
+        //JComponent_Favorito muestrafavorito = new JComponent_Favorito();
+
+        //muestrafavorito.setVisible(true);
+        //muestragrupo.setVisible(true);
+        //muestrausuario.setVisible(true);
+
+        //agregarusuarios.setVisible(true);
+        //registrofavorito.setVisible(true);
+        registrogrupo.setVisible(true);
+        //grupo.setVisible(true);
+        //individual.setVisible(true);
+        //registro.setVisible(true);
+        //ingreso.setVisible(true);
+        //pagina_principal.setVisible(true);
     }
-    
+
 }
