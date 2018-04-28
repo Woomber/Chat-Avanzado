@@ -6,9 +6,6 @@ import chat.server.vinculo.VinculoList;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Hilo encargado de recibir nuevas conexiones y crear nuevos hilos
@@ -17,8 +14,8 @@ import java.util.Map;
  */
 public class HiloFactory extends Hilo implements Runnable {
 
-    private static final int PORT_RX = 90;
-    private static final int PORT_TX = 91;
+    public static final int PORT_RX = 90;
+    public static final int PORT_TX = 91;
 
     private final ServerSocket server;
 

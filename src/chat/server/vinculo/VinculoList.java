@@ -51,21 +51,12 @@ public class VinculoList {
         return array;
     }
     
-    public static ArrayList<Vinculo> getDisconnected(){
-        ArrayList<Vinculo> array = new ArrayList<>();
-        for(Vinculo v : VINCULOS){
-            if(v.getHiloTx() == null) array.add(v);
-        }
-        return array;
-    }
-    
     /**
      * Cerrar todas las conexiones del servidor
      */
     public static synchronized void stop(){
         for(Vinculo v : VINCULOS){
-            if(v.getHiloRx() != null) v.getHiloRx().stop();
-            if(v.getHiloTx() != null) v.getHiloTx().stop();
+            v.stop();
         }
     }
 }

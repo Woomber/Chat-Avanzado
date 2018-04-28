@@ -17,15 +17,18 @@ import java.net.Socket;
 public class HiloTransmitter extends Hilo implements Runnable {
 
     public Vinculo vinculo;
-    private final Socket socket;
+    private Socket socket;
 
     private Paquete paquete;
 
-    public HiloTransmitter(Socket socket, Vinculo vinculo) {
-        this.socket = socket;
+    public HiloTransmitter(Vinculo vinculo) {
         this.vinculo = vinculo;
     }
 
+    public synchronized void setSocket(Socket socket){
+        this.socket = socket;
+    }
+    
     /**
      * Establece el paquete que se va a enviar al socket
      * @param paquete El paquete a enviar

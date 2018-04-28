@@ -59,8 +59,7 @@ public class Vinculo {
     public boolean attemptedLogin(boolean correct) {
         if (correct) {
             // TODO Iniciar socket Tx
-            Socket socket = new Socket();
-            this.hiloTx = new HiloTransmitter(socket, this);
+            this.hiloTx = new HiloTransmitter(this);
             return true;
         }
         return ++loginAttempts < 3;
@@ -68,6 +67,11 @@ public class Vinculo {
 
     public int getLoginAttempts() {
         return loginAttempts;
+    }
+    
+    public void stop(){
+        if(hiloTx != null) hiloTx.stop();
+        if(hiloRx != null) hiloRx.stop();
     }
     
     

@@ -1,14 +1,11 @@
 package chat.server.hilos;
 
-import chat.exceptions.InvalidOperationException;
 import chat.json.JsonParser;
 import chat.exceptions.JsonParserException;
-import chat.paquetes.requests.LoginRequest;
-import chat.paquetes.responses.LoginResponse;
-import chat.paquetes.requests.MensajeRequest;
+import chat.paquetes.requests.*;
 import chat.paquetes.models.Paquete;
 import chat.paquetes.responses.GenericResponse;
-import chat.server.handlers.LoginHandler;
+import chat.server.handlers.*;
 import chat.server.log.ServerLog;
 import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
@@ -61,64 +58,21 @@ public class HiloReceiver extends Hilo implements Runnable {
         // Donde se guardará la respuesta para el cliente
         Paquete response;
 
+        // Para cada tipo de paquete, llamamos a su handler y recibimos la respuesta
         switch (paquete.getOrden()) {
-
-            // ============================================================== //
+            
             case LoginRequest.ORDEN:
-
-                String username = paquete.getValue(LoginRequest.PARAM_USERNAME);
-
-                // Crear el manejador de login
-                LoginHandler handler = new LoginHandler(
-                        username,
-                        paquete.getValue(LoginRequest.PARAM_PASSWORD)
-                );
-
-                // Guarda un vínculo que ya tenga ese nombre de usuario, si hay
-                Vinculo repeated = VinculoList.get(username);
-
-                // Pone el nombre de usuario recibido en el vínculo actual
-                this.vinculo.setUsername(username);
-
-                /*
-                Ejecutar handler, retorna si fue correcto o no el login
-                Llamar a intento de login en vínculo, retorna si puede reintentar
-                 */
-                boolean retry = this.vinculo.attemptedLogin(handler.run());
-
-                LoginResponse.Status status;
-
-                // Si HiloTx no es nulo, significa que el login fue correcto
-                if (this.vinculo.getHiloTx() != null) {
-                    status = LoginResponse.Status.CORRECT;
-                    /*
-                    Si repetido no es nulo, significa que ya se había iniciado
-                    sesión con ese usuario, cerrar la sesión antigua
-                    */
-                    if (repeated != null) {
-                        repeated.getHiloTx().stop();
-                        repeated.getHiloRx().stop();
-                        VinculoList.remove(repeated);
-                    }
-                } else {
-                    // Según el valor de retry, enviar volver a intentar o registro
-                    status = retry
-                            ? LoginResponse.Status.TRY_AGAIN
-                            : LoginResponse.Status.REGISTER;
-                }
-
-                response = new LoginResponse(status);
+                response = new LoginHandler((LoginRequest) paquete, vinculo, socket).run();
                 break;
 
-            // ============================================================== //
-                
-            case MensajeRequest.ORDEN:
-                
-                response = new GenericResponse(GenericResponse.Status.CORRECT);
-                break;
-                
-            // ============================================================== //
-                
+            //Caso especial, desconectamos
+            case LogoutRequest.ORDEN:
+                response = new LogoutHandler(vinculo).run();
+                sendResponse(response);
+                VinculoList.remove(vinculo);
+                vinculo.stop();
+                return;
+
             default:
                 final String mensajeError = "Operación inválida ["
                         + paquete.getOrden() + "] en " + socket.toString();
@@ -128,10 +82,17 @@ public class HiloReceiver extends Hilo implements Runnable {
         }
 
         // Envía la respuesta
+        sendResponse(response);
+        
+    }
+    
+    private boolean sendResponse(Paquete response){
         try {
             this.send(socket, JsonParser.paqueteToJson(response));
+            return true;
         } catch (JsonParserException ex) {
             ServerLog.log(this, ex.getMessage());
+            return false;
         }
     }
 

@@ -109,13 +109,25 @@ public class UsuarioConnector extends SqlConnector {
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            ResultSet rs = query.executeQuery();
 
-            int updated = query.executeUpdate();
+            ArrayList<Usuario> resultados = new ArrayList<>();
+
+            while (rs.next()) {
+                Usuario item = new Usuario();
+                item.setId_usuario(rs.getString("id_usuario"));
+                item.setContrasena(rs.getString("contrasena"));
+                item.setNombre(rs.getString("nombre"));
+                
+                resultados.add(item);
+            }
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
-                    + " > Registros actualizados: " + updated);
-            return  updated > 0;
+                    + " > Registros leídos: " + resultados.size());
+            return resultados.size() == 1;
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
+            ServerLog.log(this, MSG_QUERY_ERROR + ": " + QUERY
+                    + "\n\t> " + ex.getMessage());
             return false;
         }
     }

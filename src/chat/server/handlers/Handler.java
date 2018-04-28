@@ -5,11 +5,13 @@
  */
 package chat.server.handlers;
 
+import chat.paquetes.models.Paquete;
+
 /**
  * Handler genérico que contiene el método común para todos los handlers
  * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public interface Handler {
-    public boolean run();
+    public Paquete run();
 }
