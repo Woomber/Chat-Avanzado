@@ -13,6 +13,14 @@ public class Grupo {
     private int id_grupo;
     private String nombre_grupo;
 
+    public Grupo() {
+    }
+
+    public Grupo(int id_grupo, String nombre_grupo) {
+        this.id_grupo = id_grupo;
+        this.nombre_grupo = nombre_grupo;
+    }
+
     public int getId_grupo() {
         return id_grupo;
     }
