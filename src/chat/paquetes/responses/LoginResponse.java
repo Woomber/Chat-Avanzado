@@ -5,13 +5,18 @@ import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
 
 /**
- *
+ * Respuesta de login
+ * 
+ * Se envía al cliente como respuesta de inicio de sesión
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class LoginResponse extends Paquete {
 
+    // Orden que identifica al tipo de paquete
     public static final String ORDEN = "response-login";
 
+    // Parámetros
     public static final String PARAM_STATUS = "status";
 
     public LoginResponse(Status status) {

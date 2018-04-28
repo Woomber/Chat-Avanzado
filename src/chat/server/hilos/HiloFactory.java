@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * Hilo encargado de recibir nuevas conexiones y crear nuevos hilos
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class HiloFactory extends Hilo implements Runnable {
@@ -22,25 +23,39 @@ public class HiloFactory extends Hilo implements Runnable {
     private final ServerSocket server;
 
     public HiloFactory() throws IOException {
-        server = new ServerSocket(PORT_RX);
+        try {
+            server = new ServerSocket(PORT_RX);
+        } catch(IOException ex){
+            throw ex;
+        }    
     }
 
+    /**
+     * Función que espera para recibir conexiones
+     */
     @Override
     public void run() {
         while (continuar) {
             ServerLog.log(this, "Listo para recibir socket nuevo");
             try {
+                // Socket de conexión nueva
                 Socket client = server.accept();
                 ServerLog.log(this, "Aceptado " + client.toString());
+                
+                // Crea un nuevo vínculo para la conexión
                 Vinculo v = new Vinculo(client);
                 v.start();
                 VinculoList.add(v);
+                
             } catch (IOException ex) {
                 ServerLog.log(this, "Error al aceptar conexión: " + ex.getMessage());
             }
         }
     }
 
+    /**
+     * Función que cierra la conexión al hilo actual
+     */
     @Override
     public void stop() {
         super.stop();

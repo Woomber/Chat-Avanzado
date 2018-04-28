@@ -1,9 +1,7 @@
 package chat.server.hilos;
 
-import chat.exceptions.InvalidOperationException;
 import chat.json.JsonParser;
 import chat.exceptions.JsonParserException;
-import chat.paquetes.responses.LoginResponse;
 import chat.paquetes.models.Paquete;
 import chat.paquetes.responses.GenericResponse;
 import chat.server.log.ServerLog;
@@ -12,7 +10,8 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- *
+ * Hilo encargado de transmitir información primero al cliente
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class HiloTransmitter extends Hilo implements Runnable {
@@ -27,10 +26,17 @@ public class HiloTransmitter extends Hilo implements Runnable {
         this.vinculo = vinculo;
     }
 
+    /**
+     * Establece el paquete que se va a enviar al socket
+     * @param paquete El paquete a enviar
+     */
     public synchronized void setPaquete(Paquete paquete) {
         this.paquete = paquete;
     }
 
+    /**
+     * Realiza el envío de paquetes y procesa la respuesta
+     */
     @Override
     public void run() {
         try {
@@ -56,6 +62,9 @@ public class HiloTransmitter extends Hilo implements Runnable {
 
     }
 
+    /**
+     * Detiene el hilo
+     */
     @Override
     public void stop() {
         super.stop();

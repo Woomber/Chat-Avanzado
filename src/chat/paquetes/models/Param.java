@@ -3,7 +3,7 @@ package chat.paquetes.models;
 import java.io.Serializable;
 
 /**
- *
+ * Clase que contiene un par nombre-valor para el envío de paquetes
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class Param implements Serializable {

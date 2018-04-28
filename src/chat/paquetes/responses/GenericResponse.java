@@ -5,13 +5,19 @@ import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
 
 /**
- *
+ * Respuesta genérica
+ * 
+ * Respuesta que recibe el servidor o el cliente para reconocer que el comando
+ * se recibió e interpretó
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class GenericResponse extends Paquete {
 
+    // Orden que identifica al tipo de paquete
     public static final String ORDEN = "response-generic";
 
+    // Parámetros
     public static final String PARAM_STATUS = "status";
 
     public GenericResponse(Status status) {

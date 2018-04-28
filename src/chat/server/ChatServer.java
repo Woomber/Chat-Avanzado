@@ -17,8 +17,9 @@ import java.util.Scanner;
  */
 public class ChatServer {
 
-    
+    // El generador de hilos
     private static HiloFactory factory;
+    
     /**
      * @param args the command line arguments
      */
@@ -34,6 +35,9 @@ public class ChatServer {
         waitInput();
     }
     
+    /**
+     * Lee la consola, esperando un comando 'stop' para detener el servidor
+     */
     private static void waitInput(){
          final Scanner sc = new Scanner(System.in);
           while(true){

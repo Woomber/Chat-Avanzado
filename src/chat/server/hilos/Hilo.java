@@ -8,13 +8,21 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- *
+ * Clase abstracta de un Hilo
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
-public class Hilo {
+abstract class Hilo {
     
     protected boolean continuar = true;
 
+    /**
+     * Envía una cadena a un socket
+     * 
+     * @param socket El socket al que envía el mensaje
+     * @param mensaje El mensaje que envía
+     * @return Verdadero si se envió con éxito
+     */
     protected boolean send(Socket socket, String mensaje) {
         try {
             PrintWriter print = new PrintWriter(socket.getOutputStream(), true);
@@ -28,6 +36,12 @@ public class Hilo {
 
     }
 
+    /**
+     * Espera para leer una cadena de un socket
+     * 
+     * @param socket El socket del que se va a leer
+     * @return La cadena que recibió, o null si hubo error
+     */
     protected String get(Socket socket) {
         try {
             BufferedReader read = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -41,7 +55,10 @@ public class Hilo {
 
     }
     
-    public void stop(){
+    /**
+     * Facilitar la detención del hilo
+     */
+    protected void stop(){
         continuar = false;
     }
 

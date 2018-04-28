@@ -6,7 +6,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ * Conector de SQL abstracto
+ * 
+ * Funciona como clase base para los controladores de la base de datos
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 abstract class SqlConnector {
@@ -24,6 +27,9 @@ abstract class SqlConnector {
     protected static final String MSG_QUERY_ERROR = "Error al realizar consulta";
     protected static final String MSG_QUERY_SUCCESS = "Consulta realizada con éxito";
 
+    /**
+     * Conecta a la base de datos
+     */
     protected SqlConnector() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

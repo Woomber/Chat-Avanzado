@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package chat.server.vinculo;
 
 import chat.server.hilos.HiloReceiver;
@@ -10,7 +5,8 @@ import chat.server.log.ServerLog;
 import java.util.ArrayList;
 
 /**
- *
+ * Contiene la lista de los vínculos que tiene el servidor
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class VinculoList {
@@ -55,6 +51,17 @@ public class VinculoList {
         return array;
     }
     
+    public static ArrayList<Vinculo> getDisconnected(){
+        ArrayList<Vinculo> array = new ArrayList<>();
+        for(Vinculo v : VINCULOS){
+            if(v.getHiloTx() == null) array.add(v);
+        }
+        return array;
+    }
+    
+    /**
+     * Cerrar todas las conexiones del servidor
+     */
     public static synchronized void stop(){
         for(Vinculo v : VINCULOS){
             if(v.getHiloRx() != null) v.getHiloRx().stop();
