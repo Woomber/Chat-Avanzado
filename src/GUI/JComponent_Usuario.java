@@ -23,7 +23,7 @@ import Delegates.MouseLeave;
  *
  * @author co2
  */
-public class JComponent_Contacto extends JComponent implements MouseListener {
+public class JComponent_Usuario extends JComponent implements MouseListener {
 
     /* Componentes*/
     private JLabel ImgUsuario, LblUsuario;
@@ -35,7 +35,7 @@ public class JComponent_Contacto extends JComponent implements MouseListener {
     private MouseEnter OnMouseEnter;
     private MouseLeave OnMouseLeave;
 
-    public JComponent_Contacto(String username, boolean isOnline) {
+    public JComponent_Usuario(String username, boolean isOnline) {
         /*Ingreso de icono de usuario*/
         this.isOnline = isOnline;
         ImgUsuario = new JLabel();

@@ -36,6 +36,7 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
     public JFrame_RegistroGrupo() {
         /*Ventana*/
         super("Crear un grupo");
+        this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());
         this.setSize(500, 250);
         loadFrameDetails();

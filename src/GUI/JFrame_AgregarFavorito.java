@@ -37,6 +37,7 @@ public class JFrame_AgregarFavorito extends JFrame implements ActionListener {
     public JFrame_AgregarFavorito(String user) {
         /*Ventana*/
         super("Favoritos");
+        this.setResizable(false);
         this.user = user;
         setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());
         this.setSize(500, 250);

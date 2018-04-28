@@ -85,7 +85,7 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         //this.pack();   
     }
 
-    public void setBtnEliminarClick(MouseClick BtnEliminarClick) {
+    public void setOnBtnEliminarClick(MouseClick BtnEliminarClick) {
         this.BtnEliminarClick = BtnEliminarClick;
     }
 

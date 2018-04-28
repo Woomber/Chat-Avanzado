@@ -35,6 +35,7 @@ public class JFrame_AgregarUsuarios extends JFrame implements ActionListener{
 
     public JFrame_AgregarUsuarios() {
         super("Agregar usuarios");
+        this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());
         this.setSize(500, 250);
         loadFrameDetails();

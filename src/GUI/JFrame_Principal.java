@@ -41,6 +41,7 @@ public class JFrame_Principal extends JFrame implements ActionListener{
     public JFrame_Principal() {
         /*Ventana*/
         super("Pagina principal");
+        this.setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());/*icono*/
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loadFrameDetails();

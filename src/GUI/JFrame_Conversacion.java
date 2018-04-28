@@ -50,6 +50,7 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
     public JFrame_Conversacion(String name, boolean isGroup) {
         /*Ventana*/
         super("Chat");
+        this.setResizable(false);
         this.name = name;
         this.isGroup = isGroup;
         setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());

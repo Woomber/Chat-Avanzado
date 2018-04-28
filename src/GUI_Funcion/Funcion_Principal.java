@@ -5,12 +5,70 @@
  */
 package GUI_Funcion;
 
+import GUI.JComponent_Favorito;
+import GUI.JComponent_Grupo;
+import GUI.JComponent_Usuario;
+import GUI.JFrame_Conversacion;
 import GUI.JFrame_Principal;
+import Models.Usuario;
+import java.awt.Cursor;
+import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
  * @author PC
  */
 public class Funcion_Principal extends JFrame_Principal{
+    ArrayList<Object> usuarios;
+    JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
+    
+    public Funcion_Principal() {
+        boolean x = true;
+        super.setOnBtnGruposClick(() -> BtnGruposClick());
+        super.setOnBtnFavoritosClick(() -> BtnFavoritosClick());
+        PanelUsuarios = super.getPanelUsuarios();
+        PanelFavoritos = super.getPanelFavoritos();
+        PanelGrupos = super.getPanelGrupos();
+        LoadUsuarios();
+        LoadGrupos();
+        LoadFavoritos();
+    }
+    
+    private void LoadUsuarios(){
+        for(int i = 0; i < 10; i++){
+            JComponent_Usuario usuario = new JComponent_Usuario("Hola",true);
+            usuario.setOnInformationClick(() -> InformationClick());
+            usuario.setOnMouseEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
+            usuario.setOnMouseLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
+            PanelUsuarios.add(usuario);
+        }
+    }
+    
+    private void LoadGrupos() {
+        
+    }
+
+    private void LoadFavoritos() {
+        
+    }
+    
+    
+    private void BtnGruposClick(){
+        
+    }
+    
+    private void BtnFavoritosClick(){
+        
+    }
+
+    private void InformationClick() {
+        Funcion_Conversacion conversacion;
+        Usuario usuario = new Usuario("emmas","","Emmanuel");
+        conversacion = new Funcion_Conversacion(usuario,false);
+        conversacion.setVisible(true);
+    }
+
+    
     
 }
