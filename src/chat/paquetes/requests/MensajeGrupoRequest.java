@@ -20,10 +20,10 @@ public class MensajeGrupoRequest extends Paquete {
     public static final String PARAM_GROUP = "to";
     public static final String PARAM_MESSAGE = "message";
 
-    public MensajeGrupoRequest(String toGroup, String message) {
+    public MensajeGrupoRequest(int grupo, String message) {
         super(ORDEN);
         try {
-            this.addParam(PARAM_GROUP, toGroup);
+            this.addParam(PARAM_GROUP, String.valueOf(grupo));
             this.addParam(PARAM_MESSAGE, message);
         } catch (PaqueteException ex) {
             ServerLog.log(MensajeGrupoRequest.class, ex.getMessage());

@@ -5,7 +5,7 @@ import chat.exceptions.PaqueteException;
 import chat.json.JsonParser;
 import chat.models.Amigos;
 import chat.models.Usuario;
-import chat.models.UsuarioSerializable;
+import chat.models.serializables.UsuarioSerializable;
 import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
 import java.util.ArrayList;

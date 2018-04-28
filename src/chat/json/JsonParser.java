@@ -1,7 +1,7 @@
 package chat.json;
 
 import chat.exceptions.JsonParserException;
-import chat.models.UsuarioSerializable;
+import chat.models.serializables.UsuarioSerializable;
 import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
 import com.google.gson.Gson;
