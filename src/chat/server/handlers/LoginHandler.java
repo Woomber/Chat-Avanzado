@@ -1,7 +1,9 @@
 package chat.server.handlers;
 
+import chat.paquetes.events.UpdateUsuariosEvent;
 import chat.paquetes.models.Paquete;
 import chat.paquetes.requests.LoginRequest;
+import chat.paquetes.responses.GenericResponse;
 import chat.paquetes.responses.LoginResponse;
 import chat.server.database.UsuarioConnector;
 import chat.server.hilos.HiloFactory;
@@ -59,6 +61,7 @@ public class LoginHandler implements Handler {
             } catch (IOException ex) {
                 ServerLog.log(vinculo, "No se pudo conectar a "
                         + socketRx.getInetAddress().toString() + " > " + ex.getMessage());
+                return new GenericResponse(GenericResponse.Status.INCORRECT);
             }
 
             status = LoginResponse.Status.CORRECT;
@@ -72,6 +75,12 @@ public class LoginHandler implements Handler {
                 repeated.getHiloRx().stop();
                 VinculoList.remove(repeated);
             }
+            
+            for(Vinculo v : VinculoList.getConnected()){
+                v.getHiloTx().setPaquete(new UpdateUsuariosEvent());
+                v.start();
+            }
+            
         } else {
             // Según el valor de retry, enviar volver a intentar o registro
             status = retry

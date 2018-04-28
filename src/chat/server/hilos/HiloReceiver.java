@@ -72,6 +72,18 @@ public class HiloReceiver extends Hilo implements Runnable {
                 VinculoList.remove(vinculo);
                 vinculo.stop();
                 return;
+                
+            ////////////////////////////////////////////////////////////////////
+              
+                
+ 
+                
+            ////////////////////////////////////////////////////////////////////
+            // GRUPOS
+                
+                
+
+            ////////////////////////////////////////////////////////////////////
 
             default:
                 final String mensajeError = "Operación inválida ["

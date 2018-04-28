@@ -1,5 +1,6 @@
 package chat.server.vinculo;
 
+import chat.paquetes.events.UpdateUsuariosEvent;
 import chat.server.hilos.HiloReceiver;
 import chat.server.log.ServerLog;
 import java.util.ArrayList;
@@ -22,6 +23,11 @@ public class VinculoList {
     
     public static synchronized void remove(Vinculo v){
         VINCULOS.remove(v);
+        for(Vinculo v1 : VINCULOS){
+            if(v1.getHiloTx() != null)
+                v1.getHiloTx().setPaquete(new UpdateUsuariosEvent());
+            v1.start();
+        }
     }
     
     public static boolean contains(Vinculo v){
