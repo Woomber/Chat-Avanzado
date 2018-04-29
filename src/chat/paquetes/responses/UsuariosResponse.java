@@ -3,7 +3,7 @@ package chat.paquetes.responses;
 import chat.exceptions.JsonParserException;
 import chat.exceptions.PaqueteException;
 import chat.json.JsonParser;
-import chat.models.Amigos;
+import chat.models.Amigo;
 import chat.models.Usuario;
 import chat.models.serializables.UsuarioSerializable;
 import chat.paquetes.models.Paquete;
@@ -42,7 +42,7 @@ public class UsuariosResponse extends Paquete {
      */
     public void addUsuario(Usuario u, boolean connected) {
         usuarios.add(new UsuarioSerializable(
-                u.getNombre_usuario(), u.getNombre_pila(), connected
+                u.getId_usuario(), u.getNombre(), connected
         ));
     }
 
@@ -51,9 +51,9 @@ public class UsuariosResponse extends Paquete {
      * @param u El usuario amigo
      * @param connected Su estado (conectado, desconectado)
      */
-    public void addAmigo(Amigos u, boolean connected) {
+    public void addAmigo(Amigo u, boolean connected) {
          usuarios.add(new UsuarioSerializable(
-                String.valueOf(u.getId_usuario2()), u.getApodo2(), connected
+                String.valueOf(u.getAmigo()), u.getApodo(), connected
         ));
     }
 

@@ -42,6 +42,13 @@ public class VinculoList {
         return null;
     }
     
+    public static Vinculo getIfConnected(String user){
+        Vinculo v = get(user);
+        if(v == null) return null;
+        if(v.getHiloTx() == null) return null;
+        return v;
+    }
+    
     public static Vinculo get(HiloReceiver t){
         for(Vinculo v : VINCULOS){
             if(v.getHiloRx().equals(t)) return v;
