@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class AmigosConnector extends SqlConnector{
     
-    private static final String BD_TABLE = "amigo";
+    private static final String BD_TABLE = "amigos";
     
     public ArrayList<Amigo> getAll(String id_usuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_usuario =" + id_usuario;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + id_usuario;
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
@@ -63,7 +63,7 @@ public class AmigosConnector extends SqlConnector{
     }
     
     public boolean eliminar(Amigo item) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_usuario = ? AND amigo = ?";
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = ? AND amigo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);

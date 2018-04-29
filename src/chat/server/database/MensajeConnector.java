@@ -44,7 +44,7 @@ public class MensajeConnector extends SqlConnector{
         }
     }
     public ArrayList<Mensaje> getUsuario(int id_grupo, String id_usuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_grupo = " + id_grupo +" and id_usurio="+ id_usuario;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_grupo = " + id_grupo +" and username="+ id_usuario;
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
@@ -81,6 +81,20 @@ public class MensajeConnector extends SqlConnector{
             query.setString(3, item.getTexto());
             query.setInt(4, item.getId_grupo());
 
+            int updated = query.executeUpdate();
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registros actualizados: " + updated);
+            return  updated > 0;
+
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    public boolean eliminar(int grupo) {
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo ="+ grupo;
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
                     + " > Registros actualizados: " + updated);

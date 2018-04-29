@@ -44,7 +44,7 @@ public class UsuarioConnector extends SqlConnector {
     }
     
      public ArrayList<Usuario> getUsuario(int idUsuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_usuario =" + idUsuario;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + idUsuario;
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
@@ -90,7 +90,7 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
     public boolean eliminar(String idUsuario) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_usuario = "+ idUsuario;
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = "+ idUsuario;
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
@@ -105,7 +105,7 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
     public boolean verificar(String idUsuario, String contrasena) {
-        final String QUERY = "SELECT *FROM " + BD_TABLE + " WHERE id_usuario = "+ idUsuario + "AND contrasena ="+ contrasena;
+        final String QUERY = "SELECT *FROM " + BD_TABLE + " WHERE username = "+ idUsuario + "AND password ="+ contrasena;
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);

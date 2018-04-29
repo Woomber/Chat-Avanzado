@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class MensajeVistoConnector extends SqlConnector{
     
-    private static final String BD_TABLE = "mensajeVisto";
+    private static final String BD_TABLE = "mensaje_visto";
     
     public boolean add(MensajeVisto item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?, ?)";
@@ -56,6 +56,20 @@ public class MensajeVistoConnector extends SqlConnector{
             ServerLog.log(this, MSG_QUERY_ERROR + ": " + QUERY
                     + "\n\t> " + ex.getMessage());
             return null;
+        }
+    }
+    public boolean eliminar(int id) {
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_mensaje = (SELECT id FROM mensaje where id_grupo="+id+")";
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
+            int updated = query.executeUpdate();
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registros actualizados: " + updated);
+            return  updated > 0;
+
+        } catch (SQLException ex) {
+            return false;
         }
     }
     
