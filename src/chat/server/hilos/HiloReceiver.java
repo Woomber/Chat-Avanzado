@@ -1,5 +1,6 @@
 package chat.server.hilos;
 
+import chat.exceptions.InvalidOperationException;
 import chat.json.JsonParser;
 import chat.exceptions.JsonParserException;
 import chat.paquetes.requests.*;
@@ -74,9 +75,18 @@ public class HiloReceiver extends Hilo implements Runnable {
                 return;
                 
             ////////////////////////////////////////////////////////////////////
-              
+            case RegistroRequest.ORDEN:  
+                response = new RegistroHandler((RegistroRequest) paquete).run();
+                break;
                 
- 
+            case AmigoRequest.ORDEN:
+                try {
+                    response = new AmigoHandler((AmigoRequest) paquete, vinculo).run();   
+                } catch (InvalidOperationException ex) {
+                    response = new GenericResponse(GenericResponse.Status.BAD_REQUEST);
+                }
+                break;
+                
                 
             ////////////////////////////////////////////////////////////////////
             // GRUPOS

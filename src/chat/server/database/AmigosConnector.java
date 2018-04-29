@@ -62,11 +62,13 @@ public class AmigosConnector extends SqlConnector{
         }
     }
     
-    public boolean eliminar(String amigo) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE amigo ="+ amigo;
+    public boolean eliminar(Amigo item) {
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_usuario = ? AND amigo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, item.getId_usuario());
+            query.setString(2, item.getAmigo());
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
                     + " > Registros actualizados: " + updated);
