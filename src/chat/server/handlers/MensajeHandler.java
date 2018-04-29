@@ -32,8 +32,8 @@ public class MensajeHandler implements Handler {
         Vinculo destV = VinculoList.get(destino);
         if(destV != null){
             if(destV.getHiloTx() != null){
-                vinculo.getHiloTx().setPaquete(new MensajeEvent(origen, mensaje));
-                vinculo.start();
+                destV.getHiloTx().setPaquete(new MensajeEvent(origen, mensaje));
+                destV.start();
                 return new GenericResponse(GenericResponse.Status.CORRECT);
             } else return new GenericResponse(GenericResponse.Status.INCORRECT);
         } else return new GenericResponse(GenericResponse.Status.INCORRECT);

@@ -71,15 +71,11 @@ public class LoginHandler implements Handler {
                 sesión con ese usuario, cerrar la sesión antigua
              */
             if (repeated != null) {
-                repeated.getHiloTx().stop();
-                repeated.getHiloRx().stop();
+                repeated.stop();
                 VinculoList.remove(repeated);
             }
             
-            for(Vinculo v : VinculoList.getConnected()){
-                v.getHiloTx().setPaquete(new UpdateUsuariosEvent());
-                v.start();
-            }
+            VinculoList.sendUserUpdate();
             
         } else {
             // Según el valor de retry, enviar volver a intentar o registro
