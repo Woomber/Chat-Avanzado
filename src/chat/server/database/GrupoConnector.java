@@ -2,6 +2,7 @@ package chat.server.database;
 
 import chat.models.Grupo;
 import chat.server.log.ServerLog;
+import com.mysql.jdbc.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,20 +44,30 @@ public class GrupoConnector extends SqlConnector{
             return null;
         }
     }
-    public boolean addGrupo(Grupo item) {
-        final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?)";
+    public int addGrupo(Grupo item) {
+        final String QUERY = "INSERT INTO " + BD_TABLE + "(nombre) VALUES(?)";
 
         try {
-            PreparedStatement query = connection.prepareStatement(QUERY);
+            // Return generated keys permite saber qué se insertó
+            PreparedStatement query = connection.prepareStatement(QUERY, Statement.RETURN_GENERATED_KEYS);
             query.setString(1, item.getNombre_grupo());
 
-            int updated = query.executeUpdate();
+            query.executeUpdate();
+            
+            int inserted; 
+            
+            ResultSet rs = query.getGeneratedKeys();
+            if(rs.next()) inserted = rs.getInt("id");
+            else inserted = -1;
+            
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
-                    + " > Registros actualizados: " + updated);
-            return  updated > 0;
+                    + " > Creado grupo: " + inserted);
+            return  inserted;
 
         } catch (SQLException ex) {
-            return false;
+              ServerLog.log(this, MSG_QUERY_ERROR + ": " + QUERY
+                    + "\n\t> " + ex.getMessage());
+            return -1;
         }
     }
     

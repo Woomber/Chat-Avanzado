@@ -21,8 +21,13 @@ public class CreateGrupoRequest extends Paquete {
 
     // Parámetros
     public static final String PARAM_MIEMBROS = "miembros";
-    public static final String PARAM_MIEMBRO1 = "miembros";//funciona?
+    /*public static final String PARAM_MIEMBRO1 = "miembros";//funciona?
     public static final String PARAM_MIEMBRO2 = "miembros";//
+    */
+    // Lo ideal es que se use el arreglo, porque se puede crear un grupo con
+    // más de dos usuarios por vez, además, dos parámetros no pueden llevar
+    // el mismo nombre
+    
     public static final String PARAM_NOMBRE_GRUPO = "nombre";
 
     private transient final ArrayList<String> usernames;

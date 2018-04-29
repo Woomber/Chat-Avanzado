@@ -17,7 +17,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
     
     private static final String BD_TABLE = "usuario_grupo";
     
-     public ArrayList<UsuarioGrupo> getAllUsuarios(String id_grupo) {
+     public ArrayList<UsuarioGrupo> getAllUsuarios(int id_grupo) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_grupo =" + id_grupo;
 
         try {
@@ -99,7 +99,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
         }
     }
     public boolean eliminarGrupo(int id) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo"+id;
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = "+id;
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);

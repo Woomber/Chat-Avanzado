@@ -18,6 +18,13 @@ import chat.server.database.MensajeVistoConnector;
 import chat.server.database.UsuarioGrupoConnector;
 import chat.server.vinculo.Vinculo;
 
+
+/*
+
+Aquí había un problema: esta clase no modifica grupos, sino personas en un grupo
+
+*/
+
 /**
  *
  * @author Maritza
@@ -25,10 +32,14 @@ import chat.server.vinculo.Vinculo;
 public class AlterGrupoHandler implements Handler {
     
     private final AlterGrupoRequest.Operacion operacion;
-    private final Grupo grup;
+    //private final Grupo grup;
+    
+    private final UsuarioGrupo ug;
 
-    public AlterGrupoHandler( AlterGrupoRequest request) {
-         String op = request.getValue(AlterGrupoRequest.PARAM_OPERACION);
+    // Te faltaba el throws
+    public AlterGrupoHandler( AlterGrupoRequest request) throws InvalidOperationException {
+         
+        String op = request.getValue(AlterGrupoRequest.PARAM_OPERACION);
         if (op.equals(AlterGrupoRequest.Operacion.ADD.getName())) {
             operacion = AlterGrupoRequest.Operacion.ADD;
         } else if (op.equals(AlterGrupoRequest.Operacion.REMOVE.getName())) {
@@ -37,10 +48,10 @@ public class AlterGrupoHandler implements Handler {
             throw new InvalidOperationException("Operación inválida");
         }
 
-        grup = new Grupo();
-
-        grup.setId_grupo(request.getValue(AlterGrupoRequest.PARAM_GRUPO));
-        grup.setNombre_grupo(request.getValue(AlterGrupoRequest.PARAM_USUARIO));
+        ug = new UsuarioGrupo();
+        ug.setId_grupo(Integer.parseInt(request.getValue(AlterGrupoRequest.PARAM_GRUPO)));
+        ug.setId_usuario(request.getValue(AlterGrupoRequest.PARAM_USUARIO));
+        ug.setStatus(false);
 
     }
     
@@ -55,13 +66,18 @@ public class AlterGrupoHandler implements Handler {
 
         switch (operacion) {
             case ADD:
-                correct = connector.addGrupo(grup);
+                correct = usua.add(ug);
                 break;
             case REMOVE:
-                correct = visto.eliminar(grup.getId_grupo());
-                correct = connme.eliminar(grup.getId_grupo());
-                correct = usua.eliminarGrupo(grup.getId_grupo());
-                correct = connector.eliminarGrupo(grup.getId_grupo());
+                // Eliminar integrante
+                correct = usua.eliminar(ug);
+                // Si hay menos de dos personas, eliminar grupo
+                if(usua.getAllUsuarios(ug.getId_grupo()).size() < 2){
+                    correct = visto.eliminar(ug.getId_grupo()) && correct;
+                    correct = connme.eliminar(ug.getId_grupo()) && correct;
+                    correct = usua.eliminarGrupo(ug.getId_grupo()) && correct;
+                    correct = connector.eliminarGrupo(ug.getId_grupo()) && correct;
+                }
                 break;
         }
 

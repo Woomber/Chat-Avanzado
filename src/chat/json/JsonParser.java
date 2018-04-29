@@ -99,5 +99,25 @@ public class JsonParser {
                 "Convertido JSON a " + usuario.toString() + " > " + json);
         return usuario;
     }
+    
+        /**
+     * Convierte una cadena JSON a un arreglo de Usuarios
+     * @param json La estructura JSON a convertir
+     * @return El arreglo resultante
+     * @throws JsonParserException En caso de recibir JSON inválido
+     */
+    public static String[] JsonToStrings(String json) throws JsonParserException {
+        String[] strings;
+
+        try {
+            strings = JSON.fromJson(json, String[].class);
+        } catch (JsonSyntaxException ex) {
+            throw new JsonParserException(ex.getMessage());
+        }
+
+        ServerLog.log(JsonParser.class,
+                "Convertido JSON a " + strings.toString() + " > " + json);
+        return strings;
+    }
 
 }
