@@ -45,7 +45,7 @@ public class HiloReceiver extends Hilo implements Runnable {
             this.operation(paquete);
         } catch (JsonParserException ex) {
             ServerLog.log(this, "Error procesando solicitud, cerrando " + socket.toString());
-            this.stop();
+            vinculo.stop();
         }
     }
 
