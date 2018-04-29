@@ -87,6 +87,9 @@ public class HiloReceiver extends Hilo implements Runnable {
                 }
                 break;
                 
+            case MensajeRequest.ORDEN:
+                response = new MensajeHandler((MensajeRequest) paquete, vinculo).run();
+                break;
                 
             ////////////////////////////////////////////////////////////////////
             // GRUPOS
