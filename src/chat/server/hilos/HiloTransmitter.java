@@ -44,7 +44,7 @@ public class HiloTransmitter extends Hilo implements Runnable {
     public void run() {
         try {
             this.send(socket, JsonParser.paqueteToJson(paquete));
-            Paquete reply = JsonParser.JsonToPaquete(this.get(socket));
+            Paquete reply = JsonParser.jsonToPaquete(this.get(socket));
             
 
             String status = reply.getValue(GenericResponse.PARAM_STATUS);

@@ -41,7 +41,7 @@ public class HiloReceiver extends Hilo implements Runnable {
     private void getJson() {
         try {
             String json = this.get(socket);
-            Paquete paquete = JsonParser.JsonToPaquete(json);
+            Paquete paquete = JsonParser.jsonToPaquete(json);
             this.operation(paquete);
         } catch (JsonParserException ex) {
             ServerLog.log(this, "Error procesando solicitud, cerrando " + socket.toString());
@@ -74,7 +74,6 @@ public class HiloReceiver extends Hilo implements Runnable {
                 vinculo.stop();
                 return;
                 
-            ////////////////////////////////////////////////////////////////////
             case RegistroRequest.ORDEN:  
                 response = new RegistroHandler(paquete).run();
                 break;
@@ -97,9 +96,34 @@ public class HiloReceiver extends Hilo implements Runnable {
                 
             ////////////////////////////////////////////////////////////////////
             // GRUPOS
+            case CreateGrupoRequest.ORDEN:
+                response = new CreateGrupoHandler(paquete).run();
+                break;
                 
+            case AlterGrupoRequest.ORDEN:
+                try {
+                    response = new AlterGrupoHandler(paquete).run();
+                } catch (InvalidOperationException ex) {
+                    response = new GenericResponse(GenericResponse.Status.BAD_REQUEST);
+                }
+                break;
                 
+            case GruposUsuarioRequest.ORDEN:
+                response = new GruposUsuarioHandler(vinculo).run();
+                break;
+                
+            case GrupoRequest.ORDEN:
+                response = new GrupoHandler(paquete, vinculo).run();
+                break;
+                
+            case ReplyGrupoRequest.ORDEN:
+                response = new ReplyGrupoHandler(paquete, vinculo).run();
+                break;
 
+            case MensajeGrupoRequest.ORDEN:
+                response = new MensajeGrupoHandler(paquete, vinculo).run();
+                break;
+                
             ////////////////////////////////////////////////////////////////////
 
             default:

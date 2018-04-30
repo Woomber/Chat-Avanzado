@@ -18,4 +18,14 @@ public class MensajeSerializable implements Serializable {
         this.origen = username;
         this.mensaje = nombre;
     }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+    
+    
 }

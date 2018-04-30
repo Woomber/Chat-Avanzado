@@ -16,10 +16,11 @@ public class MensajeConnector extends SqlConnector{
     private static final String BD_TABLE = "mensaje";
     
     public ArrayList<Mensaje> getAll(int id_grupo) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_grupo =" + id_grupo;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id_grupo);
             ResultSet rs = query.executeQuery();
 
             ArrayList<Mensaje> resultados = new ArrayList<>();
@@ -44,10 +45,12 @@ public class MensajeConnector extends SqlConnector{
         }
     }
     public ArrayList<Mensaje> getUsuario(int id_grupo, String id_usuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_grupo = " + id_grupo +" and username="+ id_usuario;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id_grupo = ? and username = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id_grupo);
+            query.setString(2, id_usuario);
             ResultSet rs = query.executeQuery();
 
             ArrayList<Mensaje> resultados = new ArrayList<>();
@@ -72,14 +75,13 @@ public class MensajeConnector extends SqlConnector{
         }
     }
     public boolean add(Mensaje item) {
-        final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?, ?, ?, ?)";
+        final String QUERY = "INSERT INTO " + BD_TABLE + "(username, texto, id_grupo) VALUES(?, ?, ?)";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
-            query.setInt(1, item.getId_mensaje_grupal());
-            query.setString(2, item.getId_usuario());
-            query.setString(3, item.getTexto());
-            query.setInt(4, item.getId_grupo());
+            query.setString(1, item.getId_usuario());
+            query.setString(2, item.getTexto());
+            query.setInt(3, item.getId_grupo());
 
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
@@ -91,10 +93,11 @@ public class MensajeConnector extends SqlConnector{
         }
     }
     public boolean eliminar(int grupo) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo ="+ grupo;
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, grupo);
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
                     + " > Registros actualizados: " + updated);

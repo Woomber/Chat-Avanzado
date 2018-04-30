@@ -5,51 +5,72 @@
  */
 package chat.server.handlers;
 
-import chat.json.JsonParser;
-import chat.models.Grupo;
 import chat.models.Mensaje;
+import chat.models.MensajeVisto;
 import chat.models.UsuarioGrupo;
 import chat.paquetes.models.Paquete;
-import chat.paquetes.requests.GruposRequest;
-import chat.paquetes.responses.GruposResponse;
-import chat.server.database.GrupoConnector;
+import chat.paquetes.requests.GrupoRequest;
+import chat.paquetes.responses.GrupoResponse;
 import chat.server.database.MensajeConnector;
+import chat.server.database.MensajeVistoConnector;
 import chat.server.database.UsuarioGrupoConnector;
+import chat.server.vinculo.Vinculo;
 import java.util.ArrayList;
 
 /**
  *
  * @author Maritza
- *//*
-public class GrupoHandler implements Handler{
-    private final GruposRequest request;
+ */
+public class GrupoHandler implements Handler {
 
-    public GrupoHandler(GruposRequest request) {
-     this.request = request;
+    private final Paquete request;
+    private final Vinculo vinculo;
+
+    public GrupoHandler(Paquete request, Vinculo vinculo) {
+        this.request = request;
+        this.vinculo = vinculo;
     }
 
     @Override
     public Paquete run() {
-      UsuarioGrupoConnector x = new UsuarioGrupoConnector();
-      
-      UsuarioGrupo resultados = new UsuarioGrupo();
-      resultados = x.getUsuario(request.getValue(GruposRequest.PARAM_USUARIO), Integer.parseInt(request.getValue(GruposRequest.PARAM_GRUPO)));
-      GruposResponse.Status status;
-      if(resultados.isStatus()){
-          status = GruposResponse.Status.IN_GROUP;
-      }
-      else status = GruposResponse.Status.PENDING;
-      GruposResponse res = new GruposResponse(resultados.getId_grupo(),resultados.getId_usuario(),status);
-      
-      ArrayList<UsuarioGrupo> u = x.getAllUsuarios(Integer.parseInt(request.getValue(GruposRequest.PARAM_GRUPO)));
-      for(UsuarioGrupo usr : u){
-          res.addMiembro(usr.getId_usuario());
-      }
-      
-      return res;
-      //m.getGrupo(request.getValue(GruposRequest.PARAM_USUARIO));
-      
-      
+        UsuarioGrupoConnector x = new UsuarioGrupoConnector();
+
+        UsuarioGrupo resultados;
+        resultados = x.getUsuario( vinculo.getUsername(),
+                Integer.parseInt(request.getValue(GrupoRequest.PARAM_GRUPO)));
+        GrupoResponse.Status status;
+        if (resultados.isStatus()) {
+            status = GrupoResponse.Status.IN_GROUP;
+        } else {
+            status = GrupoResponse.Status.PENDING;
+        }
+        GrupoResponse response = new GrupoResponse(resultados.getId_grupo(), vinculo.getUsername(), status);
+
+        ArrayList<UsuarioGrupo> miembros = x.getAllUsuarios(Integer.parseInt(request.getValue(GrupoRequest.PARAM_GRUPO)));
+        
+        // Obtener todos los miembros del grupo
+        for (UsuarioGrupo usr : miembros) {
+            response.addMiembro(usr.getId_usuario());
+        }
+        
+        // Obtener todos los mensajes del grupo
+        ArrayList<Mensaje> mensajes = new MensajeConnector().getAll(resultados.getId_grupo());
+        MensajeVistoConnector vistos = new MensajeVistoConnector();
+        
+        // Para cada mensaje
+        for(Mensaje m : mensajes){
+            // Si el usuario ya lo ha visto, eliminarlo de la lista que se mandará
+            if(vistos.get(m.getId_mensaje_grupal(), vinculo.getUsername()) != null){
+                mensajes.remove(m);
+            // Si no lo ha visto, agregarlo a la lista que se mandará y marcarlo como visto
+            } else {
+                response.addMensaje(m.getId_usuario(), m.getTexto());
+                vistos.add(new MensajeVisto(m.getId_mensaje_grupal(), vinculo.getUsername()));
+            }
+        }
+        response.finish();
+
+        return response;
     }
-    
-}*/
+
+}

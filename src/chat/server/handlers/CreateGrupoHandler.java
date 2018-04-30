@@ -21,15 +21,15 @@ public class CreateGrupoHandler implements Handler{
     // Arreglo de usuarios
     private final ArrayList<UsuarioGrupo> usuarios;
     
-    public CreateGrupoHandler (CreateGrupoRequest request){
+    public CreateGrupoHandler (Paquete request){
         
         usuarios = new ArrayList<>();
         
         // Recibir los nombres de usuarios del paquete
         String [] miembros;
         try {
-            //Recuerda que miembros es un json, y por lo tanto hay que desempacarlo
-            miembros = JsonParser.JsonToStrings(request.getValue(CreateGrupoRequest.PARAM_MIEMBROS));
+            // miembros es un json, y por lo tanto hay que desempacarlo
+            miembros = JsonParser.jsonToStrings(request.getValue(CreateGrupoRequest.PARAM_MIEMBROS));
             
             // Agregar cada usuario
             for(String str : miembros){

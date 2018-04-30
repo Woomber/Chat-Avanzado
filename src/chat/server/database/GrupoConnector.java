@@ -18,11 +18,12 @@ public class GrupoConnector extends SqlConnector{
     private static final String BD_TABLE = "grupo";
     
     public ArrayList<Grupo> getGrupo(String usuario) {
-        final String QUERY = "SELECT grupo.id, grupo.nombre FROM grupo, " + BD_TABLE + 
-                "WHERE usuario_grupo.username =" + usuario + "and usuario_grupo.id_grupo=grupo.id";
+        final String QUERY = "SELECT grupo.id, grupo.nombre FROM usuario_grupo, " + BD_TABLE + 
+                " WHERE usuario_grupo.username = ? and usuario_grupo.id_grupo=grupo.id";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, usuario);
             ResultSet rs = query.executeQuery();
 
             ArrayList<Grupo> resultados = new ArrayList<>();
@@ -72,10 +73,11 @@ public class GrupoConnector extends SqlConnector{
     }
     
     public boolean eliminarGrupo(int id_grupo) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id =" + id_grupo;
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id_grupo);
 
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY

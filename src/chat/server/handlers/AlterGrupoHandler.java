@@ -5,7 +5,7 @@ import chat.models.Grupo;
 import chat.models.UsuarioGrupo;
 import chat.paquetes.models.Paquete;
 import chat.paquetes.requests.AlterGrupoRequest;
-import chat.paquetes.requests.GruposRequest;
+import chat.paquetes.requests.GrupoRequest;
 import chat.paquetes.responses.GenericResponse;
 import chat.server.database.GrupoConnector;
 import chat.server.database.MensajeConnector;
@@ -14,9 +14,6 @@ import chat.server.database.UsuarioGrupoConnector;
 import chat.server.vinculo.Vinculo;
 
 
-/*
-Aquí había un problema: esta clase no modifica grupos, sino personas en un grupo
-*/
 
 /**
  *
@@ -25,12 +22,10 @@ Aquí había un problema: esta clase no modifica grupos, sino personas en un gru
 public class AlterGrupoHandler implements Handler {
     
     private final AlterGrupoRequest.Operacion operacion;
-    //private final Grupo grup;
     
     private final UsuarioGrupo ug;
 
-    // Te faltaba el throws
-    public AlterGrupoHandler( AlterGrupoRequest request) throws InvalidOperationException {
+    public AlterGrupoHandler(Paquete request) throws InvalidOperationException {
          
         String op = request.getValue(AlterGrupoRequest.PARAM_OPERACION);
         if (op.equals(AlterGrupoRequest.Operacion.ADD.getName())) {

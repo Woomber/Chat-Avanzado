@@ -44,7 +44,7 @@ public class UsuarioConnector extends SqlConnector {
     }
     
      public ArrayList<Usuario> getUsuario(String idUsuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username = ?";
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);

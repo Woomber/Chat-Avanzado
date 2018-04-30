@@ -1,6 +1,7 @@
 package chat.json;
 
 import chat.exceptions.JsonParserException;
+import chat.models.serializables.MensajeSerializable;
 import chat.models.serializables.UsuarioSerializable;
 import chat.paquetes.models.Paquete;
 import chat.server.log.ServerLog;
@@ -48,19 +49,19 @@ public class JsonParser {
      * @return El paquete resultante
      * @throws JsonParserException En caso de que la cadena no sea JSON válido
      */
-    public static Paquete JsonToPaquete(String json) throws JsonParserException {
-        Paquete mensaje;
+    public static Paquete jsonToPaquete(String json) throws JsonParserException {
+        Paquete paquete;
 
         try {
-            mensaje = JSON.fromJson(json, Paquete.class);
+            paquete = JSON.fromJson(json, Paquete.class);
             ServerLog.log(JsonParser.class,
-                    "Convertido JSON a " + mensaje.toString() + " > " + json);
-            ServerLog.logPaquete(mensaje);
+                    "Convertido JSON a " + paquete.toString() + " > " + json);
+            ServerLog.logPaquete(paquete);
         } catch (JsonSyntaxException | NullPointerException ex) {
             throw new JsonParserException(ex.getMessage());
         }
 
-        return mensaje;
+        return paquete;
     }
 
     /**
@@ -91,7 +92,7 @@ public class JsonParser {
      * @return El arreglo resultante
      * @throws JsonParserException En caso de recibir JSON inválido
      */
-    public static UsuarioSerializable[] JsonToUsuarios(String json) throws JsonParserException {
+    public static UsuarioSerializable[] jsonToUsuarios(String json) throws JsonParserException {
         UsuarioSerializable[] usuario;
 
         try {
@@ -106,13 +107,13 @@ public class JsonParser {
     }
 
     /**
-     * Convierte una cadena JSON a un arreglo de Usuarios
+     * Convierte una cadena JSON a un arreglo de Cadenas
      *
      * @param json La estructura JSON a convertir
      * @return El arreglo resultante
      * @throws JsonParserException En caso de recibir JSON inválido
      */
-    public static String[] JsonToStrings(String json) throws JsonParserException {
+    public static String[] jsonToStrings(String json) throws JsonParserException {
         String[] strings;
 
         try {
@@ -124,6 +125,48 @@ public class JsonParser {
         ServerLog.log(JsonParser.class,
                 "Convertido JSON a " + strings.toString() + " > " + json);
         return strings;
+    }
+    
+        /**
+     * Convierte una cadena JSON a un arreglo de Enteros
+     *
+     * @param json La estructura JSON a convertir
+     * @return El arreglo resultante
+     * @throws JsonParserException En caso de recibir JSON inválido
+     */
+    public static Integer[] jsonToIntegers(String json) throws JsonParserException {
+        Integer[] ints;
+
+        try {
+            ints = JSON.fromJson(json, Integer[].class);
+        } catch (JsonSyntaxException | NullPointerException ex) {
+            throw new JsonParserException(ex.getMessage());
+        }
+
+        ServerLog.log(JsonParser.class,
+                "Convertido JSON a " + ints.toString() + " > " + json);
+        return ints;
+    }
+    
+        /**
+     * Convierte una cadena JSON a un arreglo de Mensajes
+     *
+     * @param json La estructura JSON a convertir
+     * @return El arreglo resultante
+     * @throws JsonParserException En caso de recibir JSON inválido
+     */
+    public static MensajeSerializable[] jsonToMensajes(String json) throws JsonParserException {
+        MensajeSerializable[] mensajes;
+
+        try {
+            mensajes = JSON.fromJson(json, MensajeSerializable[].class);
+        } catch (JsonSyntaxException | NullPointerException ex) {
+            throw new JsonParserException(ex.getMessage());
+        }
+
+        ServerLog.log(JsonParser.class,
+                "Convertido JSON a " + mensajes.toString() + " > " + json);
+        return mensajes;
     }
 
 }

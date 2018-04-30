@@ -17,10 +17,11 @@ public class UsuarioGrupoConnector extends SqlConnector{
     private static final String BD_TABLE = "usuario_grupo";
     
      public ArrayList<UsuarioGrupo> getAllUsuarios(int id_grupo) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE id_grupo =" + id_grupo;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id_grupo);
             ResultSet rs = query.executeQuery();
 
             ArrayList<UsuarioGrupo> resultados = new ArrayList<>();
@@ -44,10 +45,12 @@ public class UsuarioGrupoConnector extends SqlConnector{
         }
     }
      public UsuarioGrupo getUsuario(String id, int id_grupo) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + id + "and id_grupo ="+ id_grupo;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ? and id_grupo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, id);
+            query.setInt(2, id_grupo);
             ResultSet rs = query.executeQuery();
 
             UsuarioGrupo resultados = new UsuarioGrupo();
@@ -69,10 +72,11 @@ public class UsuarioGrupoConnector extends SqlConnector{
     }
      
      public ArrayList<UsuarioGrupo> getGrupos(String id) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + id;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, id);
             ResultSet rs = query.executeQuery();
 
             ArrayList<UsuarioGrupo> resultados = new ArrayList<>();
@@ -133,7 +137,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
     }
     
     public boolean eliminar(UsuarioGrupo item) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + "WHERE username = ? and id_grupo = ?";
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = ? and id_grupo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
@@ -150,10 +154,11 @@ public class UsuarioGrupoConnector extends SqlConnector{
         }
     }
     public boolean eliminarGrupo(int id) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = "+id;
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id);
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
                     + " > Registros actualizados: " + updated);

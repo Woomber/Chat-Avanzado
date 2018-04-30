@@ -11,18 +11,18 @@ import chat.server.log.ServerLog;
  * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
-public class GruposRequest extends Paquete {
+public class GrupoRequest extends Paquete {
 
     // Orden que identifica al tipo de paquete
-    public static final String ORDEN = "request-grupos";
+    public static final String ORDEN = "request-grupo";
+    
+    // Parámetros
     public static final String PARAM_GRUPO = "grupo";
-    public static final String PARAM_USUARIO = "usuario";
 
-    public GruposRequest(int grupo, String usuario) {
+    public GrupoRequest(int grupo) {
         super(ORDEN);
         try {
             this.addParam(PARAM_GRUPO, String.valueOf(grupo));
-            this.addParam(PARAM_USUARIO, usuario);
         } catch (PaqueteException ex) {
             ServerLog.log(AlterGrupoRequest.class, ex.getMessage());
         }

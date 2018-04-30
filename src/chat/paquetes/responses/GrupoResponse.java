@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
-public class GruposResponse extends Paquete {
+public class GrupoResponse extends Paquete {
 
     // Orden que identifica al tipo de paquete
     public static final String ORDEN = "response-grupo";
@@ -32,7 +32,7 @@ public class GruposResponse extends Paquete {
     private transient final ArrayList<String> usernames;
     private transient final ArrayList<MensajeSerializable> mensajes;
     
-    public GruposResponse(int id, String nombre, Status status) {
+    public GrupoResponse(int id, String nombre, Status status) {
         super(ORDEN);
         usernames = new ArrayList<>();
         mensajes = new ArrayList<>();
@@ -41,7 +41,7 @@ public class GruposResponse extends Paquete {
             this.addParam(PARAM_NOMBRE_GRUPO, nombre);
             this.addParam(PARAM_STATUS, status.getName());
         } catch (PaqueteException ex){
-             ServerLog.log(GruposResponse.class, ex.getMessage());
+             ServerLog.log(GrupoResponse.class, ex.getMessage());
         }
        
     }
