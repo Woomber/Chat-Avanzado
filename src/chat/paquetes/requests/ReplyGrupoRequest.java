@@ -19,13 +19,15 @@ public class ReplyGrupoRequest extends Paquete {
 
     // Parámetros
     public static final String PARAM_GROUP = "grupo";
+    public static final String PARAM_USUARIO = "usuario";
     public static final String ACCEPTED = "accepted";
 
-    public ReplyGrupoRequest(int grupo, boolean accepted) {
+    public ReplyGrupoRequest(int grupo, boolean accepted, String usuario) {
         super(ORDEN);
         try {
             this.addParam(PARAM_GROUP, String.valueOf(grupo));
             this.addParam(ACCEPTED, String.valueOf(accepted));
+            this.addParam(PARAM_USUARIO, String.valueOf(usuario));
         } catch (PaqueteException ex) {
             ServerLog.log(ReplyGrupoRequest.class, ex.getMessage());
         }
