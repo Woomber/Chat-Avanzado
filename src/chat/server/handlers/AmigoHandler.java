@@ -17,7 +17,7 @@ public class AmigoHandler implements Handler {
     private final AmigoRequest.Operacion operacion;
     private final Amigo amigo;
 
-    public AmigoHandler(AmigoRequest request, Vinculo vinculo) throws InvalidOperationException {
+    public AmigoHandler(Paquete request, Vinculo vinculo) throws InvalidOperationException {
 
         String op = request.getValue(AmigoRequest.PARAM_OPERACION);
         if (op.equals(AmigoRequest.Operacion.ADD.getName())) {

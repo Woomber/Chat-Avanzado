@@ -63,7 +63,7 @@ public class HiloReceiver extends Hilo implements Runnable {
         switch (paquete.getOrden()) {
             
             case LoginRequest.ORDEN:
-                response = new LoginHandler((LoginRequest) paquete, vinculo, socket).run();
+                response = new LoginHandler(paquete, vinculo, socket).run();
                 break;
 
             //Caso especial, desconectamos
@@ -76,19 +76,19 @@ public class HiloReceiver extends Hilo implements Runnable {
                 
             ////////////////////////////////////////////////////////////////////
             case RegistroRequest.ORDEN:  
-                response = new RegistroHandler((RegistroRequest) paquete).run();
+                response = new RegistroHandler(paquete).run();
                 break;
                 
             case AmigoRequest.ORDEN:
                 try {
-                    response = new AmigoHandler((AmigoRequest) paquete, vinculo).run();   
+                    response = new AmigoHandler(paquete, vinculo).run();   
                 } catch (InvalidOperationException ex) {
                     response = new GenericResponse(GenericResponse.Status.BAD_REQUEST);
                 }
                 break;
                 
             case MensajeRequest.ORDEN:
-                response = new MensajeHandler((MensajeRequest) paquete, vinculo).run();
+                response = new MensajeHandler(paquete, vinculo).run();
                 break;
                 
             case UsuariosRequest.ORDEN:

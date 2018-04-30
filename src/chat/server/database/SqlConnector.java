@@ -17,7 +17,7 @@ abstract class SqlConnector {
     protected Connection connection;
 
     // Detalles conexión
-    private static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/coco";
+    private static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/cocochat";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
 

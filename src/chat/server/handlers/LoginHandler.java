@@ -26,7 +26,7 @@ public class LoginHandler implements Handler {
     private final String username;
     private final String password;
 
-    public LoginHandler(LoginRequest request, Vinculo vinculo, Socket socketRx) {
+    public LoginHandler(Paquete request, Vinculo vinculo, Socket socketRx) {
         this.vinculo = vinculo;
         this.socketRx = socketRx;
 

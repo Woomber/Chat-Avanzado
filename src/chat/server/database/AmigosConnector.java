@@ -16,17 +16,18 @@ public class AmigosConnector extends SqlConnector{
     private static final String BD_TABLE = "amigos";
     
     public ArrayList<Amigo> getAll(String id_usuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + id_usuario;
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, id_usuario);
             ResultSet rs = query.executeQuery();
 
             ArrayList<Amigo> resultados = new ArrayList<>();
 
             while (rs.next()) {
                 Amigo item = new Amigo();
-                item.setId_usuario(rs.getString("id_usuario"));
+                item.setId_usuario(rs.getString("username"));
                 item.setApodo(rs.getString("apodo"));
                 item.setAmigo(rs.getString("amigo"));
                 
@@ -49,8 +50,8 @@ public class AmigosConnector extends SqlConnector{
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
             query.setString(1, item.getId_usuario());
-            query.setString(2, item.getApodo());
-            query.setString(3, item.getAmigo());
+            query.setString(3, item.getApodo());
+            query.setString(2, item.getAmigo());
 
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY

@@ -14,7 +14,7 @@ public class RegistroHandler implements Handler {
 
     public Usuario usuario;
     
-    public RegistroHandler(RegistroRequest request){
+    public RegistroHandler(Paquete request){
         usuario = new Usuario();
         usuario.setId_usuario(request.getValue(RegistroRequest.PARAM_USERNAME).trim());
         usuario.setContrasena(request.getValue(RegistroRequest.PARAM_PASSWORD));

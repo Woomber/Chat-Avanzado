@@ -21,9 +21,11 @@ public class JsonParser {
 
     /**
      * Convierte un objeto de tipo Paquete a una estructura JSON
+     *
      * @param paquete El paquete a convertir
      * @return La cadena con la estructura JSON
-     * @throws JsonParserException En caso de que el paquete no se pueda serializar
+     * @throws JsonParserException En caso de que el paquete no se pueda
+     * serializar
      */
     public static String paqueteToJson(Paquete paquete) throws JsonParserException {
         String json;
@@ -41,6 +43,7 @@ public class JsonParser {
 
     /**
      * Convierte una cadena JSON a un objeto tipo Paquete
+     *
      * @param json El JSON a convertir
      * @return El paquete resultante
      * @throws JsonParserException En caso de que la cadena no sea JSON válido
@@ -50,18 +53,19 @@ public class JsonParser {
 
         try {
             mensaje = JSON.fromJson(json, Paquete.class);
-        } catch (JsonSyntaxException ex) {
+            ServerLog.log(JsonParser.class,
+                    "Convertido JSON a " + mensaje.toString() + " > " + json);
+            ServerLog.logPaquete(mensaje);
+        } catch (JsonSyntaxException | NullPointerException ex) {
             throw new JsonParserException(ex.getMessage());
         }
 
-        ServerLog.log(JsonParser.class,
-                "Convertido JSON a " + mensaje.toString() + " > " + json);
-        ServerLog.logPaquete(mensaje);
         return mensaje;
     }
 
     /**
      * Convierte un arreglo de objetos a JSON
+     *
      * @param objetos El arreglo a convertir
      * @return La cadena con la estructura JSON
      * @throws JsonParserException En caso de no poder convertir el arreglo
@@ -82,6 +86,7 @@ public class JsonParser {
 
     /**
      * Convierte una cadena JSON a un arreglo de Usuarios
+     *
      * @param json La estructura JSON a convertir
      * @return El arreglo resultante
      * @throws JsonParserException En caso de recibir JSON inválido
@@ -91,7 +96,7 @@ public class JsonParser {
 
         try {
             usuario = JSON.fromJson(json, UsuarioSerializable[].class);
-        } catch (JsonSyntaxException ex) {
+        } catch (JsonSyntaxException | NullPointerException ex) {
             throw new JsonParserException(ex.getMessage());
         }
 
@@ -99,9 +104,10 @@ public class JsonParser {
                 "Convertido JSON a " + usuario.toString() + " > " + json);
         return usuario;
     }
-    
-        /**
+
+    /**
      * Convierte una cadena JSON a un arreglo de Usuarios
+     *
      * @param json La estructura JSON a convertir
      * @return El arreglo resultante
      * @throws JsonParserException En caso de recibir JSON inválido
@@ -111,7 +117,7 @@ public class JsonParser {
 
         try {
             strings = JSON.fromJson(json, String[].class);
-        } catch (JsonSyntaxException ex) {
+        } catch (JsonSyntaxException | NullPointerException ex) {
             throw new JsonParserException(ex.getMessage());
         }
 

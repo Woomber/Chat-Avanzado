@@ -19,7 +19,7 @@ public class MensajeHandler implements Handler {
     public final String destino;
     public final String mensaje;
     
-    public MensajeHandler(MensajeRequest request, Vinculo vinculo){
+    public MensajeHandler(Paquete request, Vinculo vinculo){
         this.vinculo = vinculo;
         
         origen = vinculo.getUsername();

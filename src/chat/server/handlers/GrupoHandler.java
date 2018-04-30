@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Maritza
- */
+ *//*
 public class GrupoHandler implements Handler{
     private final int grupo;
     private final String usuario;
@@ -39,4 +39,4 @@ public class GrupoHandler implements Handler{
         
     }
     
-}
+}*/

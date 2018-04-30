@@ -26,8 +26,8 @@ public class UsuarioConnector extends SqlConnector {
 
             while (rs.next()) {
                 Usuario item = new Usuario();
-                item.setId_usuario(rs.getString("id_usuario"));
-                item.setContrasena(rs.getString("contrasena"));
+                item.setId_usuario(rs.getString("username"));
+                item.setContrasena(rs.getString("password"));
                 item.setNombre(rs.getString("nombre"));
                 
                 resultados.add(item);
@@ -43,19 +43,20 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
     
-     public ArrayList<Usuario> getUsuario(int idUsuario) {
-        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + idUsuario;
+     public ArrayList<Usuario> getUsuario(String idUsuario) {
+        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, idUsuario);
             ResultSet rs = query.executeQuery();
 
             ArrayList<Usuario> resultados = new ArrayList<>();
 
             while (rs.next()) {
                 Usuario item = new Usuario();
-                item.setId_usuario(rs.getString("id_usuario"));
-                item.setContrasena(rs.getString("contrasena"));
+                item.setId_usuario(rs.getString("username"));
+                item.setContrasena(rs.getString("password"));
                 item.setNombre(rs.getString("nombre"));
                 
                 resultados.add(item);
@@ -90,10 +91,11 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
     public boolean eliminar(String idUsuario) {
-        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = "+ idUsuario;
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, idUsuario);
 
             int updated = query.executeUpdate();
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
@@ -105,18 +107,20 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
     public boolean verificar(String idUsuario, String contrasena) {
-        final String QUERY = "SELECT *FROM " + BD_TABLE + " WHERE username = "+ idUsuario + "AND password ="+ contrasena;
+        final String QUERY = "SELECT *FROM " + BD_TABLE + " WHERE username = ? AND password = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setString(1, idUsuario);
+            query.setString(2, contrasena);
             ResultSet rs = query.executeQuery();
 
             ArrayList<Usuario> resultados = new ArrayList<>();
 
             while (rs.next()) {
                 Usuario item = new Usuario();
-                item.setId_usuario(rs.getString("id_usuario"));
-                item.setContrasena(rs.getString("contrasena"));
+                item.setId_usuario(rs.getString("username"));
+                item.setContrasena(rs.getString("password"));
                 item.setNombre(rs.getString("nombre"));
                 
                 resultados.add(item);

@@ -34,6 +34,7 @@ public class UsuariosHandler implements Handler {
         usuarios = new UsuarioConnector().getAll();
 
         for (Usuario u : usuarios) {
+            if(amigos == null) continue;
             for (Amigo a : amigos) {
                 if (u.getId_usuario().equals(a.getAmigo())) {
                     usuarios.remove(u);
