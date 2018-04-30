@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package chat.server.handlers;
 
 import chat.exceptions.InvalidOperationException;
@@ -20,9 +15,7 @@ import chat.server.vinculo.Vinculo;
 
 
 /*
-
 Aquí había un problema: esta clase no modifica grupos, sino personas en un grupo
-
 */
 
 /**

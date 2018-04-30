@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package chat.server.handlers;
 
 import chat.exceptions.JsonParserException;
@@ -23,10 +18,6 @@ import java.util.ArrayList;
 public class CreateGrupoHandler implements Handler{
 
     private final Grupo grupo;
-    /*
-    private final UsuarioGrupo usuario1;//me perdi con el array de los usuaros, si que a manita
-    private final UsuarioGrupo usuario2;
-    */
     // Arreglo de usuarios
     private final ArrayList<UsuarioGrupo> usuarios;
     
@@ -51,16 +42,6 @@ public class CreateGrupoHandler implements Handler{
         } catch(JsonParserException ex){
             miembros = null;
         }
-       
-      
-        /*
-        usuario1 = new UsuarioGrupo();
-        usuario2 = new UsuarioGrupo();
-        usuario1.setId_usuario(request.getValue(CreateGrupoRequest.PARAM_MIEMBRO1));
-        usuario2.setId_usuario(request.getValue(CreateGrupoRequest.PARAM_MIEMBRO2));
-        usuario1.setStatus(true);
-        usuario2.setStatus(true);
-        */
         grupo = new Grupo();
         grupo.setNombre_grupo(request.getValue(CreateGrupoRequest.PARAM_NOMBRE_GRUPO));   
     }

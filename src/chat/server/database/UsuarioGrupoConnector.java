@@ -1,6 +1,5 @@
 package chat.server.database;
 
-import chat.models.Grupo;
 import chat.models.UsuarioGrupo;
 import static chat.server.database.SqlConnector.MSG_QUERY_SUCCESS;
 import chat.server.log.ServerLog;
