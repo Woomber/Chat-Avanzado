@@ -43,6 +43,58 @@ public class UsuarioGrupoConnector extends SqlConnector{
             return null;
         }
     }
+     public UsuarioGrupo getUsuario(String id, int id_grupo) {
+        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + id + "and id_grupo ="+ id_grupo;
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
+            ResultSet rs = query.executeQuery();
+
+            UsuarioGrupo resultados = new UsuarioGrupo();
+
+                resultados.setId_grupo(rs.getInt("id_grupo"));
+                resultados.setId_usuario(rs.getString("id_usuario"));
+                resultados.setStatus(rs.getBoolean("status"));
+                
+            
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registro leido");
+            return resultados;
+
+        } catch (SQLException | NullPointerException ex) {
+            ServerLog.log(this, MSG_QUERY_ERROR + ": " + QUERY
+                    + "\n\t> " + ex.getMessage());
+            return null;
+        }
+    }
+     
+     public ArrayList<UsuarioGrupo> getGrupos(String id) {
+        final String QUERY = "SELECT * FROM " + BD_TABLE + "WHERE username =" + id;
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
+            ResultSet rs = query.executeQuery();
+
+            ArrayList<UsuarioGrupo> resultados = new ArrayList<>();
+            
+            while (rs.next()) {
+                UsuarioGrupo item = new UsuarioGrupo();
+                item.setId_grupo(rs.getInt("id_grupo"));
+                item.setId_usuario(rs.getString("id_usuario"));
+                item.setStatus(rs.getBoolean("status"));
+                
+                resultados.add(item);
+            }
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registros leídos: " + resultados.size());
+            return resultados;
+
+        } catch (SQLException | NullPointerException ex) {
+            ServerLog.log(this, MSG_QUERY_ERROR + ": " + QUERY
+                    + "\n\t> " + ex.getMessage());
+            return null;
+        }
+    }
     public boolean add(UsuarioGrupo item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?, ?, ?)";
 

@@ -15,7 +15,7 @@ public class ReplyGrupoHandler implements Handler{
     
     private final UsuarioGrupo us;
 
-    public ReplyGrupoHandler (ReplyGrupoRequest request)throws InvalidOperationException {
+    public ReplyGrupoHandler (ReplyGrupoRequest request){
         us = new UsuarioGrupo();
         us.setId_grupo(Integer.parseInt(request.getValue(ReplyGrupoRequest.PARAM_GROUP)));
         us.setId_usuario(request.getValue(ReplyGrupoRequest.PARAM_USUARIO));
