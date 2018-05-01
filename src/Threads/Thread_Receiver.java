@@ -5,12 +5,14 @@
  */
 package Threads;
 
+import Documents.DocumentManager;
 import Exceptions.JsonParserException;
 import Json.JsonParser;
 import PaquetesEvents.MensajeEvent;
 import PaquetesEvents.UpdateGruposEvent;
 import PaquetesEvents.UpdateUsuariosEvent;
 import PaquetesModels.Paquete;
+import Requests.MensajeRequest;
 import Responses.GenericResponse;
 import Responses.GenericResponse.Status;
 import java.io.BufferedReader;
@@ -50,9 +52,18 @@ public class Thread_Receiver implements Runnable {
             while (true) {
                 String json = read.readLine();
                 Paquete paquete = JsonParser.jsonToPaquete(json);
+                
+                String nombreConversacion;
+                String deQuien;
+                String mensaje;
+                
                 switch(paquete.getOrden()){
                     case MensajeEvent.ORDEN:
                         
+                        deQuien = paquete.getValue(MensajeEvent.PARAM_FROM);
+                        mensaje = paquete.getValue(MensajeEvent.PARAM_MESSAGE);
+                        DocumentManager.SaveMessage(deQuien, deQuien, mensaje, false);
+                       
                         break;
                     case UpdateGruposEvent.ORDEN:
                         
