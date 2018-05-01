@@ -5,6 +5,14 @@
  */
 package Threads;
 
+import Exceptions.JsonParserException;
+import Json.JsonParser;
+import PaquetesEvents.MensajeEvent;
+import PaquetesEvents.UpdateGruposEvent;
+import PaquetesEvents.UpdateUsuariosEvent;
+import PaquetesModels.Paquete;
+import Responses.GenericResponse;
+import Responses.GenericResponse.Status;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,6 +25,8 @@ import java.net.Socket;
  * @author PC
  */
 public class Thread_Receiver implements Runnable {
+    
+    public static Thread_Receiver receiver;
 
     private Thread miHilo;
 
@@ -38,10 +48,24 @@ public class Thread_Receiver implements Runnable {
             BufferedReader read = new BufferedReader(new InputStreamReader(socketRx.getInputStream()));
 
             while (true) {
-                // estar leyendo del socket y actuar con un switch case
-
+                String json = read.readLine();
+                Paquete paquete = JsonParser.jsonToPaquete(json);
+                switch(paquete.getOrden()){
+                    case MensajeEvent.ORDEN:
+                        
+                        break;
+                    case UpdateGruposEvent.ORDEN:
+                        
+                        break;
+                    case UpdateUsuariosEvent.ORDEN:
+                        
+                        break;
+                }
+                GenericResponse response = new GenericResponse(Status.CORRECT);
+                String anotherJson = JsonParser.paqueteToJson(response);
+                pw.write(anotherJson);
             }
-        } catch (IOException ex) {
+        } catch (IOException | JsonParserException ex) {
 
         }
 

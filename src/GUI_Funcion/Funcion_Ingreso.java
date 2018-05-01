@@ -16,6 +16,7 @@ import Requests.LoginRequest;
 import Requests.RegistroRequest;
 import Responses.LoginResponse;
 import Threads.Thread_Receiver;
+import Threads.Thread_Transmitter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,58 +36,73 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
     JTextField usuario;
     JPasswordField contrasena;
 
+    Thread_Transmitter transmitter;
+    Thread_Receiver receiver;
+
     public Funcion_Ingreso() {
         this.usuario = super.getTxtNombre();
         this.contrasena = super.getTxtContrasena();
+        Thread_Transmitter.transmitter = new Thread_Transmitter();
+        Thread_Receiver.receiver = new Thread_Receiver();
+        transmitter = Thread_Transmitter.transmitter;
+        receiver = Thread_Receiver.receiver;
         super.setOnBtnAceptarClick(() -> BtnAceptarClick());
         super.setOnMenuRegistroClick(() -> MenuRegistroClick());
+
     }
 
     private void BtnAceptarClick() {
-        
-        new Thread_Receiver();
-        try {
-
-            Socket socketTx = new Socket("localhost", 90);
-            PrintWriter pw = new PrintWriter(socketTx.getOutputStream(), true);
-            BufferedReader read = new BufferedReader(new InputStreamReader(socketTx.getInputStream()));
-            String json = JsonParser.paqueteToJson((Paquete) new LoginRequest(usuario.getText(), contrasena.getText()));
-            while(true) {
-                pw.println(json);
-                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
-                System.out.println(json);
-                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.REGISTER.getName())) {
-                    new Funcion_Registro().setVisible(true);
-                    this.setVisible(false);
-                }
-                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
-                    Funcion_Principal funcion = new Funcion_Principal();
-                    funcion.setVisible(true);
-                    this.setVisible(false);
-                }
-                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.TRY_AGAIN.getName())) {
-                    break;
-                }
-            }
-            MessageBox.Show("Error", "Inicio de sesión inválido");
-        } catch (IOException | JsonParserException ex) {
-            System.out.println("");
-            System.out.println(ex.getMessage());
-            System.out.println("");
-/*
-            
-            Usuario usuario = new Usuario("erick", "erick", "erick");
-            Usuario.emisor = usuario;
-            new Funcion_Principal().setVisible(true);
-            this.setVisible(false);
-*/
-        }
+        MessageBox.Show("", "Puchurrado");
+        transmitter.setAction(
+                (Socket socket, PrintWriter pw, BufferedReader read)
+                -> NewSesion(socket, pw, read)
+        );
+        transmitter.StartThread();
     }
 
     private void MenuRegistroClick() {
         Funcion_Registro funcion = new Funcion_Registro();
         funcion.setVisible(true);
         this.setVisible(false);
+    }
+
+    private void NewSesion(Socket socket, PrintWriter pw, BufferedReader read) {
+        MessageBox.Show("", "Aqui toy");
+        try {
+            String json = JsonParser.paqueteToJson((Paquete) new LoginRequest(usuario.getText(), contrasena.getText()));
+            while (true) {
+                pw.println(json);
+                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+                System.out.println(json);
+                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.REGISTER.getName())) {
+                    new Funcion_Registro().setVisible(true);
+                    this.setVisible(false);
+                    return;
+                }
+                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
+                    Funcion_Principal funcion = new Funcion_Principal();
+                    funcion.setVisible(true);
+                    this.setVisible(false);
+                    return;
+                }
+                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.TRY_AGAIN.getName())) {
+                    break;
+                }
+            }
+            MessageBox.Show("Error", "Inicio de sesión inválido");
+            return;
+        } catch (IOException | JsonParserException ex) {
+            System.out.println("");
+            System.out.println(ex.getMessage());
+            System.out.println("");
+            /*
+            
+            Usuario usuario = new Usuario("erick", "erick", "erick");
+            Usuario.emisor = usuario;
+            new Funcion_Principal().setVisible(true);
+            this.setVisible(false);
+             */
+        }
     }
 
 }
