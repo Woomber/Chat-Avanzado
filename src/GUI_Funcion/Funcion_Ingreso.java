@@ -52,7 +52,6 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
     }
 
     private void BtnAceptarClick() {
-        MessageBox.Show("", "Puchurrado");
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
                 -> NewSesion(socket, pw, read)
@@ -67,7 +66,6 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
     }
 
     private void NewSesion(Socket socket, PrintWriter pw, BufferedReader read) {
-        MessageBox.Show("", "Aqui toy");
         try {
             String json = JsonParser.paqueteToJson((Paquete) new LoginRequest(usuario.getText(), contrasena.getText()));
             while (true) {
@@ -95,14 +93,8 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
             System.out.println("");
             System.out.println(ex.getMessage());
             System.out.println("");
-            /*
-            
-            Usuario usuario = new Usuario("erick", "erick", "erick");
-            Usuario.emisor = usuario;
-            new Funcion_Principal().setVisible(true);
-            this.setVisible(false);
-             */
         }
+        
     }
 
 }
