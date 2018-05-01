@@ -6,6 +6,7 @@
 package Threads;
 
 import Delegates.TransmitterAction;
+import General.MessageBox;
 import PaquetesModels.Paquete;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,12 +37,7 @@ public class Thread_Transmitter implements Runnable {
 
     public Thread_Transmitter() {
         try {
-<<<<<<< HEAD
             socketTx = new Socket("192.168.0.100", 90);
-=======
-            hilo = new Thread(this);
-            socketTx = new Socket("localhost", 90);
->>>>>>> parent of cce82fb... lo primero ya está
             pw = new PrintWriter(socketTx.getOutputStream(), true);
             read = new BufferedReader(new InputStreamReader(socketTx.getInputStream()));
         } catch (IOException ex) {
@@ -49,6 +45,7 @@ public class Thread_Transmitter implements Runnable {
     }
 
     public void StartThread(){
+        hilo = new Thread(this);
         hilo.start();
     }
     
