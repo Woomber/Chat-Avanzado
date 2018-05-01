@@ -42,7 +42,7 @@ public class JFrame_Registro extends JFrame implements ActionListener{
         /*Ventana*/
         super("Registro");
         this.setResizable(false);
-        setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());/*icono*/
+        setIconImage(new ImageIcon(getClass().getResource("../Images/icono.png")).getImage());/*icono*/
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 250);
 

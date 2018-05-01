@@ -45,13 +45,13 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
     private void loadComponentDetails() {
         /*Ingreso de icono de usuario*/
         ImgUsuario = new JLabel();
-        ImageIcon usuario = new ImageIcon(getClass().getResource("../Imagen/grupo.png"));
+        ImageIcon usuario = new ImageIcon(getClass().getResource("../Images/grupo.png"));
         ImageIcon icono = new ImageIcon(usuario.getImage());
         ImgUsuario.setIcon(icono);
 
         LblUsuario = new JLabel(groupName);
         BtnEliminar = new JButton();
-        ImageIcon eliminar = new ImageIcon(getClass().getResource("../Imagen/eliminar.png"));
+        ImageIcon eliminar = new ImageIcon(getClass().getResource("../Images/eliminar.png"));
         ImageIcon iconoEliminar = new ImageIcon(eliminar.getImage());
         BtnEliminar.setIcon(iconoEliminar);
         BtnEliminar.addActionListener(this);

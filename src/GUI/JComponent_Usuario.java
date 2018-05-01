@@ -41,9 +41,9 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
         ImgUsuario = new JLabel();
         ImageIcon usuario;
         if (isOnline) {
-            usuario = new ImageIcon(getClass().getResource("../Imagen/usuario_enlinea.png"));
+            usuario = new ImageIcon(getClass().getResource("../Images/usuario_enlinea.png"));
         } else {
-            usuario = new ImageIcon(getClass().getResource("../Imagen/usuario.png"));
+            usuario = new ImageIcon(getClass().getResource("../Images/usuario.png"));
         }
         ImageIcon icono = new ImageIcon(usuario.getImage());
         ImgUsuario.setIcon(icono);

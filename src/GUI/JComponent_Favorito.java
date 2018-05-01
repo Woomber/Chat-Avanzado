@@ -49,14 +49,14 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         /*Ingreso de icono de usuario*/
         ImgUsuario = new JLabel();
         ImageIcon usuario;
-        if(isOnline) usuario = new ImageIcon(getClass().getResource("../Imagen/favorito_enlinea.png"));
-        else usuario = new ImageIcon(getClass().getResource("../Imagen/favorito.png"));
+        if(isOnline) usuario = new ImageIcon(getClass().getResource("../Images/favorito_enlinea.png"));
+        else usuario = new ImageIcon(getClass().getResource("../Images/favorito.png"));
         ImageIcon icono = new ImageIcon(usuario.getImage());
         ImgUsuario.setIcon(icono);
         
         LblUsuario = new JLabel(username);
         BtnEliminar = new JButton();
-        ImageIcon eliminar = new ImageIcon(getClass().getResource("../Imagen/eliminar.png"));
+        ImageIcon eliminar = new ImageIcon(getClass().getResource("../Images/eliminar.png"));
         ImageIcon iconoEliminar = new ImageIcon(eliminar.getImage());
         BtnEliminar.setIcon(iconoEliminar);
         BtnEliminar.addActionListener(this);
