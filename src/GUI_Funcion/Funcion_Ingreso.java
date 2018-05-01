@@ -15,6 +15,7 @@ import PaquetesModels.Paquete;
 import Requests.LoginRequest;
 import Requests.RegistroRequest;
 import Responses.LoginResponse;
+import Threads.Thread_Receiver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,13 +43,15 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
     }
 
     private void BtnAceptarClick() {
-        /*try {
-            
+        
+        new Thread_Receiver();
+        try {
+
             Socket socketTx = new Socket("localhost", 90);
             PrintWriter pw = new PrintWriter(socketTx.getOutputStream(), true);
             BufferedReader read = new BufferedReader(new InputStreamReader(socketTx.getInputStream()));
             String json = JsonParser.paqueteToJson((Paquete) new LoginRequest(usuario.getText(), contrasena.getText()));
-            for(int i=0; i<20; i++) {
+            while(true) {
                 pw.println(json);
                 Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
                 System.out.println(json);
@@ -67,12 +70,17 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
             }
             MessageBox.Show("Error", "Inicio de sesión inválido");
         } catch (IOException | JsonParserException ex) {
-
-        }*/
-        Usuario usuario = new Usuario("erick","erick","erick");
-        Usuario.emisor = usuario;
-        new Funcion_Principal().setVisible(true);
-        this.setVisible(false);
+            System.out.println("");
+            System.out.println(ex.getMessage());
+            System.out.println("");
+/*
+            
+            Usuario usuario = new Usuario("erick", "erick", "erick");
+            Usuario.emisor = usuario;
+            new Funcion_Principal().setVisible(true);
+            this.setVisible(false);
+*/
+        }
     }
 
     private void MenuRegistroClick() {
