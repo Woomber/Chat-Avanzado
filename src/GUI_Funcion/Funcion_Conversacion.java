@@ -23,6 +23,14 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     JTextPane PanelConversacion;
     JTextField TxtMensaje;
     
+    public Funcion_Conversacion(){
+        super("Emma",false);
+        TxtMensaje = super.getTxtMensaje();
+        TxtMensaje.setEnabled(false);
+        TxtMensaje.setText("No puedes contestar a esta conversación.");
+        TxtMensaje.setAlignmentX(CENTER_ALIGNMENT);
+    }
+    
     
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
         super(usuario.getNombre(),false);

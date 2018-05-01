@@ -34,6 +34,7 @@ public class JFrame_AgregarFavorito extends JFrame implements ActionListener {
     
     private String user;
 
+    
     public JFrame_AgregarFavorito(String user) {
         /*Ventana*/
         super("Favoritos");

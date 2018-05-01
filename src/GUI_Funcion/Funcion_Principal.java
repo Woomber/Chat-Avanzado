@@ -36,13 +36,7 @@ public class Funcion_Principal extends JFrame_Principal{
     }
     
     private void LoadUsuarios(){
-        for(int i = 0; i < 10; i++){
-            JComponent_Usuario usuario = new JComponent_Usuario("Hola",true);
-            usuario.setOnInformationClick(() -> InformationClick());
-            usuario.setOnMouseEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
-            usuario.setOnMouseLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
-            PanelUsuarios.add(usuario);
-        }
+        
     }
     
     private void LoadGrupos() {

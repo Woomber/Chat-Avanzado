@@ -9,12 +9,14 @@ import Delegates.MouseClick;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
@@ -28,7 +30,7 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
     private JLabel LblGrupo, LblTitulo, Lblespacio, Lblintegrantes;
     private JTextField TxtGrupo;
     private JButton BtnCrear, BtnCancelar;
-    private JTextPane PanelIntegrantes;
+    private JPanel PanelIntegrantes;
     private JScrollPane scrollpane;
     
     private MouseClick OnBtnCrearClick, OnBtnCancelarClick;
@@ -55,10 +57,11 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
         BtnCrear.addActionListener(this);
         BtnCancelar.addActionListener(this);
         
-        PanelIntegrantes = new JTextPane();
+        PanelIntegrantes = new JPanel();
+        PanelIntegrantes.setLayout(new BoxLayout(PanelIntegrantes, BoxLayout.Y_AXIS));
         JScrollPane mC = new JScrollPane(PanelIntegrantes);
 
-        PanelIntegrantes.setEditable(false);
+        //PanelIntegrantes.setEditable(false);
         /* Cambio de fuente de letra  */
         Font auxFont = LblTitulo.getFont();
         LblTitulo.setFont(new Font(auxFont.getFontName(), auxFont.getStyle(), 18));
@@ -121,7 +124,7 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
         return TxtGrupo;
     }
 
-    public JTextPane getPanelIntegrantes() {
+    public JPanel getPanelIntegrantes() {
         return PanelIntegrantes;
     }
 

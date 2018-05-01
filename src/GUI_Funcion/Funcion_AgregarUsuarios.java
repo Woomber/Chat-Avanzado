@@ -5,7 +5,10 @@
  */
 package GUI_Funcion;
 
+import GUI.JComponent_Usuario;
 import GUI.JFrame_AgregarUsuarios;
+import java.awt.Cursor;
+import javax.swing.JPanel;
 
 /**
  *
