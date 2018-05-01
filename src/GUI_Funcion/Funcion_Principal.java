@@ -27,6 +27,7 @@ public class Funcion_Principal extends JFrame_Principal{
         boolean x = true;
         super.setOnBtnGruposClick(() -> BtnGruposClick());
         super.setOnBtnFavoritosClick(() -> BtnFavoritosClick());
+        super.setOnMenuSalirClick(() -> MenuSalirClick());
         PanelUsuarios = super.getPanelUsuarios();
         PanelFavoritos = super.getPanelFavoritos();
         PanelGrupos = super.getPanelGrupos();
@@ -34,6 +35,8 @@ public class Funcion_Principal extends JFrame_Principal{
         LoadGrupos();
         LoadFavoritos();
     }
+    
+    
     
     private void LoadUsuarios(){
         
@@ -55,13 +58,9 @@ public class Funcion_Principal extends JFrame_Principal{
         
     }
 
-    private void InformationClick() {
-        Funcion_Conversacion conversacion;
-        Usuario usuario = new Usuario("emmas","","Emmanuel");
-        conversacion = new Funcion_Conversacion(usuario,false);
-        conversacion.setVisible(true);
+    private void MenuSalirClick() {
+        Usuario.emisor = null;
+        new Funcion_Ingreso().setVisible(true);
+        this.setVisible(false);
     }
-
-    
-    
 }
