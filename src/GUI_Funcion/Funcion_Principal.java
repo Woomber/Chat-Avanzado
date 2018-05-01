@@ -47,7 +47,6 @@ public class Funcion_Principal extends JFrame_Principal{
         
     }
     
-    
     private void BtnGruposClick(){
         
     }
