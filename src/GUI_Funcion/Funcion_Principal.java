@@ -28,6 +28,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.JPanel;
 
 /**
@@ -89,11 +91,15 @@ public class Funcion_Principal extends JFrame_Principal {
             //System.out.println(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] b = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] a = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.AMIGOS));
-
+            
             for (UsuarioSerializable c : b) {
                 if (!(c.username.equals(Usuario.emisor.getId_usuario()))) {
                     JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected);
                     System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+                    com.setOnMouseEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
+                    com.setOnMouseLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
+                    com.setOnInformationClick(() -> {InformationClick(c);});
+                    com.revalidate();
                     PanelUsuarios.add(com);
                 }
             }
@@ -109,6 +115,12 @@ public class Funcion_Principal extends JFrame_Principal {
             System.out.println(ex.getMessage());
             System.out.println("");
         }
+    }
+
+    private void InformationClick(UsuarioSerializable US) {
+        Usuario usuario = new Usuario(US.username,"","");
+        Funcion_Conversacion funcion_conversacion = new Funcion_Conversacion(usuario,US.connected);
+        funcion_conversacion.setVisible(true);
     }
 
 }

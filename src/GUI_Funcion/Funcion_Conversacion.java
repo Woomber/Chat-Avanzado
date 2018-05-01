@@ -5,9 +5,14 @@
  */
 package GUI_Funcion;
 
+import Documents.DocumentManager;
 import GUI.JFrame_Conversacion;
+import General.MessageBox;
 import Models.Grupo;
 import Models.Usuario;
+import Threads.Thread_Transmitter;
+import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -23,14 +28,11 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     JTextPane PanelConversacion;
     JTextField TxtMensaje;
     
-    public Funcion_Conversacion(){
-        super("Emma",false);
-        TxtMensaje = super.getTxtMensaje();
-        TxtMensaje.setEnabled(false);
-        TxtMensaje.setText("No puedes contestar a esta conversación.");
-        TxtMensaje.setAlignmentX(CENTER_ALIGNMENT);
-    }
+    Thread_Transmitter transmitter = Thread_Transmitter.transmitter;
     
+    public Funcion_Conversacion(){
+        super("hola",false);
+    }
     
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
         super(usuario.getNombre(),false);
@@ -45,6 +47,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
             TxtMensaje.setText("No puedes contestar a esta conversación.");
             TxtMensaje.setAlignmentX(CENTER_ALIGNMENT);
         }
+        LoadInformation();
     }
     
     public Funcion_Conversacion(Grupo grupo){
@@ -55,6 +58,27 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
         super.setOnMenuAgregarUsuariosClick(() -> AgregarUsuariosClick());
         super.setOnMenuSalirGrupoClick(() -> MenuSalirGrupoClick());
     }
+    
+    private void LoadInformation() {
+        MessageBox.Show("", "Si llegue");
+        ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(),5,false);
+        
+        if(messages == null) return;
+        /*for(String s : messages){
+            String[] parts = s.split("|==>");
+            String from = parts[0].trim().replace("[", "").replace("]", "");
+            String message = parts[1].trim();
+            JLabel label = new JLabel();
+            label.setText(message);
+            if(from.equals(Usuario.emisor)){
+                label.setAlignmentX(RIGHT_ALIGNMENT);
+            }
+            PanelConversacion.add(label);
+        }
+        PanelConversacion.revalidate();*/
+    }
+    
+    
 
     private void OnlineBtnEnviarClick() {
         
@@ -76,7 +100,5 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     private void MenuSalirGrupoClick() {
 
     }
-    
-    
-    
+ 
 }

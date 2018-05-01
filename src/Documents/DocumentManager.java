@@ -5,6 +5,7 @@
  */
 package Documents;
 
+import General.MessageBox;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -55,30 +56,54 @@ public class DocumentManager {
     }
     
     public static ArrayList<String> GetLastNumberMessages(String conversationName, int number, boolean isGroup){
+        MessageBox.Show("", "-2");
         ArrayList<String> Messages = new ArrayList<String>();
+        MessageBox.Show("", "-1");
         String line;
         FileReader reader = null;
         BufferedReader br;
+        MessageBox.Show("", "0");
         try {
             File file = new File(
                     (isGroup? rutaGrupos : rutaContactos) +
                             conversationName + ".txt");
+            MessageBox.Show("", "1");
             file.getParentFile().mkdirs();
+            MessageBox.Show("", "2");
+            FileWriter writer = new FileWriter(file,true);
+            MessageBox.Show("", "3");
+            BufferedWriter bw = new BufferedWriter(writer);
+            MessageBox.Show("", "4");
+            bw.write("");
+            MessageBox.Show("", "5");
+            bw.close();
+            MessageBox.Show("", "6");
+            writer.close();
+            MessageBox.Show("", "7");
             reader = new FileReader(file);
+            MessageBox.Show("", "8");
             br = new BufferedReader(reader);
+            MessageBox.Show("", "9");
             while((line = br.readLine()) != null) Messages.add(line);
+            MessageBox.Show("", "10");
             br.close();
+            MessageBox.Show("", "11");
         } catch (IOException ex) {
             Messages = null;
+            MessageBox.Show("", ex.getMessage());
             System.out.println(ex.getMessage());
+           
         } finally {
             try {
                 reader.close();
+                
             } catch (IOException | NullPointerException ex) {
                 System.out.println(ex.getMessage());
+                MessageBox.Show("", ex.getMessage());
                 return null;
             }
         }
+        if(Messages == null) return null;
         if(Messages.size() == 0) Messages = null;
         else if(Messages.size() > number) Messages = new ArrayList
                 (Messages.subList(
