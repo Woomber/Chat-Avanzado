@@ -37,7 +37,7 @@ public class Thread_Transmitter implements Runnable {
 
     public Thread_Transmitter() {
         try {
-            socketTx = new Socket("localhost", 90);
+            socketTx = new Socket("192.168.0.100", 90);
             pw = new PrintWriter(socketTx.getOutputStream(), true);
             read = new BufferedReader(new InputStreamReader(socketTx.getInputStream()));
         } catch (IOException ex) {
