@@ -8,9 +8,9 @@ import java.io.Serializable;
  */
 public class UsuarioSerializable implements Serializable {
 
-    String username;
-    String nombre;
-    boolean connected;
+    public String username;
+    public String nombre;
+    public boolean connected;
 
     public UsuarioSerializable() {
     }
