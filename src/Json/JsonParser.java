@@ -169,4 +169,8 @@ public class JsonParser {
         return mensajes;
     }
 
+    public static Paquete JsonToPaquete(String readLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
