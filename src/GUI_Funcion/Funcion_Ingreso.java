@@ -78,6 +78,7 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
                     return;
                 }
                 if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
+                    Usuario.emisor = new Usuario(usuario.getText(),"","");
                     Funcion_Principal funcion = new Funcion_Principal();
                     funcion.setVisible(true);
                     this.setVisible(false);

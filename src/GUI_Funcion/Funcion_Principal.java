@@ -38,7 +38,7 @@ public class Funcion_Principal extends JFrame_Principal {
 
     ArrayList<Object> usuarios;
     public JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
-    
+
     Thread_Transmitter transmitter;
 
     public Funcion_Principal() {
@@ -53,8 +53,7 @@ public class Funcion_Principal extends JFrame_Principal {
         super.setOnMenuSalirClick(() -> MenuSalirClick());
         LoadUsuarios();
         LoadGrupos();
-        LoadFavoritos();
-        
+
     }
 
     private void LoadUsuarios() {
@@ -69,12 +68,8 @@ public class Funcion_Principal extends JFrame_Principal {
 
     }
 
-    private void LoadFavoritos() {
-
-    }
-
     private void BtnGruposClick() {
-        
+
     }
 
     private void BtnFavoritosClick() {
@@ -87,8 +82,6 @@ public class Funcion_Principal extends JFrame_Principal {
         this.setVisible(false);
     }
 
-
-    
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             pw.println(JsonParser.paqueteToJson(new UsuariosRequest()));
@@ -96,15 +89,16 @@ public class Funcion_Principal extends JFrame_Principal {
             //System.out.println(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] b = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] a = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.AMIGOS));
+
             for (UsuarioSerializable c : b) {
-                JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected);
-                System.out.println(com.toString());
-                System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
-                PanelUsuarios.add(com);
+                if (!(c.username.equals(Usuario.emisor.getId_usuario()))) {
+                    JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected);
+                    System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+                    PanelUsuarios.add(com);
+                }
             }
             for (UsuarioSerializable c : a) {
                 JComponent_Favorito com = new JComponent_Favorito(c.nombre, c.connected);
-                System.out.println(com.toString());
                 System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
                 PanelFavoritos.add(com);
             }
@@ -116,5 +110,5 @@ public class Funcion_Principal extends JFrame_Principal {
             System.out.println("");
         }
     }
-    
+
 }
