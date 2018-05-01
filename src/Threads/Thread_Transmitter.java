@@ -37,8 +37,11 @@ public class Thread_Transmitter implements Runnable {
     public Thread_Transmitter() {
         try {
 <<<<<<< HEAD
+<<<<<<< HEAD
             socketTx = new Socket("192.168.0.100", 90);
 =======
+=======
+>>>>>>> parent of cce82fb... lo primero ya está
             hilo = new Thread(this);
             socketTx = new Socket("localhost", 90);
 >>>>>>> parent of cce82fb... lo primero ya está
