@@ -42,7 +42,12 @@ public class JFrame_Ingreso extends JFrame implements ActionListener{
         /*Ventana*/
         super("Ingreso"); 
         this.setResizable(false);
-        setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());
+        try{
+            setIconImage(new ImageIcon(getClass().getResource("../Imagen/icono.png")).getImage());
+        }
+        catch(Exception e){
+            
+        }
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500,250);
         loadFrameDetails();

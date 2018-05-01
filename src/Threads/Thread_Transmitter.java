@@ -38,7 +38,6 @@ public class Thread_Transmitter implements Runnable {
         try {
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
             socketTx = new Socket("192.168.0.100", 90);
 =======
 =======
@@ -46,9 +45,6 @@ public class Thread_Transmitter implements Runnable {
             hilo = new Thread(this);
             socketTx = new Socket("localhost", 90);
 >>>>>>> parent of cce82fb... lo primero ya está
-=======
-            socketTx = new Socket("localhost", 90);
->>>>>>> parent of 8930945... error
             pw = new PrintWriter(socketTx.getOutputStream(), true);
             read = new BufferedReader(new InputStreamReader(socketTx.getInputStream()));
         } catch (IOException ex) {
