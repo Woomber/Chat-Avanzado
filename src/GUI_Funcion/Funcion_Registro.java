@@ -14,8 +14,6 @@ import PaquetesModels.Paquete;
 import Requests.LoginRequest;
 import Requests.RegistroRequest;
 import Responses.GenericResponse;
-import Threads.Thread_Receiver;
-import Threads.Thread_Transmitter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -36,12 +34,7 @@ public class Funcion_Registro extends JFrame_Registro {
     JTextField TxtUsuario, TxtNombre;
     JPasswordField TxtContrasena, TxtContrasenaVerify;
 
-    Thread_Transmitter transmitter;
-    Thread_Receiver receiver;
-
     public Funcion_Registro() {
-        transmitter = Thread_Transmitter.transmitter;
-        receiver = Thread_Receiver.receiver;
         TxtUsuario = super.getTxtUsuario();
         TxtNombre = super.getTxtNombre();
         TxtContrasena = super.getTxtContrasena();
@@ -55,19 +48,10 @@ public class Funcion_Registro extends JFrame_Registro {
             MessageBox.Show("Contraseñas diferentes", "Asegurese de que las contraseñas coincidan");
             return;
         }
-        transmitter.setAction(
-                (Socket socket, PrintWriter pw, BufferedReader read)
-                -> NewRegistro(socket, pw, read));
-        transmitter.StartThread();
-    }
-
-    private void MenuIngresoClick() {
-        new Funcion_Ingreso().setVisible(true);
-        this.setVisible(false);
-    }
-
-    private void NewRegistro(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
+            Socket SocketTx = new Socket("localhost", 90);
+            PrintWriter pw = new PrintWriter(SocketTx.getOutputStream(), true);
+            BufferedReader read = new BufferedReader(new InputStreamReader(SocketTx.getInputStream()));
             String json
                     = JsonParser.paqueteToJson((Paquete) new RegistroRequest(
                             TxtUsuario.getText(),
@@ -82,14 +66,14 @@ public class Funcion_Registro extends JFrame_Registro {
                 }
                 if (paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.INCORRECT.getName())) {
                     MessageBox.Show("Error", "Ocurrió un error durante el Registro. Posibles errores:\n"
-                            + "-No existe conexión con el servidor\n"
-                            + "-El usuario ya ha sido registrado\n");
+                    + "-No existe conexión con el servidor\n"
+                    + "-El usuario ya ha sido registrado\n");
                     return;
                 }
             }
             MessageBox.Show("Registrado", "El usuario ha sido registrado");
             System.out.println("Registrado");
-            Usuario.emisor = new Usuario(TxtUsuario.getText(), "", TxtNombre.getText());
+            Usuario.emisor = new Usuario(TxtUsuario.getText(),"",TxtNombre.getText());
             Funcion_Principal funcion = new Funcion_Principal();
             funcion.setVisible(true);
             this.setVisible(false);
@@ -99,5 +83,10 @@ public class Funcion_Registro extends JFrame_Registro {
                     + "-No existe conexión con el servidor\n"
                     + "-El usuario ya ha sido registrado\n");
         }
+    }
+
+    private void MenuIngresoClick() {
+        new Funcion_Ingreso().setVisible(true);
+        this.setVisible(false);
     }
 }
