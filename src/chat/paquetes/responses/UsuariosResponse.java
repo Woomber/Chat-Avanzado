@@ -52,7 +52,7 @@ public class UsuariosResponse extends Paquete {
      * @param connected Su estado (conectado, desconectado)
      */
     public void addAmigo(Amigo u, boolean connected) {
-         usuarios.add(new UsuarioSerializable(
+         amigos.add(new UsuarioSerializable(
                 String.valueOf(u.getAmigo()), u.getApodo(), connected
         ));
     }
