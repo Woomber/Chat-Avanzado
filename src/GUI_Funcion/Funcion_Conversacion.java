@@ -6,16 +6,27 @@
 package GUI_Funcion;
 
 import Documents.DocumentManager;
+import Exceptions.JsonParserException;
 import GUI.JFrame_Conversacion;
 import General.MessageBox;
+import Json.JsonParser;
 import Models.Grupo;
 import Models.Usuario;
+import PaquetesModels.Paquete;
+import Requests.MensajeRequest;
 import Threads.Thread_Transmitter;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -25,7 +36,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     Usuario usuario;
     Grupo grupo;
     
-    JTextPane PanelConversacion;
+    JPanel PanelConversacion;
     JTextField TxtMensaje;
     
     Thread_Transmitter transmitter = Thread_Transmitter.transmitter;
@@ -36,6 +47,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
         super(usuario.getNombre(),false);
+        this.usuario = usuario;
         PanelConversacion = super.getPanelConversacion();
         TxtMensaje = super.getTxtMensaje();
         if(isOnline){
@@ -60,27 +72,52 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     }
     
     private void LoadInformation() {
-        MessageBox.Show("", "Si llegue");
-        ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(),5,false);
+        ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(), 5, false);
         
+            
         if(messages == null) return;
-        /*for(String s : messages){
-            String[] parts = s.split("|==>");
+        
+        for(String s : messages){
+            
+            String[] parts = s.split(("l==>"));
             String from = parts[0].trim().replace("[", "").replace("]", "");
             String message = parts[1].trim();
-            JLabel label = new JLabel();
-            label.setText(message);
+            JLabel label;
             if(from.equals(Usuario.emisor)){
-                label.setAlignmentX(RIGHT_ALIGNMENT);
+                label = new JLabel(message,SwingConstants.RIGHT);
+                label.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
+                label.setHorizontalTextPosition(SwingConstants.RIGHT);
+            }
+            else{
+                label = new JLabel(message,SwingConstants.RIGHT);
+                
             }
             PanelConversacion.add(label);
+            
         }
-        PanelConversacion.revalidate();*/
+        
     }
     
     
 
     private void OnlineBtnEnviarClick() {
+        if(TxtMensaje.getText().equals("")){
+            MessageBox.Show("Error","No puedes enviar un mensaje vacío");
+            return;
+        }
+        transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> {
+            try {
+                pw.println(JsonParser.paqueteToJson(new MensajeRequest(usuario.getId_usuario(),TxtMensaje.getText())));
+                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+                DocumentManager.SaveMessage(usuario.getId_usuario(), Usuario.emisor.getId_usuario(), TxtMensaje.getText(), false);
+                JLabel label = new JLabel(TxtMensaje.getText());
+                PanelConversacion.add(label);
+                PanelConversacion.revalidate();
+                TxtMensaje.setText("");
+            } catch (JsonParserException | IOException ex) {
+            }
+        });
+        transmitter.StartThread();
         
     }
 

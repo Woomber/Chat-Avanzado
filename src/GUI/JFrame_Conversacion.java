@@ -6,9 +6,11 @@
 package GUI;
 
 import Delegates.MouseClick;
+import General.MessageBox;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -36,7 +39,7 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
     private JLabel LblMensaje, ImgIcono, LblNombreConversacion;
     private JTextField TxtMensaje;
     private JButton BtnEnviar;
-    private JTextPane PanelConversacion;
+    private JPanel PanelConversacion;
     private Image icon;
     private JMenuItem MenuSalirGrupo, MenuAgregarUsuarios;
     
@@ -83,8 +86,8 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
         LblNombreConversacion = new JLabel(name);
         /*seccion de mensaje*/
 
-        PanelConversacion = new JTextPane();
-        PanelConversacion.setEditable(false);
+        PanelConversacion = new JPanel();
+        PanelConversacion.setLayout(new BoxLayout(PanelConversacion, BoxLayout.Y_AXIS));
         JScrollPane mC = new JScrollPane(PanelConversacion);
 
         LblMensaje = new JLabel("Mensaje ");
@@ -142,7 +145,7 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
         return TxtMensaje;
     }
 
-    public JTextPane getPanelConversacion() {
+    public JPanel getPanelConversacion() {
         return PanelConversacion;
     }
 
@@ -159,6 +162,7 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
                 OnMenuAgregarUsuariosClick.Click();
             }
         } catch (Exception ex) {
+            MessageBox.Show("", ex.getMessage());
         }
     }
     

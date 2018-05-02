@@ -7,6 +7,7 @@ package Threads;
 
 import Documents.DocumentManager;
 import Exceptions.JsonParserException;
+import General.MessageBox;
 import Json.JsonParser;
 import PaquetesEvents.MensajeEvent;
 import PaquetesEvents.UpdateGruposEvent;
@@ -59,11 +60,15 @@ public class Thread_Receiver implements Runnable {
                 
                 switch(paquete.getOrden()){
                     case MensajeEvent.ORDEN:
-                        
+                        MessageBox.Show("",paquete.toString());
+                        GenericResponse response = new GenericResponse(Status.CORRECT);
+                        String anotherJson = JsonParser.paqueteToJson(response);
+                        pw.write(anotherJson);
                         deQuien = paquete.getValue(MensajeEvent.PARAM_FROM);
                         mensaje = paquete.getValue(MensajeEvent.PARAM_MESSAGE);
-                        DocumentManager.SaveMessage(deQuien, deQuien, mensaje, false);
-                       
+                        MessageBox.Show("", "Recibido Mensaje de" + deQuien + " - - " + mensaje);
+                        DocumentManager.SaveMessage(deQuien, deQuien, mensaje.replace("\n"," ").trim(), false);
+                        
                         break;
                     case UpdateGruposEvent.ORDEN:
                         
@@ -72,12 +77,10 @@ public class Thread_Receiver implements Runnable {
                         
                         break;
                 }
-                GenericResponse response = new GenericResponse(Status.CORRECT);
-                String anotherJson = JsonParser.paqueteToJson(response);
-                pw.write(anotherJson);
+                
             }
         } catch (IOException | JsonParserException ex) {
-
+            MessageBox.Show("", ex.getMessage());
         }
 
     }

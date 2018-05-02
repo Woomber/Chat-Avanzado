@@ -118,7 +118,7 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void InformationClick(UsuarioSerializable US) {
-        Usuario usuario = new Usuario(US.username,"","");
+        Usuario usuario = new Usuario(US.username,"",US.nombre);
         Funcion_Conversacion funcion_conversacion = new Funcion_Conversacion(usuario,US.connected);
         funcion_conversacion.setVisible(true);
     }

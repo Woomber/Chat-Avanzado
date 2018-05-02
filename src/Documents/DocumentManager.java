@@ -6,6 +6,7 @@
 package Documents;
 
 import General.MessageBox;
+import Models.Usuario;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,32 +14,31 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author PC
  */
 public class DocumentManager {
+
     private static final String username = System.getProperty("user.name");
     private static final String rutaContactos = "C:\\Users\\" + username + "\\Documents\\Coco Chat\\Messages\\Contactos\\";
     private static final String rutaGrupos = "C:\\Users\\" + username + "\\Documents\\Coco Chat\\Messages\\Grupos\\";
-    
-    public static boolean SaveMessage(String conversationName, String remitent, String message,  boolean isGroup){        
+
+    public static boolean SaveMessage(String conversationName, String remitent, String message, boolean isGroup) {
         boolean EverythingIsFine = true;
         FileWriter writer = null;
         BufferedWriter bw;
         message = message.replace("\n", " ").replace("\r", " ");
         try {
             File file = new File(
-                    (isGroup? rutaGrupos : rutaContactos) +
-                            conversationName + ".txt");
+                    (isGroup ? rutaGrupos : rutaContactos)
+                    + Usuario.emisor.getId_usuario() + ";" + conversationName + ".txt");
             file.getParentFile().mkdirs();
-            writer = new FileWriter(file,true);
+            writer = new FileWriter(file, true);
             bw = new BufferedWriter(writer);
             bw.write(
-                    "[" + remitent.trim() + "] |==> " + message.trim() + "\r\n"
+                    "[" + remitent.trim() + "] l==> " + message.trim() + "\r\n"
             );
             bw.close();
         } catch (IOException ex) {
@@ -54,49 +54,37 @@ public class DocumentManager {
         }
         return EverythingIsFine;
     }
-    
-    public static ArrayList<String> GetLastNumberMessages(String conversationName, int number, boolean isGroup){
-        MessageBox.Show("", "-2");
+
+    public static ArrayList<String> GetLastNumberMessages(String conversationName, int number, boolean isGroup) {
         ArrayList<String> Messages = new ArrayList<String>();
-        MessageBox.Show("", "-1");
         String line;
         FileReader reader = null;
-        BufferedReader br;
-        MessageBox.Show("", "0");
+        BufferedReader br = null;
         try {
             File file = new File(
-                    (isGroup? rutaGrupos : rutaContactos) +
-                            conversationName + ".txt");
-            MessageBox.Show("", "1");
+                    (isGroup ? rutaGrupos : rutaContactos) +
+                    Usuario.emisor.getId_usuario() + ";" + conversationName + ".txt");
             file.getParentFile().mkdirs();
-            MessageBox.Show("", "2");
-            FileWriter writer = new FileWriter(file,true);
-            MessageBox.Show("", "3");
+            FileWriter writer = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(writer);
-            MessageBox.Show("", "4");
             bw.write("");
-            MessageBox.Show("", "5");
             bw.close();
-            MessageBox.Show("", "6");
             writer.close();
-            MessageBox.Show("", "7");
             reader = new FileReader(file);
-            MessageBox.Show("", "8");
             br = new BufferedReader(reader);
-            MessageBox.Show("", "9");
-            while((line = br.readLine()) != null) Messages.add(line);
-            MessageBox.Show("", "10");
+            while ((line = br.readLine()) != null) {
+                Messages.add(line);
+            }
             br.close();
-            MessageBox.Show("", "11");
         } catch (IOException ex) {
             Messages = null;
             MessageBox.Show("", ex.getMessage());
             System.out.println(ex.getMessage());
-           
+
         } finally {
             try {
                 reader.close();
-                
+
             } catch (IOException | NullPointerException ex) {
                 System.out.println(ex.getMessage());
                 MessageBox.Show("", ex.getMessage());
@@ -104,13 +92,18 @@ public class DocumentManager {
             }
         }
         if(Messages == null) return null;
-        if(Messages.size() == 0) Messages = null;
-        else if(Messages.size() > number) Messages = new ArrayList
-                (Messages.subList(
-                        Messages.size() - number, Messages.size()
-                ));
+        if (Messages.size() == 0) {
+            Messages = null;
+        } else if (Messages.size() > number) {
+            Messages = new ArrayList(Messages.subList(
+                    Messages.size() - number, Messages.size()
+            ));
+        }
         return Messages;
     }
     
-    
+    public static int GetNumberLines(String conversationName, boolean isGroup){
+        return 0;
+    }
+
 }
