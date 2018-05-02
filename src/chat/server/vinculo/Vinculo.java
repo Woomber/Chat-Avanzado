@@ -30,6 +30,10 @@ public class Vinculo {
     public void start() {
         new Thread(this.hiloRx).start();
     }
+    
+    public void startSend(){
+        new Thread(this.hiloTx).start();
+    }
 
     public void setUsername(String username) {
         this.username = username;

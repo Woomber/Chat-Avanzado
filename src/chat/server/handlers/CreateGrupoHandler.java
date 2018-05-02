@@ -9,6 +9,7 @@ import chat.paquetes.requests.CreateGrupoRequest;
 import chat.paquetes.responses.GenericResponse;
 import chat.server.database.UsuarioGrupoConnector;
 import chat.server.database.GrupoConnector;
+import chat.server.vinculo.VinculoList;
 import java.util.ArrayList;
 
 /**
@@ -63,6 +64,7 @@ public class CreateGrupoHandler implements Handler{
        }
     
        if (correct) {
+           VinculoList.sendGroupUpdate(id);
             return new GenericResponse(GenericResponse.Status.CORRECT);
         }
         return new GenericResponse(GenericResponse.Status.INCORRECT);

@@ -7,6 +7,7 @@ import chat.paquetes.requests.ReplyGrupoRequest;
 import chat.paquetes.responses.GenericResponse;
 import chat.server.database.UsuarioGrupoConnector;
 import chat.server.vinculo.Vinculo;
+import chat.server.vinculo.VinculoList;
 
 /**
  *
@@ -28,11 +29,13 @@ public class ReplyGrupoHandler implements Handler {
         UsuarioGrupoConnector usu = new UsuarioGrupoConnector();
         if (us.isStatus()) {
             if (usu.modificar(us)) {
+                VinculoList.sendGroupUpdate(us.getId_grupo());
                 return new GenericResponse(GenericResponse.Status.CORRECT);
             }
             return new GenericResponse(GenericResponse.Status.INCORRECT);
         } else {
             if (usu.eliminar(us)) {
+                VinculoList.sendGroupUpdate(us.getId_grupo());
                 return new GenericResponse(GenericResponse.Status.CORRECT);
             }
             return new GenericResponse(GenericResponse.Status.INCORRECT);

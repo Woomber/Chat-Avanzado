@@ -1,6 +1,10 @@
 package chat.server.vinculo;
 
+import chat.models.UsuarioGrupo;
+import chat.paquetes.events.UpdateGruposEvent;
 import chat.paquetes.events.UpdateUsuariosEvent;
+import chat.server.database.UsuarioGrupoConnector;
+import chat.server.handlers.GruposUsuarioHandler;
 import chat.server.hilos.HiloReceiver;
 import chat.server.log.ServerLog;
 import java.util.ArrayList;
@@ -24,18 +28,25 @@ public class VinculoList {
 
     public static synchronized void remove(Vinculo v) {
         VINCULOS.remove(v);
-        for (Vinculo v1 : VINCULOS) {
-            if (v1.getHiloTx() != null) {
-                v1.getHiloTx().setPaquete(new UpdateUsuariosEvent());
-            }
-            v1.start();
-        }
+        sendUserUpdate();
     }
 
     public static synchronized void sendUserUpdate() {
         for (Vinculo v : getConnected()) {
             v.getHiloTx().setPaquete(new UpdateUsuariosEvent());
-            v.start();
+            v.startSend();
+        }
+    }
+    
+    public static synchronized void sendGroupUpdate(int grupo){
+        ArrayList<UsuarioGrupo> ug = new UsuarioGrupoConnector().getAllUsuarios(grupo);
+        for(Vinculo v : getConnected()){
+            for(UsuarioGrupo u : ug){
+                if(v.getUsername().equals(u.getId_usuario())){
+                    v.getHiloTx().setPaquete(new UpdateGruposEvent());
+                    v.startSend();
+                }
+            }
         }
     }
 

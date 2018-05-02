@@ -33,7 +33,7 @@ public class MensajeHandler implements Handler {
         if(destV != null){
             if(destV.getHiloTx() != null){
                 destV.getHiloTx().setPaquete(new MensajeEvent(origen, mensaje));
-                destV.start();
+                destV.startSend();
                 return new GenericResponse(GenericResponse.Status.CORRECT);
             } else return new GenericResponse(GenericResponse.Status.INCORRECT);
         } else return new GenericResponse(GenericResponse.Status.INCORRECT);

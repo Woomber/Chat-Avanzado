@@ -12,6 +12,7 @@ import chat.server.database.MensajeConnector;
 import chat.server.database.MensajeVistoConnector;
 import chat.server.database.UsuarioGrupoConnector;
 import chat.server.vinculo.Vinculo;
+import chat.server.vinculo.VinculoList;
 
 
 
@@ -70,6 +71,7 @@ public class AlterGrupoHandler implements Handler {
         }
 
         if (correct) {
+            VinculoList.sendGroupUpdate(ug.getId_grupo());
             return new GenericResponse(GenericResponse.Status.CORRECT);
         }
         return new GenericResponse(GenericResponse.Status.INCORRECT);

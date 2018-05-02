@@ -6,6 +6,7 @@ import chat.paquetes.requests.MensajeGrupoRequest;
 import chat.paquetes.responses.GenericResponse;
 import chat.server.database.MensajeConnector;
 import chat.server.vinculo.Vinculo;
+import chat.server.vinculo.VinculoList;
 
 /**
  *
@@ -25,6 +26,7 @@ public class MensajeGrupoHandler implements Handler {
     @Override
     public Paquete run() {
         if(new MensajeConnector().add(mensaje)){
+            VinculoList.sendGroupUpdate(mensaje.getId_grupo());
             return new GenericResponse(GenericResponse.Status.CORRECT);
         }
         return new GenericResponse(GenericResponse.Status.INCORRECT);
