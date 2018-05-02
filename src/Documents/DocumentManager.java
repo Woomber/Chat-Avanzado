@@ -25,8 +25,8 @@ import java.util.ArrayList;
 public class DocumentManager {
 
     private static final String username = System.getProperty("user.name");
-    private static final String rutaContactos = "C:\\Users\\" + username + "\\Documents\\Coco Chat\\Messages\\Contactos\\";
-    private static final String rutaGrupos = "C:\\Users\\" + username + "\\Documents\\Coco Chat\\Messages\\Grupos\\";
+    private static final String rutaContactos = "Messages\\Contactos\\";
+    private static final String rutaGrupos = "Messages\\Grupos\\";
 
     public static boolean SaveMessage(String conversationName, String remitent, String message, boolean isGroup) {
         boolean EverythingIsFine = true;

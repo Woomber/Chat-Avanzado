@@ -22,6 +22,7 @@ import Responses.LoginResponse;
 import Responses.UsuariosResponse;
 import Threads.Thread_Transmitter;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +31,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 /**
@@ -75,7 +77,14 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void BtnFavoritosClick() {
-
+        String username, nombre;
+            for(Component c : PanelUsuarios.getComponents()){
+                if(((JComponent_Usuario)c).getRadioButton().isSelected()){
+                    username = ((JComponent_Usuario)c).username;
+                    nombre = ((JComponent_Usuario)c).getLblUsuario().getText();
+                    new Funcion_AgregarFavorito(nombre).setVisible(true);   
+                }
+            }
     }
 
     private void MenuSalirClick() {
@@ -94,7 +103,7 @@ public class Funcion_Principal extends JFrame_Principal {
             
             for (UsuarioSerializable c : b) {
                 if (!(c.username.equals(Usuario.emisor.getId_usuario()))) {
-                    JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected);
+                    JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected, c.username);
                     System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
                     com.setOnMouseEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
                     com.setOnMouseLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});

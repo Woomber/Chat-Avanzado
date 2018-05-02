@@ -9,6 +9,6 @@ package Delegates;
  *
  * @author PC
  */
-public interface Receiver {
+public interface ReceiverAction {
     
 }

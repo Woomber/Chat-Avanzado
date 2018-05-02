@@ -26,6 +26,7 @@ import Delegates.MouseLeave;
 public class JComponent_Usuario extends JComponent implements MouseListener {
 
     /* Componentes*/
+    public String username;
     private JLabel ImgUsuario, LblUsuario;
     private JRadioButton RadioButton;
 
@@ -35,9 +36,10 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
     private MouseEnter OnMouseEnter;
     private MouseLeave OnMouseLeave;
 
-    public JComponent_Usuario(String username, boolean isOnline) {
+    public JComponent_Usuario(String username, boolean isOnline, String username1) {
         /*Ingreso de icono de usuario*/
         this.isOnline = isOnline;
+        this.username = username1;
         ImgUsuario = new JLabel();
         ImageIcon usuario;
         if (isOnline) {
