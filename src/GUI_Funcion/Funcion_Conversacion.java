@@ -32,93 +32,94 @@ import javax.swing.SwingConstants;
  *
  * @author Cristofer
  */
-public class Funcion_Conversacion extends JFrame_Conversacion{
+public class Funcion_Conversacion extends JFrame_Conversacion implements Runnable {
+
     Usuario usuario;
     Grupo grupo;
-    
+
+    int count;
+
     JPanel PanelConversacion;
     JTextField TxtMensaje;
-    
+
+    private Thread hilo;
     Thread_Transmitter transmitter = Thread_Transmitter.transmitter;
-    
-    public Funcion_Conversacion(){
-        super("hola",false);
+
+    public Funcion_Conversacion() {
+        super("hola", false);
     }
-    
+
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
-        super(usuario.getNombre(),false);
+        super(usuario.getNombre(), false);
         this.usuario = usuario;
+        count = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
         PanelConversacion = super.getPanelConversacion();
         TxtMensaje = super.getTxtMensaje();
-        if(isOnline){
+        if (isOnline) {
             super.setOnBtnEnviarClick(() -> OnlineBtnEnviarClick());
-        }
-        else{
+        } else {
             super.setOnBtnEnviarClick(() -> OfflineBtnEnviarClick());
             TxtMensaje.setEnabled(false);
             TxtMensaje.setText("No puedes contestar a esta conversación.");
             TxtMensaje.setAlignmentX(CENTER_ALIGNMENT);
         }
         LoadInformation();
+        hilo = new Thread(this);
+        hilo.start();
     }
-    
-    public Funcion_Conversacion(Grupo grupo){
-        super(grupo.getNombre_grupo(),true);
+
+    public Funcion_Conversacion(Grupo grupo) {
+        super(grupo.getNombre_grupo(), true);
         PanelConversacion = super.getPanelConversacion();
         TxtMensaje = super.getTxtMensaje();
         super.setOnBtnEnviarClick(() -> GroupBtnEnviarClick());
         super.setOnMenuAgregarUsuariosClick(() -> AgregarUsuariosClick());
         super.setOnMenuSalirGrupoClick(() -> MenuSalirGrupoClick());
     }
-    
+
     private void LoadInformation() {
         ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(), 5, false);
-        
-            
-        if(messages == null) return;
-        
-        for(String s : messages){
-            
+
+        if (messages == null) {
+            return;
+        }
+
+        for (String s : messages) {
+
             String[] parts = s.split(("l==>"));
             String from = parts[0].trim().replace("[", "").replace("]", "");
             String message = parts[1].trim();
             JLabel label;
-            if(from.equals(Usuario.emisor)){
-                label = new JLabel(message,SwingConstants.RIGHT);
+            if (from.equals(Usuario.emisor)) {
+                label = new JLabel(from + ">" + message, SwingConstants.RIGHT);
                 label.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
                 label.setHorizontalTextPosition(SwingConstants.RIGHT);
-            }
-            else{
-                label = new JLabel(message,SwingConstants.RIGHT);
-                
+            } else {
+                label = new JLabel(from + "> " + message, SwingConstants.RIGHT);
+
             }
             PanelConversacion.add(label);
-            
+
         }
-        
+
     }
-    
-    
 
     private void OnlineBtnEnviarClick() {
-        if(TxtMensaje.getText().equals("")){
-            MessageBox.Show("Error","No puedes enviar un mensaje vacío");
+        if (TxtMensaje.getText().equals("")) {
+            MessageBox.Show("Error", "No puedes enviar un mensaje vacío");
             return;
         }
         transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> {
             try {
-                pw.println(JsonParser.paqueteToJson(new MensajeRequest(usuario.getId_usuario(),TxtMensaje.getText())));
+                pw.println(JsonParser.paqueteToJson(new MensajeRequest(usuario.getId_usuario(), TxtMensaje.getText())));
                 Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
                 DocumentManager.SaveMessage(usuario.getId_usuario(), Usuario.emisor.getId_usuario(), TxtMensaje.getText(), false);
-                JLabel label = new JLabel(TxtMensaje.getText());
-                PanelConversacion.add(label);
-                PanelConversacion.revalidate();
                 TxtMensaje.setText("");
             } catch (JsonParserException | IOException ex) {
             }
         });
         transmitter.StartThread();
-        
+
     }
 
     private void OfflineBtnEnviarClick() {
@@ -137,5 +138,35 @@ public class Funcion_Conversacion extends JFrame_Conversacion{
     private void MenuSalirGrupoClick() {
 
     }
- 
+
+    @Override
+    public void run() {
+        while (true) {
+            int newCount = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
+            if (newCount > count) {
+                ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(),1, false);
+                count = newCount;
+
+                for (String s : messages) {
+
+                    String[] parts = s.split(("l==>"));
+                    String from = parts[0].trim().replace("[", "").replace("]", "");
+                    String message = parts[1].trim();
+                    JLabel label;
+                    if (from.equals(Usuario.emisor)) {
+                        label = new JLabel(from + ">" + message, SwingConstants.RIGHT);
+                        label.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
+                        label.setHorizontalTextPosition(SwingConstants.RIGHT);
+                    } else {
+                        label = new JLabel(from + "> " + message, SwingConstants.RIGHT);
+
+                    }
+                    PanelConversacion.add(label);
+                    
+                }
+                PanelConversacion.revalidate();
+            }
+        }
+    }
+
 }

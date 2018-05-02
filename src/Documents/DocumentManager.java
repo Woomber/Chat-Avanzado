@@ -7,12 +7,15 @@ package Documents;
 
 import General.MessageBox;
 import Models.Usuario;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -62,8 +65,8 @@ public class DocumentManager {
         BufferedReader br = null;
         try {
             File file = new File(
-                    (isGroup ? rutaGrupos : rutaContactos) +
-                    Usuario.emisor.getId_usuario() + ";" + conversationName + ".txt");
+                    (isGroup ? rutaGrupos : rutaContactos)
+                    + Usuario.emisor.getId_usuario() + ";" + conversationName + ".txt");
             file.getParentFile().mkdirs();
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(writer);
@@ -91,7 +94,9 @@ public class DocumentManager {
                 return null;
             }
         }
-        if(Messages == null) return null;
+        if (Messages == null) {
+            return null;
+        }
         if (Messages.size() == 0) {
             Messages = null;
         } else if (Messages.size() > number) {
@@ -101,9 +106,31 @@ public class DocumentManager {
         }
         return Messages;
     }
-    
-    public static int GetNumberLines(String conversationName, boolean isGroup){
-        return 0;
+
+    public static int GetNumberLines(String conversationName, boolean isGroup) {
+        int count = 0;
+        try {
+            InputStream is = new BufferedInputStream(new FileInputStream((isGroup ? rutaGrupos : rutaContactos)
+                    + Usuario.emisor.getId_usuario() + ";" + conversationName + ".txt"));
+            byte[] c = new byte[1024];
+            count = 0;
+            int readChars = 0;
+            boolean empty = true;
+            while ((readChars = is.read(c)) != -1) {
+                empty = false;
+                for (int i = 0; i < readChars; ++i) {
+                    if (c[i] == '\n') {
+                        ++count;
+                    }
+                }
+            }
+            is.close();
+            return (count == 0 && !empty) ? 1 : count;
+        } catch(Exception e){
+        
+        }finally {
+           return count;
+        }
     }
 
 }

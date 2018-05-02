@@ -60,13 +60,11 @@ public class Thread_Receiver implements Runnable {
                 
                 switch(paquete.getOrden()){
                     case MensajeEvent.ORDEN:
-                        MessageBox.Show("",paquete.toString());
                         GenericResponse response = new GenericResponse(Status.CORRECT);
                         String anotherJson = JsonParser.paqueteToJson(response);
                         pw.write(anotherJson);
                         deQuien = paquete.getValue(MensajeEvent.PARAM_FROM);
                         mensaje = paquete.getValue(MensajeEvent.PARAM_MESSAGE);
-                        MessageBox.Show("", "Recibido Mensaje de" + deQuien + " - - " + mensaje);
                         DocumentManager.SaveMessage(deQuien, deQuien, mensaje.replace("\n"," ").trim(), false);
                         
                         break;
