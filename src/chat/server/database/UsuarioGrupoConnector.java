@@ -29,7 +29,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
             while (rs.next()) {
                 UsuarioGrupo item = new UsuarioGrupo();
                 item.setId_grupo(rs.getInt("id_grupo"));
-                item.setId_usuario(rs.getString("id_usuario"));
+                item.setId_usuario(rs.getString("username"));
                 item.setStatus(rs.getBoolean("status"));
                 
                 resultados.add(item);
@@ -56,7 +56,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
             UsuarioGrupo resultados = new UsuarioGrupo();
 
                 resultados.setId_grupo(rs.getInt("id_grupo"));
-                resultados.setId_usuario(rs.getString("id_usuario"));
+                resultados.setId_usuario(rs.getString("username"));
                 resultados.setStatus(rs.getBoolean("status"));
                 
             
@@ -84,7 +84,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
             while (rs.next()) {
                 UsuarioGrupo item = new UsuarioGrupo();
                 item.setId_grupo(rs.getInt("id_grupo"));
-                item.setId_usuario(rs.getString("id_usuario"));
+                item.setId_usuario(rs.getString("username"));
                 item.setStatus(rs.getBoolean("status"));
                 
                 resultados.add(item);
@@ -100,7 +100,7 @@ public class UsuarioGrupoConnector extends SqlConnector{
         }
     }
     public boolean add(UsuarioGrupo item) {
-        final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?, ?, ?)";
+        final String QUERY = "INSERT INTO " + BD_TABLE + "(id_grupo, username, status) VALUES(?, ?, ?)";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
