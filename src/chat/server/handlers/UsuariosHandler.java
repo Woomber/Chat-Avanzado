@@ -33,17 +33,23 @@ public class UsuariosHandler implements Handler {
         amigos = new AmigosConnector().getAll(vinculo.getUsername());
         usuarios = new UsuarioConnector().getAll();
 
-        for (Usuario u : usuarios) {
-            if(amigos == null) continue;
+        ArrayList<Usuario> porEliminar = new ArrayList<>();
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario u = usuarios.get(i);
+            if(amigos == null) break;
             for (Amigo a : amigos) {
                 if (u.getId_usuario().equals(a.getAmigo())) {
-                    usuarios.remove(u);
+                    porEliminar.add(u);
+                response.addAmigo(a, VinculoList.getIfConnected(a.getAmigo()) != null);    
                 }
-                response.addAmigo(a, VinculoList.getIfConnected(a.getAmigo()) != null);
-            }
-            if(usuarios.contains(u)){
-                response.addUsuario(u, VinculoList.getIfConnected(u.getId_usuario()) != null);
-            }          
+            }         
+        }
+        
+        for(Usuario u : porEliminar){
+            usuarios.remove(u);
+        }
+        for(Usuario u : usuarios){
+            response.addUsuario(u, VinculoList.getIfConnected(u.getId_usuario()) != null);
         }
         
         response.finish();

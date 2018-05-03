@@ -59,6 +59,7 @@ public class AmigosConnector extends SqlConnector{
             return  updated > 0;
 
         } catch (SQLException ex) {
+            ServerLog.log(ex, ex.getMessage());
             return false;
         }
     }
