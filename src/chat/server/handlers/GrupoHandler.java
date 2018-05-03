@@ -56,18 +56,25 @@ public class GrupoHandler implements Handler {
         // Obtener todos los mensajes del grupo
         ArrayList<Mensaje> mensajes = new MensajeConnector().getAll(resultados.getId_grupo());
         MensajeVistoConnector vistos = new MensajeVistoConnector();
+       
+        int nMiembros = new UsuarioGrupoConnector().getAllUsuarios(resultados.getId_grupo()).size();
         
         // Para cada mensaje
         for(Mensaje m : mensajes){
-            // Si el usuario ya lo ha visto, eliminarlo de la lista que se mandará
-            if(vistos.get(m.getId_mensaje_grupal(), vinculo.getUsername()) != null){
-                mensajes.remove(m);
-            // Si no lo ha visto, agregarlo a la lista que se mandará y marcarlo como visto
-            } else {
+            // Si el usuario no lo ha visto, agregarlo a la lista que se mandará y marcarlo como visto
+            if(vistos.get(m.getId_mensaje_grupal(), vinculo.getUsername()) == null){
                 response.addMensaje(m.getId_usuario(), m.getTexto());
                 vistos.add(new MensajeVisto(m.getId_mensaje_grupal(), vinculo.getUsername()));
+                
+                // Si ya todos los miembros leyeron el mensaje, borrarlo
+                if(nMiembros == vistos.getAll(m.getId_mensaje_grupal()).size()){
+                    vistos.eliminar(m.getId_mensaje_grupal());
+                    new MensajeConnector().eliminar(nMiembros);
+                }
             }
         }
+        
+        
         response.finish();
 
         return response;

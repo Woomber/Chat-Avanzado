@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="chat.paquetes.requests.AlterGrupoRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/AlterGrupoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="222" x="1873" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="chat.server.database.UsuarioConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="211" x="847" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="chat.server.handlers.MensajeHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/MensajeHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="189" x="3396" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="chat.paquetes.events.UpdateGruposEvent" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/events/UpdateGruposEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="136" x="2391" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="chat.models.serializables.MensajeSerializable" project="ChatServer" 
+    file="/ChatServer/src/chat/models/serializables/MensajeSerializable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="188" x="3236" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="chat.paquetes.requests.RegistroRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/RegistroRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="204" x="2748" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="chat.json.JsonParser" project="ChatServer" 
+    file="/ChatServer/src/chat/json/JsonParser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="243" x="213" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="chat.server.database.SqlConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/SqlConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="208" x="1701" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="chat.paquetes.requests.GruposUsuarioRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/GruposUsuarioRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="156" x="2992" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="chat.models.MensajeVisto" project="ChatServer" 
+    file="/ChatServer/src/chat/models/MensajeVisto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="150" x="496" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="chat.paquetes.requests.UsuariosRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/UsuariosRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="122" x="3188" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="chat.server.handlers.UsuariosHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/UsuariosHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="150" x="3206" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="chat.paquetes.responses.LoginResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/LoginResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="141" x="2567" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="chat.server.handlers.CreateGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/CreateGrupoHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="172" x="213" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="chat.paquetes.requests.MensajeGrupoRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/MensajeGrupoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="186" x="3579" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="chat.paquetes.requests.MensajeRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/MensajeRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="173" x="3805" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="chat.server.vinculo.Vinculo" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/Vinculo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="186" x="4050" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="chat.server.log.ServerLog" project="ChatServer" 
+    file="/ChatServer/src/chat/server/log/ServerLog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="149" x="686" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="chat.server.handlers.LogoutHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/LogoutHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="140" x="4096" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="chat.server.handlers.MensajeGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/MensajeGrupoHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="219" x="2587" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="chat.models.Grupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Grupo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="171" x="213" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="22" language="java" name="chat.paquetes.requests.AlterGrupoRequest.Operacion" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/AlterGrupoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="125" x="425" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="23" language="java" name="chat.server.handlers.RegistroHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/RegistroHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="150" x="2846" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="chat.paquetes.models.Paquete" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/models/Paquete.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="164" x="4276" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="chat.paquetes.responses.GrupoResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GrupoResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="189" x="3350" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="chat.models.Usuario" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Usuario.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="161" x="2846" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="chat.server.database.MensajeVistoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/MensajeVistoConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="197" x="1098" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="chat.models.Amigo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Amigo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="154" x="710" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="chat.paquetes.requests.GrupoRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/GrupoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="138" x="4248" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="30" language="java" name="chat.paquetes.requests.AmigoRequest.Operacion" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/AmigoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="125" x="670" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="31" language="java" name="chat.exceptions.PaqueteException" project="ChatServer" 
+    file="/ChatServer/src/chat/exceptions/PaqueteException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="148" x="875" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="chat.exceptions.BadRequestException" project="ChatServer" 
+    file="/ChatServer/src/chat/exceptions/BadRequestException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="168" x="1063" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="chat.server.hilos.HiloTransmitter" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloTransmitter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="150" x="4959" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="chat.server.handlers.AlterGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/AlterGrupoHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="163" x="425" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="chat.server.hilos.HiloReceiver" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloReceiver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="187" x="4495" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="chat.paquetes.models.Param" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/models/Param.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="123" x="4618" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="chat.paquetes.responses.UsuariosResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/UsuariosResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="190" x="4018" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="chat.models.Mensaje" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Mensaje.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="173" x="2587" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="chat.exceptions.InvalidOperationException" project="ChatServer" 
+    file="/ChatServer/src/chat/exceptions/InvalidOperationException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="186" x="1271" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="chat.paquetes.requests.AmigoRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/AmigoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="216" x="2135" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="chat.paquetes.requests.ReplyGrupoRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/ReplyGrupoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="214" x="4781" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="chat.paquetes.requests.LoginRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/LoginRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="161" x="5035" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="chat.server.vinculo.VinculoList" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/VinculoList.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="197" x="4722" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="chat.paquetes.responses.GruposUsuarioResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GruposUsuarioResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="166" x="5236" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="45" language="java" name="chat.paquetes.responses.GenericResponse.Status" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="137" x="4426" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="46" language="java" name="chat.paquetes.events.UpdateUsuariosEvent" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/events/UpdateUsuariosEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="146" x="5442" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="47" language="java" name="chat.paquetes.responses.GrupoResponse.Status" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GrupoResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="119" x="3464" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="48" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="152" x="4426" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="chat.exceptions.JsonParserException" project="ChatServer" 
+    file="/ChatServer/src/chat/exceptions/JsonParserException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="164" x="1497" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="chat.server.database.MensajeConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/MensajeConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="228" x="1581" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="chat.server.ChatServer" project="ChatServer" 
+    file="/ChatServer/src/chat/server/ChatServer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="113" x="3036" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="52" language="java" name="chat.paquetes.responses.LoginResponse.Status" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/LoginResponse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="123" x="2567" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="53" language="java" name="chat.server.database.UsuarioGrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioGrupoConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="242" x="1849" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="chat.server.hilos.Hilo" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/Hilo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="163" x="4495" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="chat.paquetes.events.MensajeEvent" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/events/MensajeEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="160" x="5628" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="chat.server.handlers.AmigoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/AmigoHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="179" x="628" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="chat.server.handlers.GrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/GrupoHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="179" x="4276" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="chat.server.handlers.ReplyGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/ReplyGrupoHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="206" x="1335" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="chat.models.serializables.UsuarioSerializable" project="ChatServer" 
+    file="/ChatServer/src/chat/models/serializables/UsuarioSerializable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="226" x="4018" y="1322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="chat.server.database.AmigosConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/AmigosConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="179" x="2131" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="184" x="465" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="chat.paquetes.requests.LogoutRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/LogoutRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="110" x="5828" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="chat.server.handlers.GruposUsuarioHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/GruposUsuarioHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="180" x="3625" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" name="chat.server.database.GrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/GrupoConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="197" x="2350" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="65" language="java" name="chat.server.handlers.Handler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/Handler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="103" x="3047" y="666"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="66" language="java" name="chat.paquetes.requests.CreateGrupoRequest" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/requests/CreateGrupoRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="187" x="5978" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="67" language="java" name="chat.server.hilos.HiloFactory" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="130" x="3036" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="68" language="java" name="chat.server.handlers.LoginHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/LoginHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="211" x="3845" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="69">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="70">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="71" name="vinculo"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="73">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <realization id="74">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="75">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="76" name="usuarios"/>      
+      <multiplicity id="77" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="79" name="vinculo"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="81">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <realization id="82">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="83">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="84" name="amigo"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="86">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="87">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="88" name="vinculo"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="90">    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="91">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="92">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <realization id="93">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="94">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="95" name="usuarios"/>      
+      <multiplicity id="96" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="97">    
+    <bendpoint x="679" y="666"/>    
+    <bendpoint x="679" y="1021"/>    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="98" name="operacion"/>      
+      <multiplicity id="99" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="100">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="101">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="102" name="vinculo"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="105">    
+    <end type="SOURCE" refId="67"/>    
+    <end type="TARGET" refId="54"/>  
+  </generalization>  
+  <realization id="106">    
+    <end type="SOURCE" refId="58"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <generalization id="107">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="108">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="109" name="hiloRx"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="111">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="112">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="113">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="114" name="usuario"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="117">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="118">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="119">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="121">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="122" name="amigos"/>      
+      <multiplicity id="123" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="124">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="125">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="126" name="request"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="129" name="grupo"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="131">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <realization id="132">    
+    <end type="SOURCE" refId="63"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <realization id="133">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="134">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="135" name="vinculo"/>      
+      <multiplicity id="136" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="137">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="138">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="139" name="mensajes"/>      
+      <multiplicity id="140" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="141">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="142">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <nesting id="143">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="47"/>  
+  </nesting>  
+  <generalization id="144">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="145">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="146">    
+    <bendpoint x="434" y="666"/>    
+    <bendpoint x="434" y="1021"/>    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="147" name="operacion"/>      
+      <multiplicity id="148" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="150" name="ug"/>      
+      <multiplicity id="151" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="153" name="vinculo"/>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="155">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="156" name="VINCULOS"/>      
+      <multiplicity id="157" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="158">    
+    <end type="SOURCE" refId="62"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="159">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="160" name="us"/>      
+      <multiplicity id="161" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="162">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="30"/>  
+  </nesting>  
+  <generalization id="163">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="164">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="165">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="54"/>  
+  </generalization>  
+  <nesting id="166">    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="45"/>  
+  </nesting>  
+  <association id="167">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="168" name="hiloTx"/>      
+      <multiplicity id="169" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="170">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="22"/>  
+  </nesting>  
+  <generalization id="171">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="172">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="173">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="174" name="vinculo"/>      
+      <multiplicity id="175" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="176">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="54"/>  
+  </generalization>  
+  <generalization id="177">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="178">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="179" name="paquete"/>      
+      <multiplicity id="180" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="181">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="182" name="vinculo"/>      
+      <multiplicity id="183" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="184">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="185" name="mensaje"/>      
+      <multiplicity id="186" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="187">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="188" name="params"/>      
+      <multiplicity id="189" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="190">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <nesting id="191">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="52"/>  
+  </nesting>  
+  <realization id="192">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <association id="193">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="194" name="factory"/>      
+      <multiplicity id="195" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

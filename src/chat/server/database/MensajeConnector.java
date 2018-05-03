@@ -92,7 +92,7 @@ public class MensajeConnector extends SqlConnector{
             return false;
         }
     }
-    public boolean eliminar(int grupo) {
+    public boolean eliminarGrupo(int grupo) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
         try {
@@ -106,6 +106,22 @@ public class MensajeConnector extends SqlConnector{
         } catch (SQLException ex) {
             return false;
         }
+    }
+    
+    public boolean eliminar(int id_mensaje){
+      final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_mensaje_grupal = ?";
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id_mensaje);
+            int updated = query.executeUpdate();
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registros actualizados: " + updated);
+            return  updated > 0;
+
+        } catch (SQLException ex) {
+            return false;
+        }   
     }
     
 }
