@@ -42,12 +42,13 @@ import javax.swing.JPanel;
  */
 public class Funcion_Principal extends JFrame_Principal {
 
-    ArrayList<Object> usuarios;
+    ArrayList<Funcion_Conversacion> conversaciones;
     public JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
     Thread_Transmitter transmitter;
     Thread_Receiver receiver;
 
     public Funcion_Principal() {
+        conversaciones = new ArrayList<Funcion_Conversacion>();
         PanelUsuarios = super.getPanelUsuarios();
         PanelFavoritos = super.getPanelFavoritos();
         PanelGrupos = super.getPanelGrupos();
@@ -114,7 +115,7 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
-        
+
         try {
             pw.println(JsonParser.paqueteToJson(new UsuariosRequest()));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
@@ -137,6 +138,11 @@ public class Funcion_Principal extends JFrame_Principal {
                     });
                     com.revalidate();
                     PanelUsuarios.add(com);
+                    for (Funcion_Conversacion fc : conversaciones) {
+                        if (fc.usuario.getId_usuario().equals(c.username)) {
+                            fc.setNewOnline(c.connected);
+                        }
+                    }
                 }
             }
             for (UsuarioSerializable c : a) {
@@ -144,6 +150,11 @@ public class Funcion_Principal extends JFrame_Principal {
                 System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
                 com.revalidate();
                 PanelFavoritos.add(com);
+                for (Funcion_Conversacion fc : conversaciones) {
+                    if (fc.usuario.getId_usuario().equals(c.username)) {
+                        fc.setNewOnline(c.connected);
+                    }
+                }
             }
             PanelUsuarios.revalidate();
             PanelFavoritos.revalidate();
@@ -157,7 +168,9 @@ public class Funcion_Principal extends JFrame_Principal {
     private void InformationClick(UsuarioSerializable US) {
         Usuario usuario = new Usuario(US.username, "", US.nombre);
         Funcion_Conversacion funcion_conversacion = new Funcion_Conversacion(usuario, US.connected);
+        funcion_conversacion.close = () -> {conversaciones.remove(funcion_conversacion);};
         funcion_conversacion.setVisible(true);
+        conversaciones.add(funcion_conversacion);
     }
 
 }
