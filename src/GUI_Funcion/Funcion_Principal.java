@@ -44,7 +44,6 @@ public class Funcion_Principal extends JFrame_Principal {
 
     ArrayList<Object> usuarios;
     public JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
-
     Thread_Transmitter transmitter;
     Thread_Receiver receiver;
 
@@ -84,7 +83,14 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void BtnGruposClick() {
-
+        ArrayList<JComponent_Usuario> misUsuariosGrupo = new ArrayList<>();
+        for (Component c : PanelUsuarios.getComponents()) {
+            if (((JComponent_Usuario) c).getRadioButton().isSelected()) {   
+                misUsuariosGrupo.add((JComponent_Usuario)c);
+            }
+        }
+        Funcion_RegistroGrupo funcion = new Funcion_RegistroGrupo(misUsuariosGrupo);
+        funcion.setVisible(true);
     }
 
     private void BtnFavoritosClick() {
