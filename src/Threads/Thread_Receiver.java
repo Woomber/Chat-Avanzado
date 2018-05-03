@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,11 +36,13 @@ public class Thread_Receiver implements Runnable {
     private Thread miHilo;
 
     public Update onUpdate;
+    
 
     public Thread_Receiver() {
         miHilo = new Thread(this);
         miHilo.start();
     }
+    
 
     @Override
     public void run() {
@@ -60,21 +63,28 @@ public class Thread_Receiver implements Runnable {
                 String nombreConversacion;
                 String deQuien;
                 String mensaje;
-
+                GenericResponse response;
+                String anotherJson;
                 switch (paquete.getOrden()) {
                     case MensajeEvent.ORDEN:
-                        GenericResponse response = new GenericResponse(Status.CORRECT);
-                        String anotherJson = JsonParser.paqueteToJson(response);
+                        response = new GenericResponse(Status.CORRECT);
+                        anotherJson = JsonParser.paqueteToJson(response);
                         pw.write(anotherJson);
                         deQuien = paquete.getValue(MensajeEvent.PARAM_FROM);
                         mensaje = paquete.getValue(MensajeEvent.PARAM_MESSAGE);
                         DocumentManager.SaveMessage(deQuien, deQuien, mensaje.replace("\n", " ").trim(), false);
-
+                        
                         break;
                     case UpdateGruposEvent.ORDEN:
+                        response = new GenericResponse(Status.CORRECT);
+                        anotherJson = JsonParser.paqueteToJson(response);
+                        pw.write(anotherJson);
                         
                         break;
                     case UpdateUsuariosEvent.ORDEN:
+                        response = new GenericResponse(Status.CORRECT);
+                        anotherJson = JsonParser.paqueteToJson(response);
+                        pw.write(anotherJson);
                         try{
                             onUpdate.Invoke();
                         }

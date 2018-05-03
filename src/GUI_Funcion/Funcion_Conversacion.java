@@ -5,6 +5,7 @@
  */
 package GUI_Funcion;
 
+import Delegates.Close;
 import Documents.DocumentManager;
 import Exceptions.JsonParserException;
 import GUI.JFrame_Conversacion;
@@ -22,6 +23,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -34,13 +36,20 @@ import javax.swing.SwingConstants;
  */
 public class Funcion_Conversacion extends JFrame_Conversacion implements Runnable {
 
-    Usuario usuario;
+    boolean isOnline;
+    boolean newOnline;
+
+    Thread checkOnline;
+
+    public Usuario usuario;
     Grupo grupo;
 
     int count;
 
     JPanel PanelConversacion;
     JTextField TxtMensaje;
+
+    public Close close;
 
     private Thread hilo;
     Thread_Transmitter transmitter = Thread_Transmitter.transmitter;
@@ -49,8 +58,49 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         super("hola", false);
     }
 
+    public void checkOnline() {
+        if (isOnline != newOnline) {
+            MessageBox.Show("", "Cambio");
+            isOnline = newOnline;
+            SetOnline();
+        }
+    }
+
+    public void SetOnline() {
+        if (isOnline) {
+            super.setOnBtnEnviarClick(() -> OnlineBtnEnviarClick());
+            TxtMensaje.setEnabled(true);
+            TxtMensaje.setText("");
+        } else {
+            super.setOnBtnEnviarClick(() -> OfflineBtnEnviarClick());
+            TxtMensaje.setEnabled(false);
+            TxtMensaje.setText("No puedes contestar a esta conversación.");
+            TxtMensaje.setAlignmentX(CENTER_ALIGNMENT);
+        }
+    }
+
+    public void setNewOnline(boolean newOnline) {
+        this.newOnline = newOnline;
+    }
+    
+    public void close(){
+        this.setVisible(false);
+        close.Invoke();
+    }
+
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
         super(usuario.getNombre(), false);
+
+        super.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        super.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                close();
+            }
+        });
+
+        this.isOnline = isOnline;
+        this.newOnline = isOnline;
         this.usuario = usuario;
         count = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
         PanelConversacion = super.getPanelConversacion();
@@ -66,6 +116,15 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         LoadInformation();
         hilo = new Thread(this);
         hilo.start();
+        checkOnline = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    checkOnline();
+                }
+            }
+        });
+        checkOnline.start();
     }
 
     public Funcion_Conversacion(Grupo grupo) {
@@ -144,7 +203,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         while (true) {
             int newCount = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
             if (newCount > count) {
-                ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(),1, false);
+                ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(), 1, false);
                 count = newCount;
 
                 for (String s : messages) {
@@ -162,7 +221,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
 
                     }
                     PanelConversacion.add(label);
-                    
+
                 }
                 PanelConversacion.revalidate();
             }
