@@ -30,7 +30,7 @@ public class GrupoConnector extends SqlConnector{
 
             while (rs.next()) {
                 Grupo item = new Grupo();
-                item.setId_grupo(rs.getInt("id_grupo"));
+                item.setId_grupo(rs.getInt("id"));
                 item.setNombre_grupo(rs.getString("nombre"));
                 
                 resultados.add(item);
@@ -58,8 +58,9 @@ public class GrupoConnector extends SqlConnector{
             int inserted; 
             
             ResultSet rs = query.getGeneratedKeys();
-            if(rs.next()) inserted = rs.getInt("id");
+            if(rs.next()) inserted = rs.getInt(1);
             else inserted = -1;
+            rs.close();
             
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
                     + " > Creado grupo: " + inserted);
