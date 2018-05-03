@@ -94,7 +94,7 @@ public class Funcion_Principal extends JFrame_Principal {
             if (((JComponent_Usuario) c).getRadioButton().isSelected()) {
                 username = ((JComponent_Usuario) c).username;
                 nombre = ((JComponent_Usuario) c).getLblUsuario().getText();
-                Funcion_AgregarFavorito funcion = new Funcion_AgregarFavorito(nombre, () -> LoadUsuarios());
+                Funcion_AgregarFavorito funcion = new Funcion_AgregarFavorito(username, nombre, () -> LoadUsuarios());
                 funcion.setVisible(true);
                 listas.add(funcion);
             }
@@ -136,6 +136,7 @@ public class Funcion_Principal extends JFrame_Principal {
             for (UsuarioSerializable c : a) {
                 JComponent_Favorito com = new JComponent_Favorito(c.nombre, c.connected);
                 System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+                com.revalidate();
                 PanelFavoritos.add(com);
             }
             PanelUsuarios.revalidate();

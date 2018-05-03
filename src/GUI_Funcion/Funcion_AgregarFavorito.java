@@ -41,8 +41,8 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
     
     Update onUpdate;
 
-    public Funcion_AgregarFavorito(String user, Update onUpdate) {
-        super(user);
+    public Funcion_AgregarFavorito(String user, String nombre,  Update onUpdate) {
+        super(nombre);
         this.onUpdate = onUpdate;
         this.user = user;
         this.apodo = super.getTxtApodo();
@@ -71,6 +71,7 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
 
     public void mandarFavorito(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
+             MessageBox.Show("", user);
             pw.println(JsonParser.paqueteToJson(new AmigoRequest(user, apodo.getText(), AmigoRequest.Operacion.ADD)));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
             if(paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.INCORRECT.getName())){
