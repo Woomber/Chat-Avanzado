@@ -5,6 +5,7 @@
  */
 package Threads;
 
+import Delegates.Update;
 import Documents.DocumentManager;
 import Exceptions.JsonParserException;
 import General.MessageBox;
@@ -28,10 +29,12 @@ import java.net.Socket;
  * @author PC
  */
 public class Thread_Receiver implements Runnable {
-    
+
     public static Thread_Receiver receiver;
 
     private Thread miHilo;
+
+    public Update onUpdate;
 
     public Thread_Receiver() {
         miHilo = new Thread(this);
@@ -53,29 +56,34 @@ public class Thread_Receiver implements Runnable {
             while (true) {
                 String json = read.readLine();
                 Paquete paquete = JsonParser.jsonToPaquete(json);
-                
+
                 String nombreConversacion;
                 String deQuien;
                 String mensaje;
-                
-                switch(paquete.getOrden()){
+
+                switch (paquete.getOrden()) {
                     case MensajeEvent.ORDEN:
                         GenericResponse response = new GenericResponse(Status.CORRECT);
                         String anotherJson = JsonParser.paqueteToJson(response);
                         pw.write(anotherJson);
                         deQuien = paquete.getValue(MensajeEvent.PARAM_FROM);
                         mensaje = paquete.getValue(MensajeEvent.PARAM_MESSAGE);
-                        DocumentManager.SaveMessage(deQuien, deQuien, mensaje.replace("\n"," ").trim(), false);
-                        
+                        DocumentManager.SaveMessage(deQuien, deQuien, mensaje.replace("\n", " ").trim(), false);
+
                         break;
                     case UpdateGruposEvent.ORDEN:
                         
                         break;
                     case UpdateUsuariosEvent.ORDEN:
-                        
+                        try{
+                            onUpdate.Invoke();
+                        }
+                        catch(Exception ex){
+                            
+                        }
                         break;
                 }
-                
+
             }
         } catch (IOException | JsonParserException ex) {
             MessageBox.Show("", ex.getMessage());

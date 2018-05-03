@@ -5,6 +5,7 @@
  */
 package GUI_Funcion;
 
+import Delegates.Update;
 import Exceptions.JsonParserException;
 import GUI.JComponent_Favorito;
 import GUI.JComponent_Usuario;
@@ -37,29 +38,38 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
     Thread_Transmitter transmitter;
     Thread_Receiver receiver;
     String user;
+    
+    Update onUpdate;
 
-    public Funcion_AgregarFavorito(String user) {
+    public Funcion_AgregarFavorito(String user, Update onUpdate) {
         super(user);
+        this.onUpdate = onUpdate;
         this.user = user;
         this.apodo = super.getTxtApodo();
         transmitter = Thread_Transmitter.transmitter;
         receiver = Thread_Receiver.receiver;
         super.setOnBtnCrearClick(() -> agregarFavorito());
+        super.setOnBtnCancelarClick(() -> Cancelar());
     }
 
     public void agregarFavorito() {
-        MessageBox.Show("", "Aquitoy");
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
                 -> mandarFavorito(socket, pw, read)
         );
         transmitter.StartThread();
-
+        
+        this.setVisible(false);
+        
+    }
+    
+   
+    
+    public void Cancelar(){
+        this.setVisible(false);
     }
 
     public void mandarFavorito(Socket socket, PrintWriter pw, BufferedReader read) {
-                MessageBox.Show("", "orastoyaqui");
-
         try {
             pw.println(JsonParser.paqueteToJson(new AmigoRequest(user, apodo.getText(), AmigoRequest.Operacion.ADD)));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
@@ -67,9 +77,9 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
                 MessageBox.Show("", "Eh we, fijate que no se pudo.");
             }
              if(paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.CORRECT.getName())){
-                 MessageBox.Show("", "Simon, carnal.");
+                 
              }
-
+             onUpdate.Invoke();
         } catch (IOException | JsonParserException ex) {
             System.out.println("");
             System.out.println(ex.getMessage());

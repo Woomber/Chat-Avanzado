@@ -5,6 +5,7 @@
  */
 package GUI_Funcion;
 
+import Delegates.Update;
 import Exceptions.JsonParserException;
 import GUI.JComponent_Favorito;
 import GUI.JComponent_Grupo;
@@ -20,6 +21,7 @@ import Requests.LoginRequest;
 import Requests.UsuariosRequest;
 import Responses.LoginResponse;
 import Responses.UsuariosResponse;
+import Threads.Thread_Receiver;
 import Threads.Thread_Transmitter;
 import java.awt.Color;
 import java.awt.Component;
@@ -44,12 +46,15 @@ public class Funcion_Principal extends JFrame_Principal {
     public JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
 
     Thread_Transmitter transmitter;
+    Thread_Receiver receiver;
 
     public Funcion_Principal() {
         PanelUsuarios = super.getPanelUsuarios();
         PanelFavoritos = super.getPanelFavoritos();
         PanelGrupos = super.getPanelGrupos();
         transmitter = Thread_Transmitter.transmitter;
+        receiver = Thread_Receiver.receiver;
+        receiver.onUpdate = () -> LoadUsuarios();
         /*JComponent_Usuario com = new JComponent_Usuario("Malditasea", true);
         this.PanelUsuarios.add(com);*/
         super.setOnBtnGruposClick(() -> BtnGruposClick());
@@ -61,6 +66,12 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void LoadUsuarios() {
+        PanelUsuarios.removeAll();
+        PanelFavoritos.removeAll();
+        PanelUsuarios.revalidate();
+        PanelFavoritos.revalidate();
+        PanelUsuarios.repaint();
+        PanelFavoritos.repaint();
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
                 -> listaUsuarios(socket, pw, read)
@@ -78,13 +89,16 @@ public class Funcion_Principal extends JFrame_Principal {
 
     private void BtnFavoritosClick() {
         String username, nombre;
-            for(Component c : PanelUsuarios.getComponents()){
-                if(((JComponent_Usuario)c).getRadioButton().isSelected()){
-                    username = ((JComponent_Usuario)c).username;
-                    nombre = ((JComponent_Usuario)c).getLblUsuario().getText();
-                    new Funcion_AgregarFavorito(nombre).setVisible(true);   
-                }
+        ArrayList<Funcion_AgregarFavorito> listas = new ArrayList<Funcion_AgregarFavorito>();
+        for (Component c : PanelUsuarios.getComponents()) {
+            if (((JComponent_Usuario) c).getRadioButton().isSelected()) {
+                username = ((JComponent_Usuario) c).username;
+                nombre = ((JComponent_Usuario) c).getLblUsuario().getText();
+                Funcion_AgregarFavorito funcion = new Funcion_AgregarFavorito(nombre, () -> LoadUsuarios());
+                funcion.setVisible(true);
+                listas.add(funcion);
             }
+        }
     }
 
     private void MenuSalirClick() {
@@ -94,20 +108,27 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
+        
         try {
             pw.println(JsonParser.paqueteToJson(new UsuariosRequest()));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
             //System.out.println(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] b = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] a = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.AMIGOS));
-            
+
             for (UsuarioSerializable c : b) {
                 if (!(c.username.equals(Usuario.emisor.getId_usuario()))) {
                     JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected, c.username);
                     System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
-                    com.setOnMouseEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
-                    com.setOnMouseLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
-                    com.setOnInformationClick(() -> {InformationClick(c);});
+                    com.setOnMouseEnter(() -> {
+                        this.setCursor(Cursor.HAND_CURSOR);
+                    });
+                    com.setOnMouseLeave(() -> {
+                        this.setCursor(Cursor.DEFAULT_CURSOR);
+                    });
+                    com.setOnInformationClick(() -> {
+                        InformationClick(c);
+                    });
                     com.revalidate();
                     PanelUsuarios.add(com);
                 }
@@ -127,8 +148,8 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void InformationClick(UsuarioSerializable US) {
-        Usuario usuario = new Usuario(US.username,"",US.nombre);
-        Funcion_Conversacion funcion_conversacion = new Funcion_Conversacion(usuario,US.connected);
+        Usuario usuario = new Usuario(US.username, "", US.nombre);
+        Funcion_Conversacion funcion_conversacion = new Funcion_Conversacion(usuario, US.connected);
         funcion_conversacion.setVisible(true);
     }
 
