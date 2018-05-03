@@ -27,8 +27,8 @@ public class MensajeConnector extends SqlConnector{
 
             while (rs.next()) {
                 Mensaje item = new Mensaje();
-                item.setId_mensaje_grupal(rs.getInt("id_mensaje_grupal"));
-                item.setId_usuario(rs.getString("id_usuario"));
+                item.setId_mensaje_grupal(rs.getInt("id"));
+                item.setId_usuario(rs.getString("username"));
                 item.setTexto(rs.getString("texto"));
                 item.setId_grupo(rs.getInt("id_grupo"));
                 
@@ -57,8 +57,8 @@ public class MensajeConnector extends SqlConnector{
 
             while (rs.next()) {
                 Mensaje item = new Mensaje();
-                item.setId_mensaje_grupal(rs.getInt("id_mensaje_grupal"));
-                item.setId_usuario(rs.getString("id_usuario"));
+                item.setId_mensaje_grupal(rs.getInt("id"));
+                item.setId_usuario(rs.getString("username"));
                 item.setTexto(rs.getString("texto"));
                 item.setId_grupo(rs.getInt("id_grupo"));
                 
@@ -109,7 +109,7 @@ public class MensajeConnector extends SqlConnector{
     }
     
     public boolean eliminar(int id_mensaje){
-      final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_mensaje_grupal = ?";
+      final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id = ?";
 
         try {
             PreparedStatement query = connection.prepareStatement(QUERY);
