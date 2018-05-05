@@ -71,9 +71,11 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
 
     public void mandarFavorito(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
-             MessageBox.Show("", user);
+            MessageBox.Show("", user);
+            
             pw.println(JsonParser.paqueteToJson(new AmigoRequest(user, apodo.getText(), AmigoRequest.Operacion.ADD)));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+            
             if(paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.INCORRECT.getName())){
                 MessageBox.Show("", "Eh we, fijate que no se pudo.");
             }

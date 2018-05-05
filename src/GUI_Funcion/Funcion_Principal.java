@@ -17,8 +17,11 @@ import Json.JsonParser;
 import Models.Usuario;
 import ModelsSerializables.UsuarioSerializable;
 import PaquetesModels.Paquete;
+import Requests.AmigoRequest;
 import Requests.LoginRequest;
+import Requests.LogoutRequest;
 import Requests.UsuariosRequest;
+import Responses.GenericResponse;
 import Responses.LoginResponse;
 import Responses.UsuariosResponse;
 import Threads.Thread_Receiver;
@@ -33,6 +36,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
@@ -42,6 +47,7 @@ import javax.swing.JPanel;
  */
 public class Funcion_Principal extends JFrame_Principal {
 
+    private String userFavorito;
     ArrayList<Funcion_Conversacion> conversaciones;
     public JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
     Thread_Transmitter transmitter;
@@ -86,8 +92,8 @@ public class Funcion_Principal extends JFrame_Principal {
     private void BtnGruposClick() {
         ArrayList<JComponent_Usuario> misUsuariosGrupo = new ArrayList<>();
         for (Component c : PanelUsuarios.getComponents()) {
-            if (((JComponent_Usuario) c).getRadioButton().isSelected()) {   
-                misUsuariosGrupo.add((JComponent_Usuario)c);
+            if (((JComponent_Usuario) c).getRadioButton().isSelected()) {
+                misUsuariosGrupo.add((JComponent_Usuario) c);
             }
         }
         Funcion_RegistroGrupo funcion = new Funcion_RegistroGrupo(misUsuariosGrupo);
@@ -109,9 +115,25 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void MenuSalirClick() {
-        Usuario.emisor = null;
-        new Funcion_Ingreso().setVisible(true);
-        this.setVisible(false);
+
+        transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> LogOut(socket, pw, read));
+        transmitter.StartThread();
+    }
+
+    private void LogOut(Socket socket, PrintWriter pw, BufferedReader read) {
+        try {
+            receiver.closeAll();
+            pw.println(JsonParser.paqueteToJson(new LogoutRequest()));
+            socket.close();
+            pw.close();
+            read.close();
+            Usuario.emisor = null;
+            new Funcion_Ingreso().setVisible(true);
+            this.setVisible(false);
+
+        } catch (Exception ex) {
+
+        }
     }
 
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
@@ -146,13 +168,26 @@ public class Funcion_Principal extends JFrame_Principal {
                 }
             }
             for (UsuarioSerializable c : a) {
-                JComponent_Favorito com = new JComponent_Favorito(c.nombre, c.connected);
+                JComponent_Favorito com = new JComponent_Favorito(c.username, c.nombre, c.connected);
                 System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+                userFavorito = c.username;
+                com.setOnInformationEnter(() -> {
+                    this.setCursor(Cursor.HAND_CURSOR);
+                });
+                com.setOnInformationLeave(() -> {
+                    this.setCursor(Cursor.DEFAULT_CURSOR);
+                });
+                com.setOnInformationClick(() -> {
+                    InformationClick(c);
+                });
+                com.revalidate();
+                com.setOnBtnEliminarClick(() -> iniciarEliminarFavorito(userFavorito));
                 com.revalidate();
                 PanelFavoritos.add(com);
                 for (Funcion_Conversacion fc : conversaciones) {
                     if (fc.usuario.getId_usuario().equals(c.username)) {
                         fc.setNewOnline(c.connected);
+
                     }
                 }
             }
@@ -168,9 +203,40 @@ public class Funcion_Principal extends JFrame_Principal {
     private void InformationClick(UsuarioSerializable US) {
         Usuario usuario = new Usuario(US.username, "", US.nombre);
         Funcion_Conversacion funcion_conversacion = new Funcion_Conversacion(usuario, US.connected);
-        funcion_conversacion.close = () -> {conversaciones.remove(funcion_conversacion);};
+        funcion_conversacion.close = () -> {
+            conversaciones.remove(funcion_conversacion);
+        };
         funcion_conversacion.setVisible(true);
         conversaciones.add(funcion_conversacion);
+    }
+
+    private void iniciarEliminarFavorito(String user) {
+        userFavorito = user;
+        transmitter.setAction(
+                (Socket socket, PrintWriter pw, BufferedReader read)
+                -> eliminarFavorito(socket, pw, read)
+        );
+
+        transmitter.StartThread();
+    }
+
+    private void eliminarFavorito(Socket socket, PrintWriter pw, BufferedReader read) {
+        try {
+            pw.println(JsonParser.paqueteToJson(new AmigoRequest(userFavorito, "HOLA", AmigoRequest.Operacion.REMOVE)));
+            Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+
+            if (paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.INCORRECT.getName())) {
+                MessageBox.Show("", "Eh we, fijate que no se pudo.");
+            }
+            if (paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.CORRECT.getName())) {
+
+            }
+        } catch (IOException | JsonParserException ex) {
+            System.out.println("");
+            System.out.println(ex.getMessage());
+            System.out.println("");
+        }
+        LoadUsuarios();
     }
 
 }

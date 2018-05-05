@@ -12,6 +12,7 @@ import GUI_Funcion.Funcion_Ingreso;
 import GUI_Funcion.Funcion_Principal;
 import GUI_Funcion.Funcion_Registro;
 import GUI_Funcion.Funcion_RegistroGrupo;
+import Threads.Thread_Transmitter;
 
 /**
  *

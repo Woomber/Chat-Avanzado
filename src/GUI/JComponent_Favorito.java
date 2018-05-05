@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -28,6 +29,8 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
     /* Componentes*/
     private JLabel ImgUsuario, LblUsuario;
     private JButton BtnEliminar;
+    private JRadioButton radioButton;
+    
     
     private MouseClick BtnEliminarClick;
     
@@ -36,11 +39,13 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
     private MouseLeave OnInformationLeave;
 
     private String username;
+    private String apodo;
     private boolean isOnline;
     
     
-    public JComponent_Favorito(String username, boolean isOnline) {
+    public JComponent_Favorito(String username, String apodo, boolean isOnline) {
         this.username = username;
+        this.apodo = apodo;
         this.isOnline = isOnline;
         loadComponentDetails();
     }
@@ -54,7 +59,8 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         ImageIcon icono = new ImageIcon(usuario.getImage());
         ImgUsuario.setIcon(icono);
         
-        LblUsuario = new JLabel(username);
+        LblUsuario = new JLabel(apodo);
+        radioButton = new JRadioButton();
         BtnEliminar = new JButton();
         ImageIcon eliminar = new ImageIcon(getClass().getResource("../Images/eliminar.png"));
         ImageIcon iconoEliminar = new ImageIcon(eliminar.getImage());
@@ -70,6 +76,7 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
                         .addGroup(orden.createParallelGroup()
                                         .addComponent(ImgUsuario)
                                         .addComponent(LblUsuario, GroupLayout.Alignment.CENTER)
+                                        .addComponent(radioButton,GroupLayout.Alignment.CENTER, 25, 25, 25)
                                         .addComponent(BtnEliminar, GroupLayout.Alignment.CENTER, 30, 30, 30)
                         )
         );
@@ -77,7 +84,8 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         orden.setHorizontalGroup(orden.createParallelGroup()
                         .addGroup(orden.createSequentialGroup()
                                         .addComponent(ImgUsuario, 40, 40, 40)
-                                        .addComponent(LblUsuario, 200, 200, 200)
+                                        .addComponent(LblUsuario, 180, 180, 180)
+                                        .addComponent(radioButton,30,30,30)
                                         .addComponent(BtnEliminar, 30, 30, 30)
                         )
         );
@@ -85,6 +93,9 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         //this.pack();   
     }
 
+   
+
+    
     public void setOnBtnEliminarClick(MouseClick BtnEliminarClick) {
         this.BtnEliminarClick = BtnEliminarClick;
     }
@@ -95,6 +106,26 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
 
     public void setOnInformationLeave(MouseLeave OnInformationLeave) {
         this.OnInformationLeave = OnInformationLeave;
+    }
+
+    public void setOnInformationClick(MouseClick OnInformationClick) {
+        this.OnInformationClick = OnInformationClick;
+    }
+
+    
+    
+    public JRadioButton getRadioButton() {
+        return radioButton;
+    }
+
+  
+
+    public String getUsername() {
+        return username;
+    }
+    
+    public String getApodo() {
+        return apodo;
     }
             
     @Override

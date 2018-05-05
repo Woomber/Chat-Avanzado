@@ -60,7 +60,6 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
 
     public void checkOnline() {
         if (isOnline != newOnline) {
-            MessageBox.Show("", "Cambio");
             isOnline = newOnline;
             SetOnline();
         }
@@ -71,16 +70,20 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
             super.setOnBtnEnviarClick(() -> OnlineBtnEnviarClick());
             TxtMensaje.setEnabled(true);
             TxtMensaje.setText("");
+            MessageBox.Show("",usuario.getId_usuario() + " se ha conectado");
         } else {
             super.setOnBtnEnviarClick(() -> OfflineBtnEnviarClick());
             TxtMensaje.setEnabled(false);
             TxtMensaje.setText("No puedes contestar a esta conversación.");
             TxtMensaje.setAlignmentX(CENTER_ALIGNMENT);
+            MessageBox.Show("",usuario.getId_usuario() + " se ha desconectado");
         }
+        this.revalidate();
     }
 
     public void setNewOnline(boolean newOnline) {
         this.newOnline = newOnline;
+        checkOnline();
     }
     
     public void close(){
@@ -116,7 +119,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         LoadInformation();
         hilo = new Thread(this);
         hilo.start();
-        checkOnline = new Thread(new Runnable() {
+        /*checkOnline = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true) {
@@ -124,7 +127,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
                 }
             }
         });
-        checkOnline.start();
+        checkOnline.start();*/
     }
 
     public Funcion_Conversacion(Grupo grupo) {

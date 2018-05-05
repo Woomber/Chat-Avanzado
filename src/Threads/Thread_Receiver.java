@@ -24,6 +24,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,26 +39,46 @@ public class Thread_Receiver implements Runnable {
 
     public Update onUpdate;
     
-
+    ServerSocket server;
+    Socket socketRx;
+    PrintWriter pw;
+    BufferedReader read;
+    
+    boolean funciona;
+    
     public Thread_Receiver() {
+        funciona = true;
         miHilo = new Thread(this);
         miHilo.start();
     }
     
-
+    
+    
+    public void closeAll(){
+        try {
+            server.close();
+            socketRx.close();
+            pw.close();
+            read.close();
+            funciona = true;
+        } catch (Exception ex) {
+            Logger.getLogger(Thread_Receiver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
     public void run() {
         try {
-            ServerSocket server = new ServerSocket(91);
-            Socket socketRx = server.accept();
+            server = new ServerSocket(91);
+            socketRx = server.accept();
 
             // Herramienta para enviar
-            PrintWriter pw = new PrintWriter(socketRx.getOutputStream(), true);
+            pw = new PrintWriter(socketRx.getOutputStream(), true);
 
             //Herramienta para recibir
-            BufferedReader read = new BufferedReader(new InputStreamReader(socketRx.getInputStream()));
+            read = new BufferedReader(new InputStreamReader(socketRx.getInputStream()));
 
-            while (true) {
+            while (funciona) {
                 String json = read.readLine();
                 Paquete paquete = JsonParser.jsonToPaquete(json);
 
@@ -79,6 +101,7 @@ public class Thread_Receiver implements Runnable {
                         response = new GenericResponse(Status.CORRECT);
                         anotherJson = JsonParser.paqueteToJson(response);
                         pw.write(anotherJson);
+                        //paquete.getValue(UpdateGruposEvent.ORDEN)
                         
                         break;
                     case UpdateUsuariosEvent.ORDEN:
