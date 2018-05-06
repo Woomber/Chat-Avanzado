@@ -42,7 +42,7 @@ public class JFrame_Principal extends JFrame implements ActionListener{
         /*Ventana*/
         super("Pagina principal");
         this.setResizable(false);
-        setIconImage(new ImageIcon(getClass().getResource("../Images/icono.png")).getImage());/*icono*/
+        setIconImage(new ImageIcon(getClass().getResource("/Images/icono.png")).getImage());/*icono*/
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loadFrameDetails();
     }
@@ -63,12 +63,12 @@ public class JFrame_Principal extends JFrame implements ActionListener{
         LblEspacio = new JLabel(" ");
 
         BtnFavoritos = new JButton();
-        ImageIcon favorito = new ImageIcon(getClass().getResource("../Images/iconoF.png"));
+        ImageIcon favorito = new ImageIcon(getClass().getResource("/Images/iconoF.png"));
         ImageIcon iconofavorito = new ImageIcon(favorito.getImage());
         BtnFavoritos.setIcon(iconofavorito);
 
         BtnGrupos = new JButton();
-        ImageIcon grupo = new ImageIcon(getClass().getResource("../Images/iconoG.png"));
+        ImageIcon grupo = new ImageIcon(getClass().getResource("/Images/iconoG.png"));
         ImageIcon iconogrupo = new ImageIcon(grupo.getImage());
         BtnGrupos.setIcon(iconogrupo);
         BtnFavoritos.addActionListener(this);

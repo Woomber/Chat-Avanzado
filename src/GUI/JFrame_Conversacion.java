@@ -56,7 +56,7 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
         this.setResizable(false);
         this.name = name;
         this.isGroup = isGroup;
-        setIconImage(new ImageIcon(getClass().getResource("../Images/icono.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Images/icono.png")).getImage());
         /*icono*/
         this.setSize(500, 250);
         loadFrameDetails();
@@ -79,8 +79,8 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
         /*Ingreso de icono de usuario*/
         ImgIcono = new JLabel();
         ImageIcon usuario;
-        if(isGroup) usuario = new ImageIcon(getClass().getResource("../Images/grupo.png"));
-        else usuario = new ImageIcon(getClass().getResource("../Images/usuario.png"));
+        if(isGroup) usuario = new ImageIcon(getClass().getResource("/Images/grupo.png"));
+        else usuario = new ImageIcon(getClass().getResource("/Images/usuario.png"));
         ImageIcon icono = new ImageIcon(usuario.getImage());
         ImgIcono.setIcon(icono);
         LblNombreConversacion = new JLabel(name);
