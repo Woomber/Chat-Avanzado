@@ -87,8 +87,24 @@ public class MensajeVistoConnector extends SqlConnector{
             return null;
         }
     }
-    
+
     public boolean eliminar(int id) {
+        final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_mensaje = ?";
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id);
+            int updated = query.executeUpdate();
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registros actualizados: " + updated);
+            return  updated > 0;
+
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    
+    public boolean eliminarGrupo(int id) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_mensaje IN (SELECT id FROM mensaje where id_grupo = ?)";
 
         try {

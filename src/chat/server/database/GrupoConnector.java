@@ -45,6 +45,33 @@ public class GrupoConnector extends SqlConnector{
             return null;
         }
     }
+    
+        public Grupo get(int id) {
+        final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id = ?";
+
+        try {
+            PreparedStatement query = connection.prepareStatement(QUERY);
+            query.setInt(1, id);
+            ResultSet rs = query.executeQuery();
+
+            Grupo resultados = null;
+
+            if (rs.next()) {
+                resultados = new Grupo();
+                resultados.setId_grupo(rs.getInt("id"));
+                resultados.setNombre_grupo(rs.getString("nombre"));
+            }
+            ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
+                    + " > Registros leídos: " +  (resultados == null ? 0 : 1));
+            return resultados;
+
+        } catch (SQLException | NullPointerException ex) {
+            ServerLog.log(this, MSG_QUERY_ERROR + ": " + QUERY
+                    + "\n\t> " + ex.getMessage());
+            return null;
+        }
+    }
+    
     public int addGrupo(Grupo item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + "(nombre) VALUES(?)";
 

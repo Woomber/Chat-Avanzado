@@ -62,7 +62,7 @@ public class AlterGrupoHandler implements Handler {
                 correct = usua.eliminar(ug);
                 // Si hay menos de dos personas, eliminarGrupo grupo
                 if(usua.getAllUsuarios(ug.getId_grupo()).size() < 2){
-                    correct = visto.eliminar(ug.getId_grupo()) && correct;
+                    correct = visto.eliminarGrupo(ug.getId_grupo()) && correct;
                     correct = connme.eliminarGrupo(ug.getId_grupo()) && correct;
                     correct = usua.eliminarGrupo(ug.getId_grupo()) && correct;
                     correct = connector.eliminarGrupo(ug.getId_grupo()) && correct;
