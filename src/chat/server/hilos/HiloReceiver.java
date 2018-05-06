@@ -98,7 +98,7 @@ public class HiloReceiver extends Hilo implements Runnable {
             ////////////////////////////////////////////////////////////////////
             // GRUPOS
             case CreateGrupoRequest.ORDEN:
-                response = new CreateGrupoHandler(paquete).run();
+                response = new CreateGrupoHandler(paquete, vinculo).run();
                 break;
                 
             case AlterGrupoRequest.ORDEN:

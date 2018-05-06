@@ -9,6 +9,7 @@ import chat.paquetes.requests.CreateGrupoRequest;
 import chat.paquetes.responses.GenericResponse;
 import chat.server.database.UsuarioGrupoConnector;
 import chat.server.database.GrupoConnector;
+import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class CreateGrupoHandler implements Handler{
     // Arreglo de usuarios
     private final ArrayList<UsuarioGrupo> usuarios;
     
-    public CreateGrupoHandler (Paquete request){
+    public CreateGrupoHandler (Paquete request, Vinculo vinculo){
         
         usuarios = new ArrayList<>();
         
@@ -32,13 +33,22 @@ public class CreateGrupoHandler implements Handler{
             // miembros es un json, y por lo tanto hay que desempacarlo
             miembros = JsonParser.jsonToStrings(request.getValue(CreateGrupoRequest.PARAM_MIEMBROS));
             
+            UsuarioGrupo curr = null;
+            
             // Agregar cada usuario
             for(String str : miembros){
                 UsuarioGrupo usr = new UsuarioGrupo();
                 usr.setId_usuario(str);
                 usr.setStatus(false);
                 usuarios.add(usr);
+                if(str.equals(vinculo.getUsername())) curr = usr;
             }
+            
+            if(curr == null){
+                curr = new UsuarioGrupo();
+                curr.setId_usuario(vinculo.getUsername());
+            }
+            curr.setStatus(true);
             
         } catch(JsonParserException ex){
             miembros = null;

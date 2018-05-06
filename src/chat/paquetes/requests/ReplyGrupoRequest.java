@@ -21,7 +21,7 @@ public class ReplyGrupoRequest extends Paquete {
     public static final String PARAM_GROUP = "grupo";
     public static final String ACCEPTED = "accepted";
 
-    public ReplyGrupoRequest(int grupo, boolean accepted, String usuario) {
+    public ReplyGrupoRequest(int grupo, boolean accepted) {
         super(ORDEN);
         try {
             this.addParam(PARAM_GROUP, String.valueOf(grupo));
