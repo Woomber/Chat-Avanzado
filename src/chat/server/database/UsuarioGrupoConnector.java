@@ -53,12 +53,14 @@ public class UsuarioGrupoConnector extends SqlConnector{
             query.setInt(2, id_grupo);
             ResultSet rs = query.executeQuery();
 
-            UsuarioGrupo resultados = new UsuarioGrupo();
+            UsuarioGrupo resultados = null;
 
+            if (rs.next()) {
+                resultados = new UsuarioGrupo();
                 resultados.setId_grupo(rs.getInt("id_grupo"));
                 resultados.setId_usuario(rs.getString("username"));
-                resultados.setStatus(rs.getBoolean("status"));
-                
+                resultados.setStatus(rs.getBoolean("status"));   
+            }                
             
             ServerLog.log(this, MSG_QUERY_SUCCESS + ": " + QUERY
                     + " > Registro leido");
