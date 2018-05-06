@@ -47,6 +47,7 @@ public class CreateGrupoHandler implements Handler{
             if(curr == null){
                 curr = new UsuarioGrupo();
                 curr.setId_usuario(vinculo.getUsername());
+                usuarios.add(curr);
             }
             curr.setStatus(true);
             
