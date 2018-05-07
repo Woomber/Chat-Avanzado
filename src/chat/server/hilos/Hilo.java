@@ -4,8 +4,10 @@ import chat.server.log.ServerLog;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Clase abstracta de un Hilo
@@ -25,7 +27,8 @@ abstract class Hilo {
      */
     protected boolean send(Socket socket, String mensaje) {
         try {
-            PrintWriter print = new PrintWriter(socket.getOutputStream(), true);
+            PrintWriter print = new PrintWriter(new OutputStreamWriter(
+                    socket.getOutputStream(), StandardCharsets.UTF_8), true);
             print.println(mensaje);
             ServerLog.log(this, "Enviado a " + socket.toString() + ": " + mensaje);
             return true;
@@ -44,7 +47,7 @@ abstract class Hilo {
      */
     protected String get(Socket socket) {
         try {
-            BufferedReader read = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader read = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
             String lectura = read.readLine();
             ServerLog.log(this, "Leído de " + socket.toString() + ": " + lectura);
             return lectura;
