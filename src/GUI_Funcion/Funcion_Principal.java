@@ -69,6 +69,7 @@ public class Funcion_Principal extends JFrame_Principal {
         transmitter = Thread_Transmitter.transmitter;
         receiver = Thread_Receiver.receiver;
         receiver.onUpdate = () -> LoadUsuarios();
+        receiver.onGroupUpdate = () -> UpdateAllGroups();
         /*JComponent_Usuario com = new JComponent_Usuario("Malditasea", true);
         this.PanelUsuarios.add(com);*/
         super.setOnBtnGruposClick(() -> BtnGruposClick());
@@ -147,6 +148,14 @@ public class Funcion_Principal extends JFrame_Principal {
         } catch (Exception ex) {
 
         }
+    }
+    
+    public void UpdateAllGroups(){
+        PanelGrupos.removeAll();
+        PanelGrupos.revalidate();
+        PanelGrupos.repaint();
+        transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> loadGroups(socket, pw, read));
+        transmitter.StartThread();
     }
 
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {

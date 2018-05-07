@@ -39,11 +39,12 @@ public class Thread_Transmitter implements Runnable {
 
     public Thread_Transmitter() {
         try {
-            socketTx = new Socket("192.168.42.195", 90);
+            socketTx = new Socket("localhost", 90);
             pw = new PrintWriter(new OutputStreamWriter(
                     socketTx.getOutputStream(), StandardCharsets.UTF_8), true);
             read = new BufferedReader(new InputStreamReader(socketTx.getInputStream(), StandardCharsets.UTF_8));
         } catch (IOException ex) {
+            MessageBox.Show("", ex.getMessage());
         }
     }
 
