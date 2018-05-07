@@ -55,8 +55,8 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
         ImageIcon iconoEliminar = new ImageIcon(eliminar.getImage());
         BtnEliminar.setIcon(iconoEliminar);
         BtnEliminar.addActionListener(this);
-        
-        
+        LblUsuario.addMouseListener(this);
+        ImgUsuario.addMouseListener(this);
         /* panel de mensaje */
         GroupLayout orden = new GroupLayout(this);
         orden.setAutoCreateContainerGaps(true);

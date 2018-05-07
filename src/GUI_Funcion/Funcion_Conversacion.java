@@ -15,6 +15,7 @@ import Models.Grupo;
 import Models.Usuario;
 import PaquetesModels.Paquete;
 import Requests.MensajeRequest;
+import Requests.MensajeGrupoRequest;
 import Threads.Thread_Transmitter;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,6 +44,8 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
 
     public Usuario usuario;
     Grupo grupo;
+    
+    boolean isGroup;
 
     int count;
 
@@ -92,6 +95,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
     }
 
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
+        
         super(usuario.getNombre(), false);
 
         super.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -101,7 +105,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
                 close();
             }
         });
-
+        isGroup = false;
         this.isOnline = isOnline;
         this.newOnline = isOnline;
         this.usuario = usuario;
@@ -132,11 +136,30 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
 
     public Funcion_Conversacion(Grupo grupo) {
         super(grupo.getNombre_grupo(), true);
+        MessageBox.Show("","1");
+        isGroup = true;
+        MessageBox.Show("","2");
+        this.grupo = grupo;
+        MessageBox.Show("","3");
+        count = DocumentManager.GetNumberLines(grupo.getId_grupo()+"_"+grupo.getNombre_grupo(), true);
+        MessageBox.Show("","4");
         PanelConversacion = super.getPanelConversacion();
+        MessageBox.Show("","5");
         TxtMensaje = super.getTxtMensaje();
+        MessageBox.Show("","6");
         super.setOnBtnEnviarClick(() -> GroupBtnEnviarClick());
+        MessageBox.Show("","7");
         super.setOnMenuAgregarUsuariosClick(() -> AgregarUsuariosClick());
+        MessageBox.Show("","8");
         super.setOnMenuSalirGrupoClick(() -> MenuSalirGrupoClick());
+        MessageBox.Show("","9");
+        LoadGroupInformation();
+        MessageBox.Show("","10");
+        hilo = new Thread(this);
+        MessageBox.Show("","11");
+        hilo.start();
+        MessageBox.Show("","12");
+        
     }
 
     private void LoadInformation() {
@@ -189,7 +212,20 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
     }
 
     private void GroupBtnEnviarClick() {
-
+        if (TxtMensaje.getText().equals("")) {
+            MessageBox.Show("Error", "No puedes enviar un mensaje vacío");
+            return;
+        }
+        transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> {
+            try {
+                pw.println(JsonParser.paqueteToJson(new MensajeGrupoRequest(grupo.getId_grupo(),TxtMensaje.getText())));
+                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+                //DocumentManager.SaveMessage(String.valueOf(grupo.getId_grupo())+"_"+grupo.getNombre_grupo(), Usuario.emisor.getId_usuario(), TxtMensaje.getText(), true);
+                TxtMensaje.setText("");
+            } catch (JsonParserException | IOException ex) {
+            }
+        });
+        transmitter.StartThread();
     }
 
     private void AgregarUsuariosClick() {
@@ -198,15 +234,28 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
     }
 
     private void MenuSalirGrupoClick() {
-
+            MessageBox.Show("","Holitasdemar");
     }
 
     @Override
     public void run() {
         while (true) {
-            int newCount = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
+            int newCount;
+            if(isGroup){
+                newCount = DocumentManager.GetNumberLines(grupo.getId_grupo() + "_" + grupo.getNombre_grupo(), true);
+            }
+            else{
+                newCount = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
+            }
             if (newCount > count) {
-                ArrayList<String> messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(), 1, false);
+                ArrayList<String> messages;
+                if(isGroup){
+                    messages = DocumentManager.GetLastNumberMessages(grupo.getId_grupo() + "_" + grupo.getNombre_grupo(), 1, true);
+                }
+                else{
+                    messages = DocumentManager.GetLastNumberMessages(usuario.getId_usuario(), 1, false);
+
+                }
                 count = newCount;
 
                 for (String s : messages) {
@@ -231,4 +280,28 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         }
     }
 
+    private void LoadGroupInformation() {
+        ArrayList<String> messages = DocumentManager.GetLastNumberMessages(grupo.getId_grupo() + "_" + grupo.getNombre_grupo(), 5, true);
+        if (messages == null) {
+            return;
+        }
+        for (String s : messages) {
+
+            String[] parts = s.split(("l==>"));
+            String from = parts[0].trim().replace("[", "").replace("]", "");
+            String message = parts[1].trim();
+            JLabel label;
+            if (from.equals(Usuario.emisor)) {
+                label = new JLabel(from + ">" + message, SwingConstants.RIGHT);
+                label.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
+                label.setHorizontalTextPosition(SwingConstants.RIGHT);
+            } else {
+                label = new JLabel(from + "> " + message, SwingConstants.RIGHT);
+
+            }
+            PanelConversacion.add(label);
+
+        }
+    }
+    
 }

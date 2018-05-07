@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class DialogConfirm {
 
-    public static boolean Show(String message) {
+    public static boolean Show(String title, String message) {
         int i = JOptionPane.showConfirmDialog(null, message,
-                "alert", JOptionPane.OK_CANCEL_OPTION);
+                title, JOptionPane.OK_CANCEL_OPTION);
         
         return (i == JOptionPane.OK_OPTION);
     }

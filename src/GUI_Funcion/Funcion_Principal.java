@@ -5,6 +5,7 @@
  */
 package GUI_Funcion;
 
+import Models.Grupo;
 import Delegates.Update;
 import Documents.DocumentManager;
 import Exceptions.JsonParserException;
@@ -276,7 +277,7 @@ public class Funcion_Principal extends JFrame_Principal {
                 String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
                 boolean stat = false;
                 if (status.equals(GrupoResponse.Status.PENDING.getName())) {
-                    if (DialogConfirm.Show("Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
+                    if (DialogConfirm.Show("Nuevo Grupo","Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
                         stat = true;
                     }
                     pw.println(JsonParser.paqueteToJson(new ReplyGrupoRequest(Integer.valueOf(id), stat, Usuario.emisor.getId_usuario())));
@@ -291,6 +292,9 @@ public class Funcion_Principal extends JFrame_Principal {
                         DocumentManager.SaveMessage(id + "_" + nombreGrupo, m.getOrigen(), m.getMensaje(), true);
                     }
                     JComponent_Grupo grupo = new JComponent_Grupo(nombreGrupo);
+                    grupo.setOnInformationEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
+                    grupo.setOnInformationLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
+                    grupo.setOnInformationClick(() -> LoadGroupConverataion(id,nombreGrupo));
                     PanelGrupos.add(grupo);
                 }
             }
@@ -298,6 +302,12 @@ public class Funcion_Principal extends JFrame_Principal {
         } catch (JsonParserException | IOException ex) {
             MessageBox.Show("", ex.getMessage());
         }
+    }
+
+    private void LoadGroupConverataion(String id, String nombreGrupo) {
+        Grupo grupo = new Grupo(Integer.valueOf(id).intValue(),nombreGrupo);
+        Funcion_Conversacion funcion = new Funcion_Conversacion(grupo);
+        funcion.setVisible(true);
     }
 
 }
