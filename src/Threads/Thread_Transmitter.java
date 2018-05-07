@@ -14,6 +14,8 @@ import java.io.PrintWriter;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import Json.JsonParser;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,9 +39,10 @@ public class Thread_Transmitter implements Runnable {
 
     public Thread_Transmitter() {
         try {
-            socketTx = new Socket("192.168.0.100", 90);
-            pw = new PrintWriter(socketTx.getOutputStream(), true);
-            read = new BufferedReader(new InputStreamReader(socketTx.getInputStream()));
+            socketTx = new Socket("192.168.42.195", 90);
+            pw = new PrintWriter(new OutputStreamWriter(
+                    socketTx.getOutputStream(), StandardCharsets.UTF_8), true);
+            read = new BufferedReader(new InputStreamReader(socketTx.getInputStream(), StandardCharsets.UTF_8));
         } catch (IOException ex) {
         }
     }
