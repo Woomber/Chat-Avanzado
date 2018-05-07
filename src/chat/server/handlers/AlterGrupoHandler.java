@@ -14,20 +14,18 @@ import chat.server.database.UsuarioGrupoConnector;
 import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
 
-
-
 /**
  *
  * @author Maritza
  */
 public class AlterGrupoHandler implements Handler {
-    
+
     private final AlterGrupoRequest.Operacion operacion;
-    
+
     private final UsuarioGrupo ug;
 
     public AlterGrupoHandler(Paquete request) throws InvalidOperationException {
-         
+
         String op = request.getValue(AlterGrupoRequest.PARAM_OPERACION);
         if (op.equals(AlterGrupoRequest.Operacion.ADD.getName())) {
             operacion = AlterGrupoRequest.Operacion.ADD;
@@ -43,7 +41,6 @@ public class AlterGrupoHandler implements Handler {
         ug.setStatus(false);
 
     }
-    
 
     @Override
     public Paquete run() {
@@ -55,27 +52,37 @@ public class AlterGrupoHandler implements Handler {
 
         switch (operacion) {
             case ADD:
-                correct = usua.add(ug);
-                break;
+                if (usua.add(ug)) {
+                    VinculoList.sendGroupUpdate(ug.getId_grupo());
+                    return new GenericResponse(GenericResponse.Status.CORRECT);
+                }
+                return new GenericResponse(GenericResponse.Status.INCORRECT);
+
             case REMOVE:
                 // Eliminar integrante
                 correct = usua.eliminar(ug);
                 // Si hay menos de dos personas, eliminarGrupo grupo
-                if(usua.getAllUsuarios(ug.getId_grupo()).size() < 2){
+                if (usua.getAllUsuarios(ug.getId_grupo()).size() < 2) {
                     correct = visto.eliminarGrupo(ug.getId_grupo()) && correct;
                     correct = connme.eliminarGrupo(ug.getId_grupo()) && correct;
                     correct = usua.eliminarGrupo(ug.getId_grupo()) && correct;
                     correct = connector.eliminarGrupo(ug.getId_grupo()) && correct;
+                    if (correct) {
+                        VinculoList.sendGroupUpdateAll(ug.getId_grupo());
+                        return new GenericResponse(GenericResponse.Status.CORRECT);
+                    }
+                    return new GenericResponse(GenericResponse.Status.INCORRECT);
+
+                } else {
+                    if (correct) {
+                        VinculoList.sendGroupUpdate(ug.getId_grupo());
+                        return new GenericResponse(GenericResponse.Status.CORRECT);
+                    }
+                    return new GenericResponse(GenericResponse.Status.INCORRECT);
                 }
-                break;
+            default:
+                return new GenericResponse(GenericResponse.Status.INCORRECT);
         }
-
-        if (correct) {
-            VinculoList.sendGroupUpdate(ug.getId_grupo());
-            return new GenericResponse(GenericResponse.Status.CORRECT);
-        }
-        return new GenericResponse(GenericResponse.Status.INCORRECT);
-
     }
-    
+
 }

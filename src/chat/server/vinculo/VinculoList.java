@@ -1,6 +1,7 @@
 package chat.server.vinculo;
 
 import chat.models.UsuarioGrupo;
+import chat.paquetes.events.UpdateGrupoEvent;
 import chat.paquetes.events.UpdateGruposEvent;
 import chat.paquetes.events.UpdateUsuariosEvent;
 import chat.server.database.UsuarioGrupoConnector;
@@ -38,12 +39,24 @@ public class VinculoList {
         }
     }
     
-    public static synchronized void sendGroupUpdate(int grupo){
+    public static synchronized void sendGroupUpdateAll(int grupo){
         ArrayList<UsuarioGrupo> ug = new UsuarioGrupoConnector().getAllUsuarios(grupo);
         for(Vinculo v : getConnected()){
             for(UsuarioGrupo u : ug){
                 if(v.getUsername().equals(u.getId_usuario())){
                     v.getHiloTx().setPaquete(new UpdateGruposEvent());
+                    v.startSend();
+                }
+            }
+        }
+    }
+    
+    public static synchronized void sendGroupUpdate(int grupo){
+        ArrayList<UsuarioGrupo> ug = new UsuarioGrupoConnector().getAllUsuarios(grupo);
+        for(Vinculo v : getConnected()){
+            for(UsuarioGrupo u : ug){
+                if(v.getUsername().equals(u.getId_usuario())){
+                    v.getHiloTx().setPaquete(new UpdateGrupoEvent(grupo));
                     v.startSend();
                 }
             }
