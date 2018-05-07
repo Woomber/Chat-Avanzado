@@ -40,7 +40,7 @@ public class JFrame_AgregarFavorito extends JFrame implements ActionListener {
         super("Favoritos");
         this.setResizable(false);
         this.user = user;
-        setIconImage(new ImageIcon(getClass().getResource("../Images/icono.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Images/icono.png")).getImage());
         this.setSize(500, 250);
         loadFrameDetails();
     }
