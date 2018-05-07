@@ -14,6 +14,7 @@ import PaquetesModels.Paquete;
 import Requests.LoginRequest;
 import Requests.RegistroRequest;
 import Responses.GenericResponse;
+import Responses.LoginResponse;
 import Threads.Thread_Receiver;
 import Threads.Thread_Transmitter;
 import java.io.BufferedReader;
@@ -90,9 +91,38 @@ public class Funcion_Registro extends JFrame_Registro {
             MessageBox.Show("Registrado", "El usuario ha sido registrado");
             System.out.println("Registrado");
             Usuario.emisor = new Usuario(TxtUsuario.getText(), "", TxtNombre.getText());
-            Funcion_Principal funcion = new Funcion_Principal();
-            funcion.setVisible(true);
-            this.setVisible(false);
+            
+             try {
+            json = 
+                    JsonParser.paqueteToJson((Paquete) new LoginRequest(
+                            TxtUsuario.getText(), 
+                            TxtContrasena.getText())
+                    );
+            
+            while (true) {
+                pw.println(json);
+                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+                System.out.println(json);
+               
+                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
+                    Usuario.emisor = new Usuario(TxtUsuario.getText(),"","");
+                    Funcion_Principal funcion = new Funcion_Principal();
+                    funcion.setVisible(true);
+                    this.setVisible(false);
+                    return;
+                }
+                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.TRY_AGAIN.getName())) {
+                    break;
+                }
+            }
+            MessageBox.Show("Error", "Inicio de sesión inválido");
+            return;
+        } catch (IOException | JsonParserException ex) {
+            System.out.println("");
+            System.out.println(ex.getMessage());
+            System.out.println("");
+        }
+        
         } catch (IOException | JsonParserException ex) {
             System.out.println("No se pudo: " + ex.getMessage());
             MessageBox.Show("Error", "Ocurrió un error durante el Registro. Posibles errores:\n"
