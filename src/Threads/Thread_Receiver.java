@@ -40,6 +40,7 @@ public class Thread_Receiver implements Runnable {
     private Thread miHilo;
 
     public Update onUpdate;
+    public Update onGroupUpdate;
     
     ServerSocket server;
     Socket socketRx;
@@ -104,6 +105,7 @@ public class Thread_Receiver implements Runnable {
                         response = new GenericResponse(Status.CORRECT);
                         anotherJson = JsonParser.paqueteToJson(response);
                         pw.write(anotherJson);
+                        onGroupUpdate.Invoke();
                         //paquete.getValue(UpdateGruposEvent.ORDEN)
                         
                         break;
