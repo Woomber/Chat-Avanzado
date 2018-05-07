@@ -21,6 +21,7 @@ import Models.Usuario;
 import ModelsSerializables.MensajeSerializable;
 import ModelsSerializables.UsuarioSerializable;
 import PaquetesModels.Paquete;
+import Requests.AlterGrupoRequest;
 import Requests.AmigoRequest;
 import Requests.GrupoRequest;
 import Requests.GruposUsuarioRequest;
@@ -56,6 +57,7 @@ import javax.swing.JPanel;
  */
 public class Funcion_Principal extends JFrame_Principal {
 
+    private String idGrupo;
     private String userFavorito;
     ArrayList<Funcion_Conversacion> conversaciones;
     public JPanel PanelUsuarios, PanelFavoritos, PanelGrupos;
@@ -295,6 +297,8 @@ public class Funcion_Principal extends JFrame_Principal {
                     grupo.setOnInformationEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
                     grupo.setOnInformationLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
                     grupo.setOnInformationClick(() -> LoadGroupConverataion(id,nombreGrupo));
+                    grupo.setBtnEliminarClick(() -> iniciarBorrarGrupo(id));
+
                     PanelGrupos.add(grupo);
                 }
             }
@@ -302,6 +306,37 @@ public class Funcion_Principal extends JFrame_Principal {
         } catch (JsonParserException | IOException ex) {
             MessageBox.Show("", ex.getMessage());
         }
+    }
+    
+    private void iniciarBorrarGrupo(String id){
+        this.idGrupo = id;
+        transmitter.setAction(
+                (Socket socket, PrintWriter pw, BufferedReader read)
+                -> eliminarGrupo(socket, pw, read)
+        );
+
+        transmitter.StartThread();
+    }
+    
+    private void eliminarGrupo(Socket socket, PrintWriter pw, BufferedReader read){
+        try {
+            pw.println(JsonParser.paqueteToJson(new AlterGrupoRequest(
+                    Integer.parseInt(idGrupo), Usuario.emisor.getId_usuario(), 
+                    AlterGrupoRequest.Operacion.REMOVE)));
+            Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+
+            if (paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.INCORRECT.getName())) {
+                MessageBox.Show("", "Eh we, fijate que no se pudo.");
+            }
+            if (paquete.getValue(GenericResponse.PARAM_STATUS).equals(GenericResponse.Status.CORRECT.getName())) {
+                MessageBox.Show("", "Sale bye, Karnal.");
+            }
+        } catch (IOException | JsonParserException ex) {
+            System.out.println("");
+            System.out.println(ex.getMessage());
+            System.out.println("");
+        }
+        LoadUsuarios();
     }
 
     private void LoadGroupConverataion(String id, String nombreGrupo) {
