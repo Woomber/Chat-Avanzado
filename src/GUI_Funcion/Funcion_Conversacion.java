@@ -17,6 +17,7 @@ import PaquetesModels.Paquete;
 import Requests.MensajeRequest;
 import Requests.MensajeGrupoRequest;
 import Threads.Thread_Transmitter;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +25,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -112,6 +115,13 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         count = DocumentManager.GetNumberLines(usuario.getId_usuario(), false);
         PanelConversacion = super.getPanelConversacion();
         TxtMensaje = super.getTxtMensaje();
+        Action action = new AbstractAction(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OnlineBtnEnviarClick();
+            }
+        };
+        TxtMensaje.addActionListener(action);
         if (isOnline) {
             super.setOnBtnEnviarClick(() -> OnlineBtnEnviarClick());
         } else {
@@ -141,6 +151,13 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         count = DocumentManager.GetNumberLines(grupo.getId_grupo()+"_"+grupo.getNombre_grupo(), true);
         PanelConversacion = super.getPanelConversacion();
         TxtMensaje = super.getTxtMensaje();
+        Action action = new AbstractAction(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GroupBtnEnviarClick();
+            }
+        };
+        TxtMensaje.addActionListener(action);
         super.setOnBtnEnviarClick(() -> GroupBtnEnviarClick());
         super.setOnMenuAgregarUsuariosClick(() -> AgregarUsuariosClick());
         super.setOnMenuSalirGrupoClick(() -> MenuSalirGrupoClick());

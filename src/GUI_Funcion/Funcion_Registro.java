@@ -17,6 +17,7 @@ import Responses.GenericResponse;
 import Responses.LoginResponse;
 import Threads.Thread_Receiver;
 import Threads.Thread_Transmitter;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,6 +25,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -47,6 +50,16 @@ public class Funcion_Registro extends JFrame_Registro {
         TxtNombre = super.getTxtNombre();
         TxtContrasena = super.getTxtContrasena();
         TxtContrasenaVerify = super.getTxtContrasenaVerify();
+        Action action = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BtnRegistroClick();
+            }
+        };
+        TxtUsuario.addActionListener(action);
+        TxtNombre.addActionListener(action);
+        TxtContrasena.addActionListener(action);
+        TxtContrasenaVerify.addActionListener(action);
         super.setOnBtnRegistroClick(() -> BtnRegistroClick());
         super.setOnMenuIngresoClick(() -> MenuIngresoClick());
     }
@@ -91,38 +104,38 @@ public class Funcion_Registro extends JFrame_Registro {
             MessageBox.Show("Registrado", "El usuario ha sido registrado");
             System.out.println("Registrado");
             Usuario.emisor = new Usuario(TxtUsuario.getText(), "", TxtNombre.getText());
-            
-             try {
-            json = 
-                    JsonParser.paqueteToJson((Paquete) new LoginRequest(
-                            TxtUsuario.getText(), 
-                            TxtContrasena.getText())
-                    );
-            
-            while (true) {
-                pw.println(json);
-                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
-                System.out.println(json);
-               
-                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
-                    Usuario.emisor = new Usuario(TxtUsuario.getText(),"","");
-                    Funcion_Principal funcion = new Funcion_Principal();
-                    funcion.setVisible(true);
-                    this.setVisible(false);
-                    return;
+
+            try {
+                json
+                        = JsonParser.paqueteToJson((Paquete) new LoginRequest(
+                                TxtUsuario.getText(),
+                                TxtContrasena.getText())
+                        );
+
+                while (true) {
+                    pw.println(json);
+                    Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+                    System.out.println(json);
+
+                    if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
+                        Usuario.emisor = new Usuario(TxtUsuario.getText(), "", "");
+                        Funcion_Principal funcion = new Funcion_Principal();
+                        funcion.setVisible(true);
+                        this.setVisible(false);
+                        return;
+                    }
+                    if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.TRY_AGAIN.getName())) {
+                        break;
+                    }
                 }
-                if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.TRY_AGAIN.getName())) {
-                    break;
-                }
+                MessageBox.Show("Error", "Inicio de sesión inválido");
+                return;
+            } catch (IOException | JsonParserException ex) {
+                System.out.println("");
+                System.out.println(ex.getMessage());
+                System.out.println("");
             }
-            MessageBox.Show("Error", "Inicio de sesión inválido");
-            return;
-        } catch (IOException | JsonParserException ex) {
-            System.out.println("");
-            System.out.println(ex.getMessage());
-            System.out.println("");
-        }
-        
+
         } catch (IOException | JsonParserException ex) {
             System.out.println("No se pudo: " + ex.getMessage());
             MessageBox.Show("Error", "Ocurrió un error durante el Registro. Posibles errores:\n"
