@@ -38,7 +38,7 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
     Thread_Transmitter transmitter;
     JTextField nombreGrupo;
     
-    Update OnUpdate;
+    //Update OnUpdate;
     
     public Funcion_RegistroGrupo() {
     }
@@ -56,9 +56,9 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
         }
     }
 
-    public void setOnUpdate(Update OnUpdate) {
+    /*public void setOnUpdate(Update OnUpdate) {
         this.OnUpdate = OnUpdate;
-    }
+    }*/
     
     
     
@@ -80,7 +80,7 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
             pw.println(JsonParser.paqueteToJson(miCreacionGrupo));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
             this.setVisible(false);
-            OnUpdate.Invoke();
+            //OnUpdate.Invoke();
             
         } catch (IOException | JsonParserException ex) {
             System.out.println("");

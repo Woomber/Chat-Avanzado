@@ -113,7 +113,7 @@ public class Funcion_Principal extends JFrame_Principal {
             }
         }
         Funcion_RegistroGrupo funcion = new Funcion_RegistroGrupo(misUsuariosGrupo);
-        funcion.setOnUpdate(() -> LoadUsuarios());
+        //funcion.setOnUpdate(() -> LoadUsuarios());
         funcion.setVisible(true);
     }
 
