@@ -81,10 +81,13 @@ public class Funcion_Principal extends JFrame_Principal {
     private void LoadUsuarios() {
         PanelUsuarios.removeAll();
         PanelFavoritos.removeAll();
+        PanelGrupos.removeAll();
         PanelUsuarios.revalidate();
         PanelFavoritos.revalidate();
+        PanelGrupos.revalidate();
         PanelUsuarios.repaint();
         PanelFavoritos.repaint();
+        PanelGrupos.repaint();
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
                 -> listaUsuarios(socket, pw, read)
@@ -106,6 +109,7 @@ public class Funcion_Principal extends JFrame_Principal {
             }
         }
         Funcion_RegistroGrupo funcion = new Funcion_RegistroGrupo(misUsuariosGrupo);
+        funcion.setOnUpdate(() -> LoadUsuarios());
         funcion.setVisible(true);
     }
 
@@ -255,16 +259,12 @@ public class Funcion_Principal extends JFrame_Principal {
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
             String json = paquete.getValue(GruposUsuarioResponse.PARAM_GRUPOS);
             Integer[] ids = JsonParser.jsonToIntegers(json);
-            MessageBox.Show("", (ids.length)==0?"No hay nada":"Hay algo");
             for (Integer i : ids) {
-                MessageBox.Show("", i.toString());
                 pw.println(JsonParser.paqueteToJson(new GrupoRequest(i.intValue())));
                 Paquete grupoPaquete = JsonParser.jsonToPaquete(read.readLine());
                 String id = grupoPaquete.getValue(GrupoResponse.PARAM_ID_GRUPO);
                 String nombreGrupo = grupoPaquete.getValue(GrupoResponse.PARAM_NOMBRE_GRUPO);
-                MessageBox.Show("", nombreGrupo);
                 String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
-                MessageBox.Show("", status);
                 boolean stat = false;
                 if (status.equals(GrupoResponse.Status.PENDING.getName())) {
                     if (DialogConfirm.Show("Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
@@ -275,20 +275,15 @@ public class Funcion_Principal extends JFrame_Principal {
                 }
                 else if(status.equals(GrupoResponse.Status.IN_GROUP.getName())){
                     stat = true;
-                }
-                
-                MessageBox.Show("", "aquitoy");
+                }          
                 if (stat) {
-                    MessageBox.Show("", "ahora aquí");
                     MensajeSerializable[] a = JsonParser.jsonToMensajes(grupoPaquete.getValue(GrupoResponse.PARAM_MENSAJES));
                     for (MensajeSerializable m : a) {
                         DocumentManager.SaveMessage(id + "_" + nombreGrupo, m.getOrigen(), m.getMensaje(), true);
                     }
                     JComponent_Grupo grupo = new JComponent_Grupo(nombreGrupo);
                     PanelGrupos.add(grupo);
-                    MessageBox.Show("", "yacabe");
                 }
-
             }
             PanelGrupos.revalidate();
         } catch (JsonParserException | IOException ex) {

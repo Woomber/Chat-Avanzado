@@ -5,6 +5,7 @@
  */
 package GUI_Funcion;
 
+import Delegates.Update;
 import Exceptions.JsonParserException;
 import GUI.JComponent_Usuario;
 import GUI.JFrame_RegistroGrupo;
@@ -37,6 +38,8 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
     Thread_Transmitter transmitter;
     JTextField nombreGrupo;
     
+    Update OnUpdate;
+    
     public Funcion_RegistroGrupo() {
     }
     
@@ -52,6 +55,12 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
             panelIntegrantes.add(new JLabel(x));
         }
     }
+
+    public void setOnUpdate(Update OnUpdate) {
+        this.OnUpdate = OnUpdate;
+    }
+    
+    
     
     public void BtnCrearGrupo() {
         transmitter.setAction(
@@ -71,6 +80,8 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
             pw.println(JsonParser.paqueteToJson(miCreacionGrupo));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
             this.setVisible(false);
+            OnUpdate.Invoke();
+            
         } catch (IOException | JsonParserException ex) {
             System.out.println("");
             System.out.println(ex.getMessage());

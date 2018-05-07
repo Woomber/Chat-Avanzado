@@ -20,9 +20,11 @@ import Responses.GenericResponse.Status;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,10 +75,11 @@ public class Thread_Receiver implements Runnable {
             socketRx = server.accept();
 
             // Herramienta para enviar
-            pw = new PrintWriter(socketRx.getOutputStream(), true);
+            pw = new PrintWriter(new OutputStreamWriter(
+                    socketRx.getOutputStream(), StandardCharsets.UTF_8), true);
 
             //Herramienta para recibir
-            read = new BufferedReader(new InputStreamReader(socketRx.getInputStream()));
+            read = new BufferedReader(new InputStreamReader(socketRx.getInputStream(), StandardCharsets.UTF_8));
 
             while (funciona) {
                 String json = read.readLine();
