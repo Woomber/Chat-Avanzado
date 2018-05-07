@@ -31,7 +31,7 @@ import javax.swing.JTextPane;
  */
 public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
     
-    ArrayList<JComponent_Usuario> users;
+    ArrayList<String> users;
     ArrayList<String> usernames;
     JPanel panelIntegrantes;
     Thread_Transmitter transmitter;
@@ -40,16 +40,16 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
     public Funcion_RegistroGrupo() {
     }
     
-    public Funcion_RegistroGrupo(ArrayList<JComponent_Usuario> users) {
+    public Funcion_RegistroGrupo(ArrayList<String> users) {
         this.users = users;
         this.panelIntegrantes = super.getPanelIntegrantes();
         this.nombreGrupo = super.getTxtGrupo();
         usernames = new ArrayList<>();
         transmitter = Thread_Transmitter.transmitter;
         super.setOnBtnCrearClick(() -> BtnCrearGrupo());
-        for (JComponent_Usuario x : users) {
-            panelIntegrantes.add(x.getLblUsuario());
-            usernames.add(x.username);
+        super.setOnBtnCancelarClick(() -> {this.setVisible(false);});
+        for (String x : users) {
+            panelIntegrantes.add(new JLabel(x));
         }
     }
     
@@ -64,14 +64,13 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
     public void mandarGrupo(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             CreateGrupoRequest miCreacionGrupo = new CreateGrupoRequest(nombreGrupo.getText());
-            for (String s : usernames) {
+            for (String s : users) {
                 miCreacionGrupo.addMiembro(s);
-                MessageBox.Show("", s);
             }
             miCreacionGrupo.finish();
             pw.println(JsonParser.paqueteToJson(miCreacionGrupo));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
-            
+            this.setVisible(false);
         } catch (IOException | JsonParserException ex) {
             System.out.println("");
             System.out.println(ex.getMessage());
