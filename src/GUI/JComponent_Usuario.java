@@ -101,6 +101,10 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
         return RadioButton;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == ImgUsuario || e.getSource() == LblUsuario) {

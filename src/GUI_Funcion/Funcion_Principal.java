@@ -6,22 +6,30 @@
 package GUI_Funcion;
 
 import Delegates.Update;
+import Documents.DocumentManager;
 import Exceptions.JsonParserException;
 import GUI.JComponent_Favorito;
 import GUI.JComponent_Grupo;
 import GUI.JComponent_Usuario;
 import GUI.JFrame_Conversacion;
 import GUI.JFrame_Principal;
+import General.DialogConfirm;
 import General.MessageBox;
 import Json.JsonParser;
 import Models.Usuario;
+import ModelsSerializables.MensajeSerializable;
 import ModelsSerializables.UsuarioSerializable;
 import PaquetesModels.Paquete;
 import Requests.AmigoRequest;
+import Requests.GrupoRequest;
+import Requests.GruposUsuarioRequest;
 import Requests.LoginRequest;
 import Requests.LogoutRequest;
+import Requests.ReplyGrupoRequest;
 import Requests.UsuariosRequest;
 import Responses.GenericResponse;
+import Responses.GrupoResponse;
+import Responses.GruposUsuarioResponse;
 import Responses.LoginResponse;
 import Responses.UsuariosResponse;
 import Threads.Thread_Receiver;
@@ -67,17 +75,19 @@ public class Funcion_Principal extends JFrame_Principal {
         super.setOnBtnFavoritosClick(() -> BtnFavoritosClick());
         super.setOnMenuSalirClick(() -> MenuSalirClick());
         LoadUsuarios();
-        LoadGrupos();
 
     }
 
     private void LoadUsuarios() {
         PanelUsuarios.removeAll();
         PanelFavoritos.removeAll();
+        PanelGrupos.removeAll();
         PanelUsuarios.revalidate();
         PanelFavoritos.revalidate();
+        PanelGrupos.revalidate();
         PanelUsuarios.repaint();
         PanelFavoritos.repaint();
+        PanelGrupos.repaint();
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
                 -> listaUsuarios(socket, pw, read)
@@ -85,18 +95,21 @@ public class Funcion_Principal extends JFrame_Principal {
         transmitter.StartThread();
     }
 
-    private void LoadGrupos() {
-
-    }
-
     private void BtnGruposClick() {
-        ArrayList<JComponent_Usuario> misUsuariosGrupo = new ArrayList<>();
+        ArrayList<String> misUsuariosGrupo = new ArrayList<>();
         for (Component c : PanelUsuarios.getComponents()) {
             if (((JComponent_Usuario) c).getRadioButton().isSelected()) {
-                misUsuariosGrupo.add((JComponent_Usuario) c);
+                misUsuariosGrupo.add(((JComponent_Usuario) c).getUsername());
+
+            }
+        }
+        for (Component c : PanelFavoritos.getComponents()) {
+            if (((JComponent_Favorito) c).getRadioButton().isSelected()) {
+                misUsuariosGrupo.add(((JComponent_Favorito) c).getUsername());
             }
         }
         Funcion_RegistroGrupo funcion = new Funcion_RegistroGrupo(misUsuariosGrupo);
+        funcion.setOnUpdate(() -> LoadUsuarios());
         funcion.setVisible(true);
     }
 
@@ -139,6 +152,7 @@ public class Funcion_Principal extends JFrame_Principal {
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
 
         try {
+            loadGroups(socket, pw, read);
             pw.println(JsonParser.paqueteToJson(new UsuariosRequest()));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
             //System.out.println(paquete.getValue(UsuariosResponse.USUARIOS));
@@ -237,6 +251,44 @@ public class Funcion_Principal extends JFrame_Principal {
             System.out.println("");
         }
         LoadUsuarios();
+    }
+
+    private void loadGroups(Socket socket, PrintWriter pw, BufferedReader read) {
+        try {
+            pw.println(JsonParser.paqueteToJson(new GruposUsuarioRequest()));
+            Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+            String json = paquete.getValue(GruposUsuarioResponse.PARAM_GRUPOS);
+            Integer[] ids = JsonParser.jsonToIntegers(json);
+            for (Integer i : ids) {
+                pw.println(JsonParser.paqueteToJson(new GrupoRequest(i.intValue())));
+                Paquete grupoPaquete = JsonParser.jsonToPaquete(read.readLine());
+                String id = grupoPaquete.getValue(GrupoResponse.PARAM_ID_GRUPO);
+                String nombreGrupo = grupoPaquete.getValue(GrupoResponse.PARAM_NOMBRE_GRUPO);
+                String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
+                boolean stat = false;
+                if (status.equals(GrupoResponse.Status.PENDING.getName())) {
+                    if (DialogConfirm.Show("Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
+                        stat = true;
+                    }
+                    pw.println(JsonParser.paqueteToJson(new ReplyGrupoRequest(Integer.valueOf(id), stat, Usuario.emisor.getId_usuario())));
+                    Paquete responsePaquete = JsonParser.jsonToPaquete(read.readLine());
+                }
+                else if(status.equals(GrupoResponse.Status.IN_GROUP.getName())){
+                    stat = true;
+                }          
+                if (stat) {
+                    MensajeSerializable[] a = JsonParser.jsonToMensajes(grupoPaquete.getValue(GrupoResponse.PARAM_MENSAJES));
+                    for (MensajeSerializable m : a) {
+                        DocumentManager.SaveMessage(id + "_" + nombreGrupo, m.getOrigen(), m.getMensaje(), true);
+                    }
+                    JComponent_Grupo grupo = new JComponent_Grupo(nombreGrupo);
+                    PanelGrupos.add(grupo);
+                }
+            }
+            PanelGrupos.revalidate();
+        } catch (JsonParserException | IOException ex) {
+            MessageBox.Show("", ex.getMessage());
+        }
     }
 
 }
