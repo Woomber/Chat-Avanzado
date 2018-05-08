@@ -27,6 +27,15 @@ public class DocumentManager {
     private static final String username = System.getProperty("user.name");
     private static final String rutaContactos = "Messages\\Contactos\\";
     private static final String rutaGrupos = "Messages\\Grupos\\";
+    
+    /**
+     *  Guarda el mensaje en un archivo dependiendo si es grupo o no.
+     * @param conversationName Nombre de la la conversacion 
+     * @param remitent Persona que lo envia 
+     * @param message El mensaje que es enviado 
+     * @param isGroup identificador de si es un grupo
+     * @return Retorna true si se pudo guardar  o un false si tuvo error 
+     */
 
     public static boolean SaveMessage(String conversationName, String remitent, String message, boolean isGroup) {
         boolean EverythingIsFine = true;
@@ -57,7 +66,15 @@ public class DocumentManager {
         }
         return EverythingIsFine;
     }
-
+    
+    
+/**
+ * Funcion encargada de retornar cierto numero de mensajes solicitados
+ * @param conversationName Nombre de la conversacion 
+ * @param number le dice cuantos numeros regresa
+ * @param isGroup Si es grupo
+ * @return  retorna el numero de mensajes solicitados 
+ */
     public static ArrayList<String> GetLastNumberMessages(String conversationName, int number, boolean isGroup) {
         ArrayList<String> Messages = new ArrayList<String>();
         String line;
@@ -107,6 +124,13 @@ public class DocumentManager {
         return Messages;
     }
 
+    
+    /***
+     * Funcion encargada de retornar el numero de lineas que tiene el documento
+     * @param conversationName NOmbre de la conversacion 
+     * @param isGroup  Si es un grupo
+     * @return el numero de lineas del texto 
+     */
     public static int GetNumberLines(String conversationName, boolean isGroup) {
         int count = 0;
         try {

@@ -49,7 +49,11 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
     private boolean isGroup;
     
     
-
+/**
+ * Constructor 
+ * @param name nombre de la conversacion
+ * @param isGroup  si es un grupo
+ */
     public JFrame_Conversacion(String name, boolean isGroup) {
         /*Ventana*/
         super("Chat");
@@ -61,7 +65,9 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
         this.setSize(500, 250);
         loadFrameDetails();
     }
-    
+    /**
+     * Crea la patanlla de la conversacion
+     */
     private void loadFrameDetails(){
         /* Menu */
         //barraMenu.add(mnuPrincipal);
@@ -129,26 +135,50 @@ public class JFrame_Conversacion extends JFrame implements ActionListener{
         this.pack();
     }
 
+    /**
+     * Incializa el boton de enviar
+     * @param OnBtnEnviarClick 
+     */
     public void setOnBtnEnviarClick(MouseClick OnBtnEnviarClick) {
         this.OnBtnEnviarClick = OnBtnEnviarClick;
     }
 
+    /**
+     * Incializa el botn de salir de grupo
+     * @param OnMenuSalirGrupoClick 
+     */
     public void setOnMenuSalirGrupoClick(MouseClick OnMenuSalirGrupoClick) {
         this.OnMenuSalirGrupoClick = OnMenuSalirGrupoClick;
     }
 
+    /**
+     * Incializa el boton de agregar usuario
+     * @param OnMenuAgregarUsuariosClick 
+     */
     public void setOnMenuAgregarUsuariosClick(MouseClick OnMenuAgregarUsuariosClick) {
         this.OnMenuAgregarUsuariosClick = OnMenuAgregarUsuariosClick;
     }
 
+    /**
+     * Obtiene el mensaje del textbox
+     * @return mensaje 
+     */
     public JTextField getTxtMensaje() {
         return TxtMensaje;
     }
 
+    /**
+     * Incializa el panel de conversacion
+     * @return  el panel 
+     */
     public JPanel getPanelConversacion() {
         return PanelConversacion;
     }
 
+    /**
+     * Encargado de darle funcionalidad a los botones de la interfaz 
+     * @param e Evento activado
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

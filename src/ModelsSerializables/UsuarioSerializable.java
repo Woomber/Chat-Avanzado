@@ -15,6 +15,12 @@ public class UsuarioSerializable implements Serializable {
     public UsuarioSerializable() {
     }
 
+    /**
+     * Constructor 
+     * @param username
+     * @param nombre
+     * @param connected 
+     */
     public UsuarioSerializable(String username, String nombre, boolean connected) {
         this.username = username;
         this.nombre = nombre;

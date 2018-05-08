@@ -6,6 +6,10 @@ package Exceptions;
  */
 public class BadRequestException extends Exception {
 
+    /**
+     * Constructor encargado de obter el mensaje de error
+     * @param message  Mensaje de error
+     */
     public BadRequestException(String message) {
         super(message);
     }

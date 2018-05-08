@@ -41,6 +41,12 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
     
     Update onUpdate;
 
+    /**
+     * Constructor 
+     * @param user usuario
+     * @param nombre nombre
+     * @param onUpdate  
+     */
     public Funcion_AgregarFavorito(String user, String nombre,  Update onUpdate) {
         super(nombre);
         this.onUpdate = onUpdate;
@@ -52,6 +58,9 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
         super.setOnBtnCancelarClick(() -> Cancelar());
     }
 
+    /**
+     * Agrega un favorito a la lista del usuario
+     */
     public void agregarFavorito() {
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
@@ -68,7 +77,12 @@ public class Funcion_AgregarFavorito extends JFrame_AgregarFavorito {
     public void Cancelar(){
         this.setVisible(false);
     }
-
+/**
+ * Se le indica al servidor que se quiere añadir un favorito
+ * @param socket inicializar el socket
+ * @param pw el canal donde se manda 
+ * @param read lee respuesta 
+ */
     public void mandarFavorito(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             

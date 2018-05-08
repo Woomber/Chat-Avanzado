@@ -65,6 +65,9 @@ public class Funcion_Principal extends JFrame_Principal {
     Thread_Transmitter transmitter;
     Thread_Receiver receiver;
 
+    /**
+     * Constructor
+     */
     public Funcion_Principal() {
         conversaciones = new ArrayList<Funcion_Conversacion>();
         PanelUsuarios = super.getPanelUsuarios();
@@ -84,6 +87,9 @@ public class Funcion_Principal extends JFrame_Principal {
 
     }
 
+    /**
+     * Actualiza todos los paneles 
+     */
     private void LoadUsuarios() {
         PanelUsuarios.removeAll();
         PanelFavoritos.removeAll();
@@ -101,6 +107,10 @@ public class Funcion_Principal extends JFrame_Principal {
         transmitter.StartThread();
     }
 
+    /**
+     * Toma los usuarios seleccionados y abre una ventana de crear grupo con 
+     * los usuarios seleccionados 
+     */
     private void BtnGruposClick() {
         ArrayList<String> misUsuariosGrupo = new ArrayList<>();
         for (Component c : PanelUsuarios.getComponents()) {
@@ -119,6 +129,9 @@ public class Funcion_Principal extends JFrame_Principal {
         funcion.setVisible(true);
     }
 
+    /**
+     * Toma los usuarios seleccionados y por cada uno abre una venta de agregar a favoritos
+     */
     private void BtnFavoritosClick() {
         String username, nombre;
         ArrayList<Funcion_AgregarFavorito> listas = new ArrayList<Funcion_AgregarFavorito>();
@@ -133,12 +146,21 @@ public class Funcion_Principal extends JFrame_Principal {
         }
     }
 
+    /**
+     * 
+     */
     private void MenuSalirClick() {
 
         transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> LogOut(socket, pw, read));
         transmitter.StartThread();
     }
 
+    /**
+     * Cierra el hilo cuando se desloguea
+     * @param socket
+     * @param pw
+     * @param read 
+     */
     private void LogOut(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             receiver.closeAll();
@@ -155,6 +177,9 @@ public class Funcion_Principal extends JFrame_Principal {
         }
     }
 
+    /**
+     * Actualiza la lista de grupos
+     */
     public void UpdateAllGroups() {
         PanelGrupos.removeAll();
         PanelGrupos.revalidate();
@@ -162,6 +187,13 @@ public class Funcion_Principal extends JFrame_Principal {
         transmitter.setAction((Socket socket, PrintWriter pw, BufferedReader read) -> loadGroups(socket, pw, read));
         transmitter.StartThread();
     }
+    
+    /**
+     * Manda una peticion al server y recupera los usuarios 
+     * @param socket
+     * @param pw
+     * @param read 
+     */
 
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
 

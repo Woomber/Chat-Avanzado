@@ -42,14 +42,21 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
     private String apodo;
     private boolean isOnline;
     
-    
+    /**
+     * Constructor encargado de inicializar los parametros
+     * @param username Nombre de usuario
+     * @param apodo apodo del usuario
+     * @param isOnline SI  esta conectado
+     */
     public JComponent_Favorito(String username, String apodo, boolean isOnline) {
         this.username = username;
         this.apodo = apodo;
         this.isOnline = isOnline;
         loadComponentDetails();
     }
-    
+    /**
+     * Crea el bloque donde aparece un usuario que es tu amigo o favorito 
+     */
     private void loadComponentDetails(){
         /*Ingreso de icono de usuario*/
         ImgUsuario = new JLabel();
@@ -95,39 +102,69 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
 
    
 
-    
+    /**
+     * Le asigna funcionamiento al boton de eliminar 
+     * @param BtnEliminarClick recibe el evento click en el boton de eliminar 
+     */
     public void setOnBtnEliminarClick(MouseClick BtnEliminarClick) {
         this.BtnEliminarClick = BtnEliminarClick;
     }
 
+    /**
+     * recibe informacion cuando esta por encima del componente
+     * @param OnInformationEnter recibe el evento cuando  esta encima de 
+     * un componente
+     */
     public void setOnInformationEnter(MouseEnter OnInformationEnter) {
         this.OnInformationEnter = OnInformationEnter;
     }
 
+    /**
+     * recibe informaicon cuando sale del componente
+     * @param OnInformationLeave  recibe el evento cuando sale de por encima 
+     * del componente
+     */
     public void setOnInformationLeave(MouseLeave OnInformationLeave) {
         this.OnInformationLeave = OnInformationLeave;
     }
 
+    /**
+     * Recibe informacion cuando hace clic en al entrar a la conexion 
+     * @param OnInformationClick recibe el evento click en abrir de conversacion
+     */
     public void setOnInformationClick(MouseClick OnInformationClick) {
         this.OnInformationClick = OnInformationClick;
     }
 
     
-    
+    /**
+     * 
+     * @return regresa el valor de radiobutton
+     */
     public JRadioButton getRadioButton() {
         return radioButton;
     }
 
-  
-
+  /**
+   * 
+   * @return regresa el valor de el usuario
+   */
     public String getUsername() {
         return username;
     }
-    
+    /**
+     * 
+     * @return regresa el valor del apodo
+     */
     public String getApodo() {
         return apodo;
     }
             
+    
+    /**
+     * detecta si fue presionado el boton de eliminar
+     * @param e evento que se acciona 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
@@ -137,6 +174,11 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         }
     }
 
+    
+    /**
+     * Permite entrar a la conversacion ya sea presionando la imagen o el texto
+     * @param e evento que fue accionado 
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         try {
@@ -156,7 +198,10 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
     public void mouseReleased(MouseEvent e) {
         
     }
-
+/**
+ * Detecta sobre que componente esta encima
+ * @param e evento accionado 
+ */
     @Override
     public void mouseEntered(MouseEvent e) {
         try {
@@ -167,6 +212,10 @@ public class JComponent_Favorito extends JComponent implements ActionListener, M
         }
     }
 
+    /**
+     * detecta que salio del un componente
+     * @param e evento accionado 
+     */
     @Override
     public void mouseExited(MouseEvent e) {
         try {

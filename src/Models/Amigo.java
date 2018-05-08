@@ -16,6 +16,12 @@ public class Amigo {
     private String amigo;
     private String apodo;
 
+    /**
+     * Constructor que recibe los datos del modelo
+     * @param id_usuario
+     * @param amigo
+     * @param apodo 
+     */
     public Amigo(String id_usuario, String amigo, String apodo) {
         this.id_usuario = id_usuario;
         this.amigo = amigo;

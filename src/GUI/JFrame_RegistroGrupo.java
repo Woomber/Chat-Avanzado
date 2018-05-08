@@ -35,6 +35,10 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
     
     private MouseClick OnBtnCrearClick, OnBtnCancelarClick;
 
+    
+    /**
+     * Constructor 
+     */
     public JFrame_RegistroGrupo() {
         /*Ventana*/
         super("Crear un grupo");
@@ -44,6 +48,10 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
         loadFrameDetails();
     }
 
+    
+    /**
+     * Encargado de imprimir la pantalla de registro grupo
+     */
     private void loadFrameDetails() {
         /*Formulario*/
         LblTitulo = new JLabel("Crear un nuevo grupo");
@@ -112,22 +120,44 @@ public class JFrame_RegistroGrupo extends JFrame implements ActionListener{
         this.pack();
     }
 
+    /**
+     * Incializa el boton de crear
+     * @param OnBtnCrearClick 
+     */
     public void setOnBtnCrearClick(MouseClick OnBtnCrearClick) {
         this.OnBtnCrearClick = OnBtnCrearClick;
     }
 
+    /**
+     * Incializa el boton de cancelar 
+     * @param OnBtnCancelarClick 
+     */
     public void setOnBtnCancelarClick(MouseClick OnBtnCancelarClick) {
         this.OnBtnCancelarClick = OnBtnCancelarClick;
     }
 
+    
+    /**
+     * Recupera el valor de la textbox
+     * @return El valor obtenido de la textbox 
+     */
     public JTextField getTxtGrupo() {
         return TxtGrupo;
     }
 
+    
+    /**
+     * Recupera el panel de integrantes 
+     * @return el panel de itnegrantes
+     */
     public JPanel getPanelIntegrantes() {
         return PanelIntegrantes;
     }
 
+    /**
+     * Encargado de darle funcionalidad a los botones
+     * @param e eventoq ue fue accionado 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

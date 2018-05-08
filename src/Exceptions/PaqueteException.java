@@ -6,6 +6,10 @@ package Exceptions;
  */
 public class PaqueteException extends Exception {
 
+    /**
+     * constructor encargado de obtener el mensaje de error
+     * @param message mesaje de error 
+     */
     public PaqueteException(String message) {
         super(message);
     }

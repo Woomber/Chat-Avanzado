@@ -37,11 +37,18 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
 
     String groupName;
             
+    /**
+     * Constructor encargado de inicializar los parametros
+     * @param groupName nombre del grupo
+     */
     public JComponent_Grupo(String groupName) {
         this.groupName = groupName;
         loadComponentDetails();
     }
 
+    /**
+     * Funcion encargada de crear el bloque de grupo
+     */
     private void loadComponentDetails() {
         /*Ingreso de icono de usuario*/
         ImgUsuario = new JLabel();
@@ -80,24 +87,46 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
         // this.pack();   
     }
 
+    /**
+     * 
+     * @param BtnEliminarClick recibe el valor del componente cuando es 
+     * presionado
+     */
     public void setBtnEliminarClick(MouseClick BtnEliminarClick) {
         this.BtnEliminarClick = BtnEliminarClick;
     }
     
+    /**
+     * se le esta dando funcionalidad al click
+     * @param OnInformationClick recibe el evento del clic
+     */
     public void setOnInformationClick(MouseClick OnInformationClick) {
         this.OnInformationClick = OnInformationClick;
     }
 
+     /**
+     * recibe informacion cuando esta por encima del componente
+     * @param OnInformationEnter recibe el evento cuando  esta encima de 
+     * un componente
+     */
     public void setOnInformationEnter(MouseEnter OnInformationEnter) {
         this.OnInformationEnter = OnInformationEnter;
     }
 
+   /**
+     * recibe informaicon cuando sale del componente
+     * @param OnInformationLeave  recibe el evento cuando sale de por encima 
+     * del componente
+     */
     public void setOnInformationLeave(MouseLeave OnInformationLeave) {
         this.OnInformationLeave = OnInformationLeave;
     }
     
     
-
+    /**
+     * detecta si fue presionado el boton de eliminar
+     * @param e evento que se acciona 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
@@ -107,6 +136,11 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
         }
     }
 
+    
+    /**
+     * Permite entrar a la conversacion ya sea presionando la imagen o el texto
+     * @param e evento que fue accionado 
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         try {
@@ -125,6 +159,10 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
     public void mouseReleased(MouseEvent e) {
     }
 
+    /**
+ * Detecta sobre que componente esta encima
+ * @param e evento accionado 
+ */
     @Override
     public void mouseEntered(MouseEvent e) {
         try {
@@ -135,6 +173,10 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
         }
     }
 
+    /**
+     * detecta que salio del un componente
+     * @param e evento accionado 
+     */
     @Override
     public void mouseExited(MouseEvent e) {
         try {

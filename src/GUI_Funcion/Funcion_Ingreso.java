@@ -42,6 +42,9 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
     Thread_Transmitter transmitter;
     Thread_Receiver receiver;
 
+    /**
+     * Constructor
+     */
     public Funcion_Ingreso() {
         this.usuario = super.getTxtNombre();
         this.contrasena = super.getTxtContrasena();
@@ -62,6 +65,10 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
 
     }
 
+    
+    /**
+     * Incia un hilo y se le indica que tiene que mandar una login request
+     */
     private void BtnAceptarClick() {
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
@@ -69,13 +76,21 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
         );
         transmitter.StartThread();
     }
-
+/**
+ * abre el menu de registro
+ */
     private void MenuRegistroClick() {
         Funcion_Registro funcion = new Funcion_Registro();
         funcion.setVisible(true);
         this.setVisible(false);
     }
 
+    /**
+     * Abre una solicitud al server para un login request
+     * @param socket
+     * @param pw canal por el que se va a enviar 
+     * @param read 
+     */
     private void NewSesion(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             String json = JsonParser.paqueteToJson((Paquete) new LoginRequest(usuario.getText(), contrasena.getText()));
