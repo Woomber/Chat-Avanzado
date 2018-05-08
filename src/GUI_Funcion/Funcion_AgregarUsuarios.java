@@ -14,9 +14,12 @@ import Json.JsonParser;
 import Models.Usuario;
 import ModelsSerializables.UsuarioSerializable;
 import PaquetesModels.Paquete;
+import Requests.CreateGrupoRequest;
+import Requests.AlterGrupoRequest;
 import Requests.UsuariosRequest;
 import Responses.UsuariosResponse;
 import Threads.Thread_Transmitter;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,6 +27,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import javax.swing.JPanel;
 
 /**
@@ -37,11 +41,21 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
     JPanel panelUsuarios;
     Thread_Transmitter transmitter;
     String[] miembrosGrupo;
+    ArrayList<String> miembrosCompletos;
+    int id;
 
-    public Funcion_AgregarUsuarios(String[] miembrosGrupo) {
+    
+    public Funcion_AgregarUsuarios(String[] miembrosGrupo, int id) {
+        this.id = id;
         this.miembrosGrupo = miembrosGrupo;
         this.panelUsuarios = super.getPanelUsuarios();
         transmitter = Thread_Transmitter.transmitter;
+        super.setOnBtnAgregarClick(() -> iniciarAgregarUsuarios());
+        super.setOnBtnCancelarClick(() -> this.setVisible(false));
+        this.miembrosCompletos = new ArrayList<>();
+        for (String c : miembrosGrupo) {
+            miembrosCompletos.add(c);
+        }
         iniciarCargaUsuarios();
     }
 
@@ -53,69 +67,117 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
         transmitter.StartThread();
     }
 
+    private void iniciarAgregarUsuarios() {
+        transmitter.setAction(
+                (Socket socket, PrintWriter pw, BufferedReader read)
+                -> agregarUsuarios(socket, pw, read)
+        );
+        transmitter.StartThread();
+    }
+
+    private void agregarUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
+        ArrayList<String> nuevosMiembros = new ArrayList<>();
+        for (Component c : this.panelUsuarios.getComponents()) {
+            if (((JComponent_Usuario) c).getRadioButton().isSelected()) {
+                nuevosMiembros.add(((JComponent_Usuario) c).getUsername());
+                miembrosCompletos.add(((JComponent_Usuario) c).getUsername());
+            }
+        }
+
+        for (String s : nuevosMiembros) {
+            AlterGrupoRequest miAlteracionGrupo = new AlterGrupoRequest(id, s, AlterGrupoRequest.Operacion.ADD);
+            try {
+
+                pw.println(JsonParser.paqueteToJson(miAlteracionGrupo));
+                Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
+                this.setVisible(false);
+
+            } catch (IOException | JsonParserException ex) {
+                System.out.println("");
+                System.out.println(ex.getMessage());
+                System.out.println("");
+            }
+        }
+
+        //OnUpdate.Invoke();
+    }
+
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
 
             pw.println(JsonParser.paqueteToJson(new UsuariosRequest()));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
-            
-            ArrayList<String> lista = new ArrayList<>();
-            for(String c: miembrosGrupo){
-                lista.add(c);
-            }
-            
-            
+
+            ArrayList<UsuarioSerializable> usuarios = new ArrayList<>();
+            ArrayList<UsuarioSerializable> amigos = new ArrayList<>();
+            Iterator<UsuarioSerializable> itUsuarios;
+            Iterator<UsuarioSerializable> itAmigos;
+
             UsuarioSerializable[] b = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.USUARIOS));
             UsuarioSerializable[] a = JsonParser.jsonToUsuarios(paquete.getValue(UsuariosResponse.AMIGOS));
 
-            
+            for (UsuarioSerializable c : b) {
+                usuarios.add(c);
+            }
 
-                for (UsuarioSerializable c : a) {
-                                for (String ed : lista) {
-                    if (!(c.username.equals(ed))) {
-                        JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected, c.username);
-                        System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+            for (UsuarioSerializable c : a) {
+                amigos.add(c);
+            }
 
-                        com.setOnMouseEnter(() -> {
-                            this.setCursor(Cursor.HAND_CURSOR);
-                        });
-                        com.setOnMouseLeave(() -> {
-                            this.setCursor(Cursor.DEFAULT_CURSOR);
-                        });
-                        com.revalidate();
-                        panelUsuarios.add(com);
-                    }else{
-                        lista.remove(ed);
+            itUsuarios = usuarios.iterator();
+            itAmigos = amigos.iterator();
+
+            for (String c : miembrosCompletos) {
+                while (itUsuarios.hasNext()) {
+                    if (itUsuarios.next().username.equals(c)) {
+                        itUsuarios.remove();
+                        // If you know it's unique, you could `break;` here
                     }
                 }
+                itUsuarios = usuarios.iterator();
             }
-            
-            lista = new ArrayList<>();
-            for(String c: miembrosGrupo){
-                lista.add(c);
-            }
-            
-            for (String d : lista) {
-              
-                for (UsuarioSerializable c : b) {
-                 
-                    if (!(c.username.equals(Usuario.emisor.getId_usuario())) && !(c.username.equals(d))) {
-                        JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected, c.username);
-                        System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
-                        com.setOnMouseEnter(() -> {
-                            this.setCursor(Cursor.HAND_CURSOR);
-                        });
-                        com.setOnMouseLeave(() -> {
-                            this.setCursor(Cursor.DEFAULT_CURSOR);
-                        });
 
-                        com.revalidate();
-                        panelUsuarios.add(com);
-
-                    }else{
-                        lista.remove(d);
+            for (String c : miembrosCompletos) {
+                while (itAmigos.hasNext()) {
+                    if (itAmigos.next().username.equals(c)) {
+                        itAmigos.remove();
+                        // If you know it's unique, you could `break;` here
                     }
                 }
+                itAmigos = amigos.iterator();
+            }
+
+            for (UsuarioSerializable c : usuarios) {
+                if (!(c.username.equals(Usuario.emisor.getId_usuario()))) {
+                    JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected, c.username);
+                    System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+
+                    com.setOnMouseEnter(() -> {
+                        this.setCursor(Cursor.HAND_CURSOR);
+                    });
+                    com.setOnMouseLeave(() -> {
+                        this.setCursor(Cursor.DEFAULT_CURSOR);
+                    });
+                    com.revalidate();
+                    panelUsuarios.add(com);
+                }
+
+            }
+
+            for (UsuarioSerializable c : amigos) {
+
+                JComponent_Usuario com = new JComponent_Usuario(c.nombre, c.connected, c.username);
+                System.out.println(c.username + " " + String.valueOf(c.connected) + "\n");
+
+                com.setOnMouseEnter(() -> {
+                    this.setCursor(Cursor.HAND_CURSOR);
+                });
+                com.setOnMouseLeave(() -> {
+                    this.setCursor(Cursor.DEFAULT_CURSOR);
+                });
+                com.revalidate();
+                panelUsuarios.add(com);
+
             }
 
             panelUsuarios.revalidate();
@@ -126,4 +188,10 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
         }
     }
 
+    
+    public ArrayList<String> getMiembrosCompletos() {
+        return miembrosCompletos;
+    }
+
+    
 }

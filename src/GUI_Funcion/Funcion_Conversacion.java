@@ -236,8 +236,9 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
     }
 
     private void AgregarUsuariosClick() {
-        Funcion_AgregarUsuarios funcion = new Funcion_AgregarUsuarios(miembrosGrupo);
+        Funcion_AgregarUsuarios funcion = new Funcion_AgregarUsuarios(miembrosGrupo, grupo.getId_grupo());
         funcion.setVisible(true);
+        
     }
 
     private void MenuSalirGrupoClick() {
