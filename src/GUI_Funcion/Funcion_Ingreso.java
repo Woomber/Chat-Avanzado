@@ -17,6 +17,7 @@ import Requests.RegistroRequest;
 import Responses.LoginResponse;
 import Threads.Thread_Receiver;
 import Threads.Thread_Transmitter;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,6 +25,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -46,6 +49,14 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
         Thread_Receiver.receiver = new Thread_Receiver();
         transmitter = Thread_Transmitter.transmitter;
         receiver = Thread_Receiver.receiver;
+        Action action = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BtnAceptarClick();
+            }
+        };
+        this.usuario.addActionListener(action);
+        this.contrasena.addActionListener(action);
         super.setOnBtnAceptarClick(() -> BtnAceptarClick());
         super.setOnMenuRegistroClick(() -> MenuRegistroClick());
 
@@ -78,7 +89,7 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
                     return;
                 }
                 if (paquete.getValue(LoginResponse.PARAM_STATUS).equals(LoginResponse.Status.CORRECT.getName())) {
-                    Usuario.emisor = new Usuario(usuario.getText(),"","");
+                    Usuario.emisor = new Usuario(usuario.getText(), "", "");
                     Funcion_Principal funcion = new Funcion_Principal();
                     funcion.setVisible(true);
                     this.setVisible(false);
@@ -95,7 +106,7 @@ public class Funcion_Ingreso extends JFrame_Ingreso {
             System.out.println(ex.getMessage());
             System.out.println("");
         }
-        
+
     }
 
 }
