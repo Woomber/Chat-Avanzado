@@ -281,9 +281,9 @@ public class Funcion_Principal extends JFrame_Principal {
                 String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
                 String[] miembrosGrupo = JsonParser.jsonToStrings(grupoPaquete.getValue(GrupoResponse.PARAM_MIEMBROS));
 
-                for (String s : miembrosGrupo) {
+                /*for (String s : miembrosGrupo) {
                     MessageBox.Show("", s);
-                }
+                }*/
 
                 boolean stat = false;
                 if (status.equals(GrupoResponse.Status.PENDING.getName())) {
