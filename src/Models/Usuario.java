@@ -14,6 +14,12 @@ public class Usuario {
     public Usuario() {
     }
 
+    /**
+     * Construtor que recibe todos los datos del modelo
+     * @param id_usuario
+     * @param contrasena
+     * @param nombre 
+     */
     public Usuario(String id_usuario, String contrasena, String nombre) {
         this.id_usuario = id_usuario;
         this.contrasena = contrasena;

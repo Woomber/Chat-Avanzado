@@ -16,6 +16,11 @@ public class MensajeVisto {
     public MensajeVisto() {
     }
 
+    /**
+     * Constructor que recibe los parametros del modelo
+     * @param id_mensaje
+     * @param id_usuario 
+     */
     public MensajeVisto(int id_mensaje, String id_usuario) {
         this.id_mensaje = id_mensaje;
         this.id_usuario = id_usuario;

@@ -34,7 +34,10 @@ public class JFrame_AgregarFavorito extends JFrame implements ActionListener {
     
     private String user;
 
-    
+    /**
+     * Constructor encargado de inicializar los valores 
+     * @param user usuario 
+     */
     public JFrame_AgregarFavorito(String user) {
         /*Ventana*/
         super("Favoritos");
@@ -45,6 +48,9 @@ public class JFrame_AgregarFavorito extends JFrame implements ActionListener {
         loadFrameDetails();
     }
 
+    /**
+     * Funcion encargada de crear la interfaz de favorito 
+     */
     private void loadFrameDetails() {
         TextPrompt placeholder;
         /*Formulario*/
@@ -104,19 +110,33 @@ public class JFrame_AgregarFavorito extends JFrame implements ActionListener {
         this.setLayout(orden);
         this.pack();
     }
-
+/**
+ * Funcion encargada de darle funcionalidad al boton 
+ * @param OnBtnCrearClick encargado de recibir el evento 
+ */
     public void setOnBtnCrearClick(MouseClick OnBtnCrearClick) {
         this.OnBtnCrearClick = OnBtnCrearClick;
     }
 
+    /**
+     * Funcion encargada de darle funconalidad al boton cancelar 
+     * @param OnBtnCancelarClick ecnargado de recibir el evento cuando se presiona 
+     */
     public void setOnBtnCancelarClick(MouseClick OnBtnCancelarClick) {
         this.OnBtnCancelarClick = OnBtnCancelarClick;
     }
-
+/**
+ * 
+ * @return Regresa el texto del apodo 
+ */
     public JTextField getTxtApodo() {
         return TxtApodo;
     }
     
+    /**
+     * Encargado de darle la funcionalidad a los botones de la interfaz 
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

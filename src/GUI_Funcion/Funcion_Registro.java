@@ -43,6 +43,9 @@ public class Funcion_Registro extends JFrame_Registro {
     Thread_Transmitter transmitter;
     Thread_Receiver receiver;
 
+    /**
+     * Cosntructor registro 
+     */
     public Funcion_Registro() {
         transmitter = Thread_Transmitter.transmitter;
         receiver = Thread_Receiver.receiver;
@@ -64,6 +67,9 @@ public class Funcion_Registro extends JFrame_Registro {
         super.setOnMenuIngresoClick(() -> MenuIngresoClick());
     }
 
+    /**
+     *Verifica que las contraseñas sean iguales
+     */
     private void BtnRegistroClick() {
         if (!TxtContrasena.getText().equals(TxtContrasenaVerify.getText())) {
             MessageBox.Show("Contraseñas diferentes", "Asegurese de que las contraseñas coincidan");
@@ -75,11 +81,20 @@ public class Funcion_Registro extends JFrame_Registro {
         transmitter.StartThread();
     }
 
+    /**
+     * Abre el menu de ingreso
+     */
     private void MenuIngresoClick() {
         new Funcion_Ingreso().setVisible(true);
         this.setVisible(false);
     }
 
+    /**
+     * Manda una solicitud al server para mandar un nuevo usuario y verifica que no se repita
+     * @param socket
+     * @param pw
+     * @param read 
+     */
     private void NewRegistro(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             String json

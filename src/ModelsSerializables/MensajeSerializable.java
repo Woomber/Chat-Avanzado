@@ -14,6 +14,11 @@ public class MensajeSerializable implements Serializable {
     public MensajeSerializable() {
     }
 
+    /**
+     * Constructor que recibe los datos  para el modelo
+     * @param username
+     * @param nombre 
+     */
     public MensajeSerializable(String username, String nombre) {
         this.origen = username;
         this.mensaje = nombre;

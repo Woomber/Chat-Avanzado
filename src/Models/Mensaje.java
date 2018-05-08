@@ -20,6 +20,13 @@ public class Mensaje {
     public Mensaje() {
     }
 
+    /**
+     * Constructor que recibe los datos del modelo
+     * @param id_mensaje_grupal
+     * @param id_usuario
+     * @param texto
+     * @param id_grupo 
+     */
     public Mensaje(int id_mensaje_grupal, String id_usuario, String texto, int id_grupo) {
         this.id_mensaje_grupal = id_mensaje_grupal;
         this.id_usuario = id_usuario;

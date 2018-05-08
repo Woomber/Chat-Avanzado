@@ -45,6 +45,11 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
     int id;
 
     
+    /**
+     * Costructor 
+     * @param miembrosGrupo 
+     * @param id 
+     */
     public Funcion_AgregarUsuarios(String[] miembrosGrupo, int id) {
         this.id = id;
         this.miembrosGrupo = miembrosGrupo;
@@ -59,6 +64,10 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
         iniciarCargaUsuarios();
     }
 
+    /**
+     * 
+     * Incia la carga de usuarios que no estan en el grupo
+     */
     private void iniciarCargaUsuarios() {
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
@@ -66,7 +75,11 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
         );
         transmitter.StartThread();
     }
-
+    
+    /**
+     * Incia un hilo y le indica que hacer 
+     */
+    
     private void iniciarAgregarUsuarios() {
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
@@ -75,6 +88,13 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
         transmitter.StartThread();
     }
 
+    /**
+     * Madan una peticion al servidor  para agregar uausios al grupo 
+     * 
+     * @param socket
+     * @param pw canal por donde se envia el mensaje
+     * @param read respuesta
+     */
     private void agregarUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
         ArrayList<String> nuevosMiembros = new ArrayList<>();
         for (Component c : this.panelUsuarios.getComponents()) {
@@ -102,6 +122,14 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
         //OnUpdate.Invoke();
     }
 
+    
+    /**
+     * Se muestran los usuarios que no estana ctualmente en el grupo, para poder
+     * añadirlos
+     * @param socket
+     * @param pw canal por donde se envia la peticion
+     * @param read respuesta del servidor 
+     */
     private void listaUsuarios(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
 
@@ -131,7 +159,6 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
                 while (itUsuarios.hasNext()) {
                     if (itUsuarios.next().username.equals(c)) {
                         itUsuarios.remove();
-                        // If you know it's unique, you could `break;` here
                     }
                 }
                 itUsuarios = usuarios.iterator();
@@ -141,7 +168,6 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
                 while (itAmigos.hasNext()) {
                     if (itAmigos.next().username.equals(c)) {
                         itAmigos.remove();
-                        // If you know it's unique, you could `break;` here
                     }
                 }
                 itAmigos = amigos.iterator();
@@ -189,9 +215,7 @@ public class Funcion_AgregarUsuarios extends JFrame_AgregarUsuarios {
     }
 
     
-    public ArrayList<String> getMiembrosCompletos() {
-        return miembrosCompletos;
-    }
+
 
     
 }

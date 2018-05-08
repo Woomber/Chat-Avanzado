@@ -16,6 +16,11 @@ public class Grupo {
     public Grupo() {
     }
 
+    /**
+     * Conatructor que recibe  los datos del modelo
+     * @param id_grupo
+     * @param nombre_grupo 
+     */
     public Grupo(int id_grupo, String nombre_grupo) {
         this.id_grupo = id_grupo;
         this.nombre_grupo = nombre_grupo;

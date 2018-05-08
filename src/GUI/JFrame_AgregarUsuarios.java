@@ -33,6 +33,9 @@ public class JFrame_AgregarUsuarios extends JFrame implements ActionListener{
     
     private MouseClick OnBtnAgregarClick, OnBtnCancelarClick;
 
+    /**
+     *Constructor 
+     */
     public JFrame_AgregarUsuarios() {
         super("Agregar usuarios");
         this.setResizable(false);
@@ -41,6 +44,10 @@ public class JFrame_AgregarUsuarios extends JFrame implements ActionListener{
         loadFrameDetails();
     }
 
+    
+    /**
+     * Encargado de hacer la impresion de la pantalla de agregar usuarios
+     */
     private void loadFrameDetails() {
         /*Formulario*/
         LblTitulo = new JLabel("Agregar Usuarios");
@@ -109,6 +116,10 @@ public class JFrame_AgregarUsuarios extends JFrame implements ActionListener{
         this.pack();
     }
 
+    /**
+     * Crea el boton de agregar 
+     * @param OnBtnAgregarClick 
+     */
     public void setOnBtnAgregarClick(MouseClick OnBtnAgregarClick) {
         this.OnBtnAgregarClick = OnBtnAgregarClick;
     }
@@ -121,6 +132,10 @@ public class JFrame_AgregarUsuarios extends JFrame implements ActionListener{
         return PanelUsuarios;
     }
 
+    /**
+     * Encargado de hacer la funcion de activar los bootones cuando es oprimido
+     * @param e evento obtenido
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

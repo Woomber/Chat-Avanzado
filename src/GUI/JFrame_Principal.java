@@ -38,6 +38,9 @@ public class JFrame_Principal extends JFrame implements ActionListener{
     
     private MouseClick OnBtnFavoritosClick, OnBtnGruposClick, OnMenuSalirClick;
 
+    /**
+     * Constructor
+     */
     public JFrame_Principal() {
         /*Ventana*/
         super("Pagina principal");
@@ -47,6 +50,9 @@ public class JFrame_Principal extends JFrame implements ActionListener{
         loadFrameDetails();
     }
 
+    /**
+     * imprime la itnerfaz principal
+     */
     private void loadFrameDetails() {
         MenuSalir.setOpaque(false);
         MenuSalir.setContentAreaFilled(false);
@@ -139,30 +145,59 @@ public class JFrame_Principal extends JFrame implements ActionListener{
         this.pack();
     }
 
+    /**
+     * Incializa el boton de favoritos 
+     * @param OnBtnFavoritosClick 
+     */
     public void setOnBtnFavoritosClick(MouseClick OnBtnFavoritosClick) {
         this.OnBtnFavoritosClick = OnBtnFavoritosClick;
     }
 
+    /**
+     * Inicializa el boton de grupos
+     * @param OnBtnGruposClick 
+     */
     public void setOnBtnGruposClick(MouseClick OnBtnGruposClick) {
         this.OnBtnGruposClick = OnBtnGruposClick;
     }
 
+    /**
+     * Incializa el boton de salir 
+     * @param OnMenuSalirClick 
+     */
     public void setOnMenuSalirClick(MouseClick OnMenuSalirClick) {
         this.OnMenuSalirClick = OnMenuSalirClick;
     }
 
+    /**
+     * Recupera los valores de panel de usuarios
+     * @return losv alores de panel de usuarios
+     */
     public JPanel getPanelUsuarios() {
         return PanelUsuarios;
     }
 
+    /**
+     * Recupera el valor del panel de favoritos
+     * @return  regresa el panel de favoritos 
+     */
     public JPanel getPanelFavoritos() {
         return PanelFavoritos;
     }
 
+/**
+ * Recupera el valor del panel de grupos
+ * @return  panel de grupos
+ */
     public JPanel getPanelGrupos() {
         return PanelGrupos;
     }
 
+    /**
+     * Encargado de darle funcionalidad a los botones 
+     * @param e evento que fue activado 
+     */
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

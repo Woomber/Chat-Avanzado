@@ -38,6 +38,9 @@ public class JFrame_Ingreso extends JFrame implements ActionListener{
     
     MouseClick OnMenuRegistroClick, OnBtnAceptarClick; 
 
+    /**
+     * Constructor 
+     */
     public JFrame_Ingreso(){
         /*Ventana*/
         super("Ingreso"); 
@@ -49,6 +52,9 @@ public class JFrame_Ingreso extends JFrame implements ActionListener{
         loadFrameDetails();
     }
     
+    /**
+     * Crea el interfaz de detalles
+     */
     private void loadFrameDetails(){
         MenuRegistro.setOpaque(false);
         MenuRegistro.setContentAreaFilled(false);
@@ -120,22 +126,43 @@ public class JFrame_Ingreso extends JFrame implements ActionListener{
        
     }
 
+    /**
+     * Incializa el boton de registro
+     * @param OnMenuRegistroClick 
+     */
     public void setOnMenuRegistroClick(MouseClick OnMenuRegistroClick) {
         this.OnMenuRegistroClick = OnMenuRegistroClick;
     }
 
+    /**
+     * Inicializa el botn de acepatar
+     * @param OnBtnAceptarClick 
+     */
     public void setOnBtnAceptarClick(MouseClick OnBtnAceptarClick) {
         this.OnBtnAceptarClick = OnBtnAceptarClick;
     }
 
+    /**
+     * Toma el valor del txtnombre
+     * @return regresa el valor 
+     */
     public JTextField getTxtNombre() {
         return TxtNombre;
     }
 
+    /**
+     * Toma el valor de contrañsea
+     * @return Regresa la contraseña 
+     */
     public JPasswordField getTxtContrasena() {
         return TxtContrasena;
     }
 
+    
+    /**
+     * Le otorga funcionalidad a los botones 
+     * @param e Indica que evento fue activado 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

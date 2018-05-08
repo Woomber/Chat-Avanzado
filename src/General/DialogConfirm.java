@@ -13,6 +13,12 @@ import javax.swing.JOptionPane;
  */
 public class DialogConfirm {
 
+    /**
+     * Manda mensaje de confirmacion
+     * @param title titulo del mensaje
+     * @param message mensaje 
+     * @return 
+     */
     public static boolean Show(String title, String message) {
         int i = JOptionPane.showConfirmDialog(null, message,
                 title, JOptionPane.OK_CANCEL_OPTION);

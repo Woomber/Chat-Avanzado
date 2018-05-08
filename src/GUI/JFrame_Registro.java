@@ -38,6 +38,9 @@ public class JFrame_Registro extends JFrame implements ActionListener{
     
     private MouseClick OnMenuIngresoClick, OnBtnRegistroClick;
 
+    /**
+     * Consructor 
+     */
     public JFrame_Registro() {
         /*Ventana*/
         super("Registro");
@@ -48,7 +51,10 @@ public class JFrame_Registro extends JFrame implements ActionListener{
 
         loadFrameDetails();
     }
-
+    
+    /**
+     * Encargado de crear la interfaz de registro
+     */
     private void loadFrameDetails() {
         MenuIngreso.setOpaque(false);
         MenuIngreso.setContentAreaFilled(false);
@@ -130,30 +136,58 @@ public class JFrame_Registro extends JFrame implements ActionListener{
 
     }
 
+    /**
+     * Inicializa el boton de ingreso
+     * @param OnMenuIngresoClick 
+     */
     public void setOnMenuIngresoClick(MouseClick OnMenuIngresoClick) {
         this.OnMenuIngresoClick = OnMenuIngresoClick;
     }
 
+    /**
+     * Incializa el boton de de registro
+     * @param OnBtnRegistroClick 
+     */
     public void setOnBtnRegistroClick(MouseClick OnBtnRegistroClick) {
         this.OnBtnRegistroClick = OnBtnRegistroClick;
     }
 
+    /**
+     * Recupera el valor que hay en el textbox
+     * @return el valor de la textbox 
+     */
     public JTextField getTxtNombre() {
         return TxtNombre;
     }
 
+     /**
+     * Recupera el valor que hay en el textbox
+     * @return el valor de la textbox 
+     */
     public JTextField getTxtUsuario() {
         return TxtUsuario;
     }
 
+     /**
+     * Recupera el valor que hay en el textbox
+     * @return el valor de la textbox 
+     */
     public JPasswordField getTxtContrasena() {
         return TxtContrasena;
     }
 
+     /**
+     * Recupera el valor que hay en el textbox
+     * @return el valor de la textbox 
+     */
     public JPasswordField getTxtContrasenaVerify() {
         return TxtContrasenaVerify;
     }
 
+    /**
+     * Encargado de darle la funcionalidad a los botones 
+     * @param e evento que fue activado 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

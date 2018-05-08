@@ -66,6 +66,9 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         super("hola", false);
     }
 
+    /**
+     * Verifica si el usuario esta en linea
+     */
     public void checkOnline() {
         if (isOnline != newOnline) {
             isOnline = newOnline;
@@ -73,6 +76,10 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         }
     }
 
+    
+    /**
+     * si el usuario esta en linea habilita el poder mandar mensajes 
+     */
     public void SetOnline() {
         if (isOnline) {
             super.setOnBtnEnviarClick(() -> OnlineBtnEnviarClick());
@@ -89,16 +96,29 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         this.revalidate();
     }
 
+    /**
+     * Avisa que el usuario del otro lado de la conversacion se conecto
+     * @param newOnline 
+     */
     public void setNewOnline(boolean newOnline) {
         this.newOnline = newOnline;
         checkOnline();
     }
     
+    /**
+     * Cierra la conversacion
+     */
     public void close(){
         this.setVisible(false);
         close.Invoke();
     }
 
+    /**
+     * constructor que recibe el usuario con el que se quiere hablar y si esta 
+     * en linea o no 
+     * @param usuario
+     * @param isOnline 
+     */
     public Funcion_Conversacion(Usuario usuario, boolean isOnline) {
         
         super(usuario.getNombre(), false);
@@ -146,6 +166,11 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         checkOnline.start();*/
     }
 
+    /**
+     * constructor Cuando se abre una conversacion grupal
+     * @param grupo
+     * @param miembrosGrupo 
+     */
     public Funcion_Conversacion(Grupo grupo, String[] miembrosGrupo) {
         super(grupo.getNombre_grupo(), true);
         isGroup = true;
@@ -196,6 +221,9 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
 
     }
 
+    /**
+     * Envia el mensaje al otro usuario si esta en linea
+     */
     private void OnlineBtnEnviarClick() {
         if (TxtMensaje.getText().equals("")) {
             MessageBox.Show("Error", "No puedes enviar un mensaje vacío");
@@ -218,6 +246,9 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
 
     }
 
+    /**
+     * Funcion encargada de enviar mensaje a el grupo
+     */
     private void GroupBtnEnviarClick() {
         if (TxtMensaje.getText().equals("")) {
             MessageBox.Show("Error", "No puedes enviar un mensaje vacío");
@@ -235,16 +266,25 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         transmitter.StartThread();
     }
 
+    /**
+     * Funcion para agregar usuarios
+     */
     private void AgregarUsuariosClick() {
         Funcion_AgregarUsuarios funcion = new Funcion_AgregarUsuarios(miembrosGrupo, grupo.getId_grupo());
         funcion.setVisible(true);
         
     }
 
+    /**
+     * Funcion para salir de un grupo
+     */
     private void MenuSalirGrupoClick() {
             MessageBox.Show("","Holitasdemar");
     }
 
+    /**
+     * Se encarga de obtener los mensajes de la conversacion 
+     */
     @Override
     public void run() {
         while (true) {
@@ -288,6 +328,9 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         }
     }
 
+    /**
+     * Carga la informacion del grupo 
+     */
     private void LoadGroupInformation() {
         ArrayList<String> messages = DocumentManager.GetLastNumberMessages(grupo.getId_grupo() + "_" + grupo.getNombre_grupo(), 5, true);
         if (messages == null) {

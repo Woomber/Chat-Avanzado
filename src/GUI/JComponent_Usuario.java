@@ -36,6 +36,13 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
     private MouseEnter OnMouseEnter;
     private MouseLeave OnMouseLeave;
 
+    
+    /**
+     * Funcion encargada de recibir los parametros necesarios y los inicializa
+     * @param username nombre de usuario
+     * @param isOnline si el usuario esta en linea
+     * @param username1 
+     */
     public JComponent_Usuario(String username, boolean isOnline, String username1) {
         /*Ingreso de icono de usuario*/
         this.isOnline = isOnline;
@@ -58,6 +65,9 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
         //this.pack();   
     }
 
+    /**
+     * Crea el componente de usuario
+     */
     private void loadComponentDetails() {
         /* panel de mensaje */
         GroupLayout orden = new GroupLayout(this);
@@ -81,30 +91,56 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
         this.setLayout(orden);
     }
 
+    /**
+     * se le esta dando funcionalidad al click
+     * @param OnInformationClick recibe el evento del clic
+     */
     public void setOnInformationClick(MouseClick OnInformationClick) {
         this.OnInformationClick = OnInformationClick;
     }
 
+    /**
+     * 
+     * @param OnMouseEnter cuando el mouse entra al copmponente
+     */
     public void setOnMouseEnter(MouseEnter OnMouseEnter) {
         this.OnMouseEnter = OnMouseEnter;
     }
 
+    /**
+     * 
+     * @param OnMouseLeave recibe la informacion si el mouse ssale del componente
+     */
     public void setOnMouseLeave(MouseLeave OnMouseLeave) {
         this.OnMouseLeave = OnMouseLeave;
     }
 
+    /**
+     * Obtiene el valor de usuario
+     * @return valor de usuario
+     */
     public JLabel getLblUsuario() {
         return LblUsuario;
     }
 
+    /**
+     * obtiene el valor de del radiobutton
+     * @return regresa el 
+     */
     public JRadioButton getRadioButton() {
         return RadioButton;
     }
+    
+    
 
     public String getUsername() {
         return username;
     }
 
+      /**
+     * Permite entrar a la conversacion ya sea presionando la imagen o el texto
+     * @param e evento que fue accionado 
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == ImgUsuario || e.getSource() == LblUsuario) {
@@ -126,6 +162,10 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
 
     }
 
+    /**
+ * Detecta sobre que componente esta encima
+ * @param e evento accionado 
+ */
     @Override
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == ImgUsuario || e.getSource() == LblUsuario) {
@@ -137,6 +177,10 @@ public class JComponent_Usuario extends JComponent implements MouseListener {
         }
     }
 
+     /**
+     * detecta que salio del un componente
+     * @param e evento accionado 
+     */
     @Override
     public void mouseExited(MouseEvent e) {
         if (e.getSource() == ImgUsuario || e.getSource() == LblUsuario) {

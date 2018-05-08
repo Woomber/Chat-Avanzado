@@ -70,6 +70,12 @@ public class Funcion_RegistroGrupo extends JFrame_RegistroGrupo {
         transmitter.StartThread();
     }
     
+    /**
+     * Manda una solicitud al server para crear un grupo
+     * @param socket
+     * @param pw
+     * @param read 
+     */
     public void mandarGrupo(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             CreateGrupoRequest miCreacionGrupo = new CreateGrupoRequest(nombreGrupo.getText());

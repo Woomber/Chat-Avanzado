@@ -17,6 +17,12 @@ public class UsuarioGrupo {
     public UsuarioGrupo() {
     }
 
+    /**
+     * Constructor que recibe los datos del modelo
+     * @param id_grupo
+     * @param id_usuario
+     * @param status 
+     */
     public UsuarioGrupo(int id_grupo, String id_usuario, boolean status) {
         this.id_grupo = id_grupo;
         this.id_usuario = id_usuario;

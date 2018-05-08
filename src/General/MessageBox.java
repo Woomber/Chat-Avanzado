@@ -12,6 +12,11 @@ import javax.swing.JOptionPane;
  * @author PC
  */
 public class MessageBox {
+    /**
+     * muestra un mensaje en la pantalla
+     * @param title 
+     * @param content 
+     */
     public static void Show(String title, String content){
         JOptionPane.showMessageDialog(
                      null, 
