@@ -20,6 +20,11 @@ public class MensajeGrupoRequest extends Paquete {
     public static final String PARAM_GROUP = "to";
     public static final String PARAM_MESSAGE = "message";
 
+    /**
+     * Inicializa los valores para mandar el mensaje
+     * @param grupo El grupo al que se mandará
+     * @param message El mensaje
+     */
     public MensajeGrupoRequest(int grupo, String message) {
         super(ORDEN);
         try {

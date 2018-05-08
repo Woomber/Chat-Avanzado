@@ -20,6 +20,11 @@ public class MensajeRequest extends Paquete {
     public static final String PARAM_TO = "to";
     public static final String PARAM_MESSAGE = "message";
 
+    /**
+     * Inicializa valores para mandar el mensaje
+     * @param to Indica a quién se mandará
+     * @param message El mensaje
+     */
     public MensajeRequest(String to, String message) {
         super(ORDEN);
         try {

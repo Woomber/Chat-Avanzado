@@ -19,6 +19,10 @@ public class UpdateGrupoEvent extends Paquete {
     // Parámetros
     public static final String PARAM_GRUPO = "grupo"; 
     
+    /**
+     * Envía el grupo cuando este sea actualizado
+     * @param grupo Identifica al grupo
+     */
     public UpdateGrupoEvent(int grupo) {
         super(ORDEN);
         try {

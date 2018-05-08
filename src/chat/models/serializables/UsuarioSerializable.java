@@ -15,6 +15,12 @@ public class UsuarioSerializable implements Serializable {
     public UsuarioSerializable() {
     }
 
+    /**
+     * Inicaliza los valores para la serialización de usuarios
+     * @param username El nombre de usuario
+     * @param nombre El nombre de pila
+     * @param connected Estado si está conectado o no
+     */
     public UsuarioSerializable(String username, String nombre, boolean connected) {
         this.username = username;
         this.nombre = nombre;

@@ -19,6 +19,10 @@ public class Vinculo {
     private HiloTransmitter hiloTx;
     private int loginAttempts;
 
+    /**
+     * Identifica al socket que se utilizará
+     * @param socketRx Socket de recepción
+     */
     public Vinculo(Socket socketRx) {
         this.hiloRx = new HiloReceiver(socketRx, this);
         this.loginAttempts = 0;

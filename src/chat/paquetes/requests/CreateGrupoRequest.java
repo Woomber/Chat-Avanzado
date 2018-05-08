@@ -25,6 +25,10 @@ public class CreateGrupoRequest extends Paquete {
 
     private transient final ArrayList<String> usernames;
     
+    /**
+     * Inicializa el nombre que se le dará al grupo
+     * @param nombre Nombre del grupo
+     */
     public CreateGrupoRequest(String nombre) {
         super(ORDEN);
         usernames = new ArrayList<>();

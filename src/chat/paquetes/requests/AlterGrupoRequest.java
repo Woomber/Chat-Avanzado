@@ -21,6 +21,12 @@ public class AlterGrupoRequest extends Paquete {
     public static final String PARAM_GRUPO = "grupo";
     public static final String PARAM_USUARIO = "usuario";
 
+    /**
+     * Inicaliza los valores para la alteración del grupo
+     * @param grupo Identificador de grupo
+     * @param usuario Identificador del usuario
+     * @param operacion Identificador de la operación
+     */
     public AlterGrupoRequest(int grupo, String usuario, Operacion operacion) {
         super(ORDEN);
         try {
@@ -33,6 +39,9 @@ public class AlterGrupoRequest extends Paquete {
 
     }
 
+    /**
+     * La operación para agregar o remover al usuario del grupo
+     */
     public enum Operacion {
         ADD("add"),
         REMOVE("remove");

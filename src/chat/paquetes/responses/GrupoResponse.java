@@ -32,6 +32,12 @@ public class GrupoResponse extends Paquete {
     private transient final ArrayList<String> usernames;
     private transient final ArrayList<MensajeSerializable> mensajes;
     
+    /**
+     * Inicaliza los valores para mostrar los grupos
+     * @param id Id del grupo
+     * @param nombre Nombre del grupo
+     * @param status Estado en el que están los mensajes
+     */
     public GrupoResponse(int id, String nombre, Status status) {
         super(ORDEN);
         usernames = new ArrayList<>();

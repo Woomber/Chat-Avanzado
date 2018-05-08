@@ -14,15 +14,28 @@ public class Param implements Serializable {
         
     }
     
+    /**
+     * Iniciaiza variables que se mandan para enviar paquetes
+     * @param nombre El nombre del paquete
+     * @param valor  El valor del paquete
+     */
     public Param(String nombre, String valor){
         this.nombre = nombre;
         this.valor = valor;
     }
 
+    /**
+     * Obtiene el nombre
+     * @return Retorna el nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Obtiene el valor
+     * @return Retorna el valor
+     */
     public String getValor() {
         return valor;
     }

@@ -21,6 +21,11 @@ public class MensajeEvent extends Paquete {
     public static final String PARAM_FROM = "from";
     public static final String PARAM_MESSAGE = "message";
 
+    /**
+     * Inicaliza los valores que se envían al cliente cuando recibe un mensaje nuevo
+     * @param from Indica de quién viene
+     * @param message Indica el mensaje
+     */
     public MensajeEvent(String from, String message) {
         super(ORDEN);
         try {

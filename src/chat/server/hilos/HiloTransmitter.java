@@ -21,6 +21,10 @@ public class HiloTransmitter extends Hilo implements Runnable {
 
     private Paquete paquete;
 
+    /**
+     * Constructor para el Vínculo del hilo
+     * @param vinculo Vínculo
+     */
     public HiloTransmitter(Vinculo vinculo) {
         this.vinculo = vinculo;
     }
