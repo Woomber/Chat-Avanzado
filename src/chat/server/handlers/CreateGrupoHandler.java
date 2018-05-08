@@ -80,7 +80,7 @@ public class CreateGrupoHandler implements Handler{
        }
     
        if (correct) {
-           VinculoList.sendGroupUpdate(id);
+           VinculoList.sendGroupUpdateAll(id);
             return new GenericResponse(GenericResponse.Status.CORRECT);
         }
         return new GenericResponse(GenericResponse.Status.INCORRECT);
