@@ -277,6 +277,12 @@ public class Funcion_Principal extends JFrame_Principal {
                 String id = grupoPaquete.getValue(GrupoResponse.PARAM_ID_GRUPO);
                 String nombreGrupo = grupoPaquete.getValue(GrupoResponse.PARAM_NOMBRE_GRUPO);
                 String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
+                String[] miembrosGrupo = JsonParser.jsonToStrings(grupoPaquete.getValue(GrupoResponse.PARAM_MIEMBROS));
+                
+                for(String s:miembrosGrupo){
+                    MessageBox.Show("", s);
+                }
+                
                 boolean stat = false;
                 if (status.equals(GrupoResponse.Status.PENDING.getName())) {
                     if (DialogConfirm.Show("Nuevo Grupo","Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
@@ -296,7 +302,7 @@ public class Funcion_Principal extends JFrame_Principal {
                     JComponent_Grupo grupo = new JComponent_Grupo(nombreGrupo);
                     grupo.setOnInformationEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
                     grupo.setOnInformationLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
-                    grupo.setOnInformationClick(() -> LoadGroupConverataion(id,nombreGrupo));
+                    grupo.setOnInformationClick(() -> LoadGroupConverataion(id,nombreGrupo, miembrosGrupo));
                     grupo.setBtnEliminarClick(() -> iniciarBorrarGrupo(id));
 
                     PanelGrupos.add(grupo);
@@ -336,12 +342,12 @@ public class Funcion_Principal extends JFrame_Principal {
             System.out.println(ex.getMessage());
             System.out.println("");
         }
-        LoadUsuarios();
+        UpdateAllGroups();
     }
 
-    private void LoadGroupConverataion(String id, String nombreGrupo) {
+    private void LoadGroupConverataion(String id, String nombreGrupo, String[] miembrosGrupo) {
         Grupo grupo = new Grupo(Integer.valueOf(id).intValue(),nombreGrupo);
-        Funcion_Conversacion funcion = new Funcion_Conversacion(grupo);
+        Funcion_Conversacion funcion = new Funcion_Conversacion(grupo, miembrosGrupo);
         funcion.setVisible(true);
     }
 

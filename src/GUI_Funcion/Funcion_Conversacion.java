@@ -52,6 +52,8 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
     JPanel PanelConversacion;
     JTextField TxtMensaje;
 
+    String[]miembrosGrupo;
+    
     public Close close;
 
     private Thread hilo;
@@ -134,10 +136,11 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
         checkOnline.start();*/
     }
 
-    public Funcion_Conversacion(Grupo grupo) {
+    public Funcion_Conversacion(Grupo grupo, String[] miembrosGrupo) {
         super(grupo.getNombre_grupo(), true);
         isGroup = true;
         this.grupo = grupo;
+        this.miembrosGrupo = miembrosGrupo;
         count = DocumentManager.GetNumberLines(grupo.getId_grupo()+"_"+grupo.getNombre_grupo(), true);
         PanelConversacion = super.getPanelConversacion();
         TxtMensaje = super.getTxtMensaje();
@@ -216,7 +219,7 @@ public class Funcion_Conversacion extends JFrame_Conversacion implements Runnabl
     }
 
     private void AgregarUsuariosClick() {
-        Funcion_AgregarUsuarios funcion = new Funcion_AgregarUsuarios();
+        Funcion_AgregarUsuarios funcion = new Funcion_AgregarUsuarios(miembrosGrupo);
         funcion.setVisible(true);
     }
 
