@@ -34,6 +34,10 @@ public class LoginHandler implements Handler {
         this.password = request.getValue(LoginRequest.PARAM_PASSWORD);
     }
 
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
         LoginResponse.Status status;

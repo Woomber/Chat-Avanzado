@@ -8,7 +8,7 @@ import chat.server.vinculo.Vinculo;
 import java.util.ArrayList;
 
 /**
- *
+ * Handler para grupos - usuarios
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class GruposUsuarioHandler implements Handler {
@@ -18,7 +18,11 @@ public class GruposUsuarioHandler implements Handler {
     public GruposUsuarioHandler(Vinculo vinculo){
         this.vinculo = vinculo;
     }
-    
+
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */    
     @Override
     public Paquete run() {
         ArrayList<UsuarioGrupo> ug = new UsuarioGrupoConnector().getGrupos(vinculo.getUsername());

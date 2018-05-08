@@ -9,13 +9,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ * Conector SQL para la tabla usuario grupo
+ * 
  * @author Maritza
  */
 public class UsuarioGrupoConnector extends SqlConnector{
     
     private static final String BD_TABLE = "usuario_grupo";
     
+    /**
+     * Obtiene los usuarios en un grupo
+     * 
+     * @param id_grupo El id del grupo a buscar
+     * @return Los usuarios en ese grupo
+     */
      public ArrayList<UsuarioGrupo> getAllUsuarios(int id_grupo) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
@@ -44,6 +51,14 @@ public class UsuarioGrupoConnector extends SqlConnector{
             return null;
         }
     }
+     
+     /**
+      * Obtiene si un usuario pertenece a un grupo
+      * 
+      * @param id El id del usuario
+      * @param id_grupo El id del grupo
+      * @return Un objeto si pertenece, null si no
+      */
      public UsuarioGrupo getUsuario(String id, int id_grupo) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ? and id_grupo = ?";
 
@@ -72,7 +87,13 @@ public class UsuarioGrupoConnector extends SqlConnector{
             return null;
         }
     }
-     
+    
+     /**
+      * Obtiene los grupos de un usuario
+      * 
+      * @param id El id de usuario
+      * @return Los grupos a los que pertenece
+      */
      public ArrayList<UsuarioGrupo> getGrupos(String id) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ?";
 
@@ -101,6 +122,12 @@ public class UsuarioGrupoConnector extends SqlConnector{
             return null;
         }
     }
+     
+     /**
+      * Agrega un usuario a un grupo
+      * @param item El objeto usuario grupo
+      * @return Verdadero si tuvo éxito
+      */
     public boolean add(UsuarioGrupo item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + "(id_grupo, username, status) VALUES(?, ?, ?)";
 
@@ -119,6 +146,13 @@ public class UsuarioGrupoConnector extends SqlConnector{
             return false;
         }
     }
+    
+    /**
+     * Cambia el estado de un usuario en un grupo
+     * 
+     * @param item El usuario grupo con el nuevo estado
+     * @return Verdadero si tuvo éxito
+     */
     public boolean modificar(UsuarioGrupo item) {
         final String QUERY = "UPDATE " + BD_TABLE + " SET status = ? WHERE username = ? and id_grupo = ?";
 
@@ -138,6 +172,12 @@ public class UsuarioGrupoConnector extends SqlConnector{
         }
     }
     
+    /**
+     * Elimina un usuario de un grupo
+     * 
+     * @param item El usuario y grupo a eliminar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminar(UsuarioGrupo item) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = ? and id_grupo = ?";
 
@@ -155,6 +195,13 @@ public class UsuarioGrupoConnector extends SqlConnector{
             return false;
         }
     }
+    
+    /**
+     * Elimina todos los usuarios de un grupo
+     * 
+     * @param id El grupo del cual eliminar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminarGrupo(int id) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = ?";
 

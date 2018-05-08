@@ -10,7 +10,8 @@ import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
 
 /**
- *
+ * Handler para responder a una solicitud de grupo
+ * 
  * @author Maritza
  */
 public class ReplyGrupoHandler implements Handler {
@@ -24,6 +25,10 @@ public class ReplyGrupoHandler implements Handler {
         us.setStatus(Boolean.parseBoolean(request.getValue(ReplyGrupoRequest.ACCEPTED)));
     }
 
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
         UsuarioGrupoConnector usu = new UsuarioGrupoConnector();

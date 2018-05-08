@@ -3,7 +3,7 @@ package chat.models.serializables;
 import java.io.Serializable;
 
 /**
- *
+ * Clase serializable para los usuarios enviados
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class UsuarioSerializable implements Serializable {

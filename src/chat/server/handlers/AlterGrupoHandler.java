@@ -15,7 +15,8 @@ import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
 
 /**
- *
+ * Handler para modificar un grupo (personas)
+ * 
  * @author Maritza
  */
 public class AlterGrupoHandler implements Handler {
@@ -42,6 +43,10 @@ public class AlterGrupoHandler implements Handler {
 
     }
 
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
         GrupoConnector connector = new GrupoConnector();

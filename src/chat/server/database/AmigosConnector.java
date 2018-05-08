@@ -8,13 +8,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ * Conector SQL para la tabla amigos
  * @author Maritza
  */
 public class AmigosConnector extends SqlConnector{
     
     private static final String BD_TABLE = "amigos";
     
+    /**
+     * Envía todos los amigos de un usuario
+     * @param id_usuario el usuario 
+     * @return un arreglo con los amigos del usuario
+     */
     public ArrayList<Amigo> getAll(String id_usuario) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ?";
 
@@ -44,6 +49,12 @@ public class AmigosConnector extends SqlConnector{
         }
     }
     
+    /**
+     * Agrega un amigo a una persona
+     * 
+     * @param item La relación de amistad por agregar
+     * @return Verdadero si se agregó
+     */
     public boolean add(Amigo item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?, ?, ?)";
 
@@ -64,6 +75,12 @@ public class AmigosConnector extends SqlConnector{
         }
     }
     
+    /**
+     * Eliminar un vínculo de amistad
+     * 
+     * @param item El vínculo de amistad a eliminar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminar(Amigo item) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = ? AND amigo = ?";
 

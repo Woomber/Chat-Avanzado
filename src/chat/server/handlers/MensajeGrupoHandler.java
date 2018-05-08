@@ -9,7 +9,8 @@ import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
 
 /**
- *
+ * Handler para enviar mensajes al grupo
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class MensajeGrupoHandler implements Handler {
@@ -23,6 +24,10 @@ public class MensajeGrupoHandler implements Handler {
         mensaje.setTexto(request.getValue(MensajeGrupoRequest.PARAM_MESSAGE));
     }
     
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */    
     @Override
     public Paquete run() {
         if(new MensajeConnector().add(mensaje)){

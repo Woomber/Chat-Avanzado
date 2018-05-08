@@ -14,7 +14,8 @@ import chat.server.vinculo.VinculoList;
 import java.util.ArrayList;
 
 /**
- *
+ * Handler para crear grupos
+ * 
  * @author Maritza
  */
 public class CreateGrupoHandler implements Handler{
@@ -58,6 +59,10 @@ public class CreateGrupoHandler implements Handler{
         grupo.setNombre_grupo(request.getValue(CreateGrupoRequest.PARAM_NOMBRE_GRUPO));   
     }
     
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
        GrupoConnector nu = new GrupoConnector();

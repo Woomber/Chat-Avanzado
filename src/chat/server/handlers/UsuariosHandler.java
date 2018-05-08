@@ -11,7 +11,8 @@ import chat.server.vinculo.VinculoList;
 import java.util.ArrayList;
 
 /**
- *
+ * Handler para una solicitud de usuarios
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class UsuariosHandler implements Handler {
@@ -22,6 +23,10 @@ public class UsuariosHandler implements Handler {
         this.vinculo = vinculo;
     }
 
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
         

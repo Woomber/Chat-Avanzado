@@ -1,7 +1,7 @@
 package chat.models;
 
 /**
- *
+ * Modelo de usuarios
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class Usuario {

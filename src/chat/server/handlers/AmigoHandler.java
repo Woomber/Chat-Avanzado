@@ -9,7 +9,8 @@ import chat.server.database.AmigosConnector;
 import chat.server.vinculo.Vinculo;
 
 /**
- *
+ * Handler para modificar amigos
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class AmigoHandler implements Handler {
@@ -36,6 +37,10 @@ public class AmigoHandler implements Handler {
 
     }
 
+        /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
 

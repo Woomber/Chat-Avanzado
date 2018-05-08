@@ -6,7 +6,7 @@
 package chat.models;
 
 /**
- *
+ * Modelo de Amigos
  * @author Maritza
  */
 public class Amigo {

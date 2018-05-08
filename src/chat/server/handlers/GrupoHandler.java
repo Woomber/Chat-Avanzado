@@ -21,7 +21,8 @@ import chat.server.vinculo.Vinculo;
 import java.util.ArrayList;
 
 /**
- *
+ * Handler para enviar grupos
+ * 
  * @author Maritza
  */
 public class GrupoHandler implements Handler {
@@ -33,7 +34,11 @@ public class GrupoHandler implements Handler {
         this.request = request;
         this.vinculo = vinculo;
     }
-
+    
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */
     @Override
     public Paquete run() {
         UsuarioGrupoConnector x = new UsuarioGrupoConnector();

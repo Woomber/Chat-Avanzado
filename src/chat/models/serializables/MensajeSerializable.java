@@ -3,7 +3,7 @@ package chat.models.serializables;
 import java.io.Serializable;
 
 /**
- *
+ * Clase serializable para los mensajes enviados
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class MensajeSerializable implements Serializable {

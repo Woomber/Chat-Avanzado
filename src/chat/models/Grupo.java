@@ -6,7 +6,7 @@
 package chat.models;
 
 /**
- *
+ * Modelo de Grupos
  * @author Maritza
  */
 public class Grupo {

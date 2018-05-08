@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- *
+ * Clase principal del chat server
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class ChatServer {

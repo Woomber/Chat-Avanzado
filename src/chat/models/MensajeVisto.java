@@ -6,7 +6,7 @@
 package chat.models;
 
 /**
- *
+ * Modelo de Mensajes vistos
  * @author Maritza
  */
 public class MensajeVisto {

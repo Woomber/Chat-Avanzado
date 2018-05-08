@@ -10,13 +10,20 @@ import java.util.ArrayList;
 
 
 /**
- *
+ * Conector SQL para la tabla grupos  
+ * 
  * @author Maritza
  */
 public class GrupoConnector extends SqlConnector{
     
     private static final String BD_TABLE = "grupo";
     
+    /**
+     * Obtiene los grupos de un usuario en específico
+     * 
+     * @param usuario El usuario
+     * @return Los grupos a los que pertenece
+     */
     public ArrayList<Grupo> getGrupo(String usuario) {
         final String QUERY = "SELECT grupo.id, grupo.nombre FROM usuario_grupo, " + BD_TABLE + 
                 " WHERE usuario_grupo.username = ? and usuario_grupo.id_grupo=grupo.id";
@@ -46,7 +53,13 @@ public class GrupoConnector extends SqlConnector{
         }
     }
     
-        public Grupo get(int id) {
+    /**
+     * Obtiene un grupo por su id
+     * 
+     * @param id La id del grupo
+     * @return El grupo con esa id
+     */
+    public Grupo get(int id) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id = ?";
 
         try {
@@ -72,6 +85,12 @@ public class GrupoConnector extends SqlConnector{
         }
     }
     
+    /**
+     * Agrega un grupo a la base de datos
+     * 
+     * @param item el grupo por agregar
+     * @return El ID del grupo agregado
+     */
     public int addGrupo(Grupo item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + "(nombre) VALUES(?)";
 
@@ -100,6 +119,12 @@ public class GrupoConnector extends SqlConnector{
         }
     }
     
+    /**
+     * Elimina un grupo de la base de datos
+     * 
+     * @param id_grupo El ID del grupo a eliminar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminarGrupo(int id_grupo) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id = ?";
 

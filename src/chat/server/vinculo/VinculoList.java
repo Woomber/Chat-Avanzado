@@ -23,15 +23,28 @@ public class VinculoList {
         VINCULOS = new ArrayList<>();
     }
 
+    /**
+     * Agregar un vínculo a la lista
+     * 
+     * @param v El vínculo a agregar
+     */
     public static synchronized void add(Vinculo v) {
         VINCULOS.add(v);
     }
 
+    /**
+     * Eliminar un vínculo de la lista
+     * 
+     * @param v El vínculo a eliminar
+     */
     public static synchronized void remove(Vinculo v) {
         VINCULOS.remove(v);
         sendUserUpdate();
     }
 
+    /**
+     * Enviar una actualización de usuarios conectados
+     */
     public static synchronized void sendUserUpdate() {
         for (Vinculo v : getConnected()) {
             v.getHiloTx().setPaquete(new UpdateUsuariosEvent());
@@ -39,6 +52,11 @@ public class VinculoList {
         }
     }
     
+    /**
+     * Enviar una actualización de todos los grupos a los usuarios de un grupo
+     * 
+     * @param grupo El grupo
+     */
     public static synchronized void sendGroupUpdateAll(int grupo){
         ArrayList<UsuarioGrupo> ug = new UsuarioGrupoConnector().getAllUsuarios(grupo);
         for(Vinculo v : getConnected()){
@@ -51,6 +69,11 @@ public class VinculoList {
         }
     }
     
+    /**
+     * Enviar una actualización de un grupo a sus usuarios
+     * 
+     * @param grupo El grupo
+     */
     public static synchronized void sendGroupUpdate(int grupo){
         ArrayList<UsuarioGrupo> ug = new UsuarioGrupoConnector().getAllUsuarios(grupo);
         for(Vinculo v : getConnected()){
@@ -63,10 +86,22 @@ public class VinculoList {
         }
     }
 
+    /**
+     * Busca si el hilo está en los vínculos
+     * 
+     * @param v El vínculo
+     * @return Verdadero si está
+     */
     public static boolean contains(Vinculo v) {
         return VINCULOS.contains(v);
     }
 
+    /**
+     * Obtener el vínculo del usuario
+     * 
+     * @param user El username
+     * @return El vínculo
+     */
     public static Vinculo get(String user) {
         for (Vinculo v : VINCULOS) {
             if (v.getUsername() == null) {
@@ -79,6 +114,12 @@ public class VinculoList {
         return null;
     }
 
+    /**
+     * Obtener el vínculo del usuario si está conectado
+     * 
+     * @param user El username
+     * @return El vínculo
+     */
     public static Vinculo getIfConnected(String user) {
         Vinculo v = get(user);
         if (v == null) {
@@ -90,6 +131,11 @@ public class VinculoList {
         return v;
     }
 
+    /**
+     * Obtener el vínculo con ese hilo
+     * @param t EL hilo
+     * @return El vínculo
+     */
     public static Vinculo get(HiloReceiver t) {
         for (Vinculo v : VINCULOS) {
             if (v.getHiloRx().equals(t)) {
@@ -99,6 +145,11 @@ public class VinculoList {
         return null;
     }
 
+    /**
+     * Enviar todos los vínculos de usuarios conectados
+     * 
+     * @return Los vínculos conectados
+     */
     public static ArrayList<Vinculo> getConnected() {
         ArrayList<Vinculo> array = new ArrayList<>();
         for (Vinculo v : VINCULOS) {

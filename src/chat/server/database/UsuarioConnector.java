@@ -8,13 +8,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ * Conector SQL de la tabla usuarios
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class UsuarioConnector extends SqlConnector {
 
     private static final String BD_TABLE = "usuario";
 
+    /**
+     * Obtiene todos los usuarios
+     * 
+     * @return Una lista con los usuarios
+     */
     public ArrayList<Usuario> getAll() {
         final String QUERY = "SELECT * FROM " + BD_TABLE;
 
@@ -43,7 +49,12 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
     
-     public ArrayList<Usuario> getUsuario(String idUsuario) {
+    /**
+     * Obtiene los datos de un usuario dado su username
+     * @param idUsuario El username
+     * @return El usuario con ese username
+     */
+    public ArrayList<Usuario> getUsuario(String idUsuario) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE username = ?";
 
         try {
@@ -72,6 +83,12 @@ public class UsuarioConnector extends SqlConnector {
         }
     }
 
+    /**
+     * Agrega un nuevo usuario
+     * 
+     * @param item El usuario por agregar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean add(Usuario item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + " VALUES(?, ?, ?)";
 
@@ -90,6 +107,13 @@ public class UsuarioConnector extends SqlConnector {
             return false;
         }
     }
+    
+    /**
+     * Elimina un usuario
+     * 
+     * @param idUsuario El id del usuario a eliminar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminar(String idUsuario) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE username = ?";
 
@@ -106,6 +130,14 @@ public class UsuarioConnector extends SqlConnector {
             return false;
         }
     }
+    
+    /**
+     * Verifica si un usuario y contraseña coinciden con la base de datos
+     * 
+     * @param idUsuario El usuario
+     * @param contrasena La contraseña
+     * @return Verdadero si coinciden
+     */
     public boolean verificar(String idUsuario, String contrasena) {
         final String QUERY = "SELECT *FROM " + BD_TABLE + " WHERE username = ? AND password = ?";
 

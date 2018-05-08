@@ -31,6 +31,9 @@ public class Vinculo {
         new Thread(this.hiloRx).start();
     }
     
+    /**
+     * Iniciar el hilo de transmisión
+     */
     public void startSend(){
         new Thread(this.hiloTx).start();
     }
@@ -73,6 +76,9 @@ public class Vinculo {
         return loginAttempts;
     }
     
+    /**
+     * Detiene ambos hilos
+     */
     public void stop(){
         if(hiloTx != null) hiloTx.stop();
         if(hiloRx != null) hiloRx.stop();

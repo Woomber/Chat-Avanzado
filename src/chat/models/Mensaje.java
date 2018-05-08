@@ -5,10 +5,9 @@
  */
 package chat.models;
 
-import java.sql.Date;
 
 /**
- *
+ * Modelo de Mensajes en grupo
  * @author Maritza
  */
 public class Mensaje {

@@ -8,7 +8,8 @@ import chat.server.vinculo.Vinculo;
 import chat.server.vinculo.VinculoList;
 
 /**
- *
+ * Handler para enviar mensajes
+ * 
  * @author Yael Arturo Chavoya Andalón 14300094
  */
 public class MensajeHandler implements Handler {
@@ -26,7 +27,11 @@ public class MensajeHandler implements Handler {
         destino = request.getValue(MensajeRequest.PARAM_TO);
         mensaje = request.getValue(MensajeRequest.PARAM_MESSAGE);
     }
-    
+
+    /**
+     * Ejecuta el handler
+     * @return El paquete con el resultado
+     */    
     @Override
     public Paquete run() {
         Vinculo destV = VinculoList.get(destino);

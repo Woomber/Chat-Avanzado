@@ -8,13 +8,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ * Conector SQL para la tabla mensaje
+ * 
  * @author Maritza
  */
 public class MensajeConnector extends SqlConnector{
     
     private static final String BD_TABLE = "mensaje";
     
+    /**
+     * Obtiene todos los mensajes de un grupo
+     * 
+     * @param id_grupo El grupo del que obtiene los mensajes
+     * @return Los mensajes
+     */
     public ArrayList<Mensaje> getAll(int id_grupo) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
@@ -44,6 +51,14 @@ public class MensajeConnector extends SqlConnector{
             return null;
         }
     }
+    
+    /**
+     * Obtiene los mensajes enviados por un usuario a un grupo
+     * 
+     * @param id_grupo El grupo donde se busca
+     * @param id_usuario El usuario remitente
+     * @return Los mensajes enviados por ese usuario
+     */
     public ArrayList<Mensaje> getUsuario(int id_grupo, String id_usuario) {
         final String QUERY = "SELECT * FROM " + BD_TABLE + " WHERE id_grupo = ? and username = ?";
 
@@ -74,6 +89,13 @@ public class MensajeConnector extends SqlConnector{
             return null;
         }
     }
+    
+    /**
+     * Envía un mensaje a un grupo
+     * 
+     * @param item El mensaje a enviar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean add(Mensaje item) {
         final String QUERY = "INSERT INTO " + BD_TABLE + "(username, texto, id_grupo) VALUES(?, ?, ?)";
 
@@ -92,6 +114,13 @@ public class MensajeConnector extends SqlConnector{
             return false;
         }
     }
+    
+    /**
+     * Elimina todos los mensajes de un grupo
+     * 
+     * @param grupo El grupo a buscar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminarGrupo(int grupo) {
         final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id_grupo = ?";
 
@@ -108,6 +137,12 @@ public class MensajeConnector extends SqlConnector{
         }
     }
     
+    /**
+     * Elimina un mensaje en particular
+     * 
+     * @param id_mensaje El mensaje a eliminar
+     * @return Verdadero si tuvo éxito
+     */
     public boolean eliminar(int id_mensaje){
       final String QUERY = "DELETE FROM " + BD_TABLE + " WHERE id = ?";
 

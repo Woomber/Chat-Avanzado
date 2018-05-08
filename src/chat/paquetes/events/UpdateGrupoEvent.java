@@ -14,7 +14,7 @@ import chat.server.log.ServerLog;
 public class UpdateGrupoEvent extends Paquete {
 
     // Orden que identifica al tipo de paquete
-    public static final String ORDEN = "event-update-grupos";
+    public static final String ORDEN = "event-update-grupo";
     
     // Parámetros
     public static final String PARAM_GRUPO = "grupo"; 
