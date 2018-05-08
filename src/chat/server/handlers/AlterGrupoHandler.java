@@ -58,7 +58,7 @@ public class AlterGrupoHandler implements Handler {
         switch (operacion) {
             case ADD:
                 if (usua.add(ug)) {
-                    VinculoList.sendGroupUpdate(ug.getId_grupo());
+                    VinculoList.sendGroupUpdateAll(ug.getId_grupo());
                     return new GenericResponse(GenericResponse.Status.CORRECT);
                 }
                 return new GenericResponse(GenericResponse.Status.INCORRECT);
