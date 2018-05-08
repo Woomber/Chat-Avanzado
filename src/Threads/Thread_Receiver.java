@@ -6,13 +6,11 @@
 package Threads;
 
 import Delegates.Update;
-import Delegates.UpdateGroup;
 import Documents.DocumentManager;
 import Exceptions.JsonParserException;
 import General.MessageBox;
 import Json.JsonParser;
 import PaquetesEvents.MensajeEvent;
-import PaquetesEvents.UpdateGrupoEvent;
 import PaquetesEvents.UpdateGruposEvent;
 import PaquetesEvents.UpdateUsuariosEvent;
 import PaquetesModels.Paquete;
@@ -43,7 +41,6 @@ public class Thread_Receiver implements Runnable {
 
     public Update onUpdate;
     public Update onGroupUpdate;
-    public UpdateGroup onOneGroupUpdate;
     
     ServerSocket server;
     Socket socketRx;
@@ -102,14 +99,6 @@ public class Thread_Receiver implements Runnable {
                         deQuien = paquete.getValue(MensajeEvent.PARAM_FROM);
                         mensaje = paquete.getValue(MensajeEvent.PARAM_MESSAGE);
                         DocumentManager.SaveMessage(deQuien, deQuien, mensaje.replace("\n", " ").trim(), false);
-                        
-                        break;
-                    case UpdateGrupoEvent.ORDEN:
-                        response = new GenericResponse(Status.CORRECT);
-                        anotherJson = JsonParser.paqueteToJson(response);
-                        pw.write(anotherJson);
-                        
-                        onOneGroupUpdate.Invoke(Integer.getInteger(paquete.getValue(UpdateGrupoEvent.PARAM_GRUPO)).intValue());
                         
                         break;
                     case UpdateGruposEvent.ORDEN:
