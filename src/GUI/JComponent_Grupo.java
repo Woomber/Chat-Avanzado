@@ -36,9 +36,19 @@ public class JComponent_Grupo extends JComponent implements ActionListener, Mous
     private MouseLeave OnInformationLeave;
 
     String groupName;
+    int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
             
-    public JComponent_Grupo(String groupName) {
+    public JComponent_Grupo(String groupName, int ID) {
         this.groupName = groupName;
+        this.ID = ID;
         loadComponentDetails();
     }
 
