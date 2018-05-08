@@ -21,6 +21,12 @@ public class RegistroRequest extends Paquete {
     public static final String PARAM_NAME = "name";
     public static final String PARAM_PASSWORD = "password";
 
+    /**
+     * Inicializa los valores cuando se registra el usuario
+     * @param username Establece el nombre de usuario
+     * @param name Establece el nombre de pila
+     * @param password Establece la contraseña
+     */
     public RegistroRequest(String username, String name, String password) {
         super(ORDEN);
         try {

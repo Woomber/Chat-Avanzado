@@ -19,6 +19,10 @@ public class LoginResponse extends Paquete {
     // Parámetros
     public static final String PARAM_STATUS = "status";
 
+    /**
+     * Indica el estado en el que está la sesión
+     * @param status Conectado / Desconectado
+     */
     public LoginResponse(Status status) {
         super(ORDEN);
         try {

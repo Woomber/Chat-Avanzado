@@ -20,6 +20,11 @@ public class LoginRequest extends Paquete {
     public static final String PARAM_USERNAME = "username";
     public static final String PARAM_PASSWORD = "password";
 
+    /**
+     * Inicializa los valores al iniciar sesión
+     * @param username El nombre de usuario
+     * @param password La contraseña
+     */
     public LoginRequest(String username, String password) {
         super(ORDEN);
         try {

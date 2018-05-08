@@ -21,6 +21,12 @@ public class AmigoRequest extends Paquete {
     public static final String PARAM_AMIGO = "amigo";
     public static final String PARAM_APODO = "nickname";
 
+    /**
+     * Inicializa los valores para la operación
+     * @param amigo Identifica al amigo del usuario
+     * @param apodo El apodo del amigo
+     * @param operacion Identificador de la operación
+     */
     public AmigoRequest(String amigo, String apodo, Operacion operacion) {
         super(ORDEN);
         try {

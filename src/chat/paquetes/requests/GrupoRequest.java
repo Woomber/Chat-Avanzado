@@ -19,6 +19,10 @@ public class GrupoRequest extends Paquete {
     // Parámetros
     public static final String PARAM_GRUPO = "grupo";
 
+    /**
+     * Inicializa el nombre del grupo que se mostrará
+     * @param grupo Nombre del grupo
+     */
     public GrupoRequest(int grupo) {
         super(ORDEN);
         try {

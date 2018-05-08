@@ -21,6 +21,11 @@ public class ReplyGrupoRequest extends Paquete {
     public static final String PARAM_GROUP = "grupo";
     public static final String ACCEPTED = "accepted";
 
+    /**
+     * Inicaliza los valores para la operación
+     * @param grupo Identificador del grupo
+     * @param accepted Indica si se acepta o no
+     */
     public ReplyGrupoRequest(int grupo, boolean accepted) {
         super(ORDEN);
         try {

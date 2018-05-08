@@ -20,6 +20,10 @@ public class GenericResponse extends Paquete {
     // Parámetros
     public static final String PARAM_STATUS = "status";
 
+    /**
+     * Indica si el comando funcionó o no
+     * @param status El estado
+     */
     public GenericResponse(Status status) {
         super(ORDEN);
         try {

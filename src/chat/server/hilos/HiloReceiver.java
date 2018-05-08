@@ -23,6 +23,11 @@ public class HiloReceiver extends Hilo implements Runnable {
     private final Vinculo vinculo;
     private final Socket socket;
 
+    /**
+     * Construcor para identificar socket y vinculo
+     * @param socket Socket
+     * @param vinculo  Vinculo
+     */
     public HiloReceiver(Socket socket, Vinculo vinculo) {
         this.vinculo = vinculo;
         this.socket = socket;
