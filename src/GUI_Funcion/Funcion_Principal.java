@@ -7,6 +7,7 @@ package GUI_Funcion;
 
 import Models.Grupo;
 import Delegates.Update;
+import Delegates.UpdateGroup;
 import Documents.DocumentManager;
 import Exceptions.JsonParserException;
 import GUI.JComponent_Favorito;
@@ -73,6 +74,7 @@ public class Funcion_Principal extends JFrame_Principal {
         receiver = Thread_Receiver.receiver;
         receiver.onUpdate = () -> LoadUsuarios();
         receiver.onGroupUpdate = () -> UpdateAllGroups();
+        receiver.onOneGroupUpdate = (int ID) -> UpdateGroupMensaje(ID);
         /*JComponent_Usuario com = new JComponent_Usuario("Malditasea", true);
         this.PanelUsuarios.add(com);*/
         super.setOnBtnGruposClick(() -> BtnGruposClick());
@@ -152,8 +154,8 @@ public class Funcion_Principal extends JFrame_Principal {
 
         }
     }
-    
-    public void UpdateAllGroups(){
+
+    public void UpdateAllGroups() {
         PanelGrupos.removeAll();
         PanelGrupos.revalidate();
         PanelGrupos.repaint();
@@ -278,31 +280,34 @@ public class Funcion_Principal extends JFrame_Principal {
                 String nombreGrupo = grupoPaquete.getValue(GrupoResponse.PARAM_NOMBRE_GRUPO);
                 String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
                 String[] miembrosGrupo = JsonParser.jsonToStrings(grupoPaquete.getValue(GrupoResponse.PARAM_MIEMBROS));
-                
-                for(String s:miembrosGrupo){
+
+                for (String s : miembrosGrupo) {
                     MessageBox.Show("", s);
                 }
-                
+
                 boolean stat = false;
                 if (status.equals(GrupoResponse.Status.PENDING.getName())) {
-                    if (DialogConfirm.Show("Nuevo Grupo","Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
+                    if (DialogConfirm.Show("Nuevo Grupo", "Ha sido invitado a participar en el grupo: " + nombreGrupo + ".\n ¿Desea aceptar la invitación?")) {
                         stat = true;
                     }
                     pw.println(JsonParser.paqueteToJson(new ReplyGrupoRequest(Integer.valueOf(id), stat, Usuario.emisor.getId_usuario())));
                     Paquete responsePaquete = JsonParser.jsonToPaquete(read.readLine());
-                }
-                else if(status.equals(GrupoResponse.Status.IN_GROUP.getName())){
+                } else if (status.equals(GrupoResponse.Status.IN_GROUP.getName())) {
                     stat = true;
-                }          
+                }
                 if (stat) {
                     MensajeSerializable[] a = JsonParser.jsonToMensajes(grupoPaquete.getValue(GrupoResponse.PARAM_MENSAJES));
                     for (MensajeSerializable m : a) {
                         DocumentManager.SaveMessage(id + "_" + nombreGrupo, m.getOrigen(), m.getMensaje(), true);
                     }
                     JComponent_Grupo grupo = new JComponent_Grupo(nombreGrupo);
-                    grupo.setOnInformationEnter(() -> {this.setCursor(Cursor.HAND_CURSOR);});
-                    grupo.setOnInformationLeave(() -> {this.setCursor(Cursor.DEFAULT_CURSOR);});
-                    grupo.setOnInformationClick(() -> LoadGroupConverataion(id,nombreGrupo, miembrosGrupo));
+                    grupo.setOnInformationEnter(() -> {
+                        this.setCursor(Cursor.HAND_CURSOR);
+                    });
+                    grupo.setOnInformationLeave(() -> {
+                        this.setCursor(Cursor.DEFAULT_CURSOR);
+                    });
+                    grupo.setOnInformationClick(() -> LoadGroupConverataion(id, nombreGrupo, miembrosGrupo));
                     grupo.setBtnEliminarClick(() -> iniciarBorrarGrupo(id));
 
                     PanelGrupos.add(grupo);
@@ -313,8 +318,8 @@ public class Funcion_Principal extends JFrame_Principal {
             MessageBox.Show("", ex.getMessage());
         }
     }
-    
-    private void iniciarBorrarGrupo(String id){
+
+    private void iniciarBorrarGrupo(String id) {
         this.idGrupo = id;
         transmitter.setAction(
                 (Socket socket, PrintWriter pw, BufferedReader read)
@@ -323,11 +328,11 @@ public class Funcion_Principal extends JFrame_Principal {
 
         transmitter.StartThread();
     }
-    
-    private void eliminarGrupo(Socket socket, PrintWriter pw, BufferedReader read){
+
+    private void eliminarGrupo(Socket socket, PrintWriter pw, BufferedReader read) {
         try {
             pw.println(JsonParser.paqueteToJson(new AlterGrupoRequest(
-                    Integer.parseInt(idGrupo), Usuario.emisor.getId_usuario(), 
+                    Integer.parseInt(idGrupo), Usuario.emisor.getId_usuario(),
                     AlterGrupoRequest.Operacion.REMOVE)));
             Paquete paquete = JsonParser.jsonToPaquete(read.readLine());
 
@@ -346,9 +351,34 @@ public class Funcion_Principal extends JFrame_Principal {
     }
 
     private void LoadGroupConverataion(String id, String nombreGrupo, String[] miembrosGrupo) {
-        Grupo grupo = new Grupo(Integer.valueOf(id).intValue(),nombreGrupo);
+        Grupo grupo = new Grupo(Integer.valueOf(id).intValue(), nombreGrupo);
         Funcion_Conversacion funcion = new Funcion_Conversacion(grupo, miembrosGrupo);
         funcion.setVisible(true);
     }
 
+    private void UpdateGroupMensaje(int ID) {
+        transmitter.setAction(
+                (Socket socket, PrintWriter pw, BufferedReader read)
+                -> NoMueras(socket, pw, read, ID)
+        );
+
+        transmitter.StartThread();
+    }
+
+    private void NoMueras(Socket socket, PrintWriter pw, BufferedReader read, int ID) {
+        try {
+            pw.println(JsonParser.paqueteToJson(new GrupoRequest(ID)));
+            Paquete grupoPaquete = JsonParser.jsonToPaquete(read.readLine());
+            String id = grupoPaquete.getValue(GrupoResponse.PARAM_ID_GRUPO);
+            String nombreGrupo = grupoPaquete.getValue(GrupoResponse.PARAM_NOMBRE_GRUPO);
+            String status = grupoPaquete.getValue(GrupoResponse.PARAM_STATUS);
+            String[] miembrosGrupo = JsonParser.jsonToStrings(grupoPaquete.getValue(GrupoResponse.PARAM_MIEMBROS));
+            MensajeSerializable[] a = JsonParser.jsonToMensajes(grupoPaquete.getValue(GrupoResponse.PARAM_MENSAJES));
+            for (MensajeSerializable m : a) {
+                DocumentManager.SaveMessage(id + "_" + nombreGrupo, m.getOrigen(), m.getMensaje(), true);
+            }
+        } catch (JsonParserException | IOException ex) {
+            Logger.getLogger(Funcion_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
