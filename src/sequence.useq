@@ -1,0 +1,1902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="chat.client.ChatClient" project="ChatClient" 
+    file="/ChatClient/src/chat/client/ChatClient.java" binary="false" label="chatClient" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="128" y="0"/>    
+    <execution id="2">      
+      <position height="1077" width="81" x="5" y="95"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="1014" width="81" x="5" y="137"/>    
+    </execution>  
+  </object>  
+  <object id="9" language="java" name="GUI_Funcion.Funcion_Ingreso" project="ChatClient" 
+    file="/ChatClient/src/GUI_Funcion/Funcion_Ingreso.java" binary="false" label="control" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="920" width="0" x="0" y="168"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="1109"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="210"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="262"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="994"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="21" width="0" x="0" y="1046"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="4805" width="117" x="90" y="1109"/>    
+    </execution>    
+    <execution id="30">      
+      <position height="4742" width="117" x="90" y="1151"/>    
+    </execution>    
+    <execution id="156">      
+      <position height="21" width="0" x="0" y="3847"/>    
+    </execution>    
+    <execution id="186">      
+      <position height="21" width="0" x="0" y="4487"/>    
+    </execution>    
+    <execution id="248">      
+      <position height="21" width="0" x="0" y="5799"/>    
+    </execution>    
+    <execution id="250">      
+      <position height="21" width="0" x="0" y="5851"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="21" width="0" x="0" y="1497"/>    
+    </execution>    
+    <execution id="76">      
+      <position height="21" width="0" x="0" y="2137"/>    
+    </execution>    
+    <execution id="138">      
+      <position height="21" width="0" x="0" y="3449"/>    
+    </execution>    
+    <execution id="140">      
+      <position height="21" width="0" x="0" y="3501"/>    
+    </execution>  
+  </object>  
+  <object id="251" language="java" name="java.awt.Insets" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="40">      
+      <position height="21" width="0" x="0" y="1350"/>    
+    </execution>  
+  </object>  
+  <object id="252" language="java" name="javax.swing.AbstractButton" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="BtnAceptar1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="62">      
+      <position height="21" width="0" x="0" y="1822"/>    
+    </execution>  
+  </object>  
+  <object id="253" language="java" name="java.awt.Component" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="LblTitulo1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="64">      
+      <position height="21" width="0" x="0" y="1864"/>    
+    </execution>    
+    <execution id="66">      
+      <position height="21" width="0" x="0" y="1906"/>    
+    </execution>  
+  </object>  
+  <object id="254" language="java" name="java.awt.Font" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="72">      
+      <position height="21" width="0" x="0" y="2032"/>    
+    </execution>  
+  </object>  
+  <object id="255" language="java" name="javax.swing.GroupLayout.SequentialGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="86">      
+      <position height="21" width="0" x="0" y="2336"/>    
+    </execution>    
+    <execution id="88">      
+      <position height="21" width="0" x="0" y="2378"/>    
+    </execution>    
+    <execution id="96">      
+      <position height="21" width="0" x="0" y="2546"/>    
+    </execution>    
+    <execution id="104">      
+      <position height="21" width="0" x="0" y="2714"/>    
+    </execution>    
+    <execution id="106">      
+      <position height="21" width="0" x="0" y="2756"/>    
+    </execution>  
+  </object>  
+  <object id="256" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="92">      
+      <position height="21" width="0" x="0" y="2462"/>    
+    </execution>    
+    <execution id="94">      
+      <position height="21" width="0" x="0" y="2504"/>    
+    </execution>  
+  </object>  
+  <object id="257" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="100">      
+      <position height="21" width="0" x="0" y="2630"/>    
+    </execution>    
+    <execution id="102">      
+      <position height="21" width="0" x="0" y="2672"/>    
+    </execution>  
+  </object>  
+  <object id="258" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="112">      
+      <position height="21" width="0" x="0" y="2882"/>    
+    </execution>    
+    <execution id="136">      
+      <position height="21" width="0" x="0" y="3386"/>    
+    </execution>  
+  </object>  
+  <object id="259" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="118">      
+      <position height="21" width="0" x="0" y="3008"/>    
+    </execution>    
+    <execution id="120">      
+      <position height="21" width="0" x="0" y="3050"/>    
+    </execution>    
+    <execution id="122">      
+      <position height="21" width="0" x="0" y="3092"/>    
+    </execution>  
+  </object>  
+  <object id="260" language="java" name="javax.swing.GroupLayout.SequentialGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="124">      
+      <position height="21" width="0" x="0" y="3134"/>    
+    </execution>    
+    <execution id="134">      
+      <position height="21" width="0" x="0" y="3344"/>    
+    </execution>  
+  </object>  
+  <object id="261" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="128">      
+      <position height="21" width="0" x="0" y="3218"/>    
+    </execution>    
+    <execution id="130">      
+      <position height="21" width="0" x="0" y="3260"/>    
+    </execution>    
+    <execution id="132">      
+      <position height="21" width="0" x="0" y="3302"/>    
+    </execution>  
+  </object>  
+  <object id="262" language="java" name="javax.swing.JComponent" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="MenuRegistro" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="142">      
+      <position height="21" width="0" x="0" y="3532"/>    
+    </execution>    
+    <execution id="144">      
+      <position height="21" width="0" x="0" y="3574"/>    
+    </execution>    
+    <execution id="146">      
+      <position height="21" width="0" x="0" y="3616"/>    
+    </execution>    
+    <execution id="148">      
+      <position height="21" width="0" x="0" y="3658"/>    
+    </execution>    
+    <execution id="152">      
+      <position height="21" width="0" x="0" y="3742"/>    
+    </execution>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="1182"/>    
+    </execution>    
+    <execution id="34">      
+      <position height="21" width="0" x="0" y="1224"/>    
+    </execution>    
+    <execution id="36">      
+      <position height="21" width="0" x="0" y="1266"/>    
+    </execution>    
+    <execution id="38">      
+      <position height="21" width="0" x="0" y="1308"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="21" width="0" x="0" y="1392"/>    
+    </execution>  
+  </object>  
+  <object id="263" language="java" name="java.awt.Insets" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="150">      
+      <position height="21" width="0" x="0" y="3700"/>    
+    </execution>  
+  </object>  
+  <object id="264" language="java" name="java.awt.Container" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="MenuBarra" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="154">      
+      <position height="21" width="0" x="0" y="3784"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="21" width="0" x="0" y="1434"/>    
+    </execution>  
+  </object>  
+  <object id="265" language="java" name="javax.swing.JLabel" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="LblTitulo" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="158">      
+      <position height="21" width="0" x="0" y="3878"/>    
+    </execution>    
+    <execution id="174">      
+      <position height="21" width="0" x="0" y="4214"/>    
+    </execution>    
+    <execution id="176">      
+      <position height="21" width="0" x="0" y="4256"/>    
+    </execution>    
+    <execution id="48">      
+      <position height="21" width="0" x="0" y="1528"/>    
+    </execution>  
+  </object>  
+  <object id="266" language="java" name="javax.swing.JLabel" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="LblNombre" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="160">      
+      <position height="21" width="0" x="0" y="3920"/>    
+    </execution>    
+    <execution id="50">      
+      <position height="21" width="0" x="0" y="1570"/>    
+    </execution>  
+  </object>  
+  <object id="267" language="java" name="javax.swing.JLabel" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="LblContrasena" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="162">      
+      <position height="21" width="0" x="0" y="3962"/>    
+    </execution>    
+    <execution id="52">      
+      <position height="21" width="0" x="0" y="1612"/>    
+    </execution>  
+  </object>  
+  <object id="268" language="java" name="javax.swing.JLabel" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="LblEspacio" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="164">      
+      <position height="21" width="0" x="0" y="4004"/>    
+    </execution>    
+    <execution id="54">      
+      <position height="21" width="0" x="0" y="1654"/>    
+    </execution>  
+  </object>  
+  <object id="269" language="java" name="javax.swing.JTextField" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="TxtNombre" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="166">      
+      <position height="21" width="0" x="0" y="4046"/>    
+    </execution>    
+    <execution id="56">      
+      <position height="21" width="0" x="0" y="1696"/>    
+    </execution>  
+  </object>  
+  <object id="270" language="java" name="javax.swing.JPasswordField" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="TxtContrasena" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="168">      
+      <position height="21" width="0" x="0" y="4088"/>    
+    </execution>    
+    <execution id="58">      
+      <position height="21" width="0" x="0" y="1738"/>    
+    </execution>  
+  </object>  
+  <object id="271" language="java" name="javax.swing.JButton" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="BtnAceptar" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="170">      
+      <position height="21" width="0" x="0" y="4130"/>    
+    </execution>    
+    <execution id="172">      
+      <position height="21" width="0" x="0" y="4172"/>    
+    </execution>    
+    <execution id="60">      
+      <position height="21" width="0" x="0" y="1780"/>    
+    </execution>  
+  </object>  
+  <object id="272" language="java" name="java.awt.Font" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="auxFont" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="178">      
+      <position height="21" width="0" x="0" y="4298"/>    
+    </execution>    
+    <execution id="180">      
+      <position height="21" width="0" x="0" y="4340"/>    
+    </execution>    
+    <execution id="68">      
+      <position height="21" width="0" x="0" y="1948"/>    
+    </execution>    
+    <execution id="70">      
+      <position height="21" width="0" x="0" y="1990"/>    
+    </execution>  
+  </object>  
+  <object id="273" language="java" name="java.awt.Font" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="182">      
+      <position height="21" width="0" x="0" y="4382"/>    
+    </execution>  
+  </object>  
+  <object id="274" language="java" name="javax.swing.GroupLayout" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="orden" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="184">      
+      <position height="21" width="0" x="0" y="4424"/>    
+    </execution>    
+    <execution id="188">      
+      <position height="21" width="0" x="0" y="4518"/>    
+    </execution>    
+    <execution id="190">      
+      <position height="21" width="0" x="0" y="4560"/>    
+    </execution>    
+    <execution id="192">      
+      <position height="21" width="0" x="0" y="4602"/>    
+    </execution>    
+    <execution id="194">      
+      <position height="21" width="0" x="0" y="4644"/>    
+    </execution>    
+    <execution id="200">      
+      <position height="21" width="0" x="0" y="4770"/>    
+    </execution>    
+    <execution id="208">      
+      <position height="21" width="0" x="0" y="4938"/>    
+    </execution>    
+    <execution id="218">      
+      <position height="21" width="0" x="0" y="5148"/>    
+    </execution>    
+    <execution id="220">      
+      <position height="21" width="0" x="0" y="5190"/>    
+    </execution>    
+    <execution id="224">      
+      <position height="21" width="0" x="0" y="5274"/>    
+    </execution>    
+    <execution id="226">      
+      <position height="21" width="0" x="0" y="5316"/>    
+    </execution>    
+    <execution id="236">      
+      <position height="21" width="0" x="0" y="5526"/>    
+    </execution>    
+    <execution id="74">      
+      <position height="21" width="0" x="0" y="2074"/>    
+    </execution>    
+    <execution id="78">      
+      <position height="21" width="0" x="0" y="2168"/>    
+    </execution>    
+    <execution id="80">      
+      <position height="21" width="0" x="0" y="2210"/>    
+    </execution>    
+    <execution id="82">      
+      <position height="21" width="0" x="0" y="2252"/>    
+    </execution>    
+    <execution id="84">      
+      <position height="21" width="0" x="0" y="2294"/>    
+    </execution>    
+    <execution id="90">      
+      <position height="21" width="0" x="0" y="2420"/>    
+    </execution>    
+    <execution id="98">      
+      <position height="21" width="0" x="0" y="2588"/>    
+    </execution>    
+    <execution id="108">      
+      <position height="21" width="0" x="0" y="2798"/>    
+    </execution>    
+    <execution id="110">      
+      <position height="21" width="0" x="0" y="2840"/>    
+    </execution>    
+    <execution id="114">      
+      <position height="21" width="0" x="0" y="2924"/>    
+    </execution>    
+    <execution id="116">      
+      <position height="21" width="0" x="0" y="2966"/>    
+    </execution>    
+    <execution id="126">      
+      <position height="21" width="0" x="0" y="3176"/>    
+    </execution>  
+  </object>  
+  <object id="275" language="java" name="javax.swing.GroupLayout.SequentialGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="196">      
+      <position height="21" width="0" x="0" y="4686"/>    
+    </execution>    
+    <execution id="198">      
+      <position height="21" width="0" x="0" y="4728"/>    
+    </execution>    
+    <execution id="206">      
+      <position height="21" width="0" x="0" y="4896"/>    
+    </execution>    
+    <execution id="214">      
+      <position height="21" width="0" x="0" y="5064"/>    
+    </execution>    
+    <execution id="216">      
+      <position height="21" width="0" x="0" y="5106"/>    
+    </execution>  
+  </object>  
+  <object id="276" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="202">      
+      <position height="21" width="0" x="0" y="4812"/>    
+    </execution>    
+    <execution id="204">      
+      <position height="21" width="0" x="0" y="4854"/>    
+    </execution>  
+  </object>  
+  <object id="277" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="210">      
+      <position height="21" width="0" x="0" y="4980"/>    
+    </execution>    
+    <execution id="212">      
+      <position height="21" width="0" x="0" y="5022"/>    
+    </execution>  
+  </object>  
+  <object id="278" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="222">      
+      <position height="21" width="0" x="0" y="5232"/>    
+    </execution>    
+    <execution id="246">      
+      <position height="21" width="0" x="0" y="5736"/>    
+    </execution>  
+  </object>  
+  <object id="279" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="228">      
+      <position height="21" width="0" x="0" y="5358"/>    
+    </execution>    
+    <execution id="230">      
+      <position height="21" width="0" x="0" y="5400"/>    
+    </execution>    
+    <execution id="232">      
+      <position height="21" width="0" x="0" y="5442"/>    
+    </execution>  
+  </object>  
+  <object id="280" language="java" name="javax.swing.GroupLayout.SequentialGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="234">      
+      <position height="21" width="0" x="0" y="5484"/>    
+    </execution>    
+    <execution id="244">      
+      <position height="21" width="0" x="0" y="5694"/>    
+    </execution>  
+  </object>  
+  <object id="281" language="java" name="javax.swing.GroupLayout.ParallelGroup" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="238">      
+      <position height="21" width="0" x="0" y="5568"/>    
+    </execution>    
+    <execution id="240">      
+      <position height="21" width="0" x="0" y="5610"/>    
+    </execution>    
+    <execution id="242">      
+      <position height="21" width="0" x="0" y="5652"/>    
+    </execution>  
+  </object>  
+  <object id="282" language="java" name="Threads.Thread_Transmitter" project="ChatClient" 
+    file="/ChatClient/src/Threads/Thread_Transmitter.java" binary="false" label="thread_Transmitter" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="395" width="0" x="0" y="293"/>    
+    </execution>  
+  </object>  
+  <object id="299" language="java" name="java.net.Socket" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="socketTx" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="284">      
+      <position height="21" width="0" x="0" y="314"/>    
+    </execution>    
+    <execution id="288">      
+      <position height="21" width="0" x="0" y="398"/>    
+    </execution>    
+    <execution id="294">      
+      <position height="21" width="0" x="0" y="524"/>    
+    </execution>    
+    <execution id="300">      
+      <position height="21" width="0" x="0" y="680"/>    
+    </execution>    
+    <execution id="301">      
+      <position height="21" width="0" x="0" y="764"/>    
+    </execution>    
+    <execution id="302">      
+      <position height="21" width="0" x="0" y="890"/>    
+    </execution>    
+    <execution id="303">      
+      <position height="21" width="0" x="0" y="296"/>    
+    </execution>    
+    <execution id="304">      
+      <position height="21" width="0" x="0" y="380"/>    
+    </execution>    
+    <execution id="305">      
+      <position height="21" width="0" x="0" y="506"/>    
+    </execution>  
+  </object>  
+  <object id="306" language="java" name="java.io.PrintWriter" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="pw" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="286">      
+      <position height="21" width="0" x="0" y="356"/>    
+    </execution>    
+    <execution id="307">      
+      <position height="21" width="0" x="0" y="722"/>    
+    </execution>    
+    <execution id="308">      
+      <position height="21" width="0" x="0" y="338"/>    
+    </execution>  
+  </object>  
+  <object id="309" language="java" name="java.io.OutputStreamWriter" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="290">      
+      <position height="21" width="0" x="0" y="440"/>    
+    </execution>  
+  </object>  
+  <object id="310" language="java" name="java.io.BufferedReader" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="read" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="292">      
+      <position height="21" width="0" x="0" y="482"/>    
+    </execution>    
+    <execution id="311">      
+      <position height="21" width="0" x="0" y="848"/>    
+    </execution>    
+    <execution id="312">      
+      <position height="21" width="0" x="0" y="464"/>    
+    </execution>  
+  </object>  
+  <object id="313" language="java" name="java.io.InputStreamReader" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="296">      
+      <position height="21" width="0" x="0" y="566"/>    
+    </execution>  
+  </object>  
+  <object id="314" language="java" name="General.MessageBox" project="ChatClient" 
+    file="/ChatClient/src/General/MessageBox.java" binary="false" label="&lt;static&gt;" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="298">      
+      <position height="21" width="0" x="0" y="646"/>    
+    </execution>    
+    <execution id="315">      
+      <position height="21" width="0" x="0" y="1012"/>    
+    </execution>    
+    <execution id="316">      
+      <position height="21" width="0" x="0" y="628"/>    
+    </execution>  
+  </object>  
+  <object id="317" language="java" name="Threads.Thread_Receiver" project="ChatClient" 
+    file="/ChatClient/src/Threads/Thread_Receiver.java" binary="false" label="thread_Receiver" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="709"/>    
+    </execution>  
+  </object>  
+  <object id="318" language="java" name="javax.swing.AbstractAction" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="action" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="21" width="0" x="0" y="751"/>    
+    </execution>    
+    <execution id="319">      
+      <position height="21" width="0" x="0" y="1958"/>    
+    </execution>  
+  </object>  
+  <object id="320" language="java" name="javax.swing.JTextField" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="usuario" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="831"/>    
+    </execution>  
+  </object>  
+  <object id="321" language="java" name="javax.swing.JTextField" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="contrasena" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="921"/>    
+    </execution>  
+  </object>  
+  <object id="322" language="java" name="GUI_Funcion.Funcion_Principal" project="ChatClient" 
+    file="/ChatClient/src/GUI_Funcion/Funcion_Principal.java" binary="false" label="funcion_Principal" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="360" y="0"/>    
+    <execution id="323">      
+      <position height="983" width="124" x="4340" y="78"/>    
+    </execution>    
+    <execution id="325">      
+      <position height="920" width="124" x="4340" y="120"/>    
+    </execution>    
+    <execution id="329">      
+      <position height="21" width="0" x="0" y="214"/>    
+    </execution>    
+    <execution id="331">      
+      <position height="21" width="0" x="0" y="266"/>    
+    </execution>    
+    <execution id="333">      
+      <position height="21" width="0" x="0" y="318"/>    
+    </execution>    
+    <execution id="335">      
+      <position height="21" width="0" x="0" y="370"/>    
+    </execution>    
+    <execution id="337">      
+      <position height="21" width="0" x="0" y="422"/>    
+    </execution>    
+    <execution id="339">      
+      <position height="21" width="0" x="0" y="474"/>    
+    </execution>    
+    <execution id="341">      
+      <position height="493" width="0" x="0" y="526"/>    
+    </execution>    
+    <execution id="364">      
+      <position height="1354" width="124" x="4340" y="1498"/>    
+    </execution>    
+    <execution id="366">      
+      <position height="1291" width="124" x="4340" y="1540"/>    
+    </execution>    
+    <execution id="373">      
+      <position height="178" width="124" x="4340" y="2404"/>    
+    </execution>    
+    <execution id="375">      
+      <position height="115" width="124" x="4340" y="2446"/>    
+    </execution>  
+  </object>  
+  <object id="380" language="java" name="Models.Grupo" project="ChatClient" file="/ChatClient/src/Models/Grupo.java" 
+    binary="false" label="grupo" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="368">      
+      <position height="21" width="0" x="0" y="1571"/>    
+    </execution>    
+    <execution id="381">      
+      <position height="21" width="0" x="0" y="1686"/>    
+    </execution>    
+    <execution id="382">      
+      <position height="21" width="0" x="0" y="1770"/>    
+    </execution>    
+    <execution id="383">      
+      <position height="21" width="0" x="0" y="1812"/>    
+    </execution>    
+    <execution id="384">      
+      <position height="21" width="0" x="0" y="2340"/>    
+    </execution>    
+    <execution id="385">      
+      <position height="21" width="0" x="0" y="2382"/>    
+    </execution>  
+  </object>  
+  <object id="386" language="java" name="GUI_Funcion.Funcion_Conversacion" project="ChatClient" 
+    file="/ChatClient/src/GUI_Funcion/Funcion_Conversacion.java" binary="false" label="funcion" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="370">      
+      <position height="1155" width="0" x="0" y="1613"/>    
+    </execution>    
+    <execution id="372">      
+      <position height="21" width="0" x="0" y="2789"/>    
+    </execution>    
+    <execution id="388">      
+      <position height="21" width="0" x="0" y="1655"/>    
+    </execution>    
+    <execution id="395">      
+      <position height="21" width="0" x="0" y="1875"/>    
+    </execution>    
+    <execution id="397">      
+      <position height="21" width="0" x="0" y="1927"/>    
+    </execution>    
+    <execution id="402">      
+      <position height="21" width="0" x="0" y="2111"/>    
+    </execution>    
+    <execution id="404">      
+      <position height="21" width="0" x="0" y="2163"/>    
+    </execution>    
+    <execution id="406">      
+      <position height="21" width="0" x="0" y="2215"/>    
+    </execution>    
+    <execution id="408">      
+      <position height="480" width="0" x="0" y="2267"/>    
+    </execution>    
+    <execution id="423">      
+      <position height="522" width="152" x="4529" y="90"/>    
+    </execution>    
+    <execution id="425">      
+      <position height="459" width="152" x="4529" y="132"/>    
+    </execution>    
+    <execution id="427">      
+      <position height="386" width="0" x="0" y="184"/>    
+    </execution>    
+    <execution id="429">      
+      <position height="21" width="0" x="0" y="236"/>    
+    </execution>    
+    <execution id="431">      
+      <position height="21" width="0" x="0" y="288"/>    
+    </execution>    
+    <execution id="433">      
+      <position height="21" width="0" x="0" y="340"/>    
+    </execution>    
+    <execution id="439">      
+      <position height="21" width="0" x="0" y="476"/>    
+    </execution>    
+    <execution id="441">      
+      <position height="21" width="0" x="0" y="528"/>    
+    </execution>    
+    <execution id="442">      
+      <position height="501" width="152" x="4529" y="1075"/>    
+    </execution>    
+    <execution id="444">      
+      <position height="438" width="152" x="4529" y="1117"/>    
+    </execution>  
+  </object>  
+  <object id="459" language="java" name="javax.swing.JComponent" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="label1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="416">      
+      <position height="21" width="0" x="0" y="2532"/>    
+    </execution>    
+    <execution id="418">      
+      <position height="21" width="0" x="0" y="2574"/>    
+    </execution>    
+    <execution id="420">      
+      <position height="21" width="0" x="0" y="2653"/>    
+    </execution>  
+  </object>  
+  <object id="460" language="java" name="Models.Usuario" project="ChatClient" file="/ChatClient/src/Models/Usuario.java" 
+    binary="false" label="usuario1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="448">      
+      <position height="21" width="0" x="0" y="1190"/>    
+    </execution>  
+  </object>  
+  <object id="461" language="java" name="javax.swing.JLabel" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="label" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="450">      
+      <position height="21" width="0" x="0" y="1298"/>    
+    </execution>    
+    <execution id="452">      
+      <position height="21" width="0" x="0" y="1340"/>    
+    </execution>    
+    <execution id="454">      
+      <position height="21" width="0" x="0" y="1382"/>    
+    </execution>    
+    <execution id="456">      
+      <position height="21" width="0" x="0" y="1461"/>    
+    </execution>    
+    <execution id="414">      
+      <position height="21" width="0" x="0" y="2490"/>    
+    </execution>  
+  </object>  
+  <object id="462" language="java" name="java.awt.Container" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="PanelConversacion" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="458">      
+      <position height="21" width="0" x="0" y="1513"/>    
+    </execution>    
+    <execution id="422">      
+      <position height="21" width="0" x="0" y="2705"/>    
+    </execution>  
+  </object>  
+  <object id="463" language="java" name="javax.swing.ImageIcon" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="435">      
+      <position height="21" width="0" x="0" y="371"/>    
+    </execution>    
+    <execution id="437">      
+      <position height="21" width="0" x="0" y="413"/>    
+    </execution>  
+  </object>  
+  <object id="464" language="java" name="Documents.DocumentManager" project="ChatClient" 
+    file="/ChatClient/src/Documents/DocumentManager.java" binary="false" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="391">      
+      <position height="21" width="0" x="0" y="1728"/>    
+    </execution>    
+    <execution id="446">      
+      <position height="21" width="0" x="0" y="1148"/>    
+    </execution>    
+    <execution id="410">      
+      <position height="21" width="0" x="0" y="2298"/>    
+    </execution>  
+  </object>  
+  <object id="465" language="java" name="GUI_Funcion.Funcion_Conversacion" project="ChatClient" 
+    file="/ChatClient/src/GUI_Funcion/Funcion_Conversacion.java" binary="false" label="funcion_Conversacion" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="4755" y="0"/>  
+  </object>  
+  <object id="466" language="java" name="javax.swing.JTextField" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="TxtMensaje" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="400">      
+      <position height="21" width="0" x="0" y="2038"/>    
+    </execution>  
+  </object>  
+  <object id="467" language="java" name="java.awt.Container" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="PanelUsuarios" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="343">      
+      <position height="21" width="0" x="0" y="557"/>    
+    </execution>    
+    <execution id="349">      
+      <position height="21" width="0" x="0" y="683"/>    
+    </execution>    
+    <execution id="355">      
+      <position height="21" width="0" x="0" y="809"/>    
+    </execution>  
+  </object>  
+  <object id="468" language="java" name="java.awt.Container" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="PanelFavoritos" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="345">      
+      <position height="21" width="0" x="0" y="599"/>    
+    </execution>    
+    <execution id="351">      
+      <position height="21" width="0" x="0" y="725"/>    
+    </execution>    
+    <execution id="357">      
+      <position height="21" width="0" x="0" y="851"/>    
+    </execution>  
+  </object>  
+  <object id="469" language="java" name="java.awt.Container" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="PanelGrupos" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="347">      
+      <position height="21" width="0" x="0" y="641"/>    
+    </execution>    
+    <execution id="353">      
+      <position height="21" width="0" x="0" y="767"/>    
+    </execution>    
+    <execution id="359">      
+      <position height="21" width="0" x="0" y="893"/>    
+    </execution>  
+  </object>  
+  <object id="470" language="java" name="Threads.Thread_Transmitter" project="ChatClient" 
+    file="/ChatClient/src/Threads/Thread_Transmitter.java" binary="false" label="transmitter" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="361">      
+      <position height="21" width="0" x="0" y="935"/>    
+    </execution>    
+    <execution id="363">      
+      <position height="21" width="0" x="0" y="977"/>    
+    </execution>    
+    <execution id="377">      
+      <position height="21" width="0" x="0" y="2477"/>    
+    </execution>    
+    <execution id="379">      
+      <position height="21" width="0" x="0" y="2519"/>    
+    </execution>    
+    <execution id="471">      
+      <position height="852" width="136" x="5306" y="223"/>    
+    </execution>    
+    <execution id="473">      
+      <position height="789" width="136" x="5306" y="265"/>    
+    </execution>  
+  </object>  
+  <object id="494" language="java" name="java.io.OutputStreamWriter" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="478">      
+      <position height="21" width="0" x="0" y="422"/>    
+    </execution>  
+  </object>  
+  <object id="495" language="java" name="java.io.InputStreamReader" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="482">      
+      <position height="21" width="0" x="0" y="548"/>    
+    </execution>  
+  </object>  
+  <object id="496" language="java" name="java.io.OutputStreamWriter" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="488">      
+      <position height="21" width="0" x="0" y="806"/>    
+    </execution>  
+  </object>  
+  <object id="497" language="java" name="java.io.InputStreamReader" project="ChatClient" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="492">      
+      <position height="21" width="0" x="0" y="932"/>    
+    </execution>  
+  </object>  
+  <object id="498" language="java" name="java.util.ArrayList" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="conversaciones" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="327">      
+      <position height="21" width="0" x="0" y="151"/>    
+    </execution>    
+    <execution id="499">      
+      <position height="84" width="96" x="5446" y="2310"/>    
+    </execution>    
+    <execution id="501">      
+      <position height="21" width="96" x="5446" y="2352"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="502" interaction-operator="CRITICAL">    
+    <interaction-operand id="503">      
+      <fragment refId="20"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="504" interaction-operator="CRITICAL">    
+    <interaction-operand id="505">      
+      <fragment refId="22"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="506" interaction-operator="NEG">    
+    <interaction-operand id="507" constraint="IOException ex">      
+      <fragment refId="297"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="508" interaction-operator="CRITICAL">    
+    <interaction-operand id="509">      
+      <fragment refId="399"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="510" interaction-operator="NEG">    
+    <interaction-operand id="511" constraint="IOException ex">      
+      <fragment refId="493"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="512" interaction-operator="NEG">    
+    <interaction-operand id="513" constraint="IOException ex">      
+      <fragment refId="483"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="514" interaction-operator="LOOP">    
+    <interaction-operand id="515" constraint="for: messages">      
+      <fragment refId="516"/>      
+      <fragment refId="457"/>    
+    </interaction-operand>    
+    <combined-fragment id="516" interaction-operator="ALT">      
+      <interaction-operand id="517" constraint="from.equals(Usuario.emisor)">        
+        <fragment refId="453"/>        
+        <fragment refId="451"/>        
+        <fragment refId="449"/>      
+      </interaction-operand>      
+      <interaction-operand id="518" constraint="else">        
+        <fragment refId="455"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <combined-fragment id="519" interaction-operator="LOOP">    
+    <interaction-operand id="520" constraint="for: messages">      
+      <fragment refId="421"/>      
+      <fragment refId="521"/>    
+    </interaction-operand>    
+    <combined-fragment id="521" interaction-operator="ALT">      
+      <interaction-operand id="522" constraint="from.equals(Usuario.emisor)">        
+        <fragment refId="415"/>        
+        <fragment refId="417"/>        
+        <fragment refId="413"/>      
+      </interaction-operand>      
+      <interaction-operand id="523" constraint="else">        
+        <fragment refId="419"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="main(java.lang.String[]):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="Funcion_Ingreso()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="setVisible(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="10" operation="getTxtNombre():javax.swing.JTextField" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="getTxtContrasena():javax.swing.JPasswordField" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="Thread_Transmitter()" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="Thread_Receiver()" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="AbstractAction()" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="setOnBtnAceptarClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="setOnMenuRegistroClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="29" operation="loadFrameDetails():void" asynchronous="false">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="setOpaque(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="33" operation="setContentAreaFilled(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="35" operation="setBorderPainted(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="37" operation="setMargin(java.awt.Insets):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="Insets(int,int,int,int)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" operation="add(java.awt.Component):java.awt.Component" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="setJMenuBar(javax.swing.JMenuBar):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="48"/>  
+  </message>  
+  <message id="49" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="50"/>  
+  </message>  
+  <message id="51" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="52"/>  
+  </message>  
+  <message id="53" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="54"/>  
+  </message>  
+  <message id="55" operation="JTextField()" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="56"/>  
+  </message>  
+  <message id="57" operation="JPasswordField()" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="58"/>  
+  </message>  
+  <message id="59" operation="JButton(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="60"/>  
+  </message>  
+  <message id="61" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="62"/>  
+  </message>  
+  <message id="63" operation="getFont():java.awt.Font" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="64"/>  
+  </message>  
+  <message id="65" operation="setFont(java.awt.Font):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="66"/>  
+  </message>  
+  <message id="67" operation="getFontName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="68"/>  
+  </message>  
+  <message id="69" operation="getStyle():int" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="70"/>  
+  </message>  
+  <message id="71" operation="Font(java.lang.String,int,int)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="72"/>  
+  </message>  
+  <message id="73" operation="GroupLayout(java.awt.Container)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="74"/>  
+  </message>  
+  <message id="75" operation="getContentPane():java.awt.Container" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="76"/>  
+  </message>  
+  <message id="77" operation="setAutoCreateContainerGaps(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="78"/>  
+  </message>  
+  <message id="79" operation="setAutoCreateGaps(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="80"/>  
+  </message>  
+  <message id="81" operation="setVerticalGroup(javax.swing.GroupLayout.Group):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="82"/>  
+  </message>  
+  <message id="83" operation="createSequentialGroup():javax.swing.GroupLayout.SequentialGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="84"/>  
+  </message>  
+  <message id="85" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="86"/>  
+  </message>  
+  <message id="87" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="88"/>  
+  </message>  
+  <message id="89" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="90"/>  
+  </message>  
+  <message id="91" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="92"/>  
+  </message>  
+  <message id="93" operation="addComponent(java.awt.Component,int,int,int):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="94"/>  
+  </message>  
+  <message id="95" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="96"/>  
+  </message>  
+  <message id="97" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="98"/>  
+  </message>  
+  <message id="99" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="100"/>  
+  </message>  
+  <message id="101" operation="addComponent(java.awt.Component,int,int,int):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="102"/>  
+  </message>  
+  <message id="103" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="104"/>  
+  </message>  
+  <message id="105" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="106"/>  
+  </message>  
+  <message id="107" operation="setHorizontalGroup(javax.swing.GroupLayout.Group):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="108"/>  
+  </message>  
+  <message id="109" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="110"/>  
+  </message>  
+  <message id="111" 
+    operation="addComponent(java.awt.Component,javax.swing.GroupLayout.Alignment):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="112"/>  
+  </message>  
+  <message id="113" operation="createSequentialGroup():javax.swing.GroupLayout.SequentialGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="114"/>  
+  </message>  
+  <message id="115" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="116"/>  
+  </message>  
+  <message id="117" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="118"/>  
+  </message>  
+  <message id="119" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="120"/>  
+  </message>  
+  <message id="121" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="122"/>  
+  </message>  
+  <message id="123" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="124"/>  
+  </message>  
+  <message id="125" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="126"/>  
+  </message>  
+  <message id="127" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="128"/>  
+  </message>  
+  <message id="129" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="130"/>  
+  </message>  
+  <message id="131" operation="addComponent(java.awt.Component,int,int,int):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="132"/>  
+  </message>  
+  <message id="133" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="134"/>  
+  </message>  
+  <message id="135" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="136"/>  
+  </message>  
+  <message id="137" operation="setLayout(java.awt.LayoutManager):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="138"/>  
+  </message>  
+  <message id="139" operation="pack():void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="140"/>  
+  </message>  
+  <message id="141" operation="setOpaque(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="142"/>  
+  </message>  
+  <message id="143" operation="setContentAreaFilled(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="144"/>  
+  </message>  
+  <message id="145" operation="setBorderPainted(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="146"/>  
+  </message>  
+  <message id="147" operation="setMargin(java.awt.Insets):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="148"/>  
+  </message>  
+  <message id="149" operation="Insets(int,int,int,int)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="150"/>  
+  </message>  
+  <message id="151" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="152"/>  
+  </message>  
+  <message id="153" operation="add(java.awt.Component):java.awt.Component" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="154"/>  
+  </message>  
+  <message id="155" operation="setJMenuBar(javax.swing.JMenuBar):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="156"/>  
+  </message>  
+  <message id="157" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="158"/>  
+  </message>  
+  <message id="159" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="160"/>  
+  </message>  
+  <message id="161" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="162"/>  
+  </message>  
+  <message id="163" operation="JLabel(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="164"/>  
+  </message>  
+  <message id="165" operation="JTextField()" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="166"/>  
+  </message>  
+  <message id="167" operation="JPasswordField()" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="168"/>  
+  </message>  
+  <message id="169" operation="JButton(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="170"/>  
+  </message>  
+  <message id="171" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="172"/>  
+  </message>  
+  <message id="173" operation="getFont():java.awt.Font" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="174"/>  
+  </message>  
+  <message id="175" operation="setFont(java.awt.Font):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="176"/>  
+  </message>  
+  <message id="177" operation="getFontName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="178"/>  
+  </message>  
+  <message id="179" operation="getStyle():int" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="180"/>  
+  </message>  
+  <message id="181" operation="Font(java.lang.String,int,int)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="182"/>  
+  </message>  
+  <message id="183" operation="GroupLayout(java.awt.Container)" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="184"/>  
+  </message>  
+  <message id="185" operation="getContentPane():java.awt.Container" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="186"/>  
+  </message>  
+  <message id="187" operation="setAutoCreateContainerGaps(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="188"/>  
+  </message>  
+  <message id="189" operation="setAutoCreateGaps(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="190"/>  
+  </message>  
+  <message id="191" operation="setVerticalGroup(javax.swing.GroupLayout.Group):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="192"/>  
+  </message>  
+  <message id="193" operation="createSequentialGroup():javax.swing.GroupLayout.SequentialGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="194"/>  
+  </message>  
+  <message id="195" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="196"/>  
+  </message>  
+  <message id="197" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="198"/>  
+  </message>  
+  <message id="199" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="200"/>  
+  </message>  
+  <message id="201" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="202"/>  
+  </message>  
+  <message id="203" operation="addComponent(java.awt.Component,int,int,int):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="204"/>  
+  </message>  
+  <message id="205" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="206"/>  
+  </message>  
+  <message id="207" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="208"/>  
+  </message>  
+  <message id="209" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="210"/>  
+  </message>  
+  <message id="211" operation="addComponent(java.awt.Component,int,int,int):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="212"/>  
+  </message>  
+  <message id="213" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="214"/>  
+  </message>  
+  <message id="215" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="216"/>  
+  </message>  
+  <message id="217" operation="setHorizontalGroup(javax.swing.GroupLayout.Group):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="218"/>  
+  </message>  
+  <message id="219" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="220"/>  
+  </message>  
+  <message id="221" 
+    operation="addComponent(java.awt.Component,javax.swing.GroupLayout.Alignment):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="222"/>  
+  </message>  
+  <message id="223" operation="createSequentialGroup():javax.swing.GroupLayout.SequentialGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="224"/>  
+  </message>  
+  <message id="225" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="226"/>  
+  </message>  
+  <message id="227" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="228"/>  
+  </message>  
+  <message id="229" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="230"/>  
+  </message>  
+  <message id="231" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="232"/>  
+  </message>  
+  <message id="233" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="234"/>  
+  </message>  
+  <message id="235" operation="createParallelGroup():javax.swing.GroupLayout.ParallelGroup" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="236"/>  
+  </message>  
+  <message id="237" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="238"/>  
+  </message>  
+  <message id="239" operation="addComponent(java.awt.Component):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="240"/>  
+  </message>  
+  <message id="241" operation="addComponent(java.awt.Component,int,int,int):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="242"/>  
+  </message>  
+  <message id="243" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.SequentialGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="244"/>  
+  </message>  
+  <message id="245" operation="addGroup(javax.swing.GroupLayout.Group):javax.swing.GroupLayout.ParallelGroup" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="246"/>  
+  </message>  
+  <message id="247" operation="setLayout(java.awt.LayoutManager):void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="248"/>  
+  </message>  
+  <message id="249" operation="pack():void" asynchronous="false">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="250"/>  
+  </message>  
+  <message id="283" operation="Socket(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="284"/>  
+  </message>  
+  <message id="285" operation="PrintWriter(java.io.Writer,boolean)" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="286"/>  
+  </message>  
+  <message id="287" operation="getOutputStream():java.io.OutputStream" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="288"/>  
+  </message>  
+  <message id="289" operation="OutputStreamWriter(java.io.OutputStream,java.nio.charset.Charset)" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="290"/>  
+  </message>  
+  <message id="291" operation="BufferedReader(java.io.Reader)" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="292"/>  
+  </message>  
+  <message id="293" operation="getInputStream():java.io.InputStream" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="294"/>  
+  </message>  
+  <message id="295" operation="InputStreamReader(java.io.InputStream,java.nio.charset.Charset)" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="296"/>  
+  </message>  
+  <message id="297" operation="Show(java.lang.String,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="298"/>  
+  </message>  
+  <message id="324" operation="Funcion_Principal()" asynchronous="false">    
+    <end type="SOURCE" refId="323"/>    
+    <end type="TARGET" refId="325"/>  
+  </message>  
+  <message id="326" operation="ArrayList()" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="327"/>  
+  </message>  
+  <message id="328" operation="getPanelUsuarios():javax.swing.JPanel" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="329"/>  
+  </message>  
+  <message id="330" operation="getPanelFavoritos():javax.swing.JPanel" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="331"/>  
+  </message>  
+  <message id="332" operation="getPanelGrupos():javax.swing.JPanel" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="333"/>  
+  </message>  
+  <message id="334" operation="setOnBtnGruposClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="335"/>  
+  </message>  
+  <message id="336" operation="setOnBtnFavoritosClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="337"/>  
+  </message>  
+  <message id="338" operation="setOnMenuSalirClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="339"/>  
+  </message>  
+  <message id="340" operation="LoadUsuarios():void" asynchronous="false">    
+    <end type="SOURCE" refId="325"/>    
+    <end type="TARGET" refId="341"/>  
+  </message>  
+  <message id="342" operation="removeAll():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="343"/>  
+  </message>  
+  <message id="344" operation="removeAll():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="345"/>  
+  </message>  
+  <message id="346" operation="removeAll():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="347"/>  
+  </message>  
+  <message id="348" operation="revalidate():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="349"/>  
+  </message>  
+  <message id="350" operation="revalidate():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="351"/>  
+  </message>  
+  <message id="352" operation="revalidate():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="353"/>  
+  </message>  
+  <message id="354" operation="repaint():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="355"/>  
+  </message>  
+  <message id="356" operation="repaint():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="357"/>  
+  </message>  
+  <message id="358" operation="repaint():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="359"/>  
+  </message>  
+  <message id="360" operation="setAction(Delegates.TransmitterAction):void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="361"/>  
+  </message>  
+  <message id="362" operation="StartThread():void" asynchronous="false">    
+    <end type="SOURCE" refId="341"/>    
+    <end type="TARGET" refId="363"/>  
+  </message>  
+  <message id="365" operation="LoadGroupConverataion(java.lang.String,java.lang.String,java.lang.String[]):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="364"/>    
+    <end type="TARGET" refId="366"/>  
+  </message>  
+  <message id="367" operation="Grupo(int,java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="366"/>    
+    <end type="TARGET" refId="368"/>  
+  </message>  
+  <message id="369" operation="Funcion_Conversacion(Models.Grupo,java.lang.String[])" asynchronous="false">    
+    <end type="SOURCE" refId="366"/>    
+    <end type="TARGET" refId="370"/>  
+  </message>  
+  <message id="371" operation="setVisible(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="366"/>    
+    <end type="TARGET" refId="372"/>  
+  </message>  
+  <message id="374" operation="iniciarBorrarGrupo(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="373"/>    
+    <end type="TARGET" refId="375"/>  
+  </message>  
+  <message id="376" operation="setAction(Delegates.TransmitterAction):void" asynchronous="false">    
+    <end type="SOURCE" refId="375"/>    
+    <end type="TARGET" refId="377"/>  
+  </message>  
+  <message id="378" operation="StartThread():void" asynchronous="false">    
+    <end type="SOURCE" refId="375"/>    
+    <end type="TARGET" refId="379"/>  
+  </message>  
+  <message id="387" operation="JFrame_Conversacion(java.lang.String,boolean)" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="388"/>  
+  </message>  
+  <message id="389" operation="getNombre_grupo():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="381"/>  
+  </message>  
+  <message id="390" operation="GetNumberLines(java.lang.String,boolean):int" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="391"/>  
+  </message>  
+  <message id="392" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="382"/>  
+  </message>  
+  <message id="393" operation="getNombre_grupo():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="383"/>  
+  </message>  
+  <message id="394" operation="getPanelConversacion():javax.swing.JPanel" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="395"/>  
+  </message>  
+  <message id="396" operation="getTxtMensaje():javax.swing.JTextField" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="397"/>  
+  </message>  
+  <message id="398" operation="AbstractAction()" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="319"/>  
+  </message>  
+  <message id="399" operation="addActionListener(java.awt.event.ActionListener):void" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="400"/>  
+  </message>  
+  <message id="401" operation="setOnBtnEnviarClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="402"/>  
+  </message>  
+  <message id="403" operation="setOnMenuAgregarUsuariosClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="404"/>  
+  </message>  
+  <message id="405" operation="setOnMenuSalirGrupoClick(Delegates.MouseClick):void" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="406"/>  
+  </message>  
+  <message id="407" operation="LoadGroupInformation():void" asynchronous="false">    
+    <end type="SOURCE" refId="370"/>    
+    <end type="TARGET" refId="408"/>  
+  </message>  
+  <message id="409" operation="GetLastNumberMessages(java.lang.String,int,boolean):java.util.ArrayList&lt;String&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="410"/>  
+  </message>  
+  <message id="411" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="384"/>  
+  </message>  
+  <message id="412" operation="getNombre_grupo():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="385"/>  
+  </message>  
+  <message id="413" operation="JLabel(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="414"/>  
+  </message>  
+  <message id="415" operation="setAlignmentX(float):void" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="416"/>  
+  </message>  
+  <message id="417" operation="setHorizontalTextPosition(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="418"/>  
+  </message>  
+  <message id="419" operation="JLabel(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="420"/>  
+  </message>  
+  <message id="421" operation="add(java.awt.Component):java.awt.Component" asynchronous="false">    
+    <end type="SOURCE" refId="408"/>    
+    <end type="TARGET" refId="422"/>  
+  </message>  
+  <message id="424" operation="Funcion_Conversacion()" asynchronous="false">    
+    <end type="SOURCE" refId="423"/>    
+    <end type="TARGET" refId="425"/>  
+  </message>  
+  <message id="426" operation="JFrame_Conversacion(java.lang.String,boolean)" asynchronous="false">    
+    <end type="SOURCE" refId="425"/>    
+    <end type="TARGET" refId="427"/>  
+  </message>  
+  <message id="428" operation="JFrame(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="429"/>  
+  </message>  
+  <message id="430" operation="setResizable(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="431"/>  
+  </message>  
+  <message id="432" operation="setIconImage(java.awt.Image):void" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="433"/>  
+  </message>  
+  <message id="434" operation="ImageIcon(java.net.URL)" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="435"/>  
+  </message>  
+  <message id="436" operation="getImage():java.awt.Image" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="437"/>  
+  </message>  
+  <message id="438" operation="setSize(int,int):void" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="439"/>  
+  </message>  
+  <message id="440" operation="loadFrameDetails():void" asynchronous="false">    
+    <end type="SOURCE" refId="427"/>    
+    <end type="TARGET" refId="441"/>  
+  </message>  
+  <message id="443" operation="LoadInformation():void" asynchronous="false">    
+    <end type="SOURCE" refId="442"/>    
+    <end type="TARGET" refId="444"/>  
+  </message>  
+  <message id="445" operation="GetLastNumberMessages(java.lang.String,int,boolean):java.util.ArrayList&lt;String&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="446"/>  
+  </message>  
+  <message id="447" operation="getId_usuario():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="448"/>  
+  </message>  
+  <message id="449" operation="JLabel(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="450"/>  
+  </message>  
+  <message id="451" operation="setAlignmentX(float):void" asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="452"/>  
+  </message>  
+  <message id="453" operation="setHorizontalTextPosition(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="454"/>  
+  </message>  
+  <message id="455" operation="JLabel(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="456"/>  
+  </message>  
+  <message id="457" operation="add(java.awt.Component):java.awt.Component" asynchronous="false">    
+    <end type="SOURCE" refId="444"/>    
+    <end type="TARGET" refId="458"/>  
+  </message>  
+  <message id="472" operation="Thread_Transmitter()" asynchronous="false">    
+    <end type="SOURCE" refId="471"/>    
+    <end type="TARGET" refId="473"/>  
+  </message>  
+  <message id="474" operation="Socket(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="303"/>  
+  </message>  
+  <message id="475" operation="PrintWriter(java.io.Writer,boolean)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="308"/>  
+  </message>  
+  <message id="476" operation="getOutputStream():java.io.OutputStream" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="304"/>  
+  </message>  
+  <message id="477" operation="OutputStreamWriter(java.io.OutputStream,java.nio.charset.Charset)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="478"/>  
+  </message>  
+  <message id="479" operation="BufferedReader(java.io.Reader)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="312"/>  
+  </message>  
+  <message id="480" operation="getInputStream():java.io.InputStream" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="305"/>  
+  </message>  
+  <message id="481" operation="InputStreamReader(java.io.InputStream,java.nio.charset.Charset)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="482"/>  
+  </message>  
+  <message id="483" operation="Show(java.lang.String,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="316"/>  
+  </message>  
+  <message id="484" operation="Socket(java.lang.String,int)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="300"/>  
+  </message>  
+  <message id="485" operation="PrintWriter(java.io.Writer,boolean)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="307"/>  
+  </message>  
+  <message id="486" operation="getOutputStream():java.io.OutputStream" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="301"/>  
+  </message>  
+  <message id="487" operation="OutputStreamWriter(java.io.OutputStream,java.nio.charset.Charset)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="488"/>  
+  </message>  
+  <message id="489" operation="BufferedReader(java.io.Reader)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="311"/>  
+  </message>  
+  <message id="490" operation="getInputStream():java.io.InputStream" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="302"/>  
+  </message>  
+  <message id="491" operation="InputStreamReader(java.io.InputStream,java.nio.charset.Charset)" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="492"/>  
+  </message>  
+  <message id="493" operation="Show(java.lang.String,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="473"/>    
+    <end type="TARGET" refId="315"/>  
+  </message>  
+  <message id="500" asynchronous="false">    
+    <end type="SOURCE" refId="499"/>    
+    <end type="TARGET" refId="501"/>  
+  </message>
+</sequence-diagram>
