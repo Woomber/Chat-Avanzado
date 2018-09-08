@@ -1,0 +1,2068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="chat.server.ChatServer" project="ChatServer" 
+    file="/ChatServer/src/chat/server/ChatServer.java" binary="false" label="chatServer" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="105" width="87" x="5" y="114"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="chat.server.hilos.HiloFactory" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloFactory.java" binary="false" label="hiloFactory" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="63" width="86" x="96" y="135"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="700" width="86" x="96" y="231"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="637" width="86" x="96" y="273"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="chat.server.log.ServerLog" project="ChatServer" 
+    file="/ChatServer/src/chat/server/log/ServerLog.java" binary="false" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="360"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="492"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="21" width="0" x="0" y="868"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="21" width="0" x="0" y="10135"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="21" width="0" x="0" y="9892"/>    
+    </execution>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="1659"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="java.net.Socket" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="client" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="534"/>    
+    </execution>  
+  </object>  
+  <object id="32" language="java" name="chat.server.vinculo.Vinculo" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/Vinculo.java" binary="false" label="v" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="20">      
+      <position height="63" width="0" x="0" y="586"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="670"/>    
+    </execution>  
+  </object>  
+  <object id="35" language="java" name="chat.server.hilos.HiloReceiver" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloReceiver.java" binary="false" label="hiloRx" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="34">      
+      <position height="21" width="0" x="0" y="607"/>    
+    </execution>    
+    <execution id="36">      
+      <position height="9658" width="0" x="0" y="655"/>    
+    </execution>    
+    <execution id="38">      
+      <position height="9595" width="0" x="0" y="697"/>    
+    </execution>    
+    <execution id="40">      
+      <position height="9494" width="0" x="0" y="777"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="21" width="0" x="0" y="829"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="9136" width="0" x="0" y="923"/>    
+    </execution>    
+    <execution id="61">      
+      <position height="21" width="0" x="0" y="2469"/>    
+    </execution>    
+    <execution id="118">      
+      <position height="21" width="0" x="0" y="10017"/>    
+    </execution>  
+  </object>  
+  <object id="119" language="java" name="chat.server.handlers.LoginHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/LoginHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="53">      
+      <position height="105" width="0" x="0" y="982"/>    
+    </execution>    
+    <execution id="55">      
+      <position height="1061" width="0" x="0" y="1108"/>    
+    </execution>  
+  </object>  
+  <object id="157" language="java" name="chat.server.database.UsuarioConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioConnector.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="129">      
+      <position height="21" width="0" x="0" y="1213"/>    
+    </execution>    
+    <execution id="131">      
+      <position height="21" width="0" x="0" y="1255"/>    
+    </execution>  
+  </object>  
+  <object id="158" language="java" name="java.net.Socket" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="socketTx" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="135">      
+      <position height="21" width="0" x="0" y="1377"/>    
+    </execution>  
+  </object>  
+  <object id="159" language="java" name="java.net.Socket" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="socketRx" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="137">      
+      <position height="21" width="0" x="0" y="1419"/>    
+    </execution>    
+    <execution id="144">      
+      <position height="21" width="0" x="0" y="1701"/>    
+    </execution>  
+  </object>  
+  <object id="160" language="java" name="chat.server.hilos.HiloTransmitter" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloTransmitter.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="141">      
+      <position height="21" width="0" x="0" y="1541"/>    
+    </execution>  
+  </object>  
+  <object id="161" language="java" name="java.net.InetAddress" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="146">      
+      <position height="21" width="0" x="0" y="1743"/>    
+    </execution>  
+  </object>  
+  <object id="162" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="148">      
+      <position height="21" width="0" x="0" y="1795"/>    
+    </execution>  
+  </object>  
+  <object id="163" language="java" name="chat.server.vinculo.Vinculo" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/Vinculo.java" binary="false" label="repeated" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="150">      
+      <position height="21" width="0" x="0" y="1885"/>    
+    </execution>  
+  </object>  
+  <object id="164" language="java" name="chat.paquetes.responses.LoginResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/LoginResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="156">      
+      <position height="21" width="0" x="0" y="2127"/>    
+    </execution>  
+  </object>  
+  <object id="165" language="java" name="chat.paquetes.models.Paquete" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/models/Paquete.java" binary="false" label="request" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="121">      
+      <position height="21" width="0" x="0" y="1003"/>    
+    </execution>    
+    <execution id="123">      
+      <position height="21" width="0" x="0" y="1045"/>    
+    </execution>    
+    <execution id="166">      
+      <position height="21" width="0" x="0" y="7553"/>    
+    </execution>    
+    <execution id="167">      
+      <position height="21" width="0" x="0" y="7763"/>    
+    </execution>  
+  </object>  
+  <object id="168" language="java" name="chat.server.handlers.LogoutHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/LogoutHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="57">      
+      <position height="21" width="0" x="0" y="2227"/>    
+    </execution>    
+    <execution id="59">      
+      <position height="158" width="0" x="0" y="2269"/>    
+    </execution>  
+  </object>  
+  <object id="173" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="170">      
+      <position height="21" width="0" x="0" y="2333"/>    
+    </execution>  
+  </object>  
+  <object id="174" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="172">      
+      <position height="21" width="0" x="0" y="2385"/>    
+    </execution>  
+  </object>  
+  <object id="175" language="java" name="chat.server.handlers.RegistroHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/RegistroHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="67">      
+      <position height="21" width="0" x="0" y="2669"/>    
+    </execution>    
+    <execution id="69">      
+      <position height="185" width="0" x="0" y="2711"/>    
+    </execution>  
+  </object>  
+  <object id="180" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="177">      
+      <position height="21" width="0" x="0" y="2775"/>    
+    </execution>  
+  </object>  
+  <object id="181" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="179">      
+      <position height="21" width="0" x="0" y="2854"/>    
+    </execution>  
+  </object>  
+  <object id="182" language="java" name="chat.server.handlers.AmigoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/AmigoHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="71">      
+      <position height="21" width="0" x="0" y="2954"/>    
+    </execution>    
+    <execution id="73">      
+      <position height="364" width="0" x="0" y="2996"/>    
+    </execution>  
+  </object>  
+  <object id="193" language="java" name="chat.server.database.AmigosConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/AmigosConnector.java" binary="false" label="connector" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="184">      
+      <position height="21" width="0" x="0" y="3017"/>    
+    </execution>    
+    <execution id="186">      
+      <position height="21" width="0" x="0" y="3097"/>    
+    </execution>    
+    <execution id="188">      
+      <position height="21" width="0" x="0" y="3176"/>    
+    </execution>  
+  </object>  
+  <object id="194" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="190">      
+      <position height="21" width="0" x="0" y="3266"/>    
+    </execution>  
+  </object>  
+  <object id="195" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="192">      
+      <position height="21" width="0" x="0" y="3318"/>    
+    </execution>  
+  </object>  
+  <object id="196" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" label="response" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="75">      
+      <position height="21" width="0" x="0" y="3419"/>    
+    </execution>    
+    <execution id="93">      
+      <position height="21" width="0" x="0" y="6812"/>    
+    </execution>    
+    <execution id="116">      
+      <position height="21" width="0" x="0" y="9944"/>    
+    </execution>  
+  </object>  
+  <object id="197" language="java" name="chat.server.handlers.MensajeHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/MensajeHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="77">      
+      <position height="21" width="0" x="0" y="3508"/>    
+    </execution>    
+    <execution id="79">      
+      <position height="545" width="0" x="0" y="3550"/>    
+    </execution>  
+  </object>  
+  <object id="214" language="java" name="chat.server.vinculo.Vinculo" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/Vinculo.java" binary="false" label="destV" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="201">      
+      <position height="21" width="0" x="0" y="3707"/>    
+    </execution>    
+    <execution id="207">      
+      <position height="21" width="0" x="0" y="3843"/>    
+    </execution>  
+  </object>  
+  <object id="215" language="java" name="chat.paquetes.events.MensajeEvent" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/events/MensajeEvent.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="203">      
+      <position height="21" width="0" x="0" y="3749"/>    
+    </execution>  
+  </object>  
+  <object id="216" language="java" name="chat.server.hilos.HiloTransmitter" project="ChatServer" 
+    file="/ChatServer/src/chat/server/hilos/HiloTransmitter.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="205">      
+      <position height="21" width="0" x="0" y="3791"/>    
+    </execution>  
+  </object>  
+  <object id="217" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="209">      
+      <position height="21" width="0" x="0" y="3885"/>    
+    </execution>  
+  </object>  
+  <object id="218" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="211">      
+      <position height="21" width="0" x="0" y="3964"/>    
+    </execution>  
+  </object>  
+  <object id="219" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="213">      
+      <position height="21" width="0" x="0" y="4053"/>    
+    </execution>  
+  </object>  
+  <object id="220" language="java" name="chat.server.handlers.UsuariosHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/UsuariosHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="81">      
+      <position height="21" width="0" x="0" y="4153"/>    
+    </execution>    
+    <execution id="83">      
+      <position height="781" width="0" x="0" y="4195"/>    
+    </execution>  
+  </object>  
+  <object id="249" language="java" name="chat.paquetes.responses.UsuariosResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/UsuariosResponse.java" binary="false" label="response1" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="222">      
+      <position height="21" width="0" x="0" y="4216"/>    
+    </execution>    
+    <execution id="236">      
+      <position height="21" width="0" x="0" y="4614"/>    
+    </execution>    
+    <execution id="242">      
+      <position height="21" width="0" x="0" y="4788"/>    
+    </execution>    
+    <execution id="248">      
+      <position height="21" width="0" x="0" y="4934"/>    
+    </execution>  
+  </object>  
+  <object id="250" language="java" name="chat.server.database.AmigosConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/AmigosConnector.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="224">      
+      <position height="21" width="0" x="0" y="4258"/>    
+    </execution>    
+    <execution id="228">      
+      <position height="21" width="0" x="0" y="4342"/>    
+    </execution>  
+  </object>  
+  <object id="251" language="java" name="chat.server.database.UsuarioConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioConnector.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="230">      
+      <position height="21" width="0" x="0" y="4384"/>    
+    </execution>    
+    <execution id="232">      
+      <position height="21" width="0" x="0" y="4426"/>    
+    </execution>  
+  </object>  
+  <object id="252" language="java" name="java.util.ArrayList" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="usuarios" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="234">      
+      <position height="21" width="0" x="0" y="4562"/>    
+    </execution>  
+  </object>  
+  <object id="253" language="java" name="chat.models.Amigo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Amigo.java" binary="false" label="a" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="240">      
+      <position height="21" width="0" x="0" y="4698"/>    
+    </execution>  
+  </object>  
+  <object id="254" language="java" name="chat.models.Usuario" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Usuario.java" binary="false" label="u" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="246">      
+      <position height="21" width="0" x="0" y="4872"/>    
+    </execution>  
+  </object>  
+  <object id="255" language="java" name="chat.server.handlers.CreateGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/CreateGrupoHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="85">      
+      <position height="21" width="0" x="0" y="5034"/>    
+    </execution>    
+    <execution id="87">      
+      <position height="581" width="0" x="0" y="5076"/>    
+    </execution>  
+  </object>  
+  <object id="274" language="java" name="chat.server.database.GrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/GrupoConnector.java" binary="false" label="nu" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="257">      
+      <position height="21" width="0" x="0" y="5097"/>    
+    </execution>    
+    <execution id="261">      
+      <position height="21" width="0" x="0" y="5181"/>    
+    </execution>  
+  </object>  
+  <object id="275" language="java" name="chat.server.database.UsuarioGrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioGrupoConnector.java" binary="false" label="usu" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="259">      
+      <position height="21" width="0" x="0" y="5139"/>    
+    </execution>    
+    <execution id="267">      
+      <position height="21" width="0" x="0" y="5393"/>    
+    </execution>    
+    <execution id="276">      
+      <position height="21" width="0" x="0" y="8727"/>    
+    </execution>  
+  </object>  
+  <object id="277" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="263">      
+      <position height="21" width="0" x="0" y="5261"/>    
+    </execution>  
+  </object>  
+  <object id="278" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" label="u1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="265">      
+      <position height="21" width="0" x="0" y="5351"/>    
+    </execution>  
+  </object>  
+  <object id="279" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="271">      
+      <position height="21" width="0" x="0" y="5563"/>    
+    </execution>  
+  </object>  
+  <object id="280" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="273">      
+      <position height="21" width="0" x="0" y="5615"/>    
+    </execution>  
+  </object>  
+  <object id="281" language="java" name="chat.server.handlers.AlterGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/AlterGrupoHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="89">      
+      <position height="21" width="0" x="0" y="5715"/>    
+    </execution>    
+    <execution id="91">      
+      <position height="996" width="0" x="0" y="5757"/>    
+    </execution>  
+  </object>  
+  <object id="318" language="java" name="chat.server.database.GrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/GrupoConnector.java" binary="false" label="connector1" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="283">      
+      <position height="21" width="0" x="0" y="5778"/>    
+    </execution>    
+    <execution id="307">      
+      <position height="21" width="0" x="0" y="6395"/>    
+    </execution>  
+  </object>  
+  <object id="319" language="java" name="chat.server.database.MensajeConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/MensajeConnector.java" binary="false" label="connme" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="285">      
+      <position height="21" width="0" x="0" y="5820"/>    
+    </execution>    
+    <execution id="299">      
+      <position height="21" width="0" x="0" y="6227"/>    
+    </execution>  
+  </object>  
+  <object id="320" language="java" name="chat.server.database.MensajeVistoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/MensajeVistoConnector.java" binary="false" label="visto" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="287">      
+      <position height="21" width="0" x="0" y="5862"/>    
+    </execution>    
+    <execution id="295">      
+      <position height="21" width="0" x="0" y="6143"/>    
+    </execution>  
+  </object>  
+  <object id="321" language="java" name="chat.server.database.UsuarioGrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioGrupoConnector.java" binary="false" label="usua" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="289">      
+      <position height="21" width="0" x="0" y="5904"/>    
+    </execution>    
+    <execution id="291">      
+      <position height="21" width="0" x="0" y="5984"/>    
+    </execution>    
+    <execution id="293">      
+      <position height="21" width="0" x="0" y="6063"/>    
+    </execution>    
+    <execution id="303">      
+      <position height="21" width="0" x="0" y="6311"/>    
+    </execution>  
+  </object>  
+  <object id="322" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" label="ug" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="297">      
+      <position height="21" width="0" x="0" y="6185"/>    
+    </execution>    
+    <execution id="301">      
+      <position height="21" width="0" x="0" y="6269"/>    
+    </execution>    
+    <execution id="305">      
+      <position height="21" width="0" x="0" y="6353"/>    
+    </execution>    
+    <execution id="309">      
+      <position height="21" width="0" x="0" y="6437"/>    
+    </execution>    
+    <execution id="313">      
+      <position height="21" width="0" x="0" y="6607"/>    
+    </execution>  
+  </object>  
+  <object id="323" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="315">      
+      <position height="21" width="0" x="0" y="6659"/>    
+    </execution>  
+  </object>  
+  <object id="324" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="317">      
+      <position height="21" width="0" x="0" y="6711"/>    
+    </execution>  
+  </object>  
+  <object id="325" language="java" name="chat.server.handlers.GruposUsuarioHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/GruposUsuarioHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="95">      
+      <position height="21" width="0" x="0" y="6901"/>    
+    </execution>    
+    <execution id="97">      
+      <position height="363" width="0" x="0" y="6943"/>    
+    </execution>  
+  </object>  
+  <object id="340" language="java" name="chat.server.database.UsuarioGrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioGrupoConnector.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="327">      
+      <position height="21" width="0" x="0" y="6964"/>    
+    </execution>    
+    <execution id="331">      
+      <position height="21" width="0" x="0" y="7048"/>    
+    </execution>  
+  </object>  
+  <object id="341" language="java" name="chat.paquetes.responses.GruposUsuarioResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GruposUsuarioResponse.java" binary="false" label="response2" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="333">      
+      <position height="21" width="0" x="0" y="7090"/>    
+    </execution>    
+    <execution id="335">      
+      <position height="21" width="0" x="0" y="7170"/>    
+    </execution>    
+    <execution id="339">      
+      <position height="21" width="0" x="0" y="7264"/>    
+    </execution>  
+  </object>  
+  <object id="342" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" label="grupo" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="337">      
+      <position height="21" width="0" x="0" y="7212"/>    
+    </execution>  
+  </object>  
+  <object id="343" language="java" name="chat.server.handlers.GrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/GrupoHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="99">      
+      <position height="21" width="0" x="0" y="7364"/>    
+    </execution>    
+    <execution id="101">      
+      <position height="1200" width="0" x="0" y="7406"/>    
+    </execution>  
+  </object>  
+  <object id="390" language="java" name="chat.server.database.UsuarioGrupoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/UsuarioGrupoConnector.java" binary="false" label="x" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="345">      
+      <position height="21" width="0" x="0" y="7427"/>    
+    </execution>    
+    <execution id="347">      
+      <position height="21" width="0" x="0" y="7469"/>    
+    </execution>    
+    <execution id="358">      
+      <position height="21" width="0" x="0" y="7721"/>    
+    </execution>  
+  </object>  
+  <object id="391" language="java" name="chat.paquetes.responses.GrupoResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GrupoResponse.java" binary="false" label="response3" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="352">      
+      <position height="21" width="0" x="0" y="7595"/>    
+    </execution>    
+    <execution id="361">      
+      <position height="21" width="0" x="0" y="7843"/>    
+    </execution>    
+    <execution id="375">      
+      <position height="21" width="0" x="0" y="8250"/>    
+    </execution>    
+    <execution id="389">      
+      <position height="21" width="0" x="0" y="8564"/>    
+    </execution>  
+  </object>  
+  <object id="392" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" label="resultados" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="354">      
+      <position height="21" width="0" x="0" y="7637"/>    
+    </execution>    
+    <execution id="367">      
+      <position height="21" width="0" x="0" y="7979"/>    
+    </execution>  
+  </object>  
+  <object id="393" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" label="usr" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="363">      
+      <position height="21" width="0" x="0" y="7885"/>    
+    </execution>  
+  </object>  
+  <object id="394" language="java" name="chat.server.database.MensajeConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/MensajeConnector.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="365">      
+      <position height="21" width="0" x="0" y="7937"/>    
+    </execution>    
+    <execution id="369">      
+      <position height="21" width="0" x="0" y="8021"/>    
+    </execution>  
+  </object>  
+  <object id="395" language="java" name="chat.server.database.MensajeVistoConnector" project="ChatServer" 
+    file="/ChatServer/src/chat/server/database/MensajeVistoConnector.java" binary="false" label="vistos" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="371">      
+      <position height="21" width="0" x="0" y="8063"/>    
+    </execution>    
+    <execution id="381">      
+      <position height="21" width="0" x="0" y="8376"/>    
+    </execution>  
+  </object>  
+  <object id="396" language="java" name="java.util.ArrayList" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="mensajes" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="373">      
+      <position height="21" width="0" x="0" y="8171"/>    
+    </execution>  
+  </object>  
+  <object id="397" language="java" name="chat.models.Mensaje" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Mensaje.java" binary="false" label="m" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="377">      
+      <position height="21" width="0" x="0" y="8292"/>    
+    </execution>    
+    <execution id="379">      
+      <position height="21" width="0" x="0" y="8334"/>    
+    </execution>    
+    <execution id="383">      
+      <position height="21" width="0" x="0" y="8418"/>    
+    </execution>  
+  </object>  
+  <object id="398" language="java" name="chat.models.MensajeVisto" project="ChatServer" 
+    file="/ChatServer/src/chat/models/MensajeVisto.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="387">      
+      <position height="21" width="0" x="0" y="8502"/>    
+    </execution>  
+  </object>  
+  <object id="399" language="java" name="chat.server.handlers.ReplyGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/ReplyGrupoHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="103">      
+      <position height="21" width="0" x="0" y="8664"/>    
+    </execution>    
+    <execution id="105">      
+      <position height="626" width="0" x="0" y="8706"/>    
+    </execution>  
+  </object>  
+  <object id="417" language="java" name="chat.models.UsuarioGrupo" project="ChatServer" 
+    file="/ChatServer/src/chat/models/UsuarioGrupo.java" binary="false" label="us" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="404">      
+      <position height="21" width="0" x="0" y="8905"/>    
+    </execution>    
+    <execution id="412">      
+      <position height="21" width="0" x="0" y="9186"/>    
+    </execution>  
+  </object>  
+  <object id="418" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="406">      
+      <position height="21" width="0" x="0" y="8957"/>    
+    </execution>  
+  </object>  
+  <object id="419" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="408">      
+      <position height="21" width="0" x="0" y="9009"/>    
+    </execution>  
+  </object>  
+  <object id="420" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="414">      
+      <position height="21" width="0" x="0" y="9238"/>    
+    </execution>  
+  </object>  
+  <object id="421" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="416">      
+      <position height="21" width="0" x="0" y="9290"/>    
+    </execution>  
+  </object>  
+  <object id="422" language="java" name="chat.server.handlers.MensajeGrupoHandler" project="ChatServer" 
+    file="/ChatServer/src/chat/server/handlers/MensajeGrupoHandler.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="107">      
+      <position height="21" width="0" x="0" y="9390"/>    
+    </execution>    
+    <execution id="109">      
+      <position height="280" width="0" x="0" y="9432"/>    
+    </execution>  
+  </object>  
+  <object id="431" language="java" name="chat.models.Mensaje" project="ChatServer" 
+    file="/ChatServer/src/chat/models/Mensaje.java" binary="false" label="mensaje" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="426">      
+      <position height="21" width="0" x="0" y="9566"/>    
+    </execution>  
+  </object>  
+  <object id="432" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="428">      
+      <position height="21" width="0" x="0" y="9618"/>    
+    </execution>  
+  </object>  
+  <object id="433" language="java" name="chat.paquetes.responses.GenericResponse" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/responses/GenericResponse.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="430">      
+      <position height="21" width="0" x="0" y="9670"/>    
+    </execution>  
+  </object>  
+  <object id="434" language="java" name="chat.paquetes.models.Paquete" project="ChatServer" 
+    file="/ChatServer/src/chat/paquetes/models/Paquete.java" binary="false" label="paquete" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="111">      
+      <position height="21" width="0" x="0" y="9770"/>    
+    </execution>  
+  </object>  
+  <object id="435" language="java" name="chat.json.JsonParser" project="ChatServer" 
+    file="/ChatServer/src/chat/json/JsonParser.java" binary="false" label="&lt;static&gt;" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="44">      
+      <position height="21" width="0" x="0" y="860"/>    
+    </execution>  
+  </object>  
+  <object id="436" language="java" name="java.net.Socket" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="socket" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="49">      
+      <position height="21" width="0" x="0" y="10177"/>    
+    </execution>    
+    <execution id="113">      
+      <position height="21" width="0" x="0" y="9812"/>    
+    </execution>  
+  </object>  
+  <object id="437" language="java" name="chat.server.vinculo.Vinculo" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/Vinculo.java" binary="false" label="vinculo" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="51">      
+      <position height="21" width="0" x="0" y="10229"/>    
+    </execution>    
+    <execution id="65">      
+      <position height="21" width="0" x="0" y="2590"/>    
+    </execution>    
+    <execution id="127">      
+      <position height="21" width="0" x="0" y="1171"/>    
+    </execution>    
+    <execution id="133">      
+      <position height="21" width="0" x="0" y="1297"/>    
+    </execution>    
+    <execution id="139">      
+      <position height="21" width="0" x="0" y="1499"/>    
+    </execution>    
+    <execution id="226">      
+      <position height="21" width="0" x="0" y="4300"/>    
+    </execution>    
+    <execution id="329">      
+      <position height="21" width="0" x="0" y="7006"/>    
+    </execution>    
+    <execution id="349">      
+      <position height="21" width="0" x="0" y="7511"/>    
+    </execution>    
+    <execution id="356">      
+      <position height="21" width="0" x="0" y="7679"/>    
+    </execution>    
+    <execution id="385">      
+      <position height="21" width="0" x="0" y="8460"/>    
+    </execution>  
+  </object>  
+  <object id="438" language="java" name="chat.server.vinculo.VinculoList" project="ChatServer" 
+    file="/ChatServer/src/chat/server/vinculo/VinculoList.java" binary="false" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="750"/>    
+    </execution>    
+    <execution id="63">      
+      <position height="21" width="0" x="0" y="2538"/>    
+    </execution>    
+    <execution id="125">      
+      <position height="21" width="0" x="0" y="1129"/>    
+    </execution>    
+    <execution id="152">      
+      <position height="21" width="0" x="0" y="1965"/>    
+    </execution>    
+    <execution id="154">      
+      <position height="21" width="0" x="0" y="2065"/>    
+    </execution>    
+    <execution id="199">      
+      <position height="21" width="0" x="0" y="3571"/>    
+    </execution>    
+    <execution id="238">      
+      <position height="21" width="0" x="0" y="4656"/>    
+    </execution>    
+    <execution id="244">      
+      <position height="21" width="0" x="0" y="4830"/>    
+    </execution>    
+    <execution id="269">      
+      <position height="21" width="0" x="0" y="5511"/>    
+    </execution>    
+    <execution id="311">      
+      <position height="21" width="0" x="0" y="6565"/>    
+    </execution>    
+    <execution id="402">      
+      <position height="21" width="0" x="0" y="8863"/>    
+    </execution>    
+    <execution id="410">      
+      <position height="21" width="0" x="0" y="9144"/>    
+    </execution>    
+    <execution id="424">      
+      <position height="21" width="0" x="0" y="9524"/>    
+    </execution>  
+  </object>  
+  <object id="439" language="java" name="java.net.ServerSocket" project="ChatServer" 
+    file="C:/Program Files/Java/jre1.8.0_161/lib/rt.jar" binary="true" label="server" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="21" width="0" x="0" y="156"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="412"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="440" interaction-operator="LOOP">    
+    <interaction-operand id="441" constraint="while: continuar">      
+      <fragment refId="21"/>      
+      <fragment refId="442"/>      
+      <fragment refId="19"/>      
+      <fragment refId="443"/>      
+      <fragment refId="33"/>      
+      <fragment refId="444"/>      
+      <fragment refId="13"/>      
+      <fragment refId="445"/>    
+    </interaction-operand>    
+    <combined-fragment id="443" interaction-operator="CRITICAL">      
+      <interaction-operand id="446">        
+        <fragment refId="11"/>      
+      </interaction-operand>    
+    </combined-fragment>    
+    <combined-fragment id="442" interaction-operator="CRITICAL">      
+      <interaction-operand id="447">        
+        <fragment refId="15"/>        
+        <fragment refId="17"/>      
+      </interaction-operand>    
+    </combined-fragment>    
+    <combined-fragment id="445" interaction-operator="CRITICAL">      
+      <interaction-operand id="448">        
+        <fragment refId="23"/>      
+      </interaction-operand>    
+    </combined-fragment>    
+    <combined-fragment id="444" interaction-operator="NEG">      
+      <interaction-operand id="449" constraint="IOException ex">        
+        <fragment refId="450"/>      
+      </interaction-operand>      
+      <combined-fragment id="450" interaction-operator="CRITICAL">        
+        <interaction-operand id="451">          
+          <fragment refId="25"/>        
+        </interaction-operand>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <combined-fragment id="452" interaction-operator="LOOP">    
+    <interaction-operand id="453" constraint="while: continuar">      
+      <fragment refId="39"/>      
+      <fragment refId="454"/>      
+      <fragment refId="43"/>      
+      <fragment refId="455"/>      
+      <fragment refId="41"/>      
+      <fragment refId="117"/>      
+      <fragment refId="45"/>    
+    </interaction-operand>    
+    <combined-fragment id="454" interaction-operator="NEG">      
+      <interaction-operand id="456" constraint="JsonParserException ex">        
+        <fragment refId="50"/>        
+        <fragment refId="457"/>      
+      </interaction-operand>      
+      <combined-fragment id="457" interaction-operator="CRITICAL">        
+        <interaction-operand id="458">          
+          <fragment refId="48"/>          
+          <fragment refId="47"/>        
+        </interaction-operand>      
+      </combined-fragment>    
+    </combined-fragment>    
+    <combined-fragment id="455" interaction-operator="ALT">      
+      <interaction-operand id="459" constraint="case LoginRequest.ORDEN:">        
+        <fragment refId="126"/>        
+        <fragment refId="130"/>        
+        <fragment refId="52"/>        
+        <fragment refId="120"/>        
+        <fragment refId="460"/>        
+        <fragment refId="122"/>        
+        <fragment refId="54"/>        
+        <fragment refId="155"/>        
+        <fragment refId="128"/>        
+        <fragment refId="124"/>        
+        <fragment refId="132"/>      
+      </interaction-operand>      
+      <interaction-operand id="461" constraint="case LogoutRequest.ORDEN:">        
+        <fragment refId="58"/>        
+        <fragment refId="462"/>        
+        <fragment refId="171"/>        
+        <fragment refId="56"/>        
+        <fragment refId="64"/>        
+        <fragment refId="60"/>        
+        <fragment refId="463"/>      
+      </interaction-operand>      
+      <interaction-operand id="464" constraint="case RegistroRequest.ORDEN:">        
+        <fragment refId="465"/>        
+        <fragment refId="68"/>        
+        <fragment refId="66"/>      
+      </interaction-operand>      
+      <interaction-operand id="466" constraint="case AmigoRequest.ORDEN:">        
+        <fragment refId="72"/>        
+        <fragment refId="467"/>        
+        <fragment refId="468"/>        
+        <fragment refId="70"/>        
+        <fragment refId="183"/>        
+        <fragment refId="191"/>        
+        <fragment refId="469"/>      
+      </interaction-operand>      
+      <interaction-operand id="470" constraint="case MensajeRequest.ORDEN:">        
+        <fragment refId="471"/>        
+        <fragment refId="198"/>        
+        <fragment refId="78"/>        
+        <fragment refId="76"/>      
+      </interaction-operand>      
+      <interaction-operand id="472" constraint="case UsuariosRequest.ORDEN:">        
+        <fragment refId="221"/>        
+        <fragment refId="229"/>        
+        <fragment refId="227"/>        
+        <fragment refId="247"/>        
+        <fragment refId="82"/>        
+        <fragment refId="223"/>        
+        <fragment refId="231"/>        
+        <fragment refId="473"/>        
+        <fragment refId="80"/>        
+        <fragment refId="225"/>      
+      </interaction-operand>      
+      <interaction-operand id="474" constraint="case CreateGrupoRequest.ORDEN:">        
+        <fragment refId="475"/>        
+        <fragment refId="258"/>        
+        <fragment refId="256"/>        
+        <fragment refId="272"/>        
+        <fragment refId="260"/>        
+        <fragment refId="476"/>        
+        <fragment refId="86"/>        
+        <fragment refId="477"/>        
+        <fragment refId="84"/>      
+      </interaction-operand>      
+      <interaction-operand id="478" constraint="case AlterGrupoRequest.ORDEN:">        
+        <fragment refId="88"/>        
+        <fragment refId="316"/>        
+        <fragment refId="90"/>        
+        <fragment refId="282"/>        
+        <fragment refId="479"/>        
+        <fragment refId="480"/>        
+        <fragment refId="481"/>        
+        <fragment refId="286"/>        
+        <fragment refId="288"/>        
+        <fragment refId="284"/>      
+      </interaction-operand>      
+      <interaction-operand id="482" constraint="case GruposUsuarioRequest.ORDEN:">        
+        <fragment refId="330"/>        
+        <fragment refId="328"/>        
+        <fragment refId="96"/>        
+        <fragment refId="483"/>        
+        <fragment refId="332"/>        
+        <fragment refId="326"/>        
+        <fragment refId="338"/>        
+        <fragment refId="94"/>      
+      </interaction-operand>      
+      <interaction-operand id="484" constraint="case GrupoRequest.ORDEN:">        
+        <fragment refId="351"/>        
+        <fragment refId="348"/>        
+        <fragment refId="350"/>        
+        <fragment refId="366"/>        
+        <fragment refId="100"/>        
+        <fragment refId="485"/>        
+        <fragment refId="364"/>        
+        <fragment refId="370"/>        
+        <fragment refId="344"/>        
+        <fragment refId="355"/>        
+        <fragment refId="368"/>        
+        <fragment refId="353"/>        
+        <fragment refId="357"/>        
+        <fragment refId="359"/>        
+        <fragment refId="346"/>        
+        <fragment refId="388"/>        
+        <fragment refId="98"/>        
+        <fragment refId="486"/>      
+      </interaction-operand>      
+      <interaction-operand id="487" constraint="case ReplyGrupoRequest.ORDEN:">        
+        <fragment refId="488"/>        
+        <fragment refId="102"/>        
+        <fragment refId="104"/>        
+        <fragment refId="400"/>      
+      </interaction-operand>      
+      <interaction-operand id="489" constraint="case MensajeGrupoRequest.ORDEN:">        
+        <fragment refId="108"/>        
+        <fragment refId="106"/>        
+        <fragment refId="429"/>        
+        <fragment refId="490"/>      
+      </interaction-operand>      
+      <interaction-operand id="491" constraint="default:">        
+        <fragment refId="112"/>        
+        <fragment refId="492"/>        
+        <fragment refId="115"/>        
+        <fragment refId="110"/>      
+      </interaction-operand>      
+      <combined-fragment id="463" interaction-operator="CRITICAL">        
+        <interaction-operand id="493">          
+          <fragment refId="62"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="468" interaction-operator="NEG">        
+        <interaction-operand id="494" constraint="InvalidOperationException ex">          
+          <fragment refId="74"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="480" interaction-operator="NEG">        
+        <interaction-operand id="495" constraint="InvalidOperationException ex">          
+          <fragment refId="92"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="492" interaction-operator="CRITICAL">        
+        <interaction-operand id="496">          
+          <fragment refId="114"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="460" interaction-operator="ALT">        
+        <interaction-operand id="497" constraint="vinculo.getHiloTx() != null">          
+          <fragment refId="134"/>          
+          <fragment refId="498"/>          
+          <fragment refId="499"/>          
+          <fragment refId="500"/>          
+          <fragment refId="136"/>          
+          <fragment refId="501"/>        
+        </interaction-operand>        
+        <interaction-operand id="502" constraint="else"/>        
+        <combined-fragment id="498" interaction-operator="CRITICAL">          
+          <interaction-operand id="503">            
+            <fragment refId="138"/>            
+            <fragment refId="140"/>          
+          </interaction-operand>        
+        </combined-fragment>        
+        <combined-fragment id="499" interaction-operator="NEG">          
+          <interaction-operand id="504" constraint="IOException ex">            
+            <fragment refId="147"/>            
+            <fragment refId="505"/>          
+          </interaction-operand>          
+          <combined-fragment id="505" interaction-operator="CRITICAL">            
+            <interaction-operand id="506">              
+              <fragment refId="145"/>              
+              <fragment refId="142"/>              
+              <fragment refId="143"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>        
+        <combined-fragment id="500" interaction-operator="OPT">          
+          <interaction-operand id="507" constraint="repeated != null">            
+            <fragment refId="149"/>            
+            <fragment refId="508"/>          
+          </interaction-operand>          
+          <combined-fragment id="508" interaction-operator="CRITICAL">            
+            <interaction-operand id="509">              
+              <fragment refId="151"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>        
+        <combined-fragment id="501" interaction-operator="CRITICAL">          
+          <interaction-operand id="510">            
+            <fragment refId="153"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="462" interaction-operator="OPT">        
+        <interaction-operand id="511" constraint="VinculoList.contains(vinculo)">          
+          <fragment refId="169"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="465" interaction-operator="ALT">        
+        <interaction-operand id="512" constraint="new UsuarioConnector().add(usuario)">          
+          <fragment refId="176"/>        
+        </interaction-operand>        
+        <interaction-operand id="513" constraint="else">          
+          <fragment refId="178"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="467" interaction-operator="ALT">        
+        <interaction-operand id="514" constraint="case ADD:">          
+          <fragment refId="185"/>        
+        </interaction-operand>        
+        <interaction-operand id="515" constraint="case REMOVE:">          
+          <fragment refId="187"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="469" interaction-operator="OPT">        
+        <interaction-operand id="516" constraint="correct">          
+          <fragment refId="189"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="471" interaction-operator="ALT">        
+        <interaction-operand id="517" constraint="destV != null">          
+          <fragment refId="518"/>        
+        </interaction-operand>        
+        <interaction-operand id="519" constraint="else">          
+          <fragment refId="212"/>        
+        </interaction-operand>        
+        <combined-fragment id="518" interaction-operator="ALT">          
+          <interaction-operand id="520" constraint="destV.getHiloTx() != null">            
+            <fragment refId="521"/>            
+            <fragment refId="206"/>            
+            <fragment refId="208"/>          
+          </interaction-operand>          
+          <interaction-operand id="522" constraint="else">            
+            <fragment refId="210"/>          
+          </interaction-operand>          
+          <combined-fragment id="521" interaction-operator="CRITICAL">            
+            <interaction-operand id="523">              
+              <fragment refId="204"/>              
+              <fragment refId="202"/>              
+              <fragment refId="200"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="473" interaction-operator="LOOP">        
+        <interaction-operand id="524" constraint="for: usuarios">          
+          <fragment refId="525"/>          
+          <fragment refId="526"/>        
+        </interaction-operand>        
+        <combined-fragment id="526" interaction-operator="LOOP">          
+          <interaction-operand id="527" constraint="for: amigos">            
+            <fragment refId="239"/>            
+            <fragment refId="235"/>            
+            <fragment refId="528"/>            
+            <fragment refId="237"/>          
+          </interaction-operand>          
+          <combined-fragment id="528" interaction-operator="OPT">            
+            <interaction-operand id="529" constraint="u.getId_usuario().equals(a.getAmigo())">              
+              <fragment refId="233"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>        
+        <combined-fragment id="525" interaction-operator="OPT">          
+          <interaction-operand id="530" constraint="usuarios.contains(u)">            
+            <fragment refId="241"/>            
+            <fragment refId="245"/>            
+            <fragment refId="243"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="476" interaction-operator="OPT">        
+        <interaction-operand id="531" constraint="id == -1">          
+          <fragment refId="262"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="477" interaction-operator="LOOP">        
+        <interaction-operand id="532" constraint="for: usuarios">          
+          <fragment refId="266"/>          
+          <fragment refId="264"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="475" interaction-operator="OPT">        
+        <interaction-operand id="533" constraint="correct">          
+          <fragment refId="270"/>          
+          <fragment refId="534"/>        
+        </interaction-operand>        
+        <combined-fragment id="534" interaction-operator="CRITICAL">          
+          <interaction-operand id="535">            
+            <fragment refId="268"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="479" interaction-operator="ALT">        
+        <interaction-operand id="536" constraint="case ADD:">          
+          <fragment refId="290"/>        
+        </interaction-operand>        
+        <interaction-operand id="537" constraint="case REMOVE:">          
+          <fragment refId="292"/>          
+          <fragment refId="538"/>        
+        </interaction-operand>        
+        <combined-fragment id="538" interaction-operator="OPT">          
+          <interaction-operand id="539" constraint="usua.getAllUsuarios(ug.getId_grupo()).size() &lt; 2">            
+            <fragment refId="294"/>            
+            <fragment refId="298"/>            
+            <fragment refId="296"/>            
+            <fragment refId="302"/>            
+            <fragment refId="308"/>            
+            <fragment refId="304"/>            
+            <fragment refId="300"/>            
+            <fragment refId="306"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="481" interaction-operator="OPT">        
+        <interaction-operand id="540" constraint="correct">          
+          <fragment refId="541"/>          
+          <fragment refId="314"/>        
+        </interaction-operand>        
+        <combined-fragment id="541" interaction-operator="CRITICAL">          
+          <interaction-operand id="542">            
+            <fragment refId="312"/>            
+            <fragment refId="310"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="483" interaction-operator="LOOP">        
+        <interaction-operand id="543" constraint="for: ug">          
+          <fragment refId="334"/>          
+          <fragment refId="336"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="486" interaction-operator="LOOP">        
+        <interaction-operand id="544" constraint="for: miembros">          
+          <fragment refId="360"/>          
+          <fragment refId="362"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="485" interaction-operator="LOOP">        
+        <interaction-operand id="545" constraint="for: mensajes">          
+          <fragment refId="546"/>        
+        </interaction-operand>        
+        <combined-fragment id="546" interaction-operator="ALT">          
+          <interaction-operand id="547" constraint="vistos.get(m.getId_mensaje_grupal(), vinculo.getUsername()) != null">            
+            <fragment refId="372"/>          
+          </interaction-operand>          
+          <interaction-operand id="548" constraint="else">            
+            <fragment refId="384"/>            
+            <fragment refId="376"/>            
+            <fragment refId="386"/>            
+            <fragment refId="378"/>            
+            <fragment refId="382"/>            
+            <fragment refId="374"/>            
+            <fragment refId="380"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="488" interaction-operator="ALT">        
+        <interaction-operand id="549" constraint="us.isStatus()">          
+          <fragment refId="407"/>          
+          <fragment refId="550"/>        
+        </interaction-operand>        
+        <interaction-operand id="551" constraint="else">          
+          <fragment refId="552"/>          
+          <fragment refId="415"/>        
+        </interaction-operand>        
+        <combined-fragment id="550" interaction-operator="OPT">          
+          <interaction-operand id="553" constraint="usu.modificar(us)">            
+            <fragment refId="554"/>            
+            <fragment refId="405"/>          
+          </interaction-operand>          
+          <combined-fragment id="554" interaction-operator="CRITICAL">            
+            <interaction-operand id="555">              
+              <fragment refId="401"/>              
+              <fragment refId="403"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>        
+        <combined-fragment id="552" interaction-operator="OPT">          
+          <interaction-operand id="556" constraint="usu.eliminar(us)">            
+            <fragment refId="557"/>            
+            <fragment refId="413"/>          
+          </interaction-operand>          
+          <combined-fragment id="557" interaction-operator="CRITICAL">            
+            <interaction-operand id="558">              
+              <fragment refId="411"/>              
+              <fragment refId="409"/>            
+            </interaction-operand>          
+          </combined-fragment>        
+        </combined-fragment>      
+      </combined-fragment>      
+      <combined-fragment id="490" interaction-operator="OPT">        
+        <interaction-operand id="559" constraint="new MensajeConnector().add(mensaje)">          
+          <fragment refId="560"/>          
+          <fragment refId="427"/>        
+        </interaction-operand>        
+        <combined-fragment id="560" interaction-operator="CRITICAL">          
+          <interaction-operand id="561">            
+            <fragment refId="425"/>            
+            <fragment refId="423"/>          
+          </interaction-operand>        
+        </combined-fragment>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="HiloFactory()" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="ServerSocket(int)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="run():void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="log(java.lang.Object,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="accept():java.net.Socket" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="log(java.lang.Object,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="Vinculo(java.net.Socket)" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="start():void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="add(chat.server.vinculo.Vinculo):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="log(java.lang.Object,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="33" operation="HiloReceiver(java.net.Socket,chat.server.vinculo.Vinculo)" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="37" operation="run():void" asynchronous="false">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="getJson():void" asynchronous="false">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" operation="get(java.net.Socket):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" operation="jsonToPaquete(java.lang.String):chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="operation(chat.paquetes.models.Paquete):void" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" operation="log(java.lang.Object,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="48" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="49"/>  
+  </message>  
+  <message id="50" operation="stop():void" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="51"/>  
+  </message>  
+  <message id="52" operation="LoginHandler(chat.paquetes.models.Paquete,chat.server.vinculo.Vinculo,java.net.Socket)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="53"/>  
+  </message>  
+  <message id="54" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="55"/>  
+  </message>  
+  <message id="56" operation="LogoutHandler(chat.server.vinculo.Vinculo)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="57"/>  
+  </message>  
+  <message id="58" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="59"/>  
+  </message>  
+  <message id="60" operation="sendResponse(chat.paquetes.models.Paquete):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="61"/>  
+  </message>  
+  <message id="62" operation="remove(chat.server.vinculo.Vinculo):void" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="63"/>  
+  </message>  
+  <message id="64" operation="stop():void" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="65"/>  
+  </message>  
+  <message id="66" operation="RegistroHandler(chat.paquetes.models.Paquete)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="67"/>  
+  </message>  
+  <message id="68" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="69"/>  
+  </message>  
+  <message id="70" operation="AmigoHandler(chat.paquetes.models.Paquete,chat.server.vinculo.Vinculo)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="71"/>  
+  </message>  
+  <message id="72" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="73"/>  
+  </message>  
+  <message id="74" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="75"/>  
+  </message>  
+  <message id="76" operation="MensajeHandler(chat.paquetes.models.Paquete,chat.server.vinculo.Vinculo)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="77"/>  
+  </message>  
+  <message id="78" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="79"/>  
+  </message>  
+  <message id="80" operation="UsuariosHandler(chat.server.vinculo.Vinculo)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="81"/>  
+  </message>  
+  <message id="82" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="83"/>  
+  </message>  
+  <message id="84" operation="CreateGrupoHandler(chat.paquetes.models.Paquete)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="85"/>  
+  </message>  
+  <message id="86" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="87"/>  
+  </message>  
+  <message id="88" operation="AlterGrupoHandler(chat.paquetes.models.Paquete)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="89"/>  
+  </message>  
+  <message id="90" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="91"/>  
+  </message>  
+  <message id="92" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="93"/>  
+  </message>  
+  <message id="94" operation="GruposUsuarioHandler(chat.server.vinculo.Vinculo)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="95"/>  
+  </message>  
+  <message id="96" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="97"/>  
+  </message>  
+  <message id="98" operation="GrupoHandler(chat.paquetes.models.Paquete,chat.server.vinculo.Vinculo)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="99"/>  
+  </message>  
+  <message id="100" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="101"/>  
+  </message>  
+  <message id="102" operation="ReplyGrupoHandler(chat.paquetes.models.Paquete,chat.server.vinculo.Vinculo)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="103"/>  
+  </message>  
+  <message id="104" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="105"/>  
+  </message>  
+  <message id="106" operation="MensajeGrupoHandler(chat.paquetes.models.Paquete,chat.server.vinculo.Vinculo)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="107"/>  
+  </message>  
+  <message id="108" operation="run():chat.paquetes.models.Paquete" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="109"/>  
+  </message>  
+  <message id="110" operation="getOrden():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="111"/>  
+  </message>  
+  <message id="112" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="113"/>  
+  </message>  
+  <message id="114" operation="log(java.lang.Object,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="115" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="116"/>  
+  </message>  
+  <message id="117" operation="sendResponse(chat.paquetes.models.Paquete):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="118"/>  
+  </message>  
+  <message id="120" operation="getValue(java.lang.String):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="121"/>  
+  </message>  
+  <message id="122" operation="getValue(java.lang.String):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="123"/>  
+  </message>  
+  <message id="124" operation="get(java.lang.String):chat.server.vinculo.Vinculo" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="125"/>  
+  </message>  
+  <message id="126" operation="setUsername(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="127"/>  
+  </message>  
+  <message id="128" operation="UsuarioConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="129"/>  
+  </message>  
+  <message id="130" operation="verificar(java.lang.String,java.lang.String):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="131"/>  
+  </message>  
+  <message id="132" operation="attemptedLogin(boolean):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="133"/>  
+  </message>  
+  <message id="134" operation="Socket(java.net.InetAddress,int)" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="135"/>  
+  </message>  
+  <message id="136" operation="getInetAddress():java.net.InetAddress" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="137"/>  
+  </message>  
+  <message id="138" operation="getHiloTx():chat.server.hilos.HiloTransmitter" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="139"/>  
+  </message>  
+  <message id="140" operation="setSocket(java.net.Socket):void" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="141"/>  
+  </message>  
+  <message id="142" operation="log(java.lang.Object,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="143" operation="getInetAddress():java.net.InetAddress" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="144"/>  
+  </message>  
+  <message id="145" operation="toString():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="146"/>  
+  </message>  
+  <message id="147" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="148"/>  
+  </message>  
+  <message id="149" operation="stop():void" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="150"/>  
+  </message>  
+  <message id="151" operation="remove(chat.server.vinculo.Vinculo):void" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="152"/>  
+  </message>  
+  <message id="153" operation="sendUserUpdate():void" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="154"/>  
+  </message>  
+  <message id="155" operation="LoginResponse(chat.paquetes.responses.LoginResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="156"/>  
+  </message>  
+  <message id="169" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="170"/>  
+  </message>  
+  <message id="171" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="172"/>  
+  </message>  
+  <message id="176" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="69"/>    
+    <end type="TARGET" refId="177"/>  
+  </message>  
+  <message id="178" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="69"/>    
+    <end type="TARGET" refId="179"/>  
+  </message>  
+  <message id="183" operation="AmigosConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="184"/>  
+  </message>  
+  <message id="185" operation="add(chat.models.Amigo):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="186"/>  
+  </message>  
+  <message id="187" operation="eliminar(chat.models.Amigo):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="188"/>  
+  </message>  
+  <message id="189" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="190"/>  
+  </message>  
+  <message id="191" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="192"/>  
+  </message>  
+  <message id="198" operation="get(java.lang.String):chat.server.vinculo.Vinculo" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="199"/>  
+  </message>  
+  <message id="200" operation="getHiloTx():chat.server.hilos.HiloTransmitter" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="201"/>  
+  </message>  
+  <message id="202" operation="MensajeEvent(java.lang.String,java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="203"/>  
+  </message>  
+  <message id="204" operation="setPaquete(chat.paquetes.models.Paquete):void" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="205"/>  
+  </message>  
+  <message id="206" operation="startSend():void" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="207"/>  
+  </message>  
+  <message id="208" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="209"/>  
+  </message>  
+  <message id="210" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="211"/>  
+  </message>  
+  <message id="212" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="213"/>  
+  </message>  
+  <message id="221" operation="UsuariosResponse()" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="222"/>  
+  </message>  
+  <message id="223" operation="AmigosConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="224"/>  
+  </message>  
+  <message id="225" operation="getUsername():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="226"/>  
+  </message>  
+  <message id="227" operation="getAll(java.lang.String):java.util.ArrayList&lt;Amigo&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="228"/>  
+  </message>  
+  <message id="229" operation="UsuarioConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="230"/>  
+  </message>  
+  <message id="231" operation="getAll():java.util.ArrayList&lt;Usuario&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="232"/>  
+  </message>  
+  <message id="233" operation="remove(java.lang.Object):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="234"/>  
+  </message>  
+  <message id="235" operation="addAmigo(chat.models.Amigo,boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="236"/>  
+  </message>  
+  <message id="237" operation="getIfConnected(java.lang.String):chat.server.vinculo.Vinculo" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="238"/>  
+  </message>  
+  <message id="239" operation="getAmigo():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="240"/>  
+  </message>  
+  <message id="241" operation="addUsuario(chat.models.Usuario,boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="242"/>  
+  </message>  
+  <message id="243" operation="getIfConnected(java.lang.String):chat.server.vinculo.Vinculo" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="244"/>  
+  </message>  
+  <message id="245" operation="getId_usuario():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="246"/>  
+  </message>  
+  <message id="247" operation="finish():void" asynchronous="false">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="248"/>  
+  </message>  
+  <message id="256" operation="GrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="257"/>  
+  </message>  
+  <message id="258" operation="UsuarioGrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="259"/>  
+  </message>  
+  <message id="260" operation="addGrupo(chat.models.Grupo):int" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="261"/>  
+  </message>  
+  <message id="262" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="263"/>  
+  </message>  
+  <message id="264" operation="setId_grupo(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="265"/>  
+  </message>  
+  <message id="266" operation="add(chat.models.UsuarioGrupo):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="267"/>  
+  </message>  
+  <message id="268" operation="sendGroupUpdate(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="269"/>  
+  </message>  
+  <message id="270" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="271"/>  
+  </message>  
+  <message id="272" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="273"/>  
+  </message>  
+  <message id="282" operation="GrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="283"/>  
+  </message>  
+  <message id="284" operation="MensajeConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="285"/>  
+  </message>  
+  <message id="286" operation="MensajeVistoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="287"/>  
+  </message>  
+  <message id="288" operation="UsuarioGrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="289"/>  
+  </message>  
+  <message id="290" operation="add(chat.models.UsuarioGrupo):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="291"/>  
+  </message>  
+  <message id="292" operation="eliminar(chat.models.UsuarioGrupo):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="293"/>  
+  </message>  
+  <message id="294" operation="eliminar(int):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="295"/>  
+  </message>  
+  <message id="296" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="297"/>  
+  </message>  
+  <message id="298" operation="eliminar(int):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="299"/>  
+  </message>  
+  <message id="300" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="301"/>  
+  </message>  
+  <message id="302" operation="eliminarGrupo(int):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="303"/>  
+  </message>  
+  <message id="304" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="305"/>  
+  </message>  
+  <message id="306" operation="eliminarGrupo(int):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="307"/>  
+  </message>  
+  <message id="308" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="309"/>  
+  </message>  
+  <message id="310" operation="sendGroupUpdate(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="311"/>  
+  </message>  
+  <message id="312" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="313"/>  
+  </message>  
+  <message id="314" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="315"/>  
+  </message>  
+  <message id="316" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="317"/>  
+  </message>  
+  <message id="326" operation="UsuarioGrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="327"/>  
+  </message>  
+  <message id="328" operation="getUsername():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="329"/>  
+  </message>  
+  <message id="330" operation="getGrupos(java.lang.String):java.util.ArrayList&lt;UsuarioGrupo&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="331"/>  
+  </message>  
+  <message id="332" operation="GruposUsuarioResponse()" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="333"/>  
+  </message>  
+  <message id="334" operation="addGrupo(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="335"/>  
+  </message>  
+  <message id="336" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="337"/>  
+  </message>  
+  <message id="338" operation="finish():void" asynchronous="false">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="339"/>  
+  </message>  
+  <message id="344" operation="UsuarioGrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="345"/>  
+  </message>  
+  <message id="346" operation="getUsuario(java.lang.String,int):chat.models.UsuarioGrupo" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="347"/>  
+  </message>  
+  <message id="348" operation="getUsername():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="349"/>  
+  </message>  
+  <message id="350" operation="getValue(java.lang.String):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="166"/>  
+  </message>  
+  <message id="351" operation="GrupoResponse(int,java.lang.String,chat.paquetes.responses.GrupoResponse.Status)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="352"/>  
+  </message>  
+  <message id="353" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="354"/>  
+  </message>  
+  <message id="355" operation="getUsername():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="356"/>  
+  </message>  
+  <message id="357" operation="getAllUsuarios(int):java.util.ArrayList&lt;UsuarioGrupo&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="358"/>  
+  </message>  
+  <message id="359" operation="getValue(java.lang.String):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="167"/>  
+  </message>  
+  <message id="360" operation="addMiembro(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="361"/>  
+  </message>  
+  <message id="362" operation="getId_usuario():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="363"/>  
+  </message>  
+  <message id="364" operation="MensajeConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="365"/>  
+  </message>  
+  <message id="366" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="367"/>  
+  </message>  
+  <message id="368" operation="getAll(int):java.util.ArrayList&lt;Mensaje&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="369"/>  
+  </message>  
+  <message id="370" operation="MensajeVistoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="371"/>  
+  </message>  
+  <message id="372" operation="remove(java.lang.Object):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="373"/>  
+  </message>  
+  <message id="374" operation="addMensaje(java.lang.String,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="375"/>  
+  </message>  
+  <message id="376" operation="getId_usuario():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="377"/>  
+  </message>  
+  <message id="378" operation="getTexto():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="379"/>  
+  </message>  
+  <message id="380" operation="add(chat.models.MensajeVisto):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="381"/>  
+  </message>  
+  <message id="382" operation="getId_mensaje_grupal():int" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="383"/>  
+  </message>  
+  <message id="384" operation="getUsername():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="385"/>  
+  </message>  
+  <message id="386" operation="MensajeVisto(int,java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="387"/>  
+  </message>  
+  <message id="388" operation="finish():void" asynchronous="false">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="389"/>  
+  </message>  
+  <message id="400" operation="UsuarioGrupoConnector()" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="276"/>  
+  </message>  
+  <message id="401" operation="sendGroupUpdate(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="402"/>  
+  </message>  
+  <message id="403" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="404"/>  
+  </message>  
+  <message id="405" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="406"/>  
+  </message>  
+  <message id="407" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="408"/>  
+  </message>  
+  <message id="409" operation="sendGroupUpdate(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="410"/>  
+  </message>  
+  <message id="411" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="412"/>  
+  </message>  
+  <message id="413" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="414"/>  
+  </message>  
+  <message id="415" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="416"/>  
+  </message>  
+  <message id="423" operation="sendGroupUpdate(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="109"/>    
+    <end type="TARGET" refId="424"/>  
+  </message>  
+  <message id="425" operation="getId_grupo():int" asynchronous="false">    
+    <end type="SOURCE" refId="109"/>    
+    <end type="TARGET" refId="426"/>  
+  </message>  
+  <message id="427" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="109"/>    
+    <end type="TARGET" refId="428"/>  
+  </message>  
+  <message id="429" operation="GenericResponse(chat.paquetes.responses.GenericResponse.Status)" asynchronous="false">    
+    <end type="SOURCE" refId="109"/>    
+    <end type="TARGET" refId="430"/>  
+  </message>
+</sequence-diagram>
